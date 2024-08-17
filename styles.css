@@ -47,7 +47,7 @@ main {
 .card-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    gap: 10px;
+    gap: calc(100vw / 75); /* 画面横幅の1/75 */
 }
 
 .card-row, .card-grid {
@@ -59,13 +59,16 @@ main {
     flex-direction: column;
 }
 
-#lrig-deck, #main-deck {
-    border: none; /*枠線を削除 */
-    padding: 0.5rem;
-}
-
 #lrig-deck .card p, #main-deck .card p {
     display: none; /* カード名を非表示にする */
+}
+
+#lrig-deck {
+    border: none; /*枠線を削除 */
+}
+
+#main-deck {
+    border: none; /*枠線を削除 */
 }
 
 /* ルリグデッキのカードを8等分で表示 */
