@@ -105,12 +105,20 @@
             cardImage.src = card.image;
             cardImage.alt = card.name;
 
+            const cardName = document.createElement('p');
+            cardName.textContent = card.name;
+
             cardElement.appendChild(cardImage);
+            cardElement.appendChild(cardName);
 
             if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(card.type)) {
                 lrigDeck.appendChild(cardElement);
+                console.log(`Added ${card.name} to Lrig Deck`);
             } else if (['シグニ', 'スペル'].includes(card.type)) {
                 mainDeck.appendChild(cardElement);
+                console.log(`Added ${card.name} to Main Deck`);
+            } else {
+                console.log(`Card type ${card.type} is not recognized`);
             }
         }
     </script>
