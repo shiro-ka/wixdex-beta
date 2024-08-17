@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+#search-tool {
+    margin-bottom: 1rem;
+}
+
+#search-box {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#card-list {
+    margin-bottom: 2rem;
+}
+
+#cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#deck-area {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#lrig-deck, #main-deck {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.card-row {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+}
+
+.card-row, .card-grid {
+    min-height: 100px; /* カード画像の高さに合わせて調整 */
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100px; /* カード画像の幅に合わせて調整 */
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
