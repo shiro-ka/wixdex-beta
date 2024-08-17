@@ -123,7 +123,7 @@
                 console.log(`Card type ${cardType} is not recognized`);
             }
 
-            // ルリグデッキのカードに削除のフリックイベントを追加
+            // ルリグデッキとメインデッキのカードに削除のフリックイベントを追加
             cardElement.addEventListener('touchstart', handleTouchStart);
             cardElement.addEventListener('touchend', handleTouchEnd);
 
@@ -143,9 +143,15 @@
 
         function removeCardFromDeck(cardElement) {
             const lrigDeck = document.getElementById('lrig-deck-cards');
+            const mainDeck = document.getElementById('main-deck-cards');
 
-            lrigDeck.removeChild(cardElement);
-            console.log('Card removed from Lrig Deck');
+            if (lrigDeck.contains(cardElement)) {
+                lrigDeck.removeChild(cardElement);
+                console.log('Card removed from Lrig Deck');
+            } else if (mainDeck.contains(cardElement)) {
+                mainDeck.removeChild(cardElement);
+                console.log('Card removed from Main Deck');
+            }
         }
     </script>
 </body>
