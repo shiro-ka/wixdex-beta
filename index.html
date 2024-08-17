@@ -94,8 +94,6 @@
             const lrigDeck = document.getElementById('lrig-deck-cards');
             const mainDeck = document.getElementById('main-deck-cards');
 
-            console.log(card); // デバッグ用ログ
-
             const cardElement = document.createElement('div');
             cardElement.classList.add('card');
             
@@ -112,19 +110,42 @@
             const cardType = card.type[0]; // typeの最初の要素を取得
 
             if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
-                // ルリグデッキのカード数を取得
-                if (lrigDeck.children.length < 7) {
-                    lrigDeck.appendChild(cardElement);
-                    console.log(`Added ${card.name} to Lrig Deck`);
-                } else {
-                    console.log('ルリグデッキは7枚までしか追加できません');
+                if (lrigDeck.children.length >= 7) {
+                    console.log(`Cannot add ${card.name} to Lrig Deck: Deck is full`);
+                    return;
                 }
+                lrigDeck.appendChild(cardElement);
+                console.log(`Added ${card.name} to Lrig Deck`);
             } else if (['シグニ', 'スペル'].includes(cardType)) {
                 mainDeck.appendChild(cardElement);
                 console.log(`Added ${card.name} to Main Deck`);
             } else {
                 console.log(`Card type ${cardType} is not recognized`);
             }
+
+            // ルリグデッキのカードに削除のフリックイベントを追加
+            cardElement.addEventListener('touchstart', handleTouchStart);
+            cardElement.addEventListener('touchend', handleTouchEnd);
+
+            function handleTouchStart(event) {
+                touchStartY = event.touches[0].clientY;
+            }
+
+            function handleTouchEnd(event) {
+                const touchEndY = event.changedTouches[0].clientY;
+                const swipeDistance = touchEndY - touchStartY;
+
+                if (swipeDistance > 50) { // 下方向にスワイプ
+                    removeCardFromDeck(cardElement);
+                }
+            }
+        }
+
+        function removeCardFromDeck(cardElement) {
+            const lrigDeck = document.getElementById('lrig-deck-cards');
+
+            lrigDeck.removeChild(cardElement);
+            console.log('Card removed from Lrig Deck');
         }
     </script>
 </body>
