@@ -39,14 +39,18 @@ section {
 }
 
 #card-list {
-    margin-bottom: 2rem;
+    border: 2px solid #ccc;  /* 枠の色と太さを指定 */
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto; /* 横スクロールを可能にする */
 }
 
 #cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: flex; /* カードを横一列に並べる */
+    gap: 10px; /* カード間の隙間を指定 */
+    padding: 0.5rem 0; /* 上下の余白を追加 */
 }
+
 
 #deck-area {
     display: flex;
