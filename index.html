@@ -16,14 +16,14 @@
 
             <div id="lrig-deck">
                 <h2>ルリグデッキ</h2>
-                <div class="card-row">
+                <div class="card-row" id="lrig-deck-container">
                     <!-- ルリグデッキのカード画像をここに追加 -->
                 </div>
             </div>
 
             <div id="main-deck">
                 <h2>メインデッキ</h2>
-                <div class="card-grid">
+                <div class="card-grid" id="main-deck-container">
                     <!-- メインデッキのカード画像をここに追加 -->
                 </div>
             </div>
@@ -50,7 +50,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            fetch('cards.json')
+            fetch('card.json')
                 .then(response => response.json())
                 .then(data => {
                     displayCards(data);
@@ -64,6 +64,7 @@
             cards.forEach(card => {
                 const cardElement = document.createElement('div');
                 cardElement.classList.add('card');
+                cardElement.dataset.type = card.type; // カードの種類をデータ属性に保存
                 
                 const cardImage = document.createElement('img');
                 cardImage.src = card.image;
@@ -71,7 +72,30 @@
                 
                 cardElement.appendChild(cardImage);
                 cardsContainer.appendChild(cardElement);
+
+                // フリック操作のイベントリスナーを追加
+                cardElement.addEventListener('touchend', (event) => {
+                    handleCardFlick(event, cardElement);
+                });
             });
+        }
+
+        function handleCardFlick(event, cardElement) {
+            const cardType = cardElement.dataset.type;
+
+            // カードが追加されるべきデッキを決定
+            let deckContainer;
+            if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
+                deckContainer = document.getElementById('lrig-deck-container');
+            } else if (['シグニ', 'スペル'].includes(cardType)) {
+                deckContainer = document.getElementById('main-deck-container');
+            }
+
+            if (deckContainer) {
+                const cardClone = cardElement.cloneNode(true);
+                deckContainer.appendChild(cardClone);
+                cardElement.remove(); // カードをカード一覧から削除
+            }
         }
     </script>
 </body>
