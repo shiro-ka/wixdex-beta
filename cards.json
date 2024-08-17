@@ -1,0 +1,30 @@
+[
+    {
+        "name": "カード名1",
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/PR/PR-001.jpg",
+        "type": "ルリグ",
+        "cardType": "",
+        "level": 1,
+        "color": "赤",
+        "tags": ["タグ1", "タグ2"]
+    },
+    {
+        "name": "カード名2",
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/PR/PR-002.jpg",
+        "type": "ルリグ",
+        "cardType": "",
+        "level": 2,
+        "color": "青",
+        "tags": ["タグ3"]
+    },
+
+    {
+        "name": "カード名3",
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/PR/PR-003.jpg",
+        "type": "ルリグ",
+        "cardType": "",
+        "level": 3,
+        "color": "緑",
+        "tags": []
+    }
+]
