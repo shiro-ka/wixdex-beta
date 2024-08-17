@@ -77,17 +77,13 @@
 
                 function handleTouchStart(event) {
                     touchStartY = event.touches[0].clientY;
-                    console.log("Touch Start Y:", touchStartY);
                 }
 
                 function handleTouchEnd(event) {
                     const touchEndY = event.changedTouches[0].clientY;
                     const swipeDistance = touchStartY - touchEndY;
-                    console.log("Touch End Y:", touchEndY);
-                    console.log("Swipe Distance:", swipeDistance);
 
                     if (swipeDistance > 50) { // 上方向にスワイプ
-                        console.log("Swipe Up Detected");
                         addCardToDeck(card);
                     }
                 }
@@ -97,6 +93,8 @@
         function addCardToDeck(card) {
             const lrigDeck = document.getElementById('lrig-deck-cards');
             const mainDeck = document.getElementById('main-deck-cards');
+
+            console.log(card); // デバッグ用ログ
 
             const cardElement = document.createElement('div');
             cardElement.classList.add('card');
