@@ -37,14 +37,14 @@ section {
 
 #card-list {
     border: 2px solid #ccc;  /* 枠の色と太さを指定 */
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 5px;
     overflow-x: auto; /* 横スクロールを可能にする */
 }
 
 #cards-container {
     display: flex; /* カードを横一列に並べる */
-    gap: 10px; /* カード間の隙間を指定 */
+    gap: 5px; /* カード間の隙間を指定 */
     padding: 0.5rem 0; /* 上下の余白を追加 */
     overflow-x: auto; /* 横スクロールを可能にする */
     width: 100%; /* 親要素に合わせて幅を100%に設定 */
@@ -66,42 +66,13 @@ section {
     object-fit: contain; /* 画像がカード内に収まるように調整 */
 }
 
-/* スマホの表示に合わせてカードのサイズを調整 */
-@media (max-width: 600px) {
-    #card-list {
-        padding: 0.5rem; /* スマホ向けに余白を調整 */
-    }
-
-    #cards-container {
-        gap: 5px; /* スマホ向けにカード間の隙間を調整 */
-    }
-}
-
 #deck-area {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-#lrig-deck {
-    border: 1px solid #ccc;
-    padding: 0.5rem;
-    border-radius: 5px;
-    display: grid; /* グリッドレイアウトを使う */
-    grid-template-columns: repeat(8, 1fr); /* 8等分にする */
-    gap: 10px; /* カード間の隙間を指定 */
-    justify-items: center; /* グリッド内でカードを中央に配置 */
-    min-height: 100px; /* カード画像の高さに合わせて調整 */
-}
-
-/* 空欄のためのダミー要素を追加 */
-#lrig-deck::before {
-    content: "";
-    grid-column: span 1; /* 1カラム分の幅を持つダミー要素 */
-}
-
-
-#main-deck {
+#lrig-deck, #main-deck {
     border: 1px solid #ccc;
     padding: 0.5rem;
     border-radius: 5px;
@@ -129,8 +100,8 @@ section {
 
 /* ルリグデッキのカードを8等分で表示 */
 #lrig-deck .card {
-    flex: 1 1 calc(100% / 7 - 10px); /* 7枚のカードを横一列に並べるため、幅を計算 */
-    max-width: calc(100% / 7 - 10px); /* 最大幅を設定 */
+    flex: 1 1 calc(100% / 8 - 10px); /* 7枚のカードを横一列に並べるため、幅を計算 */
+    max-width: calc(100% / 8 - 10px); /* 最大幅を設定 */
 }
 
 /* メインデッキのカードを8等分で表示 */
