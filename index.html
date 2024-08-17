@@ -109,14 +109,16 @@
             cardElement.appendChild(cardImage);
             cardElement.appendChild(cardName);
 
-            if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(card.type)) {
+            const cardType = card.type[0]; // typeの最初の要素を取得
+
+            if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
                 lrigDeck.appendChild(cardElement);
                 console.log(`Added ${card.name} to Lrig Deck`);
-            } else if (['シグニ', 'スペル'].includes(card.type)) {
+            } else if (['シグニ', 'スペル'].includes(cardType)) {
                 mainDeck.appendChild(cardElement);
                 console.log(`Added ${card.name} to Main Deck`);
             } else {
-                console.log(`Card type ${card.type} is not recognized`);
+                console.log(`Card type ${cardType} is not recognized`);
             }
         }
     </script>
