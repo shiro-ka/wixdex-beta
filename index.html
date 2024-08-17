@@ -16,15 +16,13 @@
 
             <div id="lrig-deck">
                 <h2>ルリグデッキ</h2>
-                <div class="card-row" id="lrig-deck-container">
-                    <!-- ルリグデッキのカード画像をここに追加 -->
+                <div class="card-row" id="lrig-deck-cards">
                 </div>
             </div>
 
             <div id="main-deck">
                 <h2>メインデッキ</h2>
-                <div class="card-grid" id="main-deck-container">
-                    <!-- メインデッキのカード画像をここに追加 -->
+                <div class="card-grid" id="main-deck-cards">
                 </div>
             </div>
 
@@ -35,7 +33,6 @@
             <h2>カード一覧</h2>
 
             <div id="cards-container">
-                <!-- カード画像をここに追加 -->
             </div>
 
         </section>
@@ -50,7 +47,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            fetch('card.json')
+            fetch('cards.json')
                 .then(response => response.json())
                 .then(data => {
                     displayCards(data);
@@ -64,37 +61,52 @@
             cards.forEach(card => {
                 const cardElement = document.createElement('div');
                 cardElement.classList.add('card');
-                cardElement.dataset.type = card.type; // カードの種類をデータ属性に保存
                 
                 const cardImage = document.createElement('img');
                 cardImage.src = card.image;
                 cardImage.alt = card.name;
-                
+
                 cardElement.appendChild(cardImage);
                 cardsContainer.appendChild(cardElement);
 
-                // フリック操作のイベントリスナーを追加
-                cardElement.addEventListener('touchend', (event) => {
-                    handleCardFlick(event, cardElement);
-                });
+                // ここでカードにフリックのリスナーを追加
+                cardElement.addEventListener('touchstart', handleTouchStart);
+                cardElement.addEventListener('touchend', handleTouchEnd);
+
+                let touchStartY = 0;
+
+                function handleTouchStart(event) {
+                    touchStartY = event.touches[0].clientY;
+                }
+
+                function handleTouchEnd(event) {
+                    const touchEndY = event.changedTouches[0].clientY;
+                    const swipeDistance = touchStartY - touchEndY;
+
+                    if (swipeDistance > 50) { // 上方向にスワイプ
+                        addCardToDeck(card);
+                    }
+                }
             });
         }
 
-        function handleCardFlick(event, cardElement) {
-            const cardType = cardElement.dataset.type;
+        function addCardToDeck(card) {
+            const lrigDeck = document.getElementById('lrig-deck-cards');
+            const mainDeck = document.getElementById('main-deck-cards');
 
-            // カードが追加されるべきデッキを決定
-            let deckContainer;
-            if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
-                deckContainer = document.getElementById('lrig-deck-container');
-            } else if (['シグニ', 'スペル'].includes(cardType)) {
-                deckContainer = document.getElementById('main-deck-container');
-            }
+            const cardElement = document.createElement('div');
+            cardElement.classList.add('card');
+            
+            const cardImage = document.createElement('img');
+            cardImage.src = card.image;
+            cardImage.alt = card.name;
 
-            if (deckContainer) {
-                const cardClone = cardElement.cloneNode(true);
-                deckContainer.appendChild(cardClone);
-                cardElement.remove(); // カードをカード一覧から削除
+            cardElement.appendChild(cardImage);
+
+            if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(card.type)) {
+                lrigDeck.appendChild(cardElement);
+            } else if (['シグニ', 'スペル'].includes(card.type)) {
+                mainDeck.appendChild(cardElement);
             }
         }
     </script>
