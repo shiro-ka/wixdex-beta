@@ -107,7 +107,7 @@
             cardElement.appendChild(cardImage);
             cardElement.appendChild(cardName);
 
-            const cardType = card.type ? card.type[0] : ''; // typeの最初の要素を取得
+            const cardType = card.type[0]; // typeの最初の要素を取得
 
             if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
                 if (lrigDeck.children.length >= 7) {
@@ -115,8 +115,8 @@
                     return;
                 }
                 lrigDeck.appendChild(cardElement);
+                sortLrigDeck(); // 追加後にソート
                 console.log(`Added ${card.name} to Lrig Deck`);
-                sortLrigDeck(lrigDeck);
             } else if (['シグニ', 'スペル'].includes(cardType)) {
                 if (mainDeck.children.length >= 40) {
                     console.log(`Cannot add ${card.name} to Main Deck: Deck is full`);
@@ -148,6 +148,21 @@
             }
         }
 
+        function sortLrigDeck() {
+            const lrigDeck = document.getElementById('lrig-deck-cards');
+            const cards = Array.from(lrigDeck.children);
+            const order = ['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'];
+
+            cards.sort((a, b) => {
+                const typeA = a.querySelector('p').textContent;
+                const typeB = b.querySelector('p').textContent;
+                return order.indexOf(typeA) - order.indexOf(typeB);
+            });
+
+            // ソートされた順に要素を追加
+            cards.forEach(card => lrigDeck.appendChild(card));
+        }
+
         function removeCardFromDeck(cardElement) {
             const lrigDeck = document.getElementById('lrig-deck-cards');
             const mainDeck = document.getElementById('main-deck-cards');
@@ -159,41 +174,6 @@
                 mainDeck.removeChild(cardElement);
                 console.log('Card removed from Main Deck');
             }
-        }
-
-        function sortLrigDeck(deck) {
-            const cardsArray = Array.from(deck.children);
-            cardsArray.sort((a, b) => {
-                const cardA = a.querySelector('p').textContent;
-                const cardB = b.querySelector('p').textContent;
-
-                const typeOrder = ['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'];
-                const typeA = typeOrder.indexOf(cardA.type[0]);
-                const typeB = typeOrder.indexOf(cardB.type[0]);
-
-                if (typeA !== typeB) {
-                    return typeA - typeB;
-                }
-
-                if (['ルリグ', 'アシストルリグ'].includes(cardA.type[0])) {
-                    const nameA = cardA.cardType || '';
-                    const nameB = cardB.cardType || '';
-
-                    if (nameA !== nameB) {
-                        return nameA.localeCompare(nameB);
-                    }
-
-                    const levelA = cardA.level || 0;
-                    const levelB = cardB.level || 0;
-                    return levelA - levelB;
-                }
-
-                const subnameA = cardA.subname ? cardA.subname[0] : '';
-                const subnameB = cardB.subname ? cardB.subname[0] : '';
-                return subnameA.localeCompare(subnameB);
-            });
-
-            cardsArray.forEach(card => deck.appendChild(card));
         }
     </script>
 </body>
