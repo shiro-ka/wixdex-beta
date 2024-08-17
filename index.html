@@ -115,6 +115,7 @@
                     return;
                 }
                 lrigDeck.appendChild(cardElement);
+                sortLrigDeck();
                 console.log(`Added ${card.name} to Lrig Deck`);
             } else if (['シグニ', 'スペル'].includes(cardType)) {
                 if (mainDeck.children.length >= 40) {
@@ -158,6 +159,38 @@
                 mainDeck.removeChild(cardElement);
                 console.log('Card removed from Main Deck');
             }
+        }
+
+        function sortLrigDeck() {
+            const lrigDeck = document.getElementById('lrig-deck-cards');
+            const cards = Array.from(lrigDeck.children);
+
+            cards.sort((a, b) => {
+                const cardA = a.querySelector('p').textContent;
+                const cardB = b.querySelector('p').textContent;
+                const typeA = cardA.type[0];
+                const typeB = cardB.type[0];
+                const typeOrder = ['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'];
+
+                if (typeA !== typeB) {
+                    return typeOrder.indexOf(typeA) - typeOrder.indexOf(typeB);
+                }
+
+                if (typeA === 'ルリグ' || typeA === 'アシストルリグ') {
+                    if (cardA.cardType !== cardB.cardType) {
+                        return cardA.cardType.localeCompare(cardB.cardType);
+                    }
+                    return cardA.level - cardB.level;
+                }
+
+                if (typeA === 'ピース' || typeA === 'アーツ') {
+                    return cardA.subname.localeCompare(cardB.subname);
+                }
+
+                return 0;
+            });
+
+            cards.forEach(card => lrigDeck.appendChild(card));
         }
     </script>
 </body>

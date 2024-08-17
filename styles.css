@@ -38,20 +38,10 @@ main {
     object-fit: contain; /* 画像がカード内に収まるように調整 */
 }
 
-.card-row {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-}
-
 .card-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap: calc(100vw / 75); /* 画面横幅の1/75 */
-}
-
-.card-row, .card-grid {
-    min-height: 100px; /* カード画像の高さに合わせて調整 */
 }
 
 #deck-area {
