@@ -87,6 +87,10 @@ section {
     border-radius: 5px;
 }
 
+#lrig-deck .card p, #main-deck .card p {
+    display: none; /* カード名を非表示にする */
+}
+
 .card-row {
     display: flex;
     gap: 10px;
