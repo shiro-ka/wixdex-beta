@@ -1,30 +1,57 @@
 [
+
     {
-        "name": "カード名1",
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/PR/PR-001.jpg",
-        "type": "ルリグ",
+        "name": "スーパー・ヘルエスタセイバー",
+        "subname": "すーぱーへるえすたせいばー",
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-001.jpg",
+        "type": "ピース",
         "cardType": "",
-        "level": 1,
-        "color": "赤",
-        "tags": ["タグ1", "タグ2"]
-    },
-    {
-        "name": "カード名2",
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/PR/PR-002.jpg",
-        "type": "ルリグ",
-        "cardType": "",
-        "level": 2,
-        "color": "青",
-        "tags": ["タグ3"]
+        "level": 0,
+        "color": ["白", "黒"],
+        "tags": []
     },
 
     {
-        "name": "カード名3",
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/PR/PR-003.jpg",
-        "type": "ルリグ",
+        "name": "カウンター・アルケミー",
+        "subname": "かうんたーあるけみー",
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-002.jpg",
+        "type": "ピース",
         "cardType": "",
+        "level": 0,
+        "color": ["白"],
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "目醒めし者 タウィル＝トレ",
+        "subname": "めざめしものたうぃるとれ",
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-009.jpg",
+        "type": "ルリグ",
+        "cardType": "タウィル",
         "level": 3,
-        "color": "緑",
+        "color": ["赤"],
+        "tags": []
+    },
+
+    {
+        "name": "タウィル＝エイボン",
+        "subname": "たうぃるえいぼん",
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-010.jpg",
+        "type": "アシストルリグ",
+        "cardType": "タウィル",
+        "level": 1,
+        "color": ["赤"],
+        "tags": []
+    },
+
+    {
+        "name": "コード２４３４ アルス・アルマル",
+        "subname": "こーど2434あるすあるまる",
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/PR/PR-003.jpg",
+        "type": "シグニ",
+        "cardType": ["奏械：バーチャル"],
+        "level": 3,
+        "color": ["白"],
         "tags": []
     }
 ]
