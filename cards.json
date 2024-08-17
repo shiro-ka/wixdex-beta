@@ -45,6 +45,28 @@
     },
 
     {
+        "name": "タウィル＝シャボネス",
+        "subname": ["たうぃるしゃぼねす"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-011.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["タウィル"],
+        "level": 2,
+        "color": ["赤"],
+        "tags": ["アンシエント・サプライズ","アタックフェイズ"]
+    },
+
+    {
+        "name": "タウィル＝バースト",
+        "subname": ["たうぃるばーすと"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-012.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["タウィル"],
+        "level": 2,
+        "color": ["赤"],
+        "tags": ["アンシエント・サプライズ","アタックフェイズ"]
+    },
+
+    {
         "name": "コード２４３４ アルス・アルマル",
         "subname":["こーどにじさんじあるすあるまる","こーど2434あるすあるまる", "まるまる"],
         "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-033.jpg",
