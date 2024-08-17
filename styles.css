@@ -89,12 +89,4 @@ section {
     height: auto;
 }
 
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-}
+
