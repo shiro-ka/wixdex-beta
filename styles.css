@@ -58,6 +58,8 @@ section {
     display: flex; /* flexbox を使って中央揃え */
     align-items: center; /* 縦方向に中央揃え */
     justify-content: center; /* 横方向に中央揃え */
+    width: 80px; /* カード画像の幅を設定 */
+    height: auto; /* 高さを自動で調整 */
 }
 
 .card img {
