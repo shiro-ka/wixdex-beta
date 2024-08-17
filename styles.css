@@ -47,7 +47,7 @@ section {
 }
 
 .card {
-    border: 1px solid #ccc; /* カードの枠線を追加 */
+    border: none; /* カードの枠線を削除 */
     border-radius: 5px;
     padding: 10px;
     width: 120px; /* カード画像の幅を設定 */
