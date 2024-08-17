@@ -53,7 +53,6 @@ section {
 .card {
     border: none; /* カードの枠線を削除 */
     border-radius: 5px;
-    width: 100px; /* カード画像の幅を設定 */
     text-align: center;
     flex-shrink: 0; /* カードが縮小しないようにする */
     display: flex; /* flexbox を使って中央揃え */
@@ -76,10 +75,6 @@ section {
     #cards-container {
         gap: 5px; /* スマホ向けにカード間の隙間を調整 */
     }
-
-    .card {
-        width: 100px; /* スマホ向けにカードの幅を調整 */
-    }
 }
 
 #deck-area {
@@ -88,13 +83,7 @@ section {
     gap: 2rem;
 }
 
-#lrig-deck {
-    border: 1px solid #ccc;
-    padding: 0.5rem;
-    border-radius: 5px;
-}
-
-#main-deck {
+#lrig-deck, #main-deck {
     border: 1px solid #ccc;
     padding: 0.5rem;
     border-radius: 5px;
@@ -118,4 +107,16 @@ section {
 
 .card-row, .card-grid {
     min-height: 100px; /* カード画像の高さに合わせて調整 */
+}
+
+/* ルリグデッキのカードを8等分で表示 */
+#lrig-deck .card {
+    flex: 1 1 calc(100% / 7 - 10px); /* 7枚のカードを横一列に並べるため、幅を計算 */
+    max-width: calc(100% / 7 - 10px); /* 最大幅を設定 */
+}
+
+/* メインデッキのカードを8等分で表示 */
+#main-deck .card {
+    grid-column: span 1; /* 各カードが1カラム分の幅を占めるように設定 */
+    width: 100%; /* 幅を100%に設定 */
 }
