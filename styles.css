@@ -81,7 +81,6 @@ section {
 }
 
 .card {
-    border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     width: 100px; /* カード画像の幅に合わせて調整 */
