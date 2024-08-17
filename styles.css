@@ -83,7 +83,25 @@ section {
     gap: 2rem;
 }
 
-#lrig-deck, #main-deck {
+#lrig-deck {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: grid; /* グリッドレイアウトを使う */
+    grid-template-columns: repeat(8, 1fr); /* 8等分にする */
+    gap: 10px; /* カード間の隙間を指定 */
+    justify-items: center; /* グリッド内でカードを中央に配置 */
+    min-height: 100px; /* カード画像の高さに合わせて調整 */
+}
+
+/* 空欄のためのダミー要素を追加 */
+#lrig-deck::before {
+    content: "";
+    grid-column: span 1; /* 1カラム分の幅を持つダミー要素 */
+}
+
+
+#main-deck {
     border: 1px solid #ccc;
     padding: 0.5rem;
     border-radius: 5px;
