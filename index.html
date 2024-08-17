@@ -47,80 +47,76 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            fetch('cards.json')
-                .then(response => response.json())
-                .then(data => {
-                    displayCards(data);
-                })
-                .catch(error => console.error('Error loading card data:', error));
+    fetch('cards.json')
+        .then(response => response.json())
+        .then(data => {
+            displayCards(data);
+        })
+        .catch(error => console.error('Error loading card data:', error));
+});
+
+function displayCards(cards) {
+    const cardsContainer = document.getElementById('cards-container');
+
+    cards.forEach(card => {
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+        
+        const cardImage = document.createElement('img');
+        cardImage.src = card.image;
+        cardImage.alt = card.name;
+        
+        cardElement.appendChild(cardImage);
+        cardsContainer.appendChild(cardElement);
+
+        // カードにスワイプ機能を追加
+        cardElement.addEventListener('swiped-up', () => {
+            addToDeck(card);
         });
+    });
+}
 
-        function displayCards(cards) {
-            const cardsContainer = document.getElementById('cards-container');
+function addToDeck(card) {
+    const lrigDeck = document.getElementById('lrig-deck').querySelector('.card-row');
+    const mainDeck = document.getElementById('main-deck').querySelector('.card-grid');
 
-            cards.forEach(card => {
-                const cardElement = document.createElement('div');
-                cardElement.classList.add('card');
-                
-                const cardImage = document.createElement('img');
-                cardImage.src = card.image;
-                cardImage.alt = card.name;
+    // ルリグデッキのカード数を取得
+    const lrigDeckCards = lrigDeck.children.length;
 
-                cardElement.appendChild(cardImage);
-                cardsContainer.appendChild(cardElement);
-
-                // ここでカードにフリックのリスナーを追加
-                cardElement.addEventListener('touchstart', handleTouchStart);
-                cardElement.addEventListener('touchend', handleTouchEnd);
-
-                let touchStartY = 0;
-
-                function handleTouchStart(event) {
-                    touchStartY = event.touches[0].clientY;
-                }
-
-                function handleTouchEnd(event) {
-                    const touchEndY = event.changedTouches[0].clientY;
-                    const swipeDistance = touchStartY - touchEndY;
-
-                    if (swipeDistance > 50) { // 上方向にスワイプ
-                        addCardToDeck(card);
-                    }
-                }
-            });
-        }
-
-        function addCardToDeck(card) {
-            const lrigDeck = document.getElementById('lrig-deck-cards');
-            const mainDeck = document.getElementById('main-deck-cards');
-
-            console.log(card); // デバッグ用ログ
-
+    // カードのタイプに応じてデッキに追加
+    if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(card.type[0])) {
+        if (lrigDeckCards < 7) {
+            // ルリグデッキに追加
             const cardElement = document.createElement('div');
             cardElement.classList.add('card');
             
             const cardImage = document.createElement('img');
             cardImage.src = card.image;
             cardImage.alt = card.name;
-
-            const cardName = document.createElement('p');
-            cardName.textContent = card.name;
-
+            
             cardElement.appendChild(cardImage);
-            cardElement.appendChild(cardName);
-
-            const cardType = card.type[0]; // typeの最初の要素を取得
-
-            if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
-                lrigDeck.appendChild(cardElement);
-                console.log(`Added ${card.name} to Lrig Deck`);
-            } else if (['シグニ', 'スペル'].includes(cardType)) {
-                mainDeck.appendChild(cardElement);
-                console.log(`Added ${card.name} to Main Deck`);
-            } else {
-                console.log(`Card type ${cardType} is not recognized`);
-            }
+            lrigDeck.appendChild(cardElement);
+            console.log('ルリグデッキにカードを追加しました');
+        } else {
+            console.log('ルリグデッキは7枚までしか追加できません');
         }
+    } else if (['シグニ', 'スペル'].includes(card.type[0])) {
+        // メインデッキに追加（ここではメインデッキの処理は省略）
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+        
+        const cardImage = document.createElement('img');
+        cardImage.src = card.image;
+        cardImage.alt = card.name;
+        
+        cardElement.appendChild(cardImage);
+        mainDeck.appendChild(cardElement);
+        console.log('メインデッキにカードを追加しました');
+    } else {
+        console.log(`カードタイプ ${card.type[0]} は認識できません`);
+    }
+}
+
     </script>
 </body>
 
