@@ -77,13 +77,17 @@
 
                 function handleTouchStart(event) {
                     touchStartY = event.touches[0].clientY;
+                    console.log("Touch Start Y:", touchStartY);
                 }
 
                 function handleTouchEnd(event) {
                     const touchEndY = event.changedTouches[0].clientY;
                     const swipeDistance = touchStartY - touchEndY;
+                    console.log("Touch End Y:", touchEndY);
+                    console.log("Swipe Distance:", swipeDistance);
 
                     if (swipeDistance > 50) { // 上方向にスワイプ
+                        console.log("Swipe Up Detected");
                         addCardToDeck(card);
                     }
                 }
