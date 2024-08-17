@@ -53,11 +53,15 @@ section {
     width: 120px; /* カード画像の幅を設定 */
     text-align: center;
     flex-shrink: 0; /* カードが縮小しないようにする */
+    display: flex; /* flexbox を使って中央揃え */
+    align-items: center; /* 縦方向に中央揃え */
+    justify-content: center; /* 横方向に中央揃え */
 }
 
 .card img {
-    width: 100%; /* カード内の画像がカードの幅に合わせて調整される */
-    height: auto;
+    max-width: 100%; /* カード内の画像がカードの幅に合わせて調整される */
+    max-height: 100%; /* カード内の画像がカードの高さに合わせて調整される */
+    object-fit: contain; /* 画像がカード内に収まるように調整 */
 }
 
 /* スマホの表示に合わせてカードのサイズを調整 */
