@@ -15,22 +15,24 @@
         <section id="deck-area">
 
             <div id="lrig-deck">
+
                 <h2>Lrig Deck</h2>
                 <div class="card-grid" id="lrig-deck-cards">
                 </div>
+
             </div>
 
             <div id="main-deck">
+
                 <h2>Main Deck</h2>
                 <div class="card-grid" id="main-deck-cards">
                 </div>
+
             </div>
 
         </section>
 
         <section id="card-list">
-
-            <h2>カード一覧</h2>
 
             <div id="cards-container">
             </div>
@@ -46,13 +48,23 @@
     </main>
 
     <script>
+
+        // DOM読込時に実行
         document.addEventListener('DOMContentLoaded', () => {
+
+            // cards.jsonを取得
             fetch('cards.json')
+
+                // レスポンスをjsonに変換
                 .then(response => response.json())
-                .then(data => {
-                    displayCards(data);
-                })
+                // 取得したjsonについて、下記のdisplayCards関数を処理
+                .then(responseData => {
+                    displayCards(responseData);
+                }) 
+
+                // エラーが発生した場合はコンソールにエラーメッセージを表示
                 .catch(error => console.error('Error loading card data:', error));
+                
         });
 
         function displayCards(cards) {
