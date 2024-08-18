@@ -75,6 +75,7 @@
         });
     
         // displayCards関数
+// displayCards関数
 function displayCards(cards) {
     const cardsContainer = document.getElementById('cards-container');
     // 既存のカードをクリア
@@ -110,14 +111,21 @@ function displayCards(cards) {
 
 // filterCards関数
 function filterCards(cards, query) {
-    // queryを小文字に変換して検索を行う
-    const lowerCaseQuery = query.toLowerCase();
-    const filteredCards = cards.filter(card => 
-        card.name.toLowerCase().includes(lowerCaseQuery) || 
-        (card.subname && card.subname.toLowerCase().includes(lowerCaseQuery))
-    );
+    // クエリをひらがなとカタカナを含む全角文字に対しても大文字・小文字を区別せず検索する
+    // この例では文字列の正規化処理も行っています
+    const normalizedQuery = query.normalize('NFKC');
+    
+    const filteredCards = cards.filter(card => {
+        // カードの名前とサブ名前も正規化処理を行い、検索処理を行う
+        const cardName = card.name.normalize('NFKC');
+        const cardSubname = card.subname ? card.subname.normalize('NFKC') : '';
+
+        return cardName.includes(normalizedQuery) || cardSubname.includes(normalizedQuery);
+    });
+    
     displayCards(filteredCards);
 }
+
 
     
         // handleTouchStart関数
