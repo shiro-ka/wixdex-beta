@@ -25,7 +25,7 @@ main {
     border: none; /* カードの枠線を削除 */
     border-radius: 5px; /*角を丸める */
     flex-shrink: 0; /* カードが縮小しないようにする */
-    display: flex; /* flexbox を使って中央揃え */
+    display: flex; /* flexboxを使う */
     align-items: center; /* 縦方向に中央揃え */
     justify-content: center; /* 横方向に中央揃え */
     width: 80px; /* カード画像の幅を設定 */
@@ -40,8 +40,8 @@ main {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: calc((100vw - 1rem) / 200); /* 画面横幅-1remの1/200 */
+    grid-template-columns: repeat(8, 1fr); /*8列で折り返す */
+    gap: calc((100vw - 1rem) / 200); /* カードごとの隙間を画面横幅-1remの1/200に */
 }
 
 #deck-area {
@@ -55,11 +55,13 @@ main {
 
 #lrig-deck {
     border: none; /*枠線を削除 */
+    padding: 0 1rem; /*左右に余白を追加*/
     height: calc(16.8375vw + 13.4px); /* 縦幅を設定 */
 }
 
 #main-deck {
     border: none; /*枠線を削除 */
+    padding: 0 1rem; /*左右に余白を追加*/
     height: calc(68.85vw + 5px); /* 縦幅を設定 */
 }
 
