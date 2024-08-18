@@ -48,54 +48,40 @@
     </main>
 
     <script>
-
         // タッチ開始時のY座標初期値を設定
         let touchStartY = 0;
         // 現在のカードを記録する変数
-        let currentCard; 
-
+        let currentCard;
+    
         // DOM読込完了時に実行
         document.addEventListener('DOMContentLoaded', () => {
-
             // cards.jsonを取得
             fetch('cards.json')
-
-                // レスポンスをJSONに変換
                 .then(response => response.json())
-
-                // 取得したJSONについて、displayCards関数を処理
                 .then(responseData => {
                     displayCards(responseData);
-                }) 
-
-                // エラーが発生した場合、コンソールにエラーメッセージを表示
+                })
                 .catch(error => console.error('Error loading card data:', error));
-                
         });
-
+    
         // displayCards関数
         function displayCards(cards) {
-
-            // cards-containerをjsで取得
             const cardsContainer = document.getElementById('cards-container');
-
-            // cardsについての処理
             cards.forEach(card => {
-
                 // cards-containerに追加する<div class="card">を作成
                 const cardElement = document.createElement('div');
                 cardElement.classList.add('card');
-                
+    
                 // URLからカード画像を設定
                 const cardImage = document.createElement('img');
                 cardImage.src = card.image;
                 // 画像が表示できなかった場合はカード名を表示
                 cardImage.alt = card.name;
-
+    
                 // カードをcards-containerに表示
                 cardElement.appendChild(cardImage);
                 cardsContainer.appendChild(cardElement);
-
+    
                 // カードにフリックのリスナーを追加
                 cardElement.addEventListener('touchstart', handleTouchStart);
                 cardElement.addEventListener('touchend', (event) => {
@@ -103,49 +89,54 @@
                     currentCard = card; 
                     handleTouchEnd(event);
                 });
-                
             });
         }
-
-        // フリックのリスナー
-
+    
         // handleTouchStart関数
         function handleTouchStart(event) {
             // タッチ開始時のY座標を保存
             touchStartY = event.touches[0].clientY;
         }
-
+    
         // handleTouchEnd関数
         function handleTouchEnd(event) {
             // タッチ終了時のY座標を取得し、フリックの距離を計算
             const touchEndY = event.changedTouches[0].clientY;
             const swipeDistance = touchStartY - touchEndY;
-
+    
             // 上方向にフリックされていた場合、addCardToDeck関数を処理
-            if (swipeDistance > 50) {
+            if (swipeDistance > 50 && currentCard) {
                 addCardToDeck(currentCard);
             }
         }
-
+    
+        // addCardToDeck関数
         function addCardToDeck(card) {
+            // lrig-deck-cardsとmain-deck-cardsをjsで取得
             const lrigDeck = document.getElementById('lrig-deck-cards');
             const mainDeck = document.getElementById('main-deck-cards');
-
+    
+            // deckに追加する<div class="card">を作成
             const cardElement = document.createElement('div');
             cardElement.classList.add('card');
-            
+    
+            // URLからカード画像を設定
             const cardImage = document.createElement('img');
             cardImage.src = card.image;
             cardImage.alt = card.name;
-
+    
+            // カード名を表示する<p>要素を作成
             const cardName = document.createElement('p');
             cardName.textContent = card.name;
-
+    
+            // cardElementに画像と名前を追加
             cardElement.appendChild(cardImage);
             cardElement.appendChild(cardName);
-
-            const cardType = card.type[0]; // typeの最初の要素を取得
-
+    
+            // カード種類の最初の要素を取得
+            const cardType = card.type[0];
+    
+            // カードの種類に応じてデッキに追加
             if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
                 if (lrigDeck.children.length >= 7) {
                     console.log(`Cannot add ${card.name} to Lrig Deck: Deck is full`);
@@ -164,39 +155,54 @@
             } else {
                 console.log(`Card type ${cardType} is not recognized`);
             }
-
+    
             // ルリグデッキとメインデッキのカードに削除のフリックイベントを追加
             cardElement.addEventListener('touchstart', handleTouchStart);
-            cardElement.addEventListener('touchend', handleTouchEnd);
-
+            cardElement.addEventListener('touchend', handleRemoveTouchEnd);
         }
-
+    
+        // 削除用のhandleTouchEnd関数
+        function handleRemoveTouchEnd(event) {
+            // タッチ終了時のY座標を取得し、フリックの距離を計算
+            const touchEndY = event.changedTouches[0].clientY;
+            const swipeDistance = touchEndY - touchStartY;
+    
+            // 下方向にスワイプされた場合、カードを削除
+            if (swipeDistance > 50 && event.currentTarget) {
+                removeCardFromDeck(event.currentTarget);
+            }
+        }
+    
+        // ルリグデッキをソートする関数
         function sortLrigDeck() {
             const lrigDeck = document.getElementById('lrig-deck-cards');
             const cardElements = Array.from(lrigDeck.children);
-
+    
+            // カードの種類に基づく順序
             const order = {
                 'ルリグ': 0,
                 'アシストルリグ': 1,
                 'ピース': 2,
                 'アーツ': 3
             };
-
+    
+            // ソート処理
             cardElements.sort((a, b) => {
                 const aType = order[a.querySelector('p').textContent.split(' ')[0]] || 4;
                 const bType = order[b.querySelector('p').textContent.split(' ')[0]] || 4;
                 return aType - bType;
             });
-
+    
             // 一旦全ての子要素を削除してから、ソート済みの要素を再追加
             lrigDeck.innerHTML = '';
             cardElements.forEach(element => lrigDeck.appendChild(element));
         }
-
+    
+        // デッキからカードを削除する関数
         function removeCardFromDeck(cardElement) {
             const lrigDeck = document.getElementById('lrig-deck-cards');
             const mainDeck = document.getElementById('main-deck-cards');
-
+    
             if (lrigDeck.contains(cardElement)) {
                 lrigDeck.removeChild(cardElement);
                 console.log('Card removed from Lrig Deck');
@@ -207,6 +213,7 @@
             }
         }
     </script>
+    
 </body>
 
 </html>
