@@ -49,6 +49,11 @@
 
     <script>
 
+        // タッチ開始時のY座標初期値を設定
+        let touchStartY = 0;
+        // 現在のカードを記録する変数
+        let currentCard; 
+
         // DOM読込完了時に実行
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -87,7 +92,7 @@
                 // 画像が表示できなかった場合はカード名を表示
                 cardImage.alt = card.name;
 
-                // カードをcards-ccontainerに表示
+                // カードをcards-containerに表示
                 cardElement.appendChild(cardImage);
                 cardsContainer.appendChild(cardElement);
 
@@ -98,11 +103,6 @@
                     currentCard = card; 
                     handleTouchEnd(event);
                 });
-
-                // タッチ開始時のY座標初期値を設定
-                let touchStartY = 0;
-                // 現在のカードを記録する変数
-                let currentCard; 
                 
             });
         }
@@ -111,19 +111,17 @@
 
         // handleTouchStart関数
         function handleTouchStart(event) {
-
             // タッチ開始時のY座標を保存
             touchStartY = event.touches[0].clientY;
         }
 
         // handleTouchEnd関数
         function handleTouchEnd(event) {
-
             // タッチ終了時のY座標を取得し、フリックの距離を計算
             const touchEndY = event.changedTouches[0].clientY;
             const swipeDistance = touchStartY - touchEndY;
 
-            //上方向にフリックされていた場合、addCardToDeck関数を処理
+            // 上方向にフリックされていた場合、addCardToDeck関数を処理
             if (swipeDistance > 50) {
                 addCardToDeck(currentCard);
             }
@@ -171,20 +169,6 @@
             cardElement.addEventListener('touchstart', handleTouchStart);
             cardElement.addEventListener('touchend', handleTouchEnd);
 
-            let touchStartY = 0;
-
-            function handleTouchStart(event) {
-                touchStartY = event.touches[0].clientY;
-            }
-
-            function handleTouchEnd(event) {
-                const touchEndY = event.changedTouches[0].clientY;
-                const swipeDistance = touchEndY - touchStartY;
-
-                if (swipeDistance > 50) { // 下方向にスワイプ
-                    removeCardFromDeck(cardElement);
-                }
-            }
         }
 
         function sortLrigDeck() {
