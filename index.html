@@ -111,20 +111,22 @@ function displayCards(cards) {
 
 // filterCards関数
 function filterCards(cards, query) {
-    // クエリをひらがなとカタカナを含む全角文字に対しても大文字・小文字を区別せず検索する
-    // この例では文字列の正規化処理も行っています
-    const normalizedQuery = query.normalize('NFKC');
-    
-    const filteredCards = cards.filter(card => {
-        // カードの名前とサブ名前も正規化処理を行い、検索処理を行う
-        const cardName = card.name.normalize('NFKC');
-        const cardSubname = card.subname ? card.subname.normalize('NFKC') : '';
+    // クエリを正規化
+    const normalizedQuery = query.normalize("NFKC").toLowerCase();
 
-        return cardName.includes(normalizedQuery) || cardSubname.includes(normalizedQuery);
+    // カードをフィルタリング
+    const filteredCards = cards.filter(card => {
+        // 名前とサブネームを正規化
+        const normalizedName = card.name.normalize("NFKC").toLowerCase();
+        const normalizedSubname = card.subname ? card.subname.normalize("NFKC").toLowerCase() : '';
+
+        return normalizedName.includes(normalizedQuery) || normalizedSubname.includes(normalizedQuery);
     });
-    
+
+    // フィルタリングされたカードを表示
     displayCards(filteredCards);
 }
+
 
 
     
