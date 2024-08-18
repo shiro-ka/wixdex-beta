@@ -195,6 +195,9 @@
             // ルリグデッキ内のすべてのカード要素を取得し、配列に変換
             const cardElements = Array.from(lrigDeck.children);
 
+            // デバッグ: ソート前のカード情報
+            console.log('Before sorting:', cardElements.map(card => card.querySelector('p').textContent));
+
             // カードの種類に基づく順序を定義
             const order = {
                 'ルリグ': 0,
@@ -216,6 +219,9 @@
             // 一旦全ての子要素を削除してから、ソート済みの要素を再追加
             lrigDeck.innerHTML = '';
             cardElements.forEach(element => lrigDeck.appendChild(element));
+
+            // デバッグ: ソート後のカード情報
+            console.log('After sorting:', Array.from(lrigDeck.children).map(card => card.querySelector('p').textContent));
         }
 
     
