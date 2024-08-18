@@ -160,6 +160,21 @@
             cardElement.addEventListener('touchstart', handleTouchStart);
             cardElement.addEventListener('touchend', handleRemoveTouchEnd);
         }
+
+        // デッキからカードを削除する関数
+        function removeCardFromDeck(cardElement) {
+            const lrigDeck = document.getElementById('lrig-deck-cards');
+            const mainDeck = document.getElementById('main-deck-cards');
+    
+            if (lrigDeck.contains(cardElement)) {
+                lrigDeck.removeChild(cardElement);
+                console.log('Card removed from Lrig Deck');
+                sortLrigDeck();
+            } else if (mainDeck.contains(cardElement)) {
+                mainDeck.removeChild(cardElement);
+                console.log('Card removed from Main Deck');
+            }
+        }
     
         // 削除用のhandleTouchEnd関数
         function handleRemoveTouchEnd(event) {
@@ -175,43 +190,35 @@
     
         // ルリグデッキをソートする関数
         function sortLrigDeck() {
+            // ルリグデッキの要素を取得
             const lrigDeck = document.getElementById('lrig-deck-cards');
+            // ルリグデッキ内のすべてのカード要素を取得し、配列に変換
             const cardElements = Array.from(lrigDeck.children);
-    
-            // カードの種類に基づく順序
+
+            // カードの種類に基づく順序を定義
             const order = {
                 'ルリグ': 0,
                 'アシストルリグ': 1,
                 'ピース': 2,
                 'アーツ': 3
             };
-    
+
             // ソート処理
             cardElements.sort((a, b) => {
+                // 各カード要素から種類を取得
                 const aType = order[a.querySelector('p').textContent.split(' ')[0]] || 4;
                 const bType = order[b.querySelector('p').textContent.split(' ')[0]] || 4;
+
+                // 順序に基づいて比較
                 return aType - bType;
             });
-    
+
             // 一旦全ての子要素を削除してから、ソート済みの要素を再追加
             lrigDeck.innerHTML = '';
             cardElements.forEach(element => lrigDeck.appendChild(element));
         }
+
     
-        // デッキからカードを削除する関数
-        function removeCardFromDeck(cardElement) {
-            const lrigDeck = document.getElementById('lrig-deck-cards');
-            const mainDeck = document.getElementById('main-deck-cards');
-    
-            if (lrigDeck.contains(cardElement)) {
-                lrigDeck.removeChild(cardElement);
-                console.log('Card removed from Lrig Deck');
-                sortLrigDeck();
-            } else if (mainDeck.contains(cardElement)) {
-                mainDeck.removeChild(cardElement);
-                console.log('Card removed from Main Deck');
-            }
-        }
     </script>
     
 </body>
