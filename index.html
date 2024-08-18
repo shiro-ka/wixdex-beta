@@ -75,47 +75,50 @@
         });
     
         // displayCards関数
-        function displayCards(cards) {
-            const cardsContainer = document.getElementById('cards-container');
-            // 既存のカードをクリア
-            cardsContainer.innerHTML = '';
-            cards.forEach(card => {
-                // cards-containerに追加する<div class="card">を作成
-                const cardElement = document.createElement('div');
-                cardElement.classList.add('card');
-    
-                // URLからカード画像を設定
-                const cardImage = document.createElement('img');
-                cardImage.src = card.image;
-                // 画像が表示できなかった場合はカード名を表示
-                cardImage.alt = card.name;
-    
-                const cardName = document.createElement('p');
-                cardName.textContent = card.name;
+function displayCards(cards) {
+    const cardsContainer = document.getElementById('cards-container');
+    // 既存のカードをクリア
+    cardsContainer.innerHTML = '';
+    cards.forEach(card => {
+        // cards-containerに追加する<div class="card">を作成
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
 
-                // カードをcards-containerに表示
-                cardElement.appendChild(cardImage);
-                cardElement.appendChild(cardName);
-                cardsContainer.appendChild(cardElement);
-    
-                // カードにフリックのリスナーを追加
-                cardElement.addEventListener('touchstart', handleTouchStart);
-                cardElement.addEventListener('touchend', (event) => {
-                    // 現在のカードを記録
-                    currentCard = card; 
-                    handleTouchEnd(event);
-                });
-            });
-        }
+        // URLからカード画像を設定
+        const cardImage = document.createElement('img');
+        cardImage.src = card.image;
+        // 画像が表示できなかった場合はカード名を表示
+        cardImage.alt = card.name;
 
-        // 検索結果をフィルタリングして表示
-        function filterCards(cards, query) {
-            const filteredCards = cards.filter(card => 
-                card.name.toLowerCase().includes(query) || 
-                (card.subname && card.subname.toLowerCase().includes(query))
-            );
-            displayCards(filteredCards);
-        }
+        const cardName = document.createElement('p');
+        cardName.textContent = card.name;
+
+        // カードをcards-containerに表示
+        cardElement.appendChild(cardImage);
+        cardElement.appendChild(cardName);
+        cardsContainer.appendChild(cardElement);
+
+        // カードにフリックのリスナーを追加
+        cardElement.addEventListener('touchstart', handleTouchStart);
+        cardElement.addEventListener('touchend', (event) => {
+            // 現在のカードを記録
+            currentCard = card; 
+            handleTouchEnd(event);
+        });
+    });
+}
+
+// filterCards関数
+function filterCards(cards, query) {
+    // queryを小文字に変換して検索を行う
+    const lowerCaseQuery = query.toLowerCase();
+    const filteredCards = cards.filter(card => 
+        card.name.toLowerCase().includes(lowerCaseQuery) || 
+        (card.subname && card.subname.toLowerCase().includes(lowerCaseQuery))
+    );
+    displayCards(filteredCards);
+}
+
     
         // handleTouchStart関数
         function handleTouchStart(event) {
