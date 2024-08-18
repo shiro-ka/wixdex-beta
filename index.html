@@ -229,31 +229,48 @@
         function sortMainDeck() {
             const mainDeck = document.getElementById('main-deck-cards');
             const cardElements = Array.from(mainDeck.children);
-    
-            // デバッグ: ソート前のカード情報
-            console.log('Before sorting Main Deck:', cardElements.map(card => card.querySelector('p').textContent));
-    
-            const order = {
-                'シグニ': 1,
-                'スペル': 2
-            };
-    
-            cardElements.sort((a, b) => {
-                const aType = order[a.dataset.type] || 3;
-                const bType = order[b.dataset.type] || 3;
-    
-                // デバッグ: 各カードの種類を表示
-                console.log('aType:', aType, 'bType:', bType);
-    
-                return aType - bType;
-            });
-    
-            mainDeck.innerHTML = '';
-            cardElements.forEach(element => mainDeck.appendChild(element));
-    
-            // デバッグ: ソート後のカード情報
-            console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => card.querySelector('p').textContent));
+
+    // デバッグ: ソート前のカード情報
+    console.log('Before sorting Main Deck:', cardElements.map(card => card.querySelector('p').textContent));
+
+    const order = {
+        'シグニ': 1,
+        'スペル': 2
+    };
+
+    cardElements.sort((a, b) => {
+        const aType = order[a.dataset.type] || 3;
+        const bType = order[b.dataset.type] || 3;
+
+        // デバッグ: 各カードの種類を表示
+        console.log('aType:', aType, 'bType:', bType);
+
+        if (aType !== bType) {
+            return aType - bType;
         }
+
+        // ここでシグニ内およびスペル内でのソートを追加
+        const aLevel = parseInt(a.dataset.level, 10);
+        const bLevel = parseInt(b.dataset.level, 10);
+
+        if (aLevel !== bLevel) {
+            return aLevel - bLevel;
+        }
+
+        // レベルが同じ場合、名前でソート
+        const aName = a.querySelector('p').textContent;
+        const bName = b.querySelector('p').textContent;
+
+        return aName.localeCompare(bName);
+    });
+
+    mainDeck.innerHTML = '';
+    cardElements.forEach(element => mainDeck.appendChild(element));
+
+    // デバッグ: ソート後のカード情報
+    console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => card.querySelector('p').textContent));
+}
+
 
     </script>
     
