@@ -40,14 +40,15 @@
         </section>
 
         <section id="search-tool">
-
-            <div id="search-box">検索ツール</div>
-
-        </section>
+            <div id="search-box">
+                <input type="text" id="search-input" placeholder="カード名で検索">
+            </div>
+        </section>        
 
     </main>
 
     <script>
+
         // タッチ開始時のY座標初期値を設定
         let touchStartY = 0;
         // 現在のカードを記録する変数
@@ -55,18 +56,29 @@
     
         // DOM読込完了時に実行
         document.addEventListener('DOMContentLoaded', () => {
+
             // cards.jsonを取得
             fetch('cards.json')
                 .then(response => response.json())
                 .then(responseData => {
                     displayCards(responseData);
+
+                    // 検索機能の初期化
+                    const searchInput = document.getElementById('search-input');
+                    searchInput.addEventListener('input', () => {
+                        query = searchInput.value.toLowerCase();
+                        filterCards(responseData, query);
+                    });
                 })
+
                 .catch(error => console.error('Error loading card data:', error));
         });
     
         // displayCards関数
         function displayCards(cards) {
             const cardsContainer = document.getElementById('cards-container');
+            // 既存のカードをクリア
+            cardsContainer.innerHTML = '';
             cards.forEach(card => {
                 // cards-containerに追加する<div class="card">を作成
                 const cardElement = document.createElement('div');
@@ -78,8 +90,12 @@
                 // 画像が表示できなかった場合はカード名を表示
                 cardImage.alt = card.name;
     
+                const cardName = document.createElement('p');
+                cardName.textContent = card.name;
+
                 // カードをcards-containerに表示
                 cardElement.appendChild(cardImage);
+                cardElement.appendChild(cardName);
                 cardsContainer.appendChild(cardElement);
     
                 // カードにフリックのリスナーを追加
@@ -90,6 +106,15 @@
                     handleTouchEnd(event);
                 });
             });
+        }
+
+        // 検索結果をフィルタリングして表示
+        function filterCards(cards, query) {
+            const filteredCards = cards.filter(card => 
+                card.name.toLowerCase().includes(query) || 
+                (card.subname && card.subname.toLowerCase().includes(query))
+            );
+            displayCards(filteredCards);
         }
     
         // handleTouchStart関数
@@ -228,57 +253,55 @@
     
         // メインデッキをソートする関数
         function sortMainDeck() {
-    const mainDeck = document.getElementById('main-deck-cards');
-    const cardElements = Array.from(mainDeck.children);
+            const mainDeck = document.getElementById('main-deck-cards');
+            const cardElements = Array.from(mainDeck.children);
 
-    // デバッグ: ソート前のカード情報
-    console.log('Before sorting Main Deck:', cardElements.map(card => ({
-        name: card.querySelector('p').textContent,
-        type: card.dataset.type,
-        level: card.dataset.level
-    })));
+            // デバッグ: ソート前のカード情報
+            console.log('Before sorting Main Deck:', cardElements.map(card => ({
+                name: card.querySelector('p').textContent,
+                type: card.dataset.type,
+                level: card.dataset.level
+            })));
 
-    const order = {
-        'シグニ': 1,
-        'スペル': 2
-    };
+            const order = {
+                'シグニ': 1,
+                'スペル': 2
+            };
 
-    cardElements.sort((a, b) => {
-        const aType = order[a.dataset.type] || 3;
-        const bType = order[b.dataset.type] || 3;
+            cardElements.sort((a, b) => {
+                const aType = order[a.dataset.type] || 3;
+                const bType = order[b.dataset.type] || 3;
 
-        if (aType !== bType) {
-            return aType - bType;
+                if (aType !== bType) {
+                return aType - bType;
+                }
+
+                // デバッグ: レベルと名前を確認
+                const aLevel = parseInt(a.dataset.level, 10);
+                const bLevel = parseInt(b.dataset.level, 10);
+                console.log('aLevel:', aLevel, 'bLevel:', bLevel);
+
+                if (aLevel !== bLevel) {
+                return aLevel - bLevel;
+                }
+
+                // レベルが同じ場合、名前でソート
+                const aName = a.querySelector('p').textContent;
+                const bName = b.querySelector('p').textContent;
+
+                return aName.localeCompare(bName);
+            });
+
+            mainDeck.innerHTML = '';
+            cardElements.forEach(element => mainDeck.appendChild(element));
+
+            // デバッグ: ソート後のカード情報
+            console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => ({
+                name: card.querySelector('p').textContent,
+                type: card.dataset.type,
+                level: card.dataset.level
+            })));
         }
-
-        // デバッグ: レベルと名前を確認
-        const aLevel = parseInt(a.dataset.level, 10);
-        const bLevel = parseInt(b.dataset.level, 10);
-        console.log('aLevel:', aLevel, 'bLevel:', bLevel);
-
-        if (aLevel !== bLevel) {
-            return aLevel - bLevel;
-        }
-
-        // レベルが同じ場合、名前でソート
-        const aName = a.querySelector('p').textContent;
-        const bName = b.querySelector('p').textContent;
-
-        return aName.localeCompare(bName);
-    });
-
-    mainDeck.innerHTML = '';
-    cardElements.forEach(element => mainDeck.appendChild(element));
-
-    // デバッグ: ソート後のカード情報
-    console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => ({
-        name: card.querySelector('p').textContent,
-        type: card.dataset.type,
-        level: card.dataset.level
-    })));
-}
-
-
 
     </script>
     
