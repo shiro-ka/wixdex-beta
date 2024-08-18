@@ -41,7 +41,7 @@ main {
 .card-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    gap: calc(100vw / 75); /* 画面横幅の1/75 */
+    gap: calc(100vw / 200); /* 画面横幅の1/200 */
 }
 
 #deck-area {
@@ -61,7 +61,6 @@ main {
     border: none; /*枠線を削除 */
 }
 
-/* ルリグデッキのカードを8等分で表示 */
 #lrig-deck .card, #main-deck .card {
     grid-column: span 1; /* 各カードが1カラム分の幅を占めるように設定 */
     width: 100%; /* 幅を100%に設定 */
