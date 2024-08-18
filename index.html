@@ -128,6 +128,9 @@
             // カード名を表示する<p>要素を作成
             const cardName = document.createElement('p');
             cardName.textContent = card.name;
+
+            // dataset にカードの種類を追加
+            cardElement.dataset.type = card.type[0];
     
             // cardElementに画像と名前を追加
             cardElement.appendChild(cardImage);
@@ -204,16 +207,10 @@
     };
 
     cardElements.sort((a, b) => {
-        const aText = a.querySelector('p').textContent;
-        const bText = b.querySelector('p').textContent;
+        const aType = order[a.dataset.type] || 4;
+        const bType = order[b.dataset.type] || 4;
 
         // デバッグ: 各カードの種類を表示
-        console.log('aText:', aText, 'bText:', bText);
-
-        const aType = order[aText.split(' ')[0]] || 4;
-        const bType = order[bText.split(' ')[0]] || 4;
-
-        // デバッグ: ソート順序を確認
         console.log('aType:', aType, 'bType:', bType);
 
         return aType - bType;
@@ -225,6 +222,7 @@
     // デバッグ: ソート後のカード情報
     console.log('After sorting:', Array.from(lrigDeck.children).map(card => card.querySelector('p').textContent));
 }
+
 
 
     
