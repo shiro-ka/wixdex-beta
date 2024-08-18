@@ -129,8 +129,9 @@
             const cardName = document.createElement('p');
             cardName.textContent = card.name;
     
-            // dataset にカードの種類を追加
+            // dataset にカードの種類とレベルを追加
             cardElement.dataset.type = card.type[0];
+            cardElement.dataset.level = card.level;
     
             // cardElementに画像と名前を追加
             cardElement.appendChild(cardImage);
@@ -227,11 +228,15 @@
     
         // メインデッキをソートする関数
         function sortMainDeck() {
-            const mainDeck = document.getElementById('main-deck-cards');
-            const cardElements = Array.from(mainDeck.children);
+    const mainDeck = document.getElementById('main-deck-cards');
+    const cardElements = Array.from(mainDeck.children);
 
     // デバッグ: ソート前のカード情報
-    console.log('Before sorting Main Deck:', cardElements.map(card => card.querySelector('p').textContent));
+    console.log('Before sorting Main Deck:', cardElements.map(card => ({
+        name: card.querySelector('p').textContent,
+        type: card.dataset.type,
+        level: card.dataset.level
+    })));
 
     const order = {
         'シグニ': 1,
@@ -242,16 +247,14 @@
         const aType = order[a.dataset.type] || 3;
         const bType = order[b.dataset.type] || 3;
 
-        // デバッグ: 各カードの種類を表示
-        console.log('aType:', aType, 'bType:', bType);
-
         if (aType !== bType) {
             return aType - bType;
         }
 
-        // ここでシグニ内およびスペル内でのソートを追加
+        // デバッグ: レベルと名前を確認
         const aLevel = parseInt(a.dataset.level, 10);
         const bLevel = parseInt(b.dataset.level, 10);
+        console.log('aLevel:', aLevel, 'bLevel:', bLevel);
 
         if (aLevel !== bLevel) {
             return aLevel - bLevel;
@@ -268,8 +271,13 @@
     cardElements.forEach(element => mainDeck.appendChild(element));
 
     // デバッグ: ソート後のカード情報
-    console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => card.querySelector('p').textContent));
+    console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => ({
+        name: card.querySelector('p').textContent,
+        type: card.dataset.type,
+        level: card.dataset.level
+    })));
 }
+
 
 
     </script>
