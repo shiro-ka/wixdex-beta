@@ -61,77 +61,64 @@
             fetch('cards.json')
                 .then(response => response.json())
                 .then(responseData => {
+                    window.cardsData = responseData;
                     displayCards(responseData);
-
-                    // 検索機能の初期化
-                    const searchInput = document.getElementById('search-input');
-                    searchInput.addEventListener('input', () => {
-                        query = searchInput.value.toLowerCase();
-                        filterCards(responseData, query);
-                    });
                 })
 
                 .catch(error => console.error('Error loading card data:', error));
+
+            // 検索入力のイベントリスナーを設定
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', handleSearch);
         });
-    
-        // displayCards関数
-// displayCards関数
-function displayCards(cards) {
+
+        // 検索処理を行う関数
+function handleSearch() {
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const cardsContainer = document.getElementById('cards-container');
-    // 既存のカードをクリア
-    cardsContainer.innerHTML = '';
-    cards.forEach(card => {
-        // cards-containerに追加する<div class="card">を作成
-        const cardElement = document.createElement('div');
-        cardElement.classList.add('card');
+    cardsContainer.innerHTML = ''; // 既存のカードをクリア
 
-        // URLからカード画像を設定
-        const cardImage = document.createElement('img');
-        cardImage.src = card.image;
-        // 画像が表示できなかった場合はカード名を表示
-        cardImage.alt = card.name;
+    if (searchTerm === '') {
+        displayCards(window.cardsData); // 全カードを再表示
+        return;
+    }
 
-        const cardName = document.createElement('p');
-        cardName.textContent = card.name;
-
-        // カードをcards-containerに表示
-        cardElement.appendChild(cardImage);
-        cardElement.appendChild(cardName);
-        cardsContainer.appendChild(cardElement);
-
-        // カードにフリックのリスナーを追加
-        cardElement.addEventListener('touchstart', handleTouchStart);
-        cardElement.addEventListener('touchend', (event) => {
-            // 現在のカードを記録
-            currentCard = card; 
-            handleTouchEnd(event);
-        });
-    });
-}
-
-// filterCards関数
-function filterCards(cards, query) {
-    // クエリを正規化
-    const normalizedQuery = query.normalize("NFKC").toLowerCase();
-
-    // カードをフィルタリング
-    const filteredCards = cards.filter(card => {
-        // 名前とサブネームを正規化
-        const normalizedName = card.name ? card.name.normalize("NFKC").toLowerCase() : '';
-        const normalizedSubname = card.subname && typeof card.subname === 'string' 
-            ? card.subname.normalize("NFKC").toLowerCase() 
-            : '';
-
-        return normalizedName.includes(normalizedQuery) || normalizedSubname.includes(normalizedQuery);
+    const filteredCards = window.cardsData.filter(card => {
+        const nameMatch = card.name.toLowerCase().includes(searchTerm);
+        const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
+        return nameMatch || subnameMatch;
     });
 
-    // フィルタリングされたカードを表示
     displayCards(filteredCards);
 }
-
-
-
-
+    
+         // displayCards関数
+         function displayCards(cards) {
+            const cardsContainer = document.getElementById('cards-container');
+            cards.forEach(card => {
+                // cards-containerに追加する<div class="card">を作成
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('card');
+    
+                // URLからカード画像を設定
+                const cardImage = document.createElement('img');
+                cardImage.src = card.image;
+                // 画像が表示できなかった場合はカード名を表示
+                cardImage.alt = card.name;
+    
+                // カードをcards-containerに表示
+                cardElement.appendChild(cardImage);
+                cardsContainer.appendChild(cardElement);
+    
+                // カードにフリックのリスナーを追加
+                cardElement.addEventListener('touchstart', handleTouchStart);
+                cardElement.addEventListener('touchend', (event) => {
+                    // 現在のカードを記録
+                    currentCard = card; 
+                    handleTouchEnd(event);
+                });
+            });
+        }
     
         // handleTouchStart関数
         function handleTouchStart(event) {
