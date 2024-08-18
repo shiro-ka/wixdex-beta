@@ -128,7 +128,7 @@
             // カード名を表示する<p>要素を作成
             const cardName = document.createElement('p');
             cardName.textContent = card.name;
-
+    
             // dataset にカードの種類を追加
             cardElement.dataset.type = card.type[0];
     
@@ -155,6 +155,7 @@
                 }
                 mainDeck.appendChild(cardElement);
                 console.log(`Added ${card.name} to Main Deck`);
+                sortMainDeck();
             } else {
                 console.log(`Card type ${cardType} is not recognized`);
             }
@@ -163,7 +164,7 @@
             cardElement.addEventListener('touchstart', handleTouchStart);
             cardElement.addEventListener('touchend', handleRemoveTouchEnd);
         }
-
+    
         // デッキからカードを削除する関数
         function removeCardFromDeck(cardElement) {
             const lrigDeck = document.getElementById('lrig-deck-cards');
@@ -176,6 +177,7 @@
             } else if (mainDeck.contains(cardElement)) {
                 mainDeck.removeChild(cardElement);
                 console.log('Card removed from Main Deck');
+                sortMainDeck();
             }
         }
     
@@ -193,39 +195,66 @@
     
         // ルリグデッキをソートする関数
         function sortLrigDeck() {
-    const lrigDeck = document.getElementById('lrig-deck-cards');
-    const cardElements = Array.from(lrigDeck.children);
-
-    // デバッグ: ソート前のカード情報
-    console.log('Before sorting:', cardElements.map(card => card.querySelector('p').textContent));
-
-    const order = {
-        'ルリグ': 1,
-        'アシストルリグ': 2,
-        'ピース': 3,
-        'アーツ': 4
-    };
-
-    cardElements.sort((a, b) => {
-        const aType = order[a.dataset.type] || 4;
-        const bType = order[b.dataset.type] || 4;
-
-        // デバッグ: 各カードの種類を表示
-        console.log('aType:', aType, 'bType:', bType);
-
-        return aType - bType;
-    });
-
-    lrigDeck.innerHTML = '';
-    cardElements.forEach(element => lrigDeck.appendChild(element));
-
-    // デバッグ: ソート後のカード情報
-    console.log('After sorting:', Array.from(lrigDeck.children).map(card => card.querySelector('p').textContent));
-}
-
-
-
+            const lrigDeck = document.getElementById('lrig-deck-cards');
+            const cardElements = Array.from(lrigDeck.children);
     
+            // デバッグ: ソート前のカード情報
+            console.log('Before sorting Lrig Deck:', cardElements.map(card => card.querySelector('p').textContent));
+    
+            const order = {
+                'ルリグ': 1,
+                'アシストルリグ': 2,
+                'ピース': 3,
+                'アーツ': 4
+            };
+    
+            cardElements.sort((a, b) => {
+                const aType = order[a.dataset.type] || 5;
+                const bType = order[b.dataset.type] || 5;
+    
+                // デバッグ: 各カードの種類を表示
+                console.log('aType:', aType, 'bType:', bType);
+    
+                return aType - bType;
+            });
+    
+            lrigDeck.innerHTML = '';
+            cardElements.forEach(element => lrigDeck.appendChild(element));
+    
+            // デバッグ: ソート後のカード情報
+            console.log('After sorting Lrig Deck:', Array.from(lrigDeck.children).map(card => card.querySelector('p').textContent));
+        }
+    
+        // メインデッキをソートする関数
+        function sortMainDeck() {
+            const mainDeck = document.getElementById('main-deck-cards');
+            const cardElements = Array.from(mainDeck.children);
+    
+            // デバッグ: ソート前のカード情報
+            console.log('Before sorting Main Deck:', cardElements.map(card => card.querySelector('p').textContent));
+    
+            const order = {
+                'シグニ': 1,
+                'スペル': 2
+            };
+    
+            cardElements.sort((a, b) => {
+                const aType = order[a.dataset.type] || 3;
+                const bType = order[b.dataset.type] || 3;
+    
+                // デバッグ: 各カードの種類を表示
+                console.log('aType:', aType, 'bType:', bType);
+    
+                return aType - bType;
+            });
+    
+            mainDeck.innerHTML = '';
+            cardElements.forEach(element => mainDeck.appendChild(element));
+    
+            // デバッグ: ソート後のカード情報
+            console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => card.querySelector('p').textContent));
+        }
+
     </script>
     
 </body>
