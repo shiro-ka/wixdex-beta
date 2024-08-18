@@ -49,57 +49,84 @@
 
     <script>
 
-        // DOM読込時に実行
+        // DOM読込完了時に実行
         document.addEventListener('DOMContentLoaded', () => {
 
             // cards.jsonを取得
             fetch('cards.json')
 
-                // レスポンスをjsonに変換
+                // レスポンスをJSONに変換
                 .then(response => response.json())
-                // 取得したjsonについて、下記のdisplayCards関数を処理
+
+                // 取得したJSONについて、displayCards関数を処理
                 .then(responseData => {
                     displayCards(responseData);
                 }) 
 
-                // エラーが発生した場合はコンソールにエラーメッセージを表示
+                // エラーが発生した場合、コンソールにエラーメッセージを表示
                 .catch(error => console.error('Error loading card data:', error));
                 
         });
 
+        // displayCards関数
         function displayCards(cards) {
+
+            // cards-containerをjsで取得
             const cardsContainer = document.getElementById('cards-container');
 
+            // cardsについての処理
             cards.forEach(card => {
+
+                // cards-containerに追加する<div class="card">を作成
                 const cardElement = document.createElement('div');
                 cardElement.classList.add('card');
                 
+                // URLからカード画像を設定
                 const cardImage = document.createElement('img');
                 cardImage.src = card.image;
+                // 画像が表示できなかった場合はカード名を表示
                 cardImage.alt = card.name;
 
+                // カードをcards-ccontainerに表示
                 cardElement.appendChild(cardImage);
                 cardsContainer.appendChild(cardElement);
 
-                // ここでカードにフリックのリスナーを追加
+                // カードにフリックのリスナーを追加
                 cardElement.addEventListener('touchstart', handleTouchStart);
-                cardElement.addEventListener('touchend', handleTouchEnd);
+                cardElement.addEventListener('touchend', (event) => {
+                    // 現在のカードを記録
+                    currentCard = card; 
+                    handleTouchEnd(event);
+                });
 
+                // タッチ開始時のY座標初期値を設定
                 let touchStartY = 0;
-
-                function handleTouchStart(event) {
-                    touchStartY = event.touches[0].clientY;
-                }
-
-                function handleTouchEnd(event) {
-                    const touchEndY = event.changedTouches[0].clientY;
-                    const swipeDistance = touchStartY - touchEndY;
-
-                    if (swipeDistance > 50) { // 上方向にスワイプ
-                        addCardToDeck(card);
-                    }
-                }
+                // 現在のカードを記録する変数
+                let currentCard; 
+                
             });
+        }
+
+        // フリックのリスナー
+
+        // handleTouchStart関数
+        function handleTouchStart(event) {
+
+            // タッチ開始時のY座標を保存
+            touchStartY = event.touches[0].clientY;
+        }
+
+        // handleTouchEnd関数
+        function handleTouchEnd(event) {
+
+            // タッチ終了時のY座標を取得し、フリックの距離を計算
+            const touchEndY = event.changedTouches[0].clientY;
+            const swipeDistance = touchStartY - touchEndY;
+
+            //上方向にフリックされていた場合、addCardToDeck関数を処理
+            if (swipeDistance > 50) {
+                addCardToDeck(currentCard);
+            }
         }
 
         function addCardToDeck(card) {
