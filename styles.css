@@ -41,7 +41,7 @@ main {
 .card-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    gap: calc(100vw / 200); /* 画面横幅の1/200 */
+    gap: calc((100vw - 1rem) / 200); /* 画面横幅-1remの1/200 */
 }
 
 #deck-area {
