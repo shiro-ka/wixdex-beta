@@ -117,8 +117,10 @@ function filterCards(cards, query) {
     // カードをフィルタリング
     const filteredCards = cards.filter(card => {
         // 名前とサブネームを正規化
-        const normalizedName = card.name.normalize("NFKC").toLowerCase();
-        const normalizedSubname = card.subname ? card.subname.normalize("NFKC").toLowerCase() : '';
+        const normalizedName = card.name ? card.name.normalize("NFKC").toLowerCase() : '';
+        const normalizedSubname = card.subname && typeof card.subname === 'string' 
+            ? card.subname.normalize("NFKC").toLowerCase() 
+            : '';
 
         return normalizedName.includes(normalizedQuery) || normalizedSubname.includes(normalizedQuery);
     });
@@ -126,6 +128,7 @@ function filterCards(cards, query) {
     // フィルタリングされたカードを表示
     displayCards(filteredCards);
 }
+
 
 
 
