@@ -190,39 +190,42 @@
     
         // ルリグデッキをソートする関数
         function sortLrigDeck() {
-            // ルリグデッキの要素を取得
-            const lrigDeck = document.getElementById('lrig-deck-cards');
-            // ルリグデッキ内のすべてのカード要素を取得し、配列に変換
-            const cardElements = Array.from(lrigDeck.children);
+    const lrigDeck = document.getElementById('lrig-deck-cards');
+    const cardElements = Array.from(lrigDeck.children);
 
-            // デバッグ: ソート前のカード情報
-            console.log('Before sorting:', cardElements.map(card => card.querySelector('p').textContent));
+    // デバッグ: ソート前のカード情報
+    console.log('Before sorting:', cardElements.map(card => card.querySelector('p').textContent));
 
-            // カードの種類に基づく順序を定義
-            const order = {
-                'ルリグ': 0,
-                'アシストルリグ': 1,
-                'ピース': 2,
-                'アーツ': 3
-            };
+    const order = {
+        'ルリグ': 0,
+        'アシストルリグ': 1,
+        'ピース': 2,
+        'アーツ': 3
+    };
 
-            // ソート処理
-            cardElements.sort((a, b) => {
-                // 各カード要素から種類を取得
-                const aType = order[a.querySelector('p').textContent.split(' ')[0]] || 4;
-                const bType = order[b.querySelector('p').textContent.split(' ')[0]] || 4;
+    cardElements.sort((a, b) => {
+        const aText = a.querySelector('p').textContent;
+        const bText = b.querySelector('p').textContent;
 
-                // 順序に基づいて比較
-                return aType - bType;
-            });
+        // デバッグ: 各カードの種類を表示
+        console.log('aText:', aText, 'bText:', bText);
 
-            // 一旦全ての子要素を削除してから、ソート済みの要素を再追加
-            lrigDeck.innerHTML = '';
-            cardElements.forEach(element => lrigDeck.appendChild(element));
+        const aType = order[aText.split(' ')[0]] || 4;
+        const bType = order[bText.split(' ')[0]] || 4;
 
-            // デバッグ: ソート後のカード情報
-            console.log('After sorting:', Array.from(lrigDeck.children).map(card => card.querySelector('p').textContent));
-        }
+        // デバッグ: ソート順序を確認
+        console.log('aType:', aType, 'bType:', bType);
+
+        return aType - bType;
+    });
+
+    lrigDeck.innerHTML = '';
+    cardElements.forEach(element => lrigDeck.appendChild(element));
+
+    // デバッグ: ソート後のカード情報
+    console.log('After sorting:', Array.from(lrigDeck.children).map(card => card.querySelector('p').textContent));
+}
+
 
     
     </script>
