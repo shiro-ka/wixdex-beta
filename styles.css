@@ -55,7 +55,7 @@ main {
 
 #lrig-deck {
     border: none; /*枠線を削除 */
-    height: calc((100vw -1rem) *134.7 /800 +1rem);
+    height: 200px
 }
 
 #main-deck {
