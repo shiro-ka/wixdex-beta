@@ -133,14 +133,14 @@
         }
     
         // handleTouchEnd関数
-        function handleTouchEnd(event) {
+        function handleTouchEnd(event, card) {
             // タッチ終了時のY座標を取得し、フリックの距離を計算
             const touchEndY = event.changedTouches[0].clientY;
             const swipeDistance = touchStartY - touchEndY;
     
             // 上方向にフリックされていた場合、addCardToDeck関数を処理
-            if (swipeDistance > 50 && currentCard) {
-                addCardToDeck(currentCard);
+            if (swipeDistance > 50 ) {
+                addCardToDeck(card);
             }
         }
     
