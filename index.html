@@ -56,7 +56,7 @@
     
         // DOM読込完了時に実行
         document.addEventListener('DOMContentLoaded', () => {
-
+    
             // cards.jsonを取得
             fetch('cards.json')
                 .then(response => response.json())
@@ -64,45 +64,44 @@
                     window.cardsData = responseData;
                     displayCards(responseData);
                 })
-
                 .catch(error => console.error('Error loading card data:', error));
-
+    
             // 検索入力のイベントリスナーを設定
             const searchInput = document.getElementById('search-input');
             searchInput.addEventListener('input', handleSearch);
-
+    
         });
-
+    
         // 検索処理を行う関数
         function handleSearch() {
-
+    
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
             const cardsContainer = document.getElementById('cards-container');
             // 既存のカードをクリア
             cardsContainer.innerHTML = '';
-
+    
             if (searchTerm === '') {
-
+    
                 // 全カードを再表示
                 (window.cardsData);
                 return;
             }
-
+    
             const filteredCards = window.cardsData.filter(card => {
                 const nameMatch = card.name.toLowerCase().includes(searchTerm);
                 const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
                 return nameMatch || subnameMatch;
             });
-
+    
             displayCards(filteredCards);
         }
     
         // displayCards関数
         function displayCards(cards) {
-
+    
             const cardsContainer = document.getElementById('cards-container');
             cards.forEach(card => {
-
+    
                 // cards-containerに追加する<div class="card">を作成
                 const cardElement = document.createElement('div');
                 cardElement.classList.add('card');
@@ -196,9 +195,10 @@
                 console.log(`Card type ${cardType} is not recognized`);
             }
     
-            // ルリグデッキとメインデッキのカードに削除のフリックイベントを追加
+            // ルリグデッキとメインデッキのカードに削除と追加のフリックイベントを追加
             cardElement.addEventListener('touchstart', handleTouchStart);
             cardElement.addEventListener('touchend', handleRemoveTouchEnd);
+            cardElement.addEventListener('touchend', handleDuplicateTouchEnd); // 上にフリックで複製
         }
     
         // デッキからカードを削除する関数
@@ -226,6 +226,18 @@
             // 下方向にスワイプされた場合、カードを削除
             if (swipeDistance > 50 && event.currentTarget) {
                 removeCardFromDeck(event.currentTarget);
+            }
+        }
+    
+        // 複製用のhandleDuplicateTouchEnd関数
+        function handleDuplicateTouchEnd(event) {
+            // タッチ終了時のY座標を取得し、フリックの距離を計算
+            const touchEndY = event.changedTouches[0].clientY;
+            const swipeDistance = touchStartY - touchEndY;
+    
+            // 上方向にフリックされた場合、カードを複製
+            if (swipeDistance > 50 && currentCard) {
+                addCardToDeck(currentCard);
             }
         }
     
@@ -265,56 +277,41 @@
         function sortMainDeck() {
             const mainDeck = document.getElementById('main-deck-cards');
             const cardElements = Array.from(mainDeck.children);
-
+    
             // デバッグ: ソート前のカード情報
-            console.log('Before sorting Main Deck:', cardElements.map(card => ({
-                name: card.querySelector('p').textContent,
-                type: card.dataset.type,
-                level: card.dataset.level
-            })));
-
-            const order = {
-                'シグニ': 1,
-                'スペル': 2,
-                'サーバント': 3
-            };
-
+            console.log('Before sorting Main Deck:', cardElements.map(card => card.querySelector('p').textContent));
+    
             cardElements.sort((a, b) => {
-                const aType = order[a.dataset.type] || 4;
-                const bType = order[b.dataset.type] || 4;
-
+                // シグニが先、スペルが後
+                const aType = a.dataset.type;
+                const bType = b.dataset.type;
+    
                 if (aType !== bType) {
-                return aType - bType;
+                    if (aType === 'シグニ') return -1;
+                    if (bType === 'シグニ') return 1;
                 }
-
-                // デバッグ: レベルと名前を確認
+    
+                // レベル順でソート
                 const aLevel = parseInt(a.dataset.level, 10);
                 const bLevel = parseInt(b.dataset.level, 10);
-                console.log('aLevel:', aLevel, 'bLevel:', bLevel);
-
-                if (aLevel !== bLevel) {
-                return aLevel - bLevel;
-                }
-
-                // レベルが同じ場合、名前でソート
+                if (aLevel !== bLevel) return aLevel - bLevel;
+    
+                // レベルが同じ場合、カード名でソート
                 const aName = a.querySelector('p').textContent;
                 const bName = b.querySelector('p').textContent;
-
+    
                 return aName.localeCompare(bName);
             });
-
+    
             mainDeck.innerHTML = '';
             cardElements.forEach(element => mainDeck.appendChild(element));
-
+    
             // デバッグ: ソート後のカード情報
-            console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => ({
-                name: card.querySelector('p').textContent,
-                type: card.dataset.type,
-                level: card.dataset.level
-            })));
+            console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => card.querySelector('p').textContent));
         }
-
+    
     </script>
+    
     
 </body>
 
