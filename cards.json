@@ -25,6 +25,18 @@
     },
 
     {
+        "name": "アンシエント・エコー",
+        "subname": ["あんしえんとえこー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-003.jpg",
+        "type": ["ピース"],
+        "cardType": [],
+        "level": 0,
+        "color": ["青", "赤", "緑"],
+        "lifeBurst": 0,
+        "tags": []
+    },
+
+    {
         "name": "目醒めし者 タウィル＝トレ",
         "subname": ["めざめしものたうぃるとれ"],
         "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-009.jpg",
