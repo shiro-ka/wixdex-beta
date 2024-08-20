@@ -68,34 +68,41 @@
                 .catch(error => console.error('Error loading card data:', error));
 
             // 検索入力のイベントリスナーを設定
-    const searchInput = document.getElementById('search-input');
-    searchInput.addEventListener('input', handleSearch);
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', handleSearch);
+
         });
 
         // 検索処理を行う関数
-function handleSearch() {
-    const searchTerm = document.getElementById('search-input').value.toLowerCase();
-    const cardsContainer = document.getElementById('cards-container');
-    cardsContainer.innerHTML = ''; // 既存のカードをクリア
+        function handleSearch() {
 
-    if (searchTerm === '') {
-        displayCards(window.cardsData); // 全カードを再表示
-        return;
-    }
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const cardsContainer = document.getElementById('cards-container');
+            // 既存のカードをクリア
+            cardsContainer.innerHTML = '';
 
-    const filteredCards = window.cardsData.filter(card => {
-        const nameMatch = card.name.toLowerCase().includes(searchTerm);
-        const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
-        return nameMatch || subnameMatch;
-    });
+            if (searchTerm === '') {
 
-    displayCards(filteredCards);
-}
+                // 全カードを再表示
+                (window.cardsData);
+                return;
+            }
+
+            const filteredCards = window.cardsData.filter(card => {
+                const nameMatch = card.name.toLowerCase().includes(searchTerm);
+                const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
+                return nameMatch || subnameMatch;
+            });
+
+            displayCards(filteredCards);
+        }
     
-         // displayCards関数
-         function displayCards(cards) {
+        // displayCards関数
+        function displayCards(cards) {
+
             const cardsContainer = document.getElementById('cards-container');
             cards.forEach(card => {
+
                 // cards-containerに追加する<div class="card">を作成
                 const cardElement = document.createElement('div');
                 cardElement.classList.add('card');
@@ -177,7 +184,7 @@ function handleSearch() {
                 lrigDeck.appendChild(cardElement);
                 console.log(`Added ${card.name} to Lrig Deck`);
                 sortLrigDeck();
-            } else if (['シグニ', 'スペル'].includes(cardType)) {
+            } else if (['シグニ', 'スペル', 'サーバント'].includes(cardType)) {
                 if (mainDeck.children.length >= 40) {
                     console.log(`Cannot add ${card.name} to Main Deck: Deck is full`);
                     return;
@@ -268,12 +275,13 @@ function handleSearch() {
 
             const order = {
                 'シグニ': 1,
-                'スペル': 2
+                'スペル': 2,
+                'サーバント': 3
             };
 
             cardElements.sort((a, b) => {
-                const aType = order[a.dataset.type] || 3;
-                const bType = order[b.dataset.type] || 3;
+                const aType = order[a.dataset.type] || 4;
+                const bType = order[b.dataset.type] || 4;
 
                 if (aType !== bType) {
                 return aType - bType;
