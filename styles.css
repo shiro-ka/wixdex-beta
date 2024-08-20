@@ -62,7 +62,7 @@ main {
 #main-deck {
     border: none; /*枠線を削除 */
     padding: 0 1rem; /*左右に余白を追加*/
-    height: calc(68.85vw + 5px); /* 縦幅を設定 */
+    height: calc(86.1875vw + 2.3px); /* 縦幅を設定 */
 }
 
 #lrig-deck .card, #main-deck .card {
