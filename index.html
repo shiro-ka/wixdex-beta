@@ -118,11 +118,7 @@
     
                 // カードにフリックのリスナーを追加
                 cardElement.addEventListener('touchstart', handleTouchStart);
-                cardElement.addEventListener('touchend', (event) => {
-                    // 現在のカードを記録
-                    currentCard = card; 
-                    handleTouchEnd(event);
-                });
+                cardElement.addEventListener('touchend', (event) => handleTouchEnd(event, card));
             });
         }
     
