@@ -57,8 +57,8 @@ main {
 }
 
 #lrig-deck {
-    border: 1px solid #ccc; /*枠線 */
-    padding: 0 1rem; /*左右に余白を追加*/
+    border: none; /* 枠線を削除 */
+    padding: 0 1rem; /* 左右に余白を追加 */
     height: calc(17vw + 0.5rem); /* 縦幅を設定 */
 }
 
