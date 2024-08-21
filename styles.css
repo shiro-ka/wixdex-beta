@@ -63,8 +63,8 @@ main {
 }
 
 #main-deck {
-    border: none; /*枠線を削除 */
-    padding: 0 1rem; /*左右に余白を追加*/
+    border: none; /* 枠線を削除 */
+    padding: 0 1rem; /*左右に余白を追加 */
     height: calc(79vw + 0.5rem); /* 縦幅を設定 */
 }
 
@@ -78,7 +78,7 @@ main {
 }
 
 #card-list {
-    border: none;  /* 枠線を削除 */
+    border: none; /* 枠線を削除 */
     border-radius: 5px;
     overflow-x: auto; /* 横スクロールを可能にする */
 }
@@ -87,8 +87,12 @@ main {
     display: flex; /* カードを横一列に並べる */
     gap: 5px; /* カード間の隙間を指定 */
     padding: 0.5rem 0; /* 上下の余白を追加 */
-    overflow-x: auto hidden; /* 横スクロールを可能にする */
+    overflow-x: auto; /* 横スクロールを可能にする */
     width: 100%; /* 親要素に合わせて幅を100%に設定 */
+}
+
+#cards-container::-webkit-scrollbar{
+    display: none;
 }
 
 #search-tool {
@@ -97,6 +101,6 @@ main {
 
 #search-box {
     border: none; /* 枠線を削除 */
-    padding: 0 1rem; /*左右に余白を追加 */
+    padding: 0 1rem; /* 左右に余白を追加 */
 }
 
