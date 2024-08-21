@@ -74,7 +74,7 @@ main {
 }
 
 #deck-status {
-    height: 1rem; /* 縦幅を設定 */
+    height: 2vh; /* 縦幅を設定 */
 }
 
 #card-list {
