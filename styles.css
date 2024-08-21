@@ -87,7 +87,7 @@ main {
     display: flex; /* カードを横一列に並べる */
     gap: 5px; /* カード間の隙間を指定 */
     padding: 0.5rem 0; /* 上下の余白を追加 */
-    overflow-x: auto; /* 横スクロールを可能にする */
+    overflow-x: auto hidden; /* 横スクロールを可能にする */
     width: 100%; /* 親要素に合わせて幅を100%に設定 */
 }
 
