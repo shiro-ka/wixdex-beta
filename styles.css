@@ -5,7 +5,7 @@
 }
 
 h2 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #ccc;
 }
 
@@ -69,18 +69,12 @@ main {
 }
 
 #lrig-deck .card, #main-deck .card {
-    grid-column: span 1; /* 各カードが1カラム分の幅を占めるように設定 */
+    grid-column: span 1; /* 各カードが1カラム分の幅になる */
     width: 100%; /* 幅を100%に設定 */
 }
 
-#search-tool {
-    margin-bottom: 1rem;
-}
-
-#search-box {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 5px;
+#deck-status {
+    height: 1rem; /* 縦幅を設定 */
 }
 
 #card-list {
@@ -97,5 +91,12 @@ main {
     width: 100%; /* 親要素に合わせて幅を100%に設定 */
 }
 
+#search-tool {
+    margin-bottom: 1rem;
+}
 
+#search-box {
+    border: none; /* 枠線を削除 */
+    padding: 0 1rem; /*左右に余白を追加 */
+}
 
