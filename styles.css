@@ -80,7 +80,7 @@ main {
 #card-list {
     border: none;  /* 枠線を削除 */
     border-radius: 5px;
-    overflow-x: auto hidden; /* 横スクロールを可能にする */
+    overflow-x: auto; /* 横スクロールを可能にする */
 }
 
 #cards-container {
