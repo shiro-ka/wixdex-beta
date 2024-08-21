@@ -74,6 +74,7 @@ main {
 }
 
 #deck-status {
+    padding: 0.5rem 1rem; /* 余白を設定 */
     height: 1rem; /* 縦幅を設定 */
 }
 
@@ -91,7 +92,7 @@ main {
 }
 
 #cards-container::-webkit-scrollbar{
-    display: none; /* スクロールバーを非表示 */
+    display: none; /* リスト欄のスクロールバーを非表示 */
 }
 
 #search-tool {
