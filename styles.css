@@ -49,14 +49,14 @@ main {
 
 #deck-area {
     display: flex;
-    padding: 0 2rem; /* 余白 */
+    padding: 0 1rem; /* 余白 */
     flex-direction: column; /* コンテンツを縦に並べる */
     }
 
     #lrig-deck {
         border: none; /* 枠線を削除 */
         align-content: center; /* 中央揃え */
-        height: calc(17vw + 1.5rem); /* 縦幅を設定 */
+        height: calc(17vw + 0.5rem); /* 縦幅を設定 */
     }
 
     #main-deck {
