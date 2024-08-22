@@ -44,7 +44,7 @@ main {
 .card-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr); /*8列で折り返す */
-    gap: calc((100vw - 1rem) / 200); /* カードごとの隙間を画面横幅-1remの1/200に */
+    gap: calc(100vw / 200); /* カードごとの隙間を画面横幅の1/200に */
 }
 
 #deck-area {
@@ -54,9 +54,8 @@ main {
     }
 
     #lrig-deck {
-        border: none; /* 枠線を削除 */
         align-content: center; /* 中央揃え */
-        height: calc(17vw + 0.5rem); /* 縦幅を設定 */
+        height: 17vw; /* 縦幅を設定 */
     }
 
     #main-deck {
