@@ -5,8 +5,9 @@
 }
 
 h2 {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #ccc;
+    padding: 0.5rem 0; /* 余白 */
 }
 
 body {
@@ -48,29 +49,30 @@ main {
 
 #deck-area {
     display: flex;
+    padding: 0 2rem; /* 余白 */
     flex-direction: column; /* コンテンツを縦に並べる */
-}
+    }
 
-/* カード名を非表示にする */
-#lrig-deck .card p, #main-deck .card p {
-    display: none;
-}
+    #lrig-deck {
+        border: none; /* 枠線を削除 */
+        align-content: center; /* 中央揃え */
+        height: calc(17vw + 1.5rem); /* 縦幅を設定 */
+    }
 
-#lrig-deck {
-    border: none; /* 枠線を削除 */
-    padding: 0.5rem 2rem; /* 余白 */
-    height: calc(17vw + 1.5rem); /* 縦幅を設定 */
-}
+    #main-deck {
+        border: none; /* 枠線を削除 */
+        padding: 0.5rem 2rem; /*余白 */
+        height: calc(79vw + 1.5rem); /* 縦幅を設定 */
+    }
 
-#main-deck {
-    border: none; /* 枠線を削除 */
-    padding: 0.5rem 2rem; /*余白 */
-    height: calc(79vw + 1.5rem); /* 縦幅を設定 */
-}
+    /* カード名を非表示にする */
+    #lrig-deck .card p, #main-deck .card p {
+        display: none;
+    }
 
-#lrig-deck .card, #main-deck .card {
-    grid-column: span 1; /* 各カードが1カラム分の幅になる */
-    width: 100%; /* 幅を100%に設定 */
+    #lrig-deck .card, #main-deck .card {
+        grid-column: span 1; /* 各カードが1カラム分の幅になる */
+        width: 100%; /* 幅を100%に設定 */
 }
 
 #deck-status {
@@ -82,17 +84,17 @@ main {
     background-color: rgb(66, 67, 70); /* 背景色 */
     height: 7.5rem ; /* 縦幅 */
     align-content: center; /* 中央揃え */
-}
+    }
 
-#cards-container {
-    display: flex; /* カードを横一列に並べる */
-    gap: 5px; /* カード間の隙間 */
-    overflow-x: auto; /* 横スクロール */
-    width: 100%; /* 親要素に合わせて幅を100%に設定 */
-}
+    #cards-container {
+        display: flex; /* カードを横一列に並べる */
+        gap: 5px; /* カード間の隙間 */
+        overflow-x: auto; /* 横スクロール */
+        width: 100%; /* 親要素に合わせて幅を100%に設定 */
+    }
 
-/* リスト欄のスクロールバーを非表示 */
-#cards-container::-webkit-scrollbar{
+    /* リスト欄のスクロールバーを非表示 */
+    #cards-container::-webkit-scrollbar{
     display: none;
 }
 
