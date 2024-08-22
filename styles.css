@@ -74,12 +74,12 @@ main {
 }
 
 #deck-status {
-    padding: 0.5rem 1rem; /* 余白を設定 */
-    height: 1rem; /* 縦幅を設定 */
+    padding: 0 1rem; /* 左右の余白を設定 */
+    height: 2rem; /* 縦幅を設定 */
 }
 
 #card-list {
-    border: none; /* 枠線を削除 */
+    background-color: rgb(66, 67, 70); /* 背景色を設定 */
     overflow-x: auto; /* 横スクロールを可能にする */
     height:7.5rem ; /* 縦幅を設定 */
 }
