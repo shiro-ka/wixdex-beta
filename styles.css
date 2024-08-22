@@ -82,7 +82,7 @@ main {
     background-color: rgb(66, 67, 70); /* 背景色 */
     overflow-x: auto; /* 横スクロール */
     height: 7.5rem ; /* 縦幅 */
-    justify-content: center; /* 中央揃え */
+    justify-items: center; /* 中央揃え */
 }
 
 #cards-container {
