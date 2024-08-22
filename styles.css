@@ -49,7 +49,7 @@ main {
 
 #deck-area {
     display: flex;
-    padding: 0 1rem; /* 余白 */
+    padding: 0.5rem 1rem; /* 余白 */
     flex-direction: column; /* コンテンツを縦に並べる */
     }
 
@@ -61,7 +61,7 @@ main {
 
     #main-deck {
         border: none; /* 枠線を削除 */
-        padding: 0.5rem 2rem; /*余白 */
+        align-content: center; /* 中央揃え */
         height: calc(79vw + 1.5rem); /* 縦幅を設定 */
     }
 
