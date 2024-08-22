@@ -59,7 +59,7 @@ main {
     }
 
     #main-deck {
-        height: calc(79vw + 1.5rem); /* 縦幅 */
+        height: 79vw; /* 縦幅 */
     }
 
     /* カード幅を設定 */
