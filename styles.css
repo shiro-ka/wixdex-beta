@@ -80,7 +80,6 @@ main {
 
 #card-list {
     background-color: rgb(66, 67, 70); /* 背景色 */
-    overflow-x: auto; /* 横スクロール */
     height: 7.5rem ; /* 縦幅 */
     align-content: center; /* 中央揃え */
 }
