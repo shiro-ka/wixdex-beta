@@ -59,7 +59,7 @@ main {
     }
 
     #main-deck {
-        height: 83vw; /* 縦幅 */
+        height: 78vw; /* 縦幅 */
     }
 
     /* カード幅を設定 */
@@ -76,7 +76,13 @@ main {
 #deck-status {
     padding: 0 1rem; /* 余白 */
     height: 2rem; /* 縦幅 */
+    align-content: center; /* 中央揃え */
     flex-direction: row; /* コンテンツを横に並べる */
+    }
+
+    #life-burst-icon{
+        width: 1rem;
+        height: 1rem;
 }
 
 #card-list {
