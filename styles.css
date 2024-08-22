@@ -15,13 +15,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow: hidden;
-    background-color: rgb(43, 45, 49);
+    overflow: hidden; /* スクロールしない */
+    background-color: rgb(43, 45, 49); /* 背景色 */
 }
 
 main {
     flex: 1;
-    padding: 0.5rem;
 }
 
 .card {
@@ -36,8 +35,8 @@ main {
 }
 
 .card img {
-    max-width: 100%; /* カード内の画像がカードの幅に合わせて調整される */
-    max-height: 100%; /* カード内の画像がカードの高さに合わせて調整される */
+    max-width: 100%; /* カード画像をカードの幅に合わせて調整 */
+    max-height: 100%; /* 同上高さ */
     object-fit: contain; /* 画像がカード内に収まるように調整 */
 }
 
@@ -52,20 +51,21 @@ main {
     flex-direction: column; /* コンテンツを縦に並べる */
 }
 
+/* カード名を非表示にする */
 #lrig-deck .card p, #main-deck .card p {
-    display: none; /* カード名を非表示にする */
+    display: none;
 }
 
 #lrig-deck {
     border: none; /* 枠線を削除 */
-    padding: 0 1rem; /* 左右に余白を追加 */
-    height: calc(17vw + 0.5rem); /* 縦幅を設定 */
+    padding: 0.5rem 2rem; /* 余白 */
+    height: calc(17vw + 1.5rem); /* 縦幅を設定 */
 }
 
 #main-deck {
     border: none; /* 枠線を削除 */
-    padding: 0 1rem; /*左右に余白を追加 */
-    height: calc(79vw + 0.5rem); /* 縦幅を設定 */
+    padding: 0.5rem 2rem; /*余白 */
+    height: calc(79vw + 1.5rem); /* 縦幅を設定 */
 }
 
 #lrig-deck .card, #main-deck .card {
@@ -74,25 +74,27 @@ main {
 }
 
 #deck-status {
-    padding: 0 1rem; /* 左右の余白を設定 */
-    height: 2rem; /* 縦幅を設定 */
+    padding: 0 1rem; /* 余白 */
+    height: 2rem; /* 縦幅 */
 }
 
 #card-list {
-    background-color: rgb(66, 67, 70); /* 背景色を設定 */
-    overflow-x: auto; /* 横スクロールを可能にする */
-    height:7.5rem ; /* 縦幅を設定 */
+    background-color: rgb(66, 67, 70); /* 背景色 */
+    overflow-x: auto; /* 横スクロール */
+    height: 7.5rem ; /* 縦幅 */
 }
 
 #cards-container {
     display: flex; /* カードを横一列に並べる */
-    gap: 5px; /* カード間の隙間を指定 */
-    overflow-x: auto; /* 横スクロールを可能にする */
+    gap: 5px; /* カード間の隙間 */
+    overflow-x: auto; /* 横スクロール */
     width: 100%; /* 親要素に合わせて幅を100%に設定 */
+    align-items: center; /* 垂直方向の中央揃え */
 }
 
+/* リスト欄のスクロールバーを非表示 */
 #cards-container::-webkit-scrollbar{
-    display: none; /* リスト欄のスクロールバーを非表示 */
+    display: none;
 }
 
 #search-tool {
