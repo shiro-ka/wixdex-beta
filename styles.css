@@ -60,8 +60,6 @@ main {
     }
 
     #main-deck {
-        border: none; /* 枠線を削除 */
-        align-content: center; /* 中央揃え */
         height: calc(79vw + 1.5rem); /* 縦幅を設定 */
     }
 
