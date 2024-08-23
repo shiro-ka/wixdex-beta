@@ -83,10 +83,15 @@ main {
     #life-burst{
         width: 1rem;
         height: 1rem;
-    }
-    
-    #life-burst-icon{
+        }
+
+        #life-burst-icon{
         width: 1rem;
+        height: 1rem;
+    }
+
+    #life-burst-count{
+        width: 2.5rem;
         height: 1rem;
 }
 
