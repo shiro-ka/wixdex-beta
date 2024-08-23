@@ -80,6 +80,9 @@
             const searchInput = document.getElementById('search-input');
             searchInput.addEventListener('input', handleSearch);
 
+            // ステータス欄を更新
+            updateDeckStatus();
+
         });
 
         // handleSearch関数
@@ -152,7 +155,7 @@
             if (swipeDistance > 50 && currentCard) {
                 addCardToDeck(currentCard);
 
-                // DeckStatusを更新
+                // ステータス欄を更新
                 updateDeckStatus();
             }
         }
@@ -213,6 +216,7 @@
             cardElement.addEventListener('touchend', handleRemoveTouchEnd);
         }
 
+        // ステータス欄を更新する関数
         function updateDeckStatus() {
             const lrigDeck = document.getElementById('lrig-deck-cards').children.length;
             const mainDeck = document.getElementById('main-deck-cards').children.length;
@@ -222,12 +226,12 @@
 
             // LB枚数を表示
             document.getElementById('deck-status').innerHTML = `
-            <div>${lifeBurstCount}</div>
+            <h3>${lifeBurstCount}</h3>
             `;
         }
 
     
-        //　removeCardFromDeck関数
+        // removeCardFromDeck関数
         function removeCardFromDeck(cardElement) {
             const lrigDeck = document.getElementById('lrig-deck-cards');
             const mainDeck = document.getElementById('main-deck-cards');
