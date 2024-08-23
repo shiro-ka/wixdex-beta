@@ -75,6 +75,9 @@
                 .then(responseData => {
                     window.cardsData = responseData;
                     displayCards(responseData);
+
+                    // 初回読込時にステータス欄を更新
+                    updateDeckStatus();
                 })
 
                 .catch(error => console.error('Error loading card data:', error));
@@ -82,9 +85,6 @@
             // 検索入力のイベントリスナーを設定
             const searchInput = document.getElementById('search-input');
             searchInput.addEventListener('input', handleSearch);
-
-            // ステータス欄を更新
-            updateDeckStatus();
 
         });
 
@@ -217,6 +217,9 @@
             // ルリグデッキとメインデッキのカードに削除のフリックイベントを追加
             cardElement.addEventListener('touchstart', handleTouchStart);
             cardElement.addEventListener('touchend', handleRemoveTouchEnd);
+
+            // ステータス欄を更新
+            updateDeckStatus();
         }
 
         // ステータス欄を更新する関数
@@ -246,6 +249,9 @@
                 console.log('Card removed from Main Deck');
                 sortMainDeck();
             }
+
+            // ステータス欄を更新
+            updateDeckStatus();
         }
     
         // 削除用のhandleTouchEnd関数
