@@ -75,10 +75,10 @@ main {
 
 #deck-status {
     display: flex;
+    align-items: center; /* 中央揃え */
+    flex-direction: row; /* コンテンツを横に並べる */
     padding: 0.5rem 1rem; /* 余白 */
     height: 2rem; /* 縦幅 */
-    align-content: center; /* 中央揃え */
-    flex-direction: row; /* コンテンツを横に並べる */
     }
 
     #life-burst{
@@ -92,6 +92,8 @@ main {
     }
 
     #life-burst-count{
+        display: flex;
+        align-items: center;
         width: 2.5rem;
         height: 1rem;
 }
