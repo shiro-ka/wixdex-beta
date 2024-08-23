@@ -74,6 +74,7 @@ main {
 }
 
 #deck-status {
+    display: flex;
     padding: 0.5rem 1rem; /* 余白 */
     height: 2rem; /* 縦幅 */
     align-content: center; /* 中央揃え */
