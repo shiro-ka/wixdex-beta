@@ -38,6 +38,9 @@
                 <img id="life-burst-icon" src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_burst.png">
             </div>
 
+            <div id="life-burst-count">
+            </div>
+
         </section>
 
         <section id="card-list">
@@ -225,9 +228,7 @@
             const lifeBurstCount = window.cardsData.filter(card => card.lifeBurst === 1).length;
 
             // LB枚数を表示
-            document.getElementById('deck-status').innerHTML = `
-            <h3>${lifeBurstCount}</h3>
-            `;
+            document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`
         }
 
     
