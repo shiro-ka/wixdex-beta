@@ -80,6 +80,11 @@ main {
     flex-direction: row; /* コンテンツを横に並べる */
     }
 
+    #life-burst{
+        width: 1rem;
+        height: 1rem;
+    }
+    
     #life-burst-icon{
         width: 1rem;
         height: 1rem;
