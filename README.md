@@ -4,8 +4,6 @@ https://shiro-ka.github.io/wixdex
 
 chrome以外非対応
 
-LBのカウント不備
-
 カード名検索後、文字を消すとカードがなにも表示されない
 
 <追加予定>
