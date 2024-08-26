@@ -1,3 +1,8 @@
+// タッチ開始時のY座標初期値を設定
+let touchStartY = 0;
+// 現在のカードを記録する変数
+let currentCard;
+
 // DOM読込完了時に実行
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -174,8 +179,6 @@ function updateDeckStatus() {
     // LB枚数を表示
     document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`;
 }
-
-
 
 // removeCardFromDeck関数
 function removeCardFromDeck(cardElement) {
