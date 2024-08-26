@@ -1,6 +1,6 @@
 https://shiro-ka.github.io/wixdex
 
-<既知の問題>
+<既知の問題> 
 
 chrome以外非対応
 
