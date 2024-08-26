@@ -1,8 +1,8 @@
 https://shiro-ka.github.io/wixdex
 
-<既知の問題> 
+スマホ：chrome・vivaldi以外非サポート
 
-chrome、vivaldi以外非サポート
+<既知の問題> 
 
 カード名検索後、文字を消すとカードがなにも表示されない
 
