@@ -92,8 +92,9 @@ main {
     }
 
     #life-burst-count{
+        color: #ccc;
         display: flex;
-        align-items: center;
+        justify-content: center;
         width: 2.5rem;
         height: 1rem;
 }
