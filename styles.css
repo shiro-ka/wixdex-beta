@@ -118,11 +118,11 @@ main {
 }
 
 #search-tool {
-    margin-bottom: 1rem;
-}
+    height: 2rem;
+    align-content: center; /* 中央揃え */
+    }
 
-#search-box {
-    border: none; /* 枠線を削除 */
-    padding: 0 1rem; /* 左右に余白を追加 */
+    #search-box {
+        padding: 0 1rem; /* 左右に余白を追加 */
 }
 
