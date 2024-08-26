@@ -92,11 +92,11 @@ main {
     }
 
     #life-burst-count{
-        color: #ccc;
+        color: #ccc; /* 文字色 */
         display: flex;
-        justify-content: center;
-        width: 2.5rem;
-        height: 1rem;
+        justify-content: center; /* 中央揃え(水平) */
+        width: 1.5rem; /* 横幅 */
+        height: 1rem; /* 縦幅 */
 }
 
 #card-list {
