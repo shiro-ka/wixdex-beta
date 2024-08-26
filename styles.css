@@ -125,7 +125,7 @@ main {
     height: 3rem; /* 縦幅 */
     }
 
-    #search-box {
+    #search-input {
         box-sizing: border-box;
         height: 1.5rem;
         width: 10rem;
