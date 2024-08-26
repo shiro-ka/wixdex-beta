@@ -224,15 +224,25 @@
 
         // ステータス欄を更新する関数
         function updateDeckStatus() {
-            const lrigDeck = document.getElementById('lrig-deck-cards').children.length;
-            const mainDeck = document.getElementById('main-deck-cards').children.length;
+            // メインデッキ要素を取得
+             const mainDeck = document.getElementById('main-deck-cards');
 
-            // lifeBurstのカウント
-            const lifeBurstCount = window.cardsData.filter(card => card.lifeBurst === 1).length;
+            // メインデッキ内のlifeBurstのカウント
+            let lifeBurstCount = 0;
+
+            // メインデッキ内の各カードをチェック
+            Array.from(mainDeck.children).forEach(cardElement => {
+                const cardName = cardElement.querySelector('p').textContent;
+                const cardData = window.cardsData.find(card => card.name === cardName);
+                if (cardData && cardData.lifeBurst === 1) {
+                    lifeBurstCount++;
+                }
+            });
 
             // LB枚数を表示
-            document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`
+            document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`;
         }
+
 
     
         // removeCardFromDeck関数
@@ -254,7 +264,7 @@
             updateDeckStatus();
         }
     
-        // 削除用のhandleTouchEnd関数
+        // 削除用handleTouchEnd関数
         function handleRemoveTouchEnd(event) {
             // タッチ終了時のY座標を取得し、フリックの距離を計算
             const touchEndY = event.changedTouches[0].clientY;
@@ -266,7 +276,7 @@
             }
         }
     
-        // ルリグデッキをソートする関数
+        // ルリグデッキソート関数
         function sortLrigDeck() {
             const lrigDeck = document.getElementById('lrig-deck-cards');
             const cardElements = Array.from(lrigDeck.children);
@@ -298,7 +308,7 @@
             console.log('After sorting Lrig Deck:', Array.from(lrigDeck.children).map(card => card.querySelector('p').textContent));
         }
     
-        // メインデッキをソートする関数
+        // メインデッキソート関数
         function sortMainDeck() {
             const mainDeck = document.getElementById('main-deck-cards');
             const cardElements = Array.from(mainDeck.children);
