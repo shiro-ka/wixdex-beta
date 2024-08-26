@@ -126,6 +126,7 @@ main {
     }
 
     #search-box {
+        box-sizing: border-box;
         height: 1.5rem;
         width: 10rem;
 }
