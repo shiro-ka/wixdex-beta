@@ -106,7 +106,7 @@ function handleTouchStart(event) {
     touchStartY = event.touches[0].clientY;
 }
 
-// リスト欄フリックでカードを追加
+// リスト欄のカード上下フリックでデッキに追加
 function handleTouchEnd(event) {
 
     // タッチ終了時のY座標を取得し、フリックの距離を計算
@@ -159,7 +159,7 @@ function addCardToDeck(card) {
     // カード種類の最初の要素を取得
     const cardType = card.type[0];
 
-    // カード種類に応じてデッキに追加
+    // ルリグデッキに追加
     if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
         if (lrigDeck.children.length >= 8) {
             console.log(`Cannot add ${card.name} to Lrig Deck: Deck is full`);
@@ -168,16 +168,32 @@ function addCardToDeck(card) {
         lrigDeck.appendChild(cardElement);
         console.log(`Added ${card.name} to Lrig Deck`);
         sortLrigDeck();
+
+    // メインデッキに追加
     } else if (['シグニ', 'スペル', 'サーバント'].includes(cardType)) {
+
+        // デッキ枚数は40枚まで
         if (mainDeck.children.length >= 40) {
             console.log(`Cannot add ${card.name} to Main Deck: Deck is full`);
             return;
         }
+
+        // デッキ内の同名カードの数を確認
+        const sameNameCards = Array.from(mainDeck.children).filter(deckCard => {
+            const deckCardName = deckCard.querySelector('p').textContent;
+            return deckCardName === card.name;
+        });
+
+        // 同名カードは4枚まで
+        if (sameNameCards.length >= 4) {
+            console.log(`Cannot add ${card.name} to Main Deck: More than 4 copies`);
+            ;
+        }
+
         mainDeck.appendChild(cardElement);
         console.log(`Added ${card.name} to Main Deck`);
         sortMainDeck();
-    } else {
-        console.log(`Card type ${cardType} is not recognized`);
+
     }
 
     // カードにフリックイベントを追加
