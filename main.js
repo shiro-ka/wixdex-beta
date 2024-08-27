@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // タイプ検索のプルダウンのイベントリスナー
     const searchTypeInput = document.getElementById('search-type-input');
     searchTypeInput.addEventListener('change', handleSearch);
+
+    // レベル検索のプルダウンのイベントリスナー
+    const searchLevelInput = document.getElementById('search-level-input');
+    searchLevelInput.addEventListener('change', handleSearch);
 });
 
 // ステータス欄を更新
@@ -52,7 +56,8 @@ function updateDeckStatus() {
 // 検索条件オブジェクト
 const searchCriteria = {
     name: '',
-    type: ''
+    type: '',
+    level: ''
 };
 
 // handleSearch関数
