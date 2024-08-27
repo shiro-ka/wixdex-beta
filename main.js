@@ -187,7 +187,7 @@ function addCardToDeck(card) {
         // 同名カードは4枚まで
         if (sameNameCards.length >= 4) {
             console.log(`Cannot add ${card.name} to Main Deck: More than 4 copies`);
-            ;
+            return;
         }
 
         mainDeck.appendChild(cardElement);
