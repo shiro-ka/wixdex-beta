@@ -66,6 +66,7 @@ function handleSearch() {
     searchCriteria.type = document.getElementById('search-type-input').value.toLowerCase();
     searchCriteria.level = document.getElementById('search-level-input').value.toLowerCase();
 
+    // filterCards関数にcardsデータとcriteriaを渡す
     const filteredCards = filterCards(window.cardsData, searchCriteria);
     displayCards(filteredCards);
 }
@@ -330,13 +331,16 @@ function sortMainDeck() {
     cardElements.sort((a, b) => {
         const aType = order[a.dataset.type] || 4;
         const bType = order[b.dataset.type] || 4;
+        
+        const aLevel = parseInt(a.dataset.level, 10);
+        const bLevel = parseInt(b.dataset.level, 10);
 
         if (aType !== bType) {
-        return aType - bType;
+            return aType - bType;
         }
 
         if (aLevel !== bLevel) {
-        return aLevel - bLevel;
+            return aLevel - bLevel;
         }
 
         // レベルが同じ場合、名前でソート
@@ -348,5 +352,4 @@ function sortMainDeck() {
 
     mainDeck.innerHTML = '';
     cardElements.forEach(element => mainDeck.appendChild(element));
-
 }
