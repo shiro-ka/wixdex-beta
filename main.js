@@ -177,13 +177,46 @@ function addCardToDeck(card) {
     // カードにフリックイベントを追加
     cardElement.addEventListener('touchstart', handleTouchStart);
     cardElement.addEventListener('touchend', handleRemoveTouchEnd);
+    cardElement.addEventListener('touchend', handleDuplicateTouchEnd);
 
     // ステータス欄を更新
     updateDeckStatus();
 }
 
+// 上フリックでデッキにさらに追加
+function handleDuplicateTouchEnd(event) {
+
+    // タッチ終了時のY座標を取得し、フリックの距離を計算
+    const touchEndY = event.changedTouches[0].clientY;
+    const swipeDistance = touchStartY - touchEndY;
+
+    // 上方向にスワイプされた場合、カードを複製
+    if (swipeDistance > 50 && event.currentTarget) {
+        duplicateCard(event.currentTarget);
+    }
+}
+
+// 複製の関数
+function duplicateCard(cardElement) {
+
+    const lrigDeck = document.getElementById('lrig-deck-cards');
+    const mainDeck = document.getElementById('main-deck-cards');
+
+    const cardName = cardElement.querySelector('p').textContent;
+    const cardData = window.cardsData.find(card => card.name === cardName);
+
+    if (!cardData) {
+        console.log(`Card data not found for ${cardName}`);
+        return;
+    }
+
+    // addCardToDeck関数を使ってカードを追加
+    addCardToDeck(cardData);
+}
+
 // 下フリックでデッキからカードを削除
 function handleRemoveTouchEnd(event) {
+
     // タッチ終了時のY座標を取得し、フリックの距離を計算
     const touchEndY = event.changedTouches[0].clientY;
     const swipeDistance = touchEndY - touchStartY;
