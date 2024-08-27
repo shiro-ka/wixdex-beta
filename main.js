@@ -183,7 +183,7 @@ function addCardToDeck(card) {
     updateDeckStatus();
 }
 
-// 上フリックでデッキにさらに追加
+// デッキ欄のカード上フリックでさらに追加
 function handleDuplicateTouchEnd(event) {
 
     // タッチ終了時のY座標を取得し、フリックの距離を計算
@@ -196,7 +196,7 @@ function handleDuplicateTouchEnd(event) {
     }
 }
 
-// 複製の関数
+// 追加の関数
 function duplicateCard(cardElement) {
 
     const lrigDeck = document.getElementById('lrig-deck-cards');
@@ -214,7 +214,7 @@ function duplicateCard(cardElement) {
     addCardToDeck(cardData);
 }
 
-// 下フリックでデッキからカードを削除
+// デッキ欄のカード下フリックでデッキから削除
 function handleRemoveTouchEnd(event) {
 
     // タッチ終了時のY座標を取得し、フリックの距離を計算
