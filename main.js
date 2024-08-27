@@ -67,19 +67,33 @@ function handleSearch() {
     searchCriteria.level = document.getElementById('search-level-input').value.toLowerCase();
 
     // filterCards関数にcardsデータとcriteriaを渡す
-    const filteredCards = filterCards(window.cardsData, searchCriteria);
-    displayCards(filteredCards);
+    //const filteredCards = filterCards(window.cardsData, searchCriteria);
+    //displayCards(filteredCards);
+
+    // ここでwindow.cardsDataが配列であることを確認する
+    if (Array.isArray(window.cardsData)) {
+        const filteredCards = filterCards(window.cardsData, searchCriteria);
+        displayCards(filteredCards);
+    } else {
+        console.error('cardsData is not an array');
+    }
 }
 
 // カードをフィルタリングする関数
 function filterCards(cards, criteria) {
+
+    if (!Array.isArray(cards)) {
+        console.error('cards is not an array');
+        return [];
+    }
+
     return cards.filter(card => {
         // 名前でフィルタリング
         if (criteria.name && !card.name.toLowerCase().includes(criteria.name)) {
             return false;
         }
-        // タイプでフィルタリング
-        if (criteria.type && !card.type.toLowerCase().includes(criteria.type)) {
+        // タイプでフィルタリング (typeは配列なのでincludesを使用)
+        if (criteria.type && !card.type.some(type => type.toLowerCase().includes(criteria.type))) {
             return false;
         }
         // レベルでフィルタリング
@@ -333,8 +347,8 @@ function sortMainDeck() {
         const bType = order[b.dataset.type] || 4;
 
         // aLevelとbLevelを取得
-        const aLevel = parseInt(a.dataset.level);
-        const bLevel = parseInt(b.dataset.level);
+        const aLevel = parseInt(a.dataset.level, 10);
+        const bLevel = parseInt(b.dataset.level, 10);
 
         if (aType !== bType) {
             return aType - bType;
