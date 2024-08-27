@@ -19,10 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         .catch(error => console.error('Error loading card data:', error));
 
-    // 検索入力のイベントリスナーを設定
+    // 検索のイベントリスナーを設定
     const searchInput = document.getElementById('search-input');
-    searchInput.addEventListener('input', handleSearch);
+    searchInput.addEventListener('input', filterCards);
 
+    // タイプ検索のプルダウンのイベントリスナー
+    const searchTypeInput = document.getElementById('search-type-input');
+    searchTypeInput.addEventListener('change', handleSearch);
 });
 
 // ステータス欄を更新
@@ -46,28 +49,40 @@ function updateDeckStatus() {
     document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`;
 }
 
+// 検索条件オブジェクト
+const searchCriteria = {
+    name: '',
+    type: ''
+};
+
 // handleSearch関数
 function handleSearch() {
+    searchCriteria.name = document.getElementById('search-input').value.toLowerCase();
+    searchCriteria.type = document.getElementById('search-type-input').value.toLowerCase();
+    searchCriteria.level = document.getElementById('search-level-input').value.toLowerCase();
 
-    const searchTerm = document.getElementById('search-input').value.toLowerCase();
-    const cardsContainer = document.getElementById('cards-container');
-    // 既存のカードをクリア
-    cardsContainer.innerHTML = '';
-
-    if (searchTerm === '') {
-
-        // 全カードを再表示
-        (window.cardsData);
-        return;
-    }
-
-    const filteredCards = window.cardsData.filter(card => {
-        const nameMatch = card.name.toLowerCase().includes(searchTerm);
-        const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
-        return nameMatch || subnameMatch;
-    });
-
+    const filteredCards = filterCards(window.cardsData, searchCriteria);
     displayCards(filteredCards);
+}
+
+// カードをフィルタリングする関数
+function filterCards(cards, criteria) {
+    return cards.filter(card => {
+        // 名前でフィルタリング
+        if (criteria.name && !card.name.toLowerCase().includes(criteria.name)) {
+            return false;
+        }
+        // タイプでフィルタリング
+        if (criteria.type && !card.type.toLowerCase().includes(criteria.type)) {
+            return false;
+        }
+        // レベルでフィルタリング
+        if (criteria.level && String(card.level) !== criteria.level) {
+            return false;
+        }
+
+        return true;
+    });
 }
 
 // displayCards関数
@@ -106,7 +121,7 @@ function handleTouchStart(event) {
     touchStartY = event.touches[0].clientY;
 }
 
-// リスト欄のカード上下フリックでデッキに追加
+// リスト欄のカードを上下フリックでデッキに追加
 function handleTouchEnd(event) {
 
     // タッチ終了時のY座標を取得し、フリックの距離を計算
@@ -148,7 +163,7 @@ function addCardToDeck(card) {
     const cardName = document.createElement('p');
     cardName.textContent = card.name;
 
-    // dataset にカードの種類とレベルを追加
+    // datasetにカード種類とレベルを追加
     cardElement.dataset.type = card.type[0];
     cardElement.dataset.level = card.level;
 
@@ -161,10 +176,13 @@ function addCardToDeck(card) {
 
     // ルリグデッキに追加
     if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
+
+        // デッキ枚数は8枚まで
         if (lrigDeck.children.length >= 8) {
             console.log(`Cannot add ${card.name} to Lrig Deck: Deck is full`);
             return;
         }
+
         lrigDeck.appendChild(cardElement);
         console.log(`Added ${card.name} to Lrig Deck`);
         sortLrigDeck();
@@ -273,9 +291,7 @@ function sortLrigDeck() {
     const lrigDeck = document.getElementById('lrig-deck-cards');
     const cardElements = Array.from(lrigDeck.children);
 
-    // デバッグ: ソート前のカード情報
-    console.log('Before sorting Lrig Deck:', cardElements.map(card => card.querySelector('p').textContent));
-
+    // ソート順
     const order = {
         'ルリグ': 1,
         'アシストルリグ': 2,
@@ -286,18 +302,12 @@ function sortLrigDeck() {
     cardElements.sort((a, b) => {
         const aType = order[a.dataset.type] || 5;
         const bType = order[b.dataset.type] || 5;
-
-        // デバッグ: 各カードの種類を表示
-        console.log('aType:', aType, 'bType:', bType);
-
         return aType - bType;
     });
 
     lrigDeck.innerHTML = '';
     cardElements.forEach(element => lrigDeck.appendChild(element));
 
-    // デバッグ: ソート後のカード情報
-    console.log('After sorting Lrig Deck:', Array.from(lrigDeck.children).map(card => card.querySelector('p').textContent));
 }
 
 // メインデッキソート
@@ -305,13 +315,7 @@ function sortMainDeck() {
     const mainDeck = document.getElementById('main-deck-cards');
     const cardElements = Array.from(mainDeck.children);
 
-    // デバッグ: ソート前のカード情報
-    console.log('Before sorting Main Deck:', cardElements.map(card => ({
-        name: card.querySelector('p').textContent,
-        type: card.dataset.type,
-        level: card.dataset.level
-    })));
-
+    // ソート順
     const order = {
         'シグニ': 1,
         'スペル': 2,
@@ -325,11 +329,6 @@ function sortMainDeck() {
         if (aType !== bType) {
         return aType - bType;
         }
-
-        // デバッグ: レベルと名前を確認
-        const aLevel = parseInt(a.dataset.level, 10);
-        const bLevel = parseInt(b.dataset.level, 10);
-        console.log('aLevel:', aLevel, 'bLevel:', bLevel);
 
         if (aLevel !== bLevel) {
         return aLevel - bLevel;
@@ -345,10 +344,4 @@ function sortMainDeck() {
     mainDeck.innerHTML = '';
     cardElements.forEach(element => mainDeck.appendChild(element));
 
-    // デバッグ: ソート後のカード情報
-    console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => ({
-        name: card.querySelector('p').textContent,
-        type: card.dataset.type,
-        level: card.dataset.level
-    })));
 }
