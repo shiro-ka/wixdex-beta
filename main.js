@@ -100,26 +100,32 @@ function displayCards(cards) {
     });
 }
 
-// handleTouchStart関数
+// リスト欄のフリックリスナー
 function handleTouchStart(event) {
     // タッチ開始時のY座標を保存
     touchStartY = event.touches[0].clientY;
 }
 
-// handleTouchEnd関数
+// リスト欄フリックでカードを追加
 function handleTouchEnd(event) {
 
     // タッチ終了時のY座標を取得し、フリックの距離を計算
     const touchEndY = event.changedTouches[0].clientY;
     const swipeDistance = touchStartY - touchEndY;
 
-    // 上方向にフリックされていた場合、addCardToDeck関数を処理
+    // 上方向にフリックされた場合、addCardToDeck関数を1回処理
     if (swipeDistance > 50 && currentCard) {
         addCardToDeck(currentCard);
-
-        // ステータス欄を更新
-        updateDeckStatus();
+    } 
+    // 下方向にフリックされた場合、addCardToDeck関数を4回処理
+    else if (swipeDistance < -50 && currentCard) {
+        for (let i = 0; i < 4; i++) {
+            addCardToDeck(currentCard);
+        }
     }
+
+    // ステータス欄を更新
+    updateDeckStatus();
 }
 
 // デッキにカードを追加
