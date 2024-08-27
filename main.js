@@ -19,17 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         .catch(error => console.error('Error loading card data:', error));
 
-    // 検索のイベントリスナーを設定
+    // 検索入力のイベントリスナーを設定
     const searchInput = document.getElementById('search-input');
-    searchInput.addEventListener('input', filterCards);
+    searchInput.addEventListener('input', handleSearch);
 
-    // タイプ検索のプルダウンのイベントリスナー
-    const searchTypeInput = document.getElementById('search-type-input');
-    searchTypeInput.addEventListener('change', handleSearch);
-
-    // レベル検索のプルダウンのイベントリスナー
-    const searchLevelInput = document.getElementById('search-level-input');
-    searchLevelInput.addEventListener('change', handleSearch);
 });
 
 // ステータス欄を更新
@@ -53,56 +46,28 @@ function updateDeckStatus() {
     document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`;
 }
 
-// 検索条件オブジェクト
-const searchCriteria = {
-    name: '',
-    type: '',
-    level: ''
-};
-
 // handleSearch関数
 function handleSearch() {
-    searchCriteria.name = document.getElementById('search-input').value.toLowerCase();
-    searchCriteria.type = document.getElementById('search-type-input').value.toLowerCase();
-    searchCriteria.level = document.getElementById('search-level-input').value.toLowerCase();
 
-    // filterCards関数にcardsデータとcriteriaを渡す
-    //const filteredCards = filterCards(window.cardsData, searchCriteria);
-    //displayCards(filteredCards);
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+    const cardsContainer = document.getElementById('cards-container');
+    // 既存のカードをクリア
+    cardsContainer.innerHTML = '';
 
-    // ここでwindow.cardsDataが配列であることを確認する
-    if (Array.isArray(window.cardsData)) {
-        const filteredCards = filterCards(window.cardsData, searchCriteria);
-        displayCards(filteredCards);
-    } else {
-        console.error('cardsData is not an array');
-    }
-}
+    if (searchTerm === '') {
 
-// カードをフィルタリングする関数
-function filterCards(cards, criteria) {
-
-    if (!Array.isArray(cards)) {
-        console.error('cards is not an array');
-        return [];
+        // 全カードを再表示
+        (window.cardsData);
+        return;
     }
 
-    return cards.filter(card => {
-        // 名前でフィルタリング
-        if (criteria.name && !card.name.toLowerCase().includes(criteria.name)) {
-            return false;
-        }
-        // タイプでフィルタリング (typeは配列なのでincludesを使用)
-        if (criteria.type && !card.type.some(type => type.toLowerCase().includes(criteria.type))) {
-            return false;
-        }
-        // レベルでフィルタリング
-        if (criteria.level && String(card.level) !== criteria.level) {
-            return false;
-        }
-
-        return true;
+    const filteredCards = window.cardsData.filter(card => {
+        const nameMatch = card.name.toLowerCase().includes(searchTerm);
+        const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
+        return nameMatch || subnameMatch;
     });
+
+    displayCards(filteredCards);
 }
 
 // displayCards関数
@@ -141,7 +106,7 @@ function handleTouchStart(event) {
     touchStartY = event.touches[0].clientY;
 }
 
-// リスト欄のカードを上下フリックでデッキに追加
+// リスト欄のカード上下フリックでデッキに追加
 function handleTouchEnd(event) {
 
     // タッチ終了時のY座標を取得し、フリックの距離を計算
@@ -183,7 +148,7 @@ function addCardToDeck(card) {
     const cardName = document.createElement('p');
     cardName.textContent = card.name;
 
-    // datasetにカード種類とレベルを追加
+    // dataset にカードの種類とレベルを追加
     cardElement.dataset.type = card.type[0];
     cardElement.dataset.level = card.level;
 
@@ -196,13 +161,10 @@ function addCardToDeck(card) {
 
     // ルリグデッキに追加
     if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
-
-        // デッキ枚数は8枚まで
         if (lrigDeck.children.length >= 8) {
             console.log(`Cannot add ${card.name} to Lrig Deck: Deck is full`);
             return;
         }
-
         lrigDeck.appendChild(cardElement);
         console.log(`Added ${card.name} to Lrig Deck`);
         sortLrigDeck();
@@ -311,7 +273,9 @@ function sortLrigDeck() {
     const lrigDeck = document.getElementById('lrig-deck-cards');
     const cardElements = Array.from(lrigDeck.children);
 
-    // ソート順
+    // デバッグ: ソート前のカード情報
+    console.log('Before sorting Lrig Deck:', cardElements.map(card => card.querySelector('p').textContent));
+
     const order = {
         'ルリグ': 1,
         'アシストルリグ': 2,
@@ -322,12 +286,18 @@ function sortLrigDeck() {
     cardElements.sort((a, b) => {
         const aType = order[a.dataset.type] || 5;
         const bType = order[b.dataset.type] || 5;
+
+        // デバッグ: 各カードの種類を表示
+        console.log('aType:', aType, 'bType:', bType);
+
         return aType - bType;
     });
 
     lrigDeck.innerHTML = '';
     cardElements.forEach(element => lrigDeck.appendChild(element));
 
+    // デバッグ: ソート後のカード情報
+    console.log('After sorting Lrig Deck:', Array.from(lrigDeck.children).map(card => card.querySelector('p').textContent));
 }
 
 // メインデッキソート
@@ -335,7 +305,13 @@ function sortMainDeck() {
     const mainDeck = document.getElementById('main-deck-cards');
     const cardElements = Array.from(mainDeck.children);
 
-    // ソート順
+    // デバッグ: ソート前のカード情報
+    console.log('Before sorting Main Deck:', cardElements.map(card => ({
+        name: card.querySelector('p').textContent,
+        type: card.dataset.type,
+        level: card.dataset.level
+    })));
+
     const order = {
         'シグニ': 1,
         'スペル': 2,
@@ -346,16 +322,17 @@ function sortMainDeck() {
         const aType = order[a.dataset.type] || 4;
         const bType = order[b.dataset.type] || 4;
 
-        // aLevelとbLevelを取得
-        const aLevel = parseInt(a.dataset.level, 10);
-        const bLevel = parseInt(b.dataset.level, 10);
-
         if (aType !== bType) {
-            return aType - bType;
+        return aType - bType;
         }
 
+        // デバッグ: レベルと名前を確認
+        const aLevel = parseInt(a.dataset.level, 10);
+        const bLevel = parseInt(b.dataset.level, 10);
+        console.log('aLevel:', aLevel, 'bLevel:', bLevel);
+
         if (aLevel !== bLevel) {
-            return aLevel - bLevel;
+        return aLevel - bLevel;
         }
 
         // レベルが同じ場合、名前でソート
@@ -367,4 +344,11 @@ function sortMainDeck() {
 
     mainDeck.innerHTML = '';
     cardElements.forEach(element => mainDeck.appendChild(element));
+
+    // デバッグ: ソート後のカード情報
+    console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => ({
+        name: card.querySelector('p').textContent,
+        type: card.dataset.type,
+        level: card.dataset.level
+    })));
 }
