@@ -25,6 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// ステータス欄を更新
+function updateDeckStatus() {
+    // メインデッキ要素を取得
+     const mainDeck = document.getElementById('main-deck-cards');
+
+    // メインデッキ内のlifeBurstのカウント
+    let lifeBurstCount = 0;
+
+    // メインデッキ内の各カードをチェック
+    Array.from(mainDeck.children).forEach(cardElement => {
+        const cardName = cardElement.querySelector('p').textContent;
+        const cardData = window.cardsData.find(card => card.name === cardName);
+        if (cardData && cardData.lifeBurst === 1) {
+            lifeBurstCount++;
+        }
+    });
+
+    // LB枚数を表示
+    document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`;
+}
+
 // handleSearch関数
 function handleSearch() {
 
@@ -87,6 +108,7 @@ function handleTouchStart(event) {
 
 // handleTouchEnd関数
 function handleTouchEnd(event) {
+
     // タッチ終了時のY座標を取得し、フリックの距離を計算
     const touchEndY = event.changedTouches[0].clientY;
     const swipeDistance = touchStartY - touchEndY;
@@ -100,8 +122,9 @@ function handleTouchEnd(event) {
     }
 }
 
-// addCardToDeck関数
+// デッキにカードを追加
 function addCardToDeck(card) {
+
     // lrig-deck-cardsとmain-deck-cardsをjsで取得
     const lrigDeck = document.getElementById('lrig-deck-cards');
     const mainDeck = document.getElementById('main-deck-cards');
@@ -130,9 +153,9 @@ function addCardToDeck(card) {
     // カード種類の最初の要素を取得
     const cardType = card.type[0];
 
-    // カードの種類に応じてデッキに追加
+    // カード種類に応じてデッキに追加
     if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
-        if (lrigDeck.children.length >= 7) {
+        if (lrigDeck.children.length >= 8) {
             console.log(`Cannot add ${card.name} to Lrig Deck: Deck is full`);
             return;
         }
@@ -151,7 +174,7 @@ function addCardToDeck(card) {
         console.log(`Card type ${cardType} is not recognized`);
     }
 
-    // ルリグデッキとメインデッキのカードに削除のフリックイベントを追加
+    // カードにフリックイベントを追加
     cardElement.addEventListener('touchstart', handleTouchStart);
     cardElement.addEventListener('touchend', handleRemoveTouchEnd);
 
@@ -159,28 +182,19 @@ function addCardToDeck(card) {
     updateDeckStatus();
 }
 
-// ステータス欄を更新する関数
-function updateDeckStatus() {
-    // メインデッキ要素を取得
-     const mainDeck = document.getElementById('main-deck-cards');
+// 下フリックでデッキからカードを削除
+function handleRemoveTouchEnd(event) {
+    // タッチ終了時のY座標を取得し、フリックの距離を計算
+    const touchEndY = event.changedTouches[0].clientY;
+    const swipeDistance = touchEndY - touchStartY;
 
-    // メインデッキ内のlifeBurstのカウント
-    let lifeBurstCount = 0;
-
-    // メインデッキ内の各カードをチェック
-    Array.from(mainDeck.children).forEach(cardElement => {
-        const cardName = cardElement.querySelector('p').textContent;
-        const cardData = window.cardsData.find(card => card.name === cardName);
-        if (cardData && cardData.lifeBurst === 1) {
-            lifeBurstCount++;
-        }
-    });
-
-    // LB枚数を表示
-    document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`;
+    // 下方向にスワイプされた場合、カードを削除
+    if (swipeDistance > 50 && event.currentTarget) {
+        removeCardFromDeck(event.currentTarget);
+    }
 }
 
-// removeCardFromDeck関数
+// 削除の関数　
 function removeCardFromDeck(cardElement) {
     const lrigDeck = document.getElementById('lrig-deck-cards');
     const mainDeck = document.getElementById('main-deck-cards');
@@ -199,19 +213,7 @@ function removeCardFromDeck(cardElement) {
     updateDeckStatus();
 }
 
-// 削除用handleTouchEnd関数
-function handleRemoveTouchEnd(event) {
-    // タッチ終了時のY座標を取得し、フリックの距離を計算
-    const touchEndY = event.changedTouches[0].clientY;
-    const swipeDistance = touchEndY - touchStartY;
-
-    // 下方向にスワイプされた場合、カードを削除
-    if (swipeDistance > 50 && event.currentTarget) {
-        removeCardFromDeck(event.currentTarget);
-    }
-}
-
-// ルリグデッキソート関数
+// ルリグデッキソート
 function sortLrigDeck() {
     const lrigDeck = document.getElementById('lrig-deck-cards');
     const cardElements = Array.from(lrigDeck.children);
@@ -243,7 +245,7 @@ function sortLrigDeck() {
     console.log('After sorting Lrig Deck:', Array.from(lrigDeck.children).map(card => card.querySelector('p').textContent));
 }
 
-// メインデッキソート関数
+// メインデッキソート
 function sortMainDeck() {
     const mainDeck = document.getElementById('main-deck-cards');
     const cardElements = Array.from(mainDeck.children);
