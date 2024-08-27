@@ -331,9 +331,10 @@ function sortMainDeck() {
     cardElements.sort((a, b) => {
         const aType = order[a.dataset.type] || 4;
         const bType = order[b.dataset.type] || 4;
-        
-        const aLevel = parseInt(a.dataset.level, 10);
-        const bLevel = parseInt(b.dataset.level, 10);
+
+        // aLevelとbLevelを取得
+        const aLevel = parseInt(a.dataset.level);
+        const bLevel = parseInt(b.dataset.level);
 
         if (aType !== bType) {
             return aType - bType;
