@@ -76,7 +76,7 @@ function handleSearch() {
     const searchLevel = document.getElementById('search-level-input').value;
     const cardsContainer = document.getElementById('cards-container');
 
-    cardsContainer.innerHTML = '';
+    cardsContainer.innerHTML = ''; // 表示をクリア
 
     if (searchTerm === '' && searchType === '' && searchLevel === '') {
         // 条件がない場合は全カードを表示
@@ -84,6 +84,7 @@ function handleSearch() {
         return;
     }
 
+    // 絞り込み処理
     const filteredCards = window.cardsData.filter(card => {
         const nameMatch = card.name.toLowerCase().includes(searchTerm);
         const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
@@ -93,8 +94,9 @@ function handleSearch() {
         return (nameMatch || subnameMatch) && typeMatch && levelMatch;
     });
 
-    displayCards(filteredCards);
+    displayCards(filteredCards); // 絞り込んだカードを表示
 }
+
 
 
 // displayCards関数
