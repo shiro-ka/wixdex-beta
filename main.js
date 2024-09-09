@@ -47,7 +47,7 @@ function updateDeckStatus() {
 }
 
 // handleSearch関数
-function handleSearch() {
+/*function handleSearch() {
 
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const cardsContainer = document.getElementById('cards-container');
@@ -68,7 +68,34 @@ function handleSearch() {
     });
 
     displayCards(filteredCards);
+}*/
+
+function handleSearch() {
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+    const searchType = document.getElementById('search-type-input').value;
+    const searchLevel = document.getElementById('search-level-input').value;
+    const cardsContainer = document.getElementById('cards-container');
+
+    cardsContainer.innerHTML = '';
+
+    if (searchTerm === '' && searchType === '' && searchLevel === '') {
+        // 条件がない場合は全カードを表示
+        displayCards(window.cardsData);
+        return;
+    }
+
+    const filteredCards = window.cardsData.filter(card => {
+        const nameMatch = card.name.toLowerCase().includes(searchTerm);
+        const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
+        const typeMatch = searchType === '' || card.type.includes(searchType);
+        const levelMatch = searchLevel === '' || card.level == searchLevel;
+
+        return (nameMatch || subnameMatch) && typeMatch && levelMatch;
+    });
+
+    displayCards(filteredCards);
 }
+
 
 // displayCards関数
 function displayCards(cards) {
