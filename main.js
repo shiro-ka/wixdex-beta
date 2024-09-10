@@ -23,6 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     searchInput.addEventListener('input', handleSearch);
 
+    // プルダウンの検索イベントリスナー
+    const searchTypeInput = document.getElementById('search-type-input');
+    const searchLevelInput = document.getElementById('search-level-input');
+
+    // プルダウンが変更されたときに検索実行
+    searchTypeInput.addEventListener('change', handleSearch);
+    searchLevelInput.addEventListener('change', handleSearch);
+
 });
 
 // ステータス欄を更新
@@ -46,29 +54,6 @@ function updateDeckStatus() {
     document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`;
 }
 
-// handleSearch関数
-/*function handleSearch() {
-
-    const searchTerm = document.getElementById('search-input').value.toLowerCase();
-    const cardsContainer = document.getElementById('cards-container');
-    // 既存のカードをクリア
-    cardsContainer.innerHTML = '';
-
-    if (searchTerm === '') {
-
-        // 全カードを再表示
-        (window.cardsData);
-        return;
-    }
-
-    const filteredCards = window.cardsData.filter(card => {
-        const nameMatch = card.name.toLowerCase().includes(searchTerm);
-        const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
-        return nameMatch || subnameMatch;
-    });
-
-    displayCards(filteredCards);
-}*/
 
 function handleSearch() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
