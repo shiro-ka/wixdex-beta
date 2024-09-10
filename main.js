@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         .catch(error => console.error('Error loading card data:', error));
 
+        /*
     // 検索入力のイベントリスナーを設定
     const searchInput = document.getElementById('search-input');
     searchInput.addEventListener('input', handleSearch);
@@ -30,6 +31,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // プルダウンが変更されたときに検索実行
     searchTypeInput.addEventListener('change', handleSearch);
     searchLevelInput.addEventListener('change', handleSearch);
+    */
+
+    // テキスト入力の検索イベントリスナー
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', handleSearch);
+
+    // カードタイプのプルダウン選択
+    const searchTypeInput = document.getElementById('search-type-input');
+    searchTypeInput.addEventListener('change', handleSearch);
+
+    // レベル選択ボタンの処理
+    const levelButtons = document.querySelectorAll('.level-button');
+    const selectedLevels = new Set();  // 選択されたレベルを管理
+
+    levelButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const level = button.dataset.level;
+
+            // ボタンのオン・オフを切り替え
+            if (selectedLevels.has(level)) {
+                selectedLevels.delete(level);
+                button.classList.remove('active');  // オフ状態のスタイル
+            } else {
+                selectedLevels.add(level);
+                button.classList.add('active');  // オン状態のスタイル
+            }
+
+            // 検索を実行
+            handleSearch();
+        });
+    });
 
 });
 
@@ -54,7 +86,7 @@ function updateDeckStatus() {
     document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`;
 }
 
-
+/*
 function handleSearch() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const searchType = document.getElementById('search-type-input').value;
@@ -81,7 +113,28 @@ function handleSearch() {
 
     displayCards(filteredCards); // 絞り込んだカードを表示
 }
+*/
 
+// handleSearch関数の修正
+function handleSearch() {
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+    const selectedType = document.getElementById('search-type-input').value;
+    const cardsContainer = document.getElementById('cards-container');
+    const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level);
+
+    cardsContainer.innerHTML = '';
+
+    let filteredCards = window.cardsData.filter(card => {
+        const nameMatch = card.name.toLowerCase().includes(searchTerm);
+        const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
+        const typeMatch = selectedType === "" || card.type.includes(selectedType);
+        const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());
+
+        return (nameMatch || subnameMatch) && typeMatch && levelMatch;
+    });
+
+    displayCards(filteredCards);
+}
 
 
 // displayCards関数
