@@ -19,20 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         .catch(error => console.error('Error loading card data:', error));
 
-        /*
-    // 検索入力のイベントリスナーを設定
-    const searchInput = document.getElementById('search-input');
-    searchInput.addEventListener('input', handleSearch);
-
-    // プルダウンの検索イベントリスナー
-    const searchTypeInput = document.getElementById('search-type-input');
-    const searchLevelInput = document.getElementById('search-level-input');
-
-    // プルダウンが変更されたときに検索実行
-    searchTypeInput.addEventListener('change', handleSearch);
-    searchLevelInput.addEventListener('change', handleSearch);
-    */
-
     // テキスト入力の検索イベントリスナー
     const searchInput = document.getElementById('search-input');
     searchInput.addEventListener('input', handleSearch);
@@ -86,36 +72,7 @@ function updateDeckStatus() {
     document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`;
 }
 
-/*
-function handleSearch() {
-    const searchTerm = document.getElementById('search-input').value.toLowerCase();
-    const searchType = document.getElementById('search-type-input').value;
-    const searchLevel = document.getElementById('search-level-input').value;
-    const cardsContainer = document.getElementById('cards-container');
-
-    cardsContainer.innerHTML = ''; // 表示をクリア
-
-    if (searchTerm === '' && searchType === '' && searchLevel === '') {
-        // 条件がない場合は全カードを表示
-        displayCards(window.cardsData);
-        return;
-    }
-
-    // 絞り込み処理
-    const filteredCards = window.cardsData.filter(card => {
-        const nameMatch = card.name.toLowerCase().includes(searchTerm);
-        const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
-        const typeMatch = searchType === '' || card.type.includes(searchType);
-        const levelMatch = searchLevel === '' || card.level == searchLevel;
-
-        return (nameMatch || subnameMatch) && typeMatch && levelMatch;
-    });
-
-    displayCards(filteredCards); // 絞り込んだカードを表示
-}
-*/
-
-// handleSearch関数の修正
+// カードを検索
 function handleSearch() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const selectedType = document.getElementById('search-type-input').value;

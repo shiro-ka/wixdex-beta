@@ -121,14 +121,20 @@ main {
     display: flex;
     align-items: center; /* 中央揃え */
     flex-direction: row; /* コンテンツを横に並べる */
-    padding: 0 1rem; /* 余白 */
+    padding: 0 5vw; /* 余白 */
     height: 3rem; /* 縦幅 */
+    }
+
+    #search-type-input{
+        height: 1.5rem;
+        width: 25vw;
+        font-size: 12px;
     }
 
     #search-input {
         box-sizing: border-box;
         height: 1.5rem;
-        width: 10rem;
+        width: 40vw;
         font-size: 12px;
 }
 
