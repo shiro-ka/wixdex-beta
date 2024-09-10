@@ -121,20 +121,38 @@ main {
     display: flex;
     align-items: center; /* 中央揃え */
     flex-direction: row; /* コンテンツを横に並べる */
-    padding: 0 5vw; /* 余白 */
+    padding: 0 2.5vw; /* 余白 */
     height: 3rem; /* 縦幅 */
     }
 
     #search-type-input{
+        background-color: rgb(66, 67, 70);
         height: 1.5rem;
         width: 25vw;
         font-size: 12px;
+        padding: 0 1vw;
+    }
+
+    .level-button{
+        background-color: rgb(66, 67, 70);
+        color: #ccc;
+        height: 1.5rem;
+        width: 5vw;
+        font-size: 12px;
+        padding: 0 1vw;
+    }
+
+    .level-button.active{
+        background-color: #ccc;
+        color: rgb(43, 45, 49);
     }
 
     #search-input {
+        background-color: rgb(66, 67, 70);
         box-sizing: border-box;
         height: 1.5rem;
         width: 40vw;
         font-size: 12px;
+        padding: 0 1vw;
 }
 
