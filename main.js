@@ -51,17 +51,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Life Burstの状態を管理するボタンのクリックイベント
+    // LBボタンのクリックイベント
     const lifeBurstButton = document.getElementById('life-burst-toggle');
     let lifeBurstState = 0; // 0: どっちも, 1: LBあり, 2: LBなし
 
+    // Life Burst ボタンのクリックイベントリスナー
     lifeBurstButton.addEventListener('click', function() {
+        // クリックごとにlifeBurstStateを更新（0→1→2→0のループ）
         lifeBurstState = (lifeBurstState + 1) % 3;
 
         // 状態に応じてボタンの背景色を変更
-        switch(lifeBurstState) {
+        switch (lifeBurstState) {
             case 0: // どっちも
-                this.style.backgroundColor = "";  // デフォルトの色
+                this.style.backgroundColor = "";  // デフォルトの色に戻す
                 break;
             case 1: // LBあり
                 this.style.backgroundColor = "green";  // LBありの色
@@ -72,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // 検索を実行
-        handleSearch();
+        handleSearch(); // 状態変更後、必ず検索を再実行
     });
 
 });
@@ -113,10 +115,12 @@ function handleSearch() {
         const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
         const typeMatch = selectedType === "" || card.type.includes(selectedType);
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());
-        const lifeBurstMatch = (lifeBurstState === 2) || // どっちも表示
+        const lifeBurstMatch = (
+            lifeBurstState === 0 ||  // どっちも
             (lifeBurstState === 1 && card.lifeBurst === 1) ||  // LBあり
-            (lifeBurstState === 0 && card.lifeBurst === 0);    // LBなし
-
+            (lifeBurstState === 2 && card.lifeBurst === 0)     // LBなし
+        );
+        
         return (nameMatch || subnameMatch) && typeMatch && levelMatch && lifeBurstMatch;
     });
 
