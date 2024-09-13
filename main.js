@@ -119,8 +119,8 @@ function handleSearch() {
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());
         const lifeBurstMatch = (
             lifeBurstState === 0 ||  // どっちも
-            (lifeBurstState === 1 && card.lifeBurst === 1) ||  // LBあり
-            (lifeBurstState === 2 && card.lifeBurst === 0)     // LBなし
+            (lifeBurstState === 1 && card.lifeBurstcard.level.toString() === "1") ||  // LBあり
+            (lifeBurstState === 2 && card.lifeBurstcard.level.toString() === "0")     // LBなし
         );
 
         return (nameMatch || subnameMatch) && typeMatch && levelMatch && lifeBurstMatch;
