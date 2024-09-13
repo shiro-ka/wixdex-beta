@@ -117,10 +117,14 @@ function handleSearch() {
         const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
         const typeMatch = selectedType === "" || card.type.includes(selectedType);
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());
+
+        // デバッグのためにlifeBurstの値をログに出力
+        console.log(`Card: ${card.name}, lifeBurst: ${card.lifeBurst}`);
+
         const lifeBurstMatch = (
             lifeBurstState === 0 ||  // どっちも
-            (lifeBurstState === 1 && card.lifeBurst.toString() === "1") ||  // LBあり
-            (lifeBurstState === 2 && card.lifeBurst.toString() === "0")     // LBなし
+            (lifeBurstState === 1 && card.lifeBurst === 1) ||  // LBあり
+            (lifeBurstState === 2 && card.lifeBurst === 0)     // LBなし
         );
 
         console.log(`LifeBurstMatch: ${lifeBurstMatch} for card: ${card.name}`);
