@@ -64,12 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (lifeBurstState) {
             case 0: // どっちも
                 this.style.backgroundColor = "";  // デフォルトの色に戻す
+                console.log("LBどっちもで検索");
                 break;
             case 1: // LBあり
                 this.style.backgroundColor = "green";  // LBありの色
+                console.log("LBアリで検索");
                 break;
             case 2: // LBなし
                 this.style.backgroundColor = "red";  // LBなしの色
+                console.log("LBナシで検索");
                 break;
         }
 
@@ -106,7 +109,6 @@ function handleSearch() {
     const selectedType = document.getElementById('search-type-input').value;
     const cardsContainer = document.getElementById('cards-container');
     const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level);
-    //const lifeBurstState = lifeBurstButtonState();
 
     cardsContainer.innerHTML = '';
 
@@ -120,18 +122,12 @@ function handleSearch() {
             (lifeBurstState === 1 && card.lifeBurst === 1) ||  // LBあり
             (lifeBurstState === 2 && card.lifeBurst === 0)     // LBなし
         );
-        
+
         return (nameMatch || subnameMatch) && typeMatch && levelMatch && lifeBurstMatch;
     });
 
     displayCards(filteredCards);
 }
-
-/* Life Burstボタンの状態を取得する関数
-function lifeBurstButtonState() {
-    return lifeBurstState; // lifeBurstStateはDOMContentLoaded内で定義済み
-}*/
-
 
 // displayCards関数
 function displayCards(cards) {
