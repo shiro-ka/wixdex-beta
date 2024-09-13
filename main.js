@@ -104,7 +104,7 @@ function handleSearch() {
     const selectedType = document.getElementById('search-type-input').value;
     const cardsContainer = document.getElementById('cards-container');
     const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level);
-    const lifeBurstState = lifeBurstButtonState();
+    //const lifeBurstState = lifeBurstButtonState();
 
     cardsContainer.innerHTML = '';
 
@@ -123,10 +123,10 @@ function handleSearch() {
     displayCards(filteredCards);
 }
 
-// Life Burstボタンの状態を取得する関数
+/* Life Burstボタンの状態を取得する関数
 function lifeBurstButtonState() {
     return lifeBurstState; // lifeBurstStateはDOMContentLoaded内で定義済み
-}
+}*/
 
 
 // displayCards関数
