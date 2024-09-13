@@ -123,8 +123,12 @@ function handleSearch() {
             (lifeBurstState === 2 && card.lifeBurstcard.level === 0)     // LBなし
         );
 
+        console.log(`LifeBurstMatch: ${lifeBurstMatch} for card: ${card.name}`);
+
         return (nameMatch || subnameMatch) && typeMatch && levelMatch && lifeBurstMatch;
     });
+
+    console.log("Filtered cards:", filteredCards);
 
     displayCards(filteredCards);
 }
