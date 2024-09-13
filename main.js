@@ -113,9 +113,9 @@ function handleSearch() {
         const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
         const typeMatch = selectedType === "" || card.type.includes(selectedType);
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());
-        const lifeBurstMatch = (lifeBurstState === 0) ||  // どっちも
-                               (lifeBurstState === 1 && card.lifeBurst > 0) ||  // LBあり
-                               (lifeBurstState === 2 && card.lifeBurst === 0);  // LBなし
+        const lifeBurstMatch = (lifeBurstState === 2) || // どっちも表示
+            (lifeBurstState === 1 && card.lifeBurst === 1) ||  // LBあり
+            (lifeBurstState === 0 && card.lifeBurst === 0);    // LBなし
 
         return (nameMatch || subnameMatch) && typeMatch && levelMatch && lifeBurstMatch;
     });
