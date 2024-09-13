@@ -1,5 +1,7 @@
 // タッチ開始時のY座標初期値を設定
 let touchStartY = 0;
+// Life Burstボタンの状態
+let lifeBurstState = 0;
 // 現在のカードを記録する変数
 let currentCard;
 
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateDeckStatus();
         })
 
-        .catch(error => console.error('Error loading card data:', error));
+        .catch(error => console.error('カードデータが読み込めなかったっぽい！', error));
 
     // テキスト入力の検索イベントリスナー
     const searchInput = document.getElementById('search-input');
@@ -49,6 +51,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Life Burstの状態を管理するボタンのクリックイベント
+    const lifeBurstButton = document.getElementById('life-burst-toggle');
+    let lifeBurstState = 0; // 0: どっちも, 1: LBあり, 2: LBなし
+
+    lifeBurstButton.addEventListener('click', function() {
+        lifeBurstState = (lifeBurstState + 1) % 3;
+
+        // 状態に応じてボタンの背景色を変更
+        switch(lifeBurstState) {
+            case 0: // どっちも
+                this.style.backgroundColor = "";  // デフォルトの色
+                break;
+            case 1: // LBあり
+                this.style.backgroundColor = "green";  // LBありの色
+                break;
+            case 2: // LBなし
+                this.style.backgroundColor = "red";  // LBなしの色
+                break;
+        }
+
+        // 検索を実行
+        handleSearch();
+    });
+
 });
 
 // ステータス欄を更新
@@ -78,6 +104,7 @@ function handleSearch() {
     const selectedType = document.getElementById('search-type-input').value;
     const cardsContainer = document.getElementById('cards-container');
     const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level);
+    const lifeBurstState = lifeBurstButtonState();
 
     cardsContainer.innerHTML = '';
 
@@ -86,11 +113,19 @@ function handleSearch() {
         const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
         const typeMatch = selectedType === "" || card.type.includes(selectedType);
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());
+        const lifeBurstMatch = (lifeBurstState === 0) ||  // どっちも
+                               (lifeBurstState === 1 && card.lifeBurst > 0) ||  // LBあり
+                               (lifeBurstState === 2 && card.lifeBurst === 0);  // LBなし
 
-        return (nameMatch || subnameMatch) && typeMatch && levelMatch;
+        return (nameMatch || subnameMatch) && typeMatch && levelMatch && lifeBurstMatch;
     });
 
     displayCards(filteredCards);
+}
+
+// Life Burstボタンの状態を取得する関数
+function lifeBurstButtonState() {
+    return lifeBurstState; // lifeBurstStateはDOMContentLoaded内で定義済み
 }
 
 
