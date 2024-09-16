@@ -132,7 +132,9 @@ function handleSearch() {
             (lifeBurstState === 2 && card.lifeBurst === 0)     // LBなし
         );
 
-        console.log(`LifeBurstState: ${lifeBurstState}, Card: ${card.name}, lifeBurst: ${card.lifeBurst}, lifeBurstMatch: ${lifeBurstMatch}`);
+        console.log(`LifeBurstState: ${lifeBurstState}, Card: ${card.name}, lifeBurst: ${card.lifeBurst}`);
+console.log(`Condition check: lifeBurstState === 0: ${lifeBurstState === 0}, lifeBurstState === 1 && card.lifeBurst === 1: ${lifeBurstState === 1 && card.lifeBurst === 1}, lifeBurstState === 2 && card.lifeBurst === 0: ${lifeBurstState === 2 && card.lifeBurst === 0}`);
+console.log(`lifeBurstMatch: ${lifeBurstMatch}`);
 
         if (lifeBurstState === 1 && card.lifeBurst === 1) {
             console.log(`LBありマッチ: ${card.name}`);
