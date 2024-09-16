@@ -128,7 +128,7 @@ function handleSearch() {
             (lifeBurstState === 2 && card.lifeBurst === 0)     // LBなし
         );
 
-        return (nameMatch || subnameMatch) && typeMatch && levelMatch && lifeBurstMatch;
+        return /*(nameMatch || subnameMatch) && typeMatch && levelMatch &&*/ lifeBurstMatch;
     });
 
     displayCards(filteredCards);
