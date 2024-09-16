@@ -131,6 +131,8 @@ function handleSearch() {
         return /*(nameMatch || subnameMatch) && typeMatch && levelMatch &&*/ lifeBurstMatch;
     });
 
+    console.log('All cards after filtering:', window.cardsData);
+
     displayCards(filteredCards);
 }
 
