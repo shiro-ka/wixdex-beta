@@ -127,7 +127,7 @@ function handleSearch() {
         console.log(`Card: ${card.name}, lifeBurst: ${card.lifeBurst}`);
 
         const lifeBurstMatch = (
-            lifeBurstState === 0 ||  // どっちも
+            (lifeBurstState === 0) ||  // どっちも
             (lifeBurstState === 1 && card.lifeBurst === 1) ||  // LBあり
             (lifeBurstState === 2 && card.lifeBurst === 0)     // LBなし
         );
