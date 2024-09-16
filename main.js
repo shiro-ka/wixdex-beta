@@ -103,10 +103,12 @@ function updateDeckStatus() {
 
 /* カードを検索 */
 function handleSearch() {
+    /*
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const selectedType = document.getElementById('search-type-input').value;
-    const cardsContainer = document.getElementById('cards-container');
     const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level);
+    */
+    const cardsContainer = document.getElementById('cards-container');
 
     cardsContainer.innerHTML = '';
 
@@ -114,10 +116,12 @@ function handleSearch() {
 
 
     let filteredCards = window.cardsData.filter(card => {
+        /*
         const nameMatch = card.name.toLowerCase().includes(searchTerm);
         const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
         const typeMatch = selectedType === "" || card.type.includes(selectedType);
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());
+        */
 
         // デバッグのためにlifeBurstの値をログに出力
         console.log(`Card: ${card.name}, lifeBurst: ${card.lifeBurst}`);
@@ -127,6 +131,8 @@ function handleSearch() {
             (lifeBurstState === 1 && card.lifeBurst === 1) ||  // LBあり
             (lifeBurstState === 2 && card.lifeBurst === 0)     // LBなし
         );
+
+        console.log(`Card: ${card.name}, lifeBurst: ${card.lifeBurst}, lifeBurstMatch: ${lifeBurstMatch}`);
 
         return /*(nameMatch || subnameMatch) && typeMatch && levelMatch &&*/ lifeBurstMatch;
     });
