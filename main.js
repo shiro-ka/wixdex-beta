@@ -5,23 +5,20 @@ let lifeBurstState = 0;
 // 現在のカードを記録する変数
 let currentCard;
 
-// DOM読込完了時に実行
+/* DOM読込完了時に実行 */
 document.addEventListener('DOMContentLoaded', () => {
 
-    // cards.jsonを取得
+    /* cards.jsonを取得 */
     fetch('cards.json')
         .then(response => response.json())
         .then(responseData => {
             window.cardsData = responseData;
             displayCards(responseData);
-
-            // 初回読込時にステータス欄を更新
-            updateDeckStatus();
+            updateDeckStatus(); //ステータス欄を更新
         })
+    .catch(error => console.error('カードデータが読み込めなかったっぽい！', error)); //エラーが出たら困る
 
-        .catch(error => console.error('カードデータが読み込めなかったっぽい！', error));
-
-    // テキスト入力の検索イベントリスナー
+    /* カード名検索のイベントリスナーを追加 */
     const searchInput = document.getElementById('search-input');
     searchInput.addEventListener('input', handleSearch);
 
@@ -47,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // 検索を実行
+            console.log(window.cardsData);
             handleSearch();
         });
     });
@@ -75,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log("LBナシで検索");
                 break;
         }
-
         // 検索を実行
+        console.log(window.cardsData);
         handleSearch(); // 状態変更後、必ず検索を再実行
     });
 
@@ -85,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ステータス欄を更新
 function updateDeckStatus() {
     // メインデッキ要素を取得
-     const mainDeck = document.getElementById('main-deck-cards');
+    const mainDeck = document.getElementById('main-deck-cards');
 
     // メインデッキ内のlifeBurstのカウント
     let lifeBurstCount = 0;
@@ -103,7 +101,7 @@ function updateDeckStatus() {
     document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`;
 }
 
-// カードを検索
+/* カードを検索 */
 function handleSearch() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const selectedType = document.getElementById('search-type-input').value;
@@ -111,6 +109,9 @@ function handleSearch() {
     const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level);
 
     cardsContainer.innerHTML = '';
+
+    console.log('All cards before filtering:', window.cardsData);
+
 
     let filteredCards = window.cardsData.filter(card => {
         const nameMatch = card.name.toLowerCase().includes(searchTerm);
@@ -127,12 +128,8 @@ function handleSearch() {
             (lifeBurstState === 2 && card.lifeBurst === 0)     // LBなし
         );
 
-        console.log(`LifeBurstMatch: ${lifeBurstMatch} for card: ${card.name}`);
-
         return (nameMatch || subnameMatch) && typeMatch && levelMatch && lifeBurstMatch;
     });
-
-    console.log("Filtered cards:", filteredCards);
 
     displayCards(filteredCards);
 }
@@ -161,7 +158,7 @@ function displayCards(cards) {
         cardElement.addEventListener('touchstart', handleTouchStart);
         cardElement.addEventListener('touchend', (event) => {
             // 現在のカードを記録
-            currentCard = card; 
+            currentCard = card;
             handleTouchEnd(event);
         });
     });
@@ -183,7 +180,7 @@ function handleTouchEnd(event) {
     // 上方向にフリックされた場合、addCardToDeck関数を1回処理
     if (swipeDistance > 50 && currentCard) {
         addCardToDeck(currentCard);
-    } 
+    }
     // 下方向にフリックされた場合、addCardToDeck関数を4回処理
     else if (swipeDistance < -50 && currentCard) {
         for (let i = 0; i < 4; i++) {
