@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log("LBナシで検索");
                 break;
         }
-        // 検索を実行
-        console.log(window.cardsData);
+        // 状態をログに出力
+    console.log(`LifeBurstState updated to: ${lifeBurstState}`);
         handleSearch(); // 状態変更後、必ず検索を再実行
     });
 
