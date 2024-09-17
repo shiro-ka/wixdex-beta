@@ -105,26 +105,22 @@ function updateDeckStatus() {
 function handleSearch() {
 
     console.log(`LifeBurstState inside search: ${lifeBurstState}`);  // ここでの状態を確認
-    /*
+
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const selectedType = document.getElementById('search-type-input').value;
     const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level);
-    */
     const cardsContainer = document.getElementById('cards-container');
 
     cardsContainer.innerHTML = '';
 
     console.log('All cards before filtering:', window.cardsData);
 
-
     let filteredCards = window.cardsData.filter(card => {
-        
+
         const nameMatch = card.name.toLowerCase().includes(searchTerm);
         const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
         const typeMatch = selectedType === "" || card.type.includes(selectedType);
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());
-        
-        //cardsContainer.innerHTML = '';
 
         // デバッグのためにlifeBurstの値をログに出力
         console.log(`LifeBurstState: ${lifeBurstState}`);  // ここでの値が期待通りか確認
