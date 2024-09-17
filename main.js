@@ -104,51 +104,36 @@ function updateDeckStatus() {
 /* カードを検索 */
 function handleSearch() {
 
-    console.log(`LifeBurstState inside search: ${lifeBurstState}`);  // ここでの状態を確認
+    /* 検索条件を取得 */
+    const searchTerm = document.getElementById('search-input').value.toLowerCase(); // #search-inputからテキストを取得（小文字に変換）しsearchTermにする
+    const selectedType = document.getElementById('search-type-input').value; // #search-type-inputドロップダウンから選ばれたカード種類を取得してselectedTypeにする
+    const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level); // .level-button.active（押されたLv選択ボタン）から選ばれたLvを取得してselectedLevelsにする
 
-    const searchTerm = document.getElementById('search-input').value.toLowerCase();
-    const selectedType = document.getElementById('search-type-input').value;
-    const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level);
+    /* 検索結果を表示させる場所として#cards-containerを取得 */
     const cardsContainer = document.getElementById('cards-container');
 
+    /* 検索結果を一度リセット */
     cardsContainer.innerHTML = '';
 
-    console.log('All cards before filtering:', window.cardsData);
-
+    /* window.cardsDataの中からカードを検索してfilteredCardsに保存 */
     let filteredCards = window.cardsData.filter(card => {
 
-        const nameMatch = card.name.toLowerCase().includes(searchTerm);
-        const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
-        const typeMatch = selectedType === "" || card.type.includes(selectedType);
-        const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());
-
-        // デバッグのためにlifeBurstの値をログに出力
-        console.log(`LifeBurstState: ${lifeBurstState}`);  // ここでの値が期待通りか確認
-        console.log(`Card: ${card.name}, lifeBurst: ${card.lifeBurst}`);
-
+        /* 各種条件で検索 */
+        const nameMatch = card.name.toLowerCase().includes(searchTerm); // カード名（小文字に変換）にsearchTerm含んでいるかを確認
+        const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm)); // subNameがあれば、同様にsearchTermを含んでいるか確認
+        const typeMatch = selectedType === "" || card.type.includes(selectedType); // selectedTypeが空なら全てで検索、選択されていればselectedTypeがtypeに含まれているか確認
+        const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString()); // selectedLevelsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const lifeBurstMatch = (
-            (lifeBurstState === 0) ||  // どっちも
-            (lifeBurstState === 1 && card.lifeBurst === 1) ||  // LBあり
-            (lifeBurstState === 2 && card.lifeBurst === 0)     // LBなし
+            (lifeBurstState === 0) ||  // lifeBurstStateが0であれば全てで検索
+            (lifeBurstState === 1 && card.lifeBurst === 1) ||  // lifeBurstStateが1であればLBありで検索
+            (lifeBurstState === 2 && card.lifeBurst === 0)     // lifeBurstStateが2であればLBなしで検索
         );
 
-        console.log(`LifeBurstState: ${lifeBurstState}, Card: ${card.name}, lifeBurst: ${card.lifeBurst}`);
-        console.log(`Condition check: lifeBurstState === 0: ${lifeBurstState === 0}, lifeBurstState === 1 && card.lifeBurst === 1: ${lifeBurstState === 1 && card.lifeBurst === 1}, lifeBurstState === 2 && card.lifeBurst === 0: ${lifeBurstState === 2 && card.lifeBurst === 0}`);
-        console.log(`lifeBurstMatch: ${lifeBurstMatch}`);
-
-        if (lifeBurstState === 1 && card.lifeBurst === 1) {
-            console.log(`LBありマッチ: ${card.name}`);
-        }
-
-        if (lifeBurstState === 2 && card.lifeBurst === 0) {
-            console.log(`LBなしマッチ: ${card.name}`);
-        }
-
-        return /*(nameMatch || subnameMatch) && typeMatch && levelMatch &&*/ lifeBurstMatch;
+        /* 全条件で検索 */
+        return (nameMatch || subnameMatch) && typeMatch && levelMatch && lifeBurstMatch;
     });
 
-    console.log('Filtered cards:', filteredCards);
-
+    /* 検索結果filteredCardsをdisplayCards関数で表示 */
     displayCards(filteredCards);
 }
 
