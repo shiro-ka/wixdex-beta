@@ -143,21 +143,30 @@ main {
             height: 2rem; /* 高さ */
             width: 25vw; /* 幅 */
             font-size: 16px; /* 文字サイズ */
+            margin-right: 2vw; /* 右側にマージンを追加 */
         }
 
-    .level-button{
-        background-color: rgb(66, 67, 70);
-        color: #ccc;
-        height: 1.5rem;
-        width: 5vw;
-        font-size: 12px;
-        padding: 0 1vw;
-    }
+    /* Lv検索のボタンの設定
+        /* ボタン表示領域の設定 */
+        #level-buttons{
+            margin-right: 1vw; /* 右側にマージンを追加 */
+        }
+        /* オフ状態のボタン設定 */
+        .level-button{
+            border: none; /* 枠線を消す */
+            background-color: #2c2c30; /* 背景色 */
+            color: #ccc;
+            height: 2rem; /* 高さ */
+            width: 5vw; /* 幅 */
+            font-size: 12px;
+            margin-right: 1vw; /* 右側にマージンを追加 */
+        }
+        /* オン状態のボタン設定 */
+        .level-button.active{
+            background-color: #ccc; /* 背景色を変更 */
+            color: #2c2c30;
+        }
 
-    .level-button.active{
-        background-color: #ccc;
-        color: rgb(43, 45, 49);
-    }
     /* 色検索ボタンの設定
         /* ボタン表示領域の設定 */
         .color-buttons{
