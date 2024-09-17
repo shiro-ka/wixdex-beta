@@ -14,10 +14,12 @@
     <main>
         <section id="deck-area">
             <h2>Lrig Deck</h2>
+            <hr class="deck-hr"/>
             <div id="lrig-deck">
                 <div class="card-grid" id="lrig-deck-cards"></div>
             </div>
             <h2>Main Deck</h2>
+            <hr class="deck-hr"/>
             <div id="main-deck">
                 <div class="card-grid" id="main-deck-cards"></div>
             </div>
@@ -66,8 +68,8 @@
         </section>
     </main>
 
-    /* PWAの処理 */
     <script>
+    /* PWAの処理 */
     if ('serviceWorker' in navigator) {
 	    window.addEventListener('load', () => {
 	        navigator.serviceWorker.register('sw.js').then(registration => {
@@ -81,8 +83,8 @@
     }
     </script>
 
-    /* main.jsを読み込む */
-    <script src="main.js"></script>
+    <script src="main.js">
+    // main.jsを読み込む</script>
 </body>
 
 </html>
