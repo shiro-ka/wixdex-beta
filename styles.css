@@ -155,22 +155,18 @@ main {
         .level-button{
             border: none; /* 枠線を消す */
             background-color: #2c2c30; /* 背景色 */
-            color: #ccc;
             height: 2rem; /* 高さ */
             width: 5vw; /* 幅 */
-            font-size: 12px;
             margin-right: 1vw; /* 右側にマージンを追加 */
         }
         /* オン状態のボタン設定 */
         .level-button.active{
             background-color: #ccc; /* 背景色を変更 */
-            color: #2c2c30;
         }
         /* 画像の設定 */
         .level-button img{
-            width: 100%; /* ボタン幅に合わせる */
-            height: 100%; /* ボタン高さに合わせる */
-            object-fit: contain; /* 画像がボタン内でいい感じにフィット */
+            height: 80%; /* ボタン高さに合わせる */
+            width: auto; /* 比率をキープ */
         }
 
     /* 色検索ボタンの設定
