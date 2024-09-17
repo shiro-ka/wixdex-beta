@@ -157,6 +157,7 @@ main {
         }
         /* 色検索ボタン共通の設定 */
         .color-button{
+            border: none; /* 枠線を消す */
             background-color: #222225; /* 背景色 */
             height: 1.5rem; /* 高さ */
             width: 5vw; /* 幅 */
