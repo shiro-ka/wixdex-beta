@@ -133,7 +133,7 @@ main {
     align-items: center; /* 垂直方向に中央揃え */
     flex-direction: row; /* コンテンツを横に並べる */
     height: 3rem; /* 縦幅 */
-    padding: 0.5rem 4.5vw; /* 余白 */
+    padding: 0.5rem 4vw; /* 余白 */
 }
     /* Lv検索のボタンの設定
         /* ボタン表示領域の設定 */
@@ -184,7 +184,7 @@ main {
             width: 9vw;
             height: 2rem;
             background-color: transparent; /* デフォルトは背景透明 */
-            border: 1px solid #000; /* ボーダーは適当に調整 */
+            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
