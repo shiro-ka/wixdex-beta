@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow: hidden; /* スクロールしない */
-    background-color: rgb(43, 45, 49); /* 背景色 */
+    background-color: #2c2c30; /* 背景色 */
 }
 
 main {
@@ -208,7 +208,8 @@ main {
 }
     /* カード種類検索のプルダウン */
         #search-type-input{
-            border: none; /* 枠線を消す */
+            border: none; /* 一度枠線を消す */
+            border-bottom: 1px solid #ccc; /* 下線のみ色と太さを設定 */
             color: #ccc; /* 文字色 */
             background-color: #2c2c30; /* 背景色 */
             height: 2rem; /* 高さ */
@@ -218,7 +219,8 @@ main {
         }
     /* カード名検索欄*/
         #search-input {
-            border-bottom: 1px solid #ccc; /* 下線の色と太さ */
+            border: none; /* 一度枠線を消す */
+            border-bottom: 1px solid #ccc; /* 下線のみ色と太さを設定 */
             color: #ccc; /* 文字色 */
             background-color: #2c2c30; /* 背景色 */
             height: 2rem; /* 高さ */
