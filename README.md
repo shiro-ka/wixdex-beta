@@ -4,9 +4,7 @@ https://shiro-ka.github.io/wixdex
 
 <既知の問題> 
 
-一時的にLB検索以外の検索を無効化
 
-LB検索が実行されない
 
 <追加予定>
 
