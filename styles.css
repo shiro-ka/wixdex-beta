@@ -165,27 +165,31 @@ main {
         }
         /* 画像の設定 */
         .level-button img{
-            height: 80%; /* ボタン高さに合わせる */
+            height: 1.5rem; /* 高さ */
             width: auto; /* 比率をキープ */
         }
 
     /* 色検索ボタンの設定
         /* ボタン表示領域の設定 */
         .color-buttons{
-            padding: 0;
+            margin-right: 1vw; /* 右側にマージンを追加 */
         }
-        /* 色検索ボタン共通の設定 */
+        /* オフ状態のボタン設定 */
         .color-button{
             border: none; /* 枠線を消す */
             background-color: #2c2c30; /* 背景色 */
-            height: 1.5rem; /* 高さ */
+            height: 2rem; /* 高さ */
             width: 5vw; /* 幅 */
+            margin-right: 1vw; /* 右側にマージンを追加 */
+        }
+        /* オン状態のボタン設定 */
+        .level-button.active{
+            background-color: #ccc; /* 背景色を変更 */
         }
         /* 画像の設定 */
         .color-button img{
-            width: 100%; /* ボタン幅に合わせる */
-            height: 100%; /* ボタン高さに合わせる */
-            object-fit: contain; /* 画像がボタン内でいい感じにフィット */
+            height: 1.5rem; /* 高さ */
+            width: auto; /* 比率をキープ */
         }
 
     #life-burst-toggle {
