@@ -103,6 +103,8 @@ function updateDeckStatus() {
 
 /* カードを検索 */
 function handleSearch() {
+
+    console.log(`LifeBurstState inside search: ${lifeBurstState}`);  // ここでの状態を確認
     /*
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const selectedType = document.getElementById('search-type-input').value;
@@ -124,6 +126,7 @@ function handleSearch() {
         */
 
         // デバッグのためにlifeBurstの値をログに出力
+        console.log(`LifeBurstState: ${lifeBurstState}`);  // ここでの値が期待通りか確認
         console.log(`Card: ${card.name}, lifeBurst: ${card.lifeBurst}`);
 
         const lifeBurstMatch = (
@@ -133,8 +136,8 @@ function handleSearch() {
         );
 
         console.log(`LifeBurstState: ${lifeBurstState}, Card: ${card.name}, lifeBurst: ${card.lifeBurst}`);
-console.log(`Condition check: lifeBurstState === 0: ${lifeBurstState === 0}, lifeBurstState === 1 && card.lifeBurst === 1: ${lifeBurstState === 1 && card.lifeBurst === 1}, lifeBurstState === 2 && card.lifeBurst === 0: ${lifeBurstState === 2 && card.lifeBurst === 0}`);
-console.log(`lifeBurstMatch: ${lifeBurstMatch}`);
+        console.log(`Condition check: lifeBurstState === 0: ${lifeBurstState === 0}, lifeBurstState === 1 && card.lifeBurst === 1: ${lifeBurstState === 1 && card.lifeBurst === 1}, lifeBurstState === 2 && card.lifeBurst === 0: ${lifeBurstState === 2 && card.lifeBurst === 0}`);
+        console.log(`lifeBurstMatch: ${lifeBurstMatch}`);
 
         if (lifeBurstState === 1 && card.lifeBurst === 1) {
             console.log(`LBありマッチ: ${card.name}`);
