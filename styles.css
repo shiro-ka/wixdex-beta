@@ -133,7 +133,7 @@ main {
     align-items: center; /* 垂直方向に中央揃え */
     flex-direction: row; /* コンテンツを横に並べる */
     height: 3rem; /* 縦幅 */
-    padding: 0.5rem 4vw; /* 余白 */
+    padding: 0.5rem 5vw; /* 余白 */
 }
     /* Lv検索のボタンの設定
         /* ボタン表示領域の設定 */
@@ -145,7 +145,7 @@ main {
             border: none; /* 枠線を消す */
             background-color: #2c2c30; /* 背景色 */
             height: 2rem; /* 高さ */
-            width: 9vw; /* 幅 */
+            width: 8vw; /* 幅 */
             margin-right: 1vw; /* 右側にマージンを追加 */
         }
         /* オン状態のボタン設定 */
@@ -167,7 +167,7 @@ main {
             border: none; /* 枠線を消す */
             background-color: #2c2c30; /* 背景色 */
             height: 2rem; /* 高さ */
-            width: 9vw; /* 幅 */
+            width: 8vw; /* 幅 */
             margin-right: 1vw; /* 右側にマージンを追加 */
         }
         /* オン状態のボタン設定 */
@@ -181,7 +181,7 @@ main {
         }
     /* LB検索ボタンの設定 */
         #life-burst-toggle {
-            width: 9vw;
+            width: 8vw;
             height: 2rem;
             background-color: transparent; /* デフォルトは背景透明 */
             border: none;
