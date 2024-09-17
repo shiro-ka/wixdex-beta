@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // LBボタンのクリックイベント
     const lifeBurstButton = document.getElementById('life-burst-toggle');
-    let lifeBurstState = 0; // 0: どっちも, 1: LBあり, 2: LBなし
+    //let lifeBurstState = 0; // 0: どっちも, 1: LBあり, 2: LBなし
 
     // Life Burst ボタンのクリックイベントリスナー
     lifeBurstButton.addEventListener('click', function() {
@@ -118,12 +118,13 @@ function handleSearch() {
 
 
     let filteredCards = window.cardsData.filter(card => {
-        /*
+        
         const nameMatch = card.name.toLowerCase().includes(searchTerm);
         const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm));
         const typeMatch = selectedType === "" || card.type.includes(selectedType);
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());
-        */
+        
+        cardsContainer.innerHTML = '';
 
         // デバッグのためにlifeBurstの値をログに出力
         console.log(`LifeBurstState: ${lifeBurstState}`);  // ここでの値が期待通りか確認
