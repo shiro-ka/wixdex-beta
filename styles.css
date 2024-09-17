@@ -207,22 +207,22 @@ main {
     padding: 0.5rem 5vw; /* 余白 */
 }
     /* カード種類検索のプルダウン */
-    #search-type-input{
-        border: none; /* 枠線を消す */
-        color: #ccc; /* 文字色 */
-        background-color: #2c2c30; /* 背景色 */
-        height: 2rem; /* 高さ */
-        width: 25vw; /* 幅 */
-        font-size: 16px; /* 文字サイズ */
-        margin-right: 2vw; /* 右側にマージンを追加 */
-    }
-
-    #search-input {
-        background-color: rgb(66, 67, 70);
-        box-sizing: border-box;
-        height: 1.5rem;
-        width: 40vw;
-        font-size: 12px;
-        padding: 0 1vw;
-    }
-
+        #search-type-input{
+            border: none; /* 枠線を消す */
+            color: #ccc; /* 文字色 */
+            background-color: #2c2c30; /* 背景色 */
+            height: 2rem; /* 高さ */
+            width: 25vw; /* 幅 */
+            font-size: 16px; /* 文字サイズ */
+            margin-right: 2vw; /* 右側にマージンを追加 */
+        }
+    /* カード名検索欄*/
+        #search-input {
+            border-bottom: #ccc; /* 下線の色 */
+            border-width: 1px; /* 下線の太さ */
+            color: #ccc; /* 文字色 */
+            background-color: #2c2c30; /* 背景色 */
+            height: 2rem; /* 高さ */
+            width: 40vw; /* 幅 */
+            font-size: 16px; /* 文字サイズ */
+        }
