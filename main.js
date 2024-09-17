@@ -124,7 +124,7 @@ function handleSearch() {
         const typeMatch = selectedType === "" || card.type.includes(selectedType);
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());
         
-        cardsContainer.innerHTML = '';
+        //cardsContainer.innerHTML = '';
 
         // デバッグのためにlifeBurstの値をログに出力
         console.log(`LifeBurstState: ${lifeBurstState}`);  // ここでの値が期待通りか確認
