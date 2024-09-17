@@ -166,6 +166,12 @@ main {
             background-color: #ccc; /* 背景色を変更 */
             color: #2c2c30;
         }
+        /* 画像の設定 */
+        .level-button img{
+            width: 100%; /* ボタン幅に合わせる */
+            height: 100%; /* ボタン高さに合わせる */
+            object-fit: contain; /* 画像がボタン内でいい感じにフィット */
+        }
 
     /* 色検索ボタンの設定
         /* ボタン表示領域の設定 */
