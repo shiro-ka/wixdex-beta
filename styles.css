@@ -4,14 +4,6 @@
     box-sizing: border-box;
 }
 
-/* 文字の設定
-   LBとか色とかの各種枚数表示のやつ */
-h2 {
-    font-size: 1rem; /* サイズ */
-    color: #ccc; /* 色 */
-    padding: 0.5rem 0; /* 余白 */
-}
-
 /* 全体の設定 */
 body {
     font-family: Arial, sans-serif;
@@ -27,16 +19,27 @@ main {
     flex: 1;
 }
 
-/* デッキ仕切線の設定 */
-.deck-hr {
-	position: relative;
-	height: 1px;
-	border-width: 0;
-	background-image: -webkit-linear-gradient(left,
-	transparent 0%,#ccc 50%,transparent 100%);
-	background-image:         linear-gradient(90deg,
-	transparent 0%,#ccc 50%,transparent 100%);
+/* デッキ欄の設定 */
+#deck-area {
+    display: flex;
+    padding: 0.5rem 1rem; /* 余白 */
+    flex-direction: column; /* コンテンツを縦に並べる */
 }
+
+    /* デッキ欄の文字設定（"Lrig Deck","Main Deck"）*/
+        h2 {
+            font-family: 'Times New Roman', Times, serif; /* フォント */
+            color: #ccc; /* 色 */
+            font-size: 1rem; /* サイズ */
+            padding: 0.5rem 0; /* 余白 */
+        }
+    /* デッキ仕切線の設定 */
+        .deck-hr {
+            border: none; /* 枠線を削除 */
+	        height: 1px; /* 太さ */
+            background-image: -webkit-linear-gradient(left,transparent 0%,#ccc 50%,transparent 100%); /* グラデーションの設定（古い方式）*/
+	        background-image: linear-gradient(90deg,transparent 0%,#ccc 50%,transparent 100%); /* グラデーションの設定 */
+        }
 
 .card {
     border: none; /* カードの枠線を削除 */
@@ -60,12 +63,6 @@ main {
     grid-template-columns: repeat(8, 1fr); /* 8列で折り返す */
     gap: calc(100vw / 200); /* カードごとの隙間を画面横幅の1/200に */
 }
-
-#deck-area {
-    display: flex;
-    padding: 0.5rem 1rem; /* 余白 */
-    flex-direction: column; /* コンテンツを縦に並べる */
-    }
 
     #lrig-deck {
         align-content: center; /* 中央揃え */
