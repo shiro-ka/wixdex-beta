@@ -4,9 +4,12 @@
     box-sizing: border-box;
 }
 
+/*
+文字の設定　
+LBとか色とかの各種枚数表示のやつ */
 h2 {
-    font-size: 1rem;
-    color: #ccc;
+    font-size: 1rem; /* サイズ */
+    color: #ccc; /* 色 */
     padding: 0.5rem 0; /* 余白 */
 }
 
@@ -26,7 +29,7 @@ main {
 
 .card {
     border: none; /* カードの枠線を削除 */
-    border-radius: 5px; /*角を丸める */
+    border-radius: 5px; /* 角を丸める */
     flex-shrink: 0; /* カードが縮小しないようにする */
     display: flex; /* flexboxを使う */
     align-items: center; /* 縦方向に中央揃え */
@@ -43,7 +46,7 @@ main {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr); /*8列で折り返す */
+    grid-template-columns: repeat(8, 1fr); /* 8列で折り返す */
     gap: calc(100vw / 200); /* カードごとの隙間を画面横幅の1/200に */
 }
 
@@ -117,21 +120,22 @@ main {
     display: none;
 }
 
-#search-tool {
+/* 検索ツール1段目 */
+#search-tool-1 {
     display: flex;
     align-items: center; /* 中央揃え */
     flex-direction: row; /* コンテンツを横に並べる */
-    padding: 0 2.5vw; /* 余白 */
-    height: 3rem; /* 縦幅 */
-    }
-
-    #search-type-input{
-        background-color: rgb(66, 67, 70);
-        height: 1.5rem;
-        width: 25vw;
-        font-size: 12px;
-        padding: 0 1vw;
-    }
+    padding: 0.5rem 2.5vw; /* 余白 */
+    height: 1.5rem; /* 縦幅 */
+}
+    /* カード種類検索のプルダウン */
+        #search-type-input{
+            background-color: rgb(66, 67, 70);
+            height: 1.5rem;
+            width: 25vw;
+            font-size: 12px;
+            padding: 0 1vw;
+        }
 
     .level-button{
         background-color: rgb(66, 67, 70);
@@ -146,6 +150,23 @@ main {
         background-color: #ccc;
         color: rgb(43, 45, 49);
     }
+    /* 色検索ボタンの設定
+        /* ボタン表示領域の設定 */
+        .color-buttons{
+            padding: 0;
+        }
+        /* 色検索ボタン共通の設定 */
+        .color-button{
+            background-color: #222225; /* 背景色 */
+            height: 1.5rem; /* 高さ */
+            width: 5vw; /* 幅 */
+        }
+        /* 画像の設定 */
+        .color-button img{
+            width: 100%; /* ボタン幅に合わせる */
+            height: 100%; /* ボタン高さに合わせる */
+            object-fit: contain; /* 画像がボタン内でいい感じにフィット */
+        }
 
     #life-burst-toggle {
         width: 5vw;
@@ -159,12 +180,12 @@ main {
         margin: 0;
         cursor: pointer;
     }
-    
+
     #life-burst-toggle img {
         width: 100%; /* ボタン幅に合わせる */
         height: 100%; /* ボタン高さに合わせる */
         object-fit: contain; /* 画像がボタン内でいい感じにフィット */
-    }    
+    }
 
     #search-input {
         background-color: rgb(66, 67, 70);
@@ -173,5 +194,5 @@ main {
         width: 40vw;
         font-size: 12px;
         padding: 0 1vw;
-}
+    }
 

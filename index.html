@@ -13,47 +13,28 @@
 <body>
     <main>
         <section id="deck-area">
-
             <h2>Lrig Deck</h2>
-
             <div id="lrig-deck">
-
-                <div class="card-grid" id="lrig-deck-cards">
-                </div>
-
+                <div class="card-grid" id="lrig-deck-cards"></div>
             </div>
-
             <h2>Main Deck</h2>
-
             <div id="main-deck">
-
-                <div class="card-grid" id="main-deck-cards">
-                </div>
-
+                <div class="card-grid" id="main-deck-cards"></div>
             </div>
-
         </section>
 
         <section id="deck-status">
-
             <div id="life-burst">
                 <img id="life-burst-icon" src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_burst.png">
             </div>
-
-            <div id="life-burst-count">
-            </div>
-
+            <div id="life-burst-count"></div>
         </section>
 
         <section id="card-list">
-
-            <div id="cards-container">
-            </div>
-
+            <div id="cards-container"></div>
         </section>
 
-        <section id="search-tool">
-
+        <section id="search-tool-1">
             <select id="search-type-input">
                 <option value="">カード種類</option>
                 <option value="シグニ">シグニ</option>
@@ -63,41 +44,45 @@
                 <option value="ピース">ピース</option>
                 <option value="アーツ">アーツ</option>
             </select>
-
             <div id="level-buttons">
                 <button class="level-button" data-level="1">1</button>
                 <button class="level-button" data-level="2">2</button>
                 <button class="level-button" data-level="3">3</button>
             </div>
-
+            <div id="color-buttons">
+                <button class="color-button" data-color="white"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_white2.png"></button>
+                <button class="color-button" data-color="red"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_red2.png"></button>
+                <button class="color-button" data-color="blue"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_blue2.png"></button>
+                <button class="color-button" data-color="green"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_green2.png"></button>
+                <button class="color-button" data-color="black"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_black2.png"></button>
+            </div>
             <button id="life-burst-toggle" class="lb-button">
                 <img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_burst.png">
             </button>
+        </section>
 
+        <section id="search-tool-2">
             <input type="text" id="search-input" placeholder="カード名">
-
         </section>
     </main>
 
+    /* PWAの処理 */
     <script>
-
-        // PWA
-        if ('serviceWorker' in navigator) {
-	        window.addEventListener('load', () => {
-	            navigator.serviceWorker.register('sw.js').then(registration => {
-	                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-	                }, err => {
-	                    console.log('ServiceWorker registration failed: ', err);
-	                }).catch(err => {
-	                    console.log(err)
-	            });
+    if ('serviceWorker' in navigator) {
+	    window.addEventListener('load', () => {
+	        navigator.serviceWorker.register('sw.js').then(registration => {
+	            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+	        }, err => {
+	            console.log('ServiceWorker registration failed: ', err);
+	        }).catch(err => {
+	            console.log(err)
 	        });
-        }
-
+	    });
+    }
     </script>
 
+    /* main.jsを読み込む */
     <script src="main.js"></script>
-    
 </body>
 
 </html>
