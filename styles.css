@@ -218,8 +218,7 @@ main {
         }
     /* カード名検索欄*/
         #search-input {
-            border-bottom: #ccc; /* 下線の色 */
-            border-width: 1px; /* 下線の太さ */
+            border-bottom: 1px solid #ccc; /* 下線の色と太さ */
             color: #ccc; /* 文字色 */
             background-color: #2c2c30; /* 背景色 */
             height: 2rem; /* 高さ */
