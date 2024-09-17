@@ -198,6 +198,14 @@ main {
             object-fit: contain; /* 画像がボタン内でいい感じにフィット */
         }
 
+/* 検索ツール2段目 */
+#search-tool-2 {
+    display: flex; /* flexboxを使用 */
+    align-items: center; /* 垂直方向に中央揃え */
+    flex-direction: row; /* コンテンツを横に並べる */
+    height: 3rem; /* 縦幅 */
+    padding: 0.5rem 5vw; /* 余白 */
+}
     /* カード種類検索のプルダウン */
     #search-type-input{
         border: none; /* 枠線を消す */
