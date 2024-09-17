@@ -49,14 +49,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 色選択ボタンの処理
+    const colorButtons = document.querySelectorAll('.color-button');
+    const selectedColors = new Set();  // 選択された色を管理
+
+    colorButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const color = button.dataset.color;
+
+        // ボタンのオン・オフを切り替え
+            if (selectedColors.has(color)) {
+                selectedColors.delete(color);
+                button.classList.remove('active');  // オフ状態のスタイル
+            } else {
+                selectedColors.add(color);
+                button.classList.add('active');  // オン状態のスタイル
+            }
+
+            // 検索を実行
+            handleSearch();
+        });
+    });
+
+
     // LBボタンのクリックイベント
     const lifeBurstButton = document.getElementById('life-burst-toggle');
     //let lifeBurstState = 0; // 0: どっちも, 1: LBあり, 2: LBなし
 
-    // Life Burst ボタンのクリックイベントリスナー
+    /* Life Burst ボタンのクリックイベントリスナー */
     lifeBurstButton.addEventListener('click', function() {
-        // クリックごとにlifeBurstStateを更新（0→1→2→0のループ）
-        lifeBurstState = (lifeBurstState + 1) % 3;
+        lifeBurstState = (lifeBurstState + 1) % 3; // クリックごとにlifeBurstStateを1増やす（0→1→2→0のループ）
 
         // 状態に応じてボタンの背景色を変更
         switch (lifeBurstState) {
@@ -108,19 +130,18 @@ function handleSearch() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase(); // #search-inputからテキストを取得（小文字に変換）しsearchTermにする
     const selectedType = document.getElementById('search-type-input').value; // #search-type-inputドロップダウンから選ばれたカード種類を取得してselectedTypeにする
     const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level); // .level-button.active（押されたLv選択ボタン）から選ばれたLvを取得してselectedLevelsにする
+    const selectedColors = Array.from(document.querySelectorAll('.color-button.active')).map(button => button.dataset.color); // .color-button.active（押された色選択ボタン）から選ばれた色を取得してselectedColorsにする
 
     /* 検索結果を表示させる場所として#cards-containerを取得 */
     const cardsContainer = document.getElementById('cards-container');
-
     /* 検索結果を一度リセット */
     cardsContainer.innerHTML = '';
 
     /* window.cardsDataの中からカードを検索してfilteredCardsに保存 */
     let filteredCards = window.cardsData.filter(card => {
-
         /* 各種条件で検索 */
         const nameMatch = card.name.toLowerCase().includes(searchTerm); // カード名（小文字に変換）にsearchTerm含んでいるかを確認
-        const subnameMatch = card.subname && card.subname.some(sub => sub.toLowerCase().includes(searchTerm)); // subNameがあれば、同様にsearchTermを含んでいるか確認
+        const subNameMatch = card.subName && card.subName.some(sub => sub.toLowerCase().includes(searchTerm)); // subNameがあれば、同様にsearchTermを含んでいるか確認
         const typeMatch = selectedType === "" || card.type.includes(selectedType); // selectedTypeが空なら全てで検索、選択されていればselectedTypeがtypeに含まれているか確認
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString()); // selectedLevelsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const lifeBurstMatch = (
@@ -128,9 +149,8 @@ function handleSearch() {
             (lifeBurstState === 1 && card.lifeBurst === 1) ||  // lifeBurstStateが1であればLBありで検索
             (lifeBurstState === 2 && card.lifeBurst === 0)     // lifeBurstStateが2であればLBなしで検索
         );
-
         /* 全条件で検索 */
-        return (nameMatch || subnameMatch) && typeMatch && levelMatch && lifeBurstMatch;
+        return (nameMatch || subNameMatch) && typeMatch && levelMatch && lifeBurstMatch;
     });
 
     /* 検索結果filteredCardsをdisplayCards関数で表示 */
@@ -316,7 +336,7 @@ function handleRemoveTouchEnd(event) {
     }
 }
 
-// 削除の関数　
+// 削除の関数
 function removeCardFromDeck(cardElement) {
     const lrigDeck = document.getElementById('lrig-deck-cards');
     const mainDeck = document.getElementById('main-deck-cards');
