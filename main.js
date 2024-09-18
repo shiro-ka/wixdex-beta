@@ -3,6 +3,8 @@ const jsonFiles = [
     'cards/test.json',
     'cards/WXDi-P00.json'
 ];
+/* グローバルスコープで宣言 */
+let allCardsData = [];
 // タッチ開始時のY座標初期値を設定
 let touchStartY = 0;
 // Life Burstボタンの状態
