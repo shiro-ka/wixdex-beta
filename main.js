@@ -145,7 +145,7 @@ function handleSearch() {
         const subNameMatch = card.subName && card.subName.some(sub => sub.toLowerCase().includes(searchTerm)); // subNameがあれば、同様にsearchTermを含んでいるか確認
         const typeMatch = selectedType === "" || card.type.includes(selectedType); // selectedTypeが空なら全てで検索、選択されていればselectedTypeがtypeに含まれているか確認
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString()); // selectedLevelsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
-        const colorMatch = selectedColors.length === 0 || selectedColors.includes(card.color); // selectedColorsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
+        const colorMatch = selectedColors.length === 0 || selectedColors.some(color => card.color.includes(color)); // selectedColorsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const lifeBurstMatch = (
             (lifeBurstState === 0) ||  // lifeBurstStateが0であれば全てで検索
             (lifeBurstState === 1 && card.lifeBurst === 1) ||  // lifeBurstStateが1であればLBありで検索
