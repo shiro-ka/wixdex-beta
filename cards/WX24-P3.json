@@ -1,0 +1,146 @@
+[
+    {
+        "name": "クリスタル・エクスプロージョン",
+        "subName": ["くりすたるえくすぷろーじょん","くりぷろ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-001.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["white"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "勇気爆熱",
+        "subName": ["ゆうきばくねつ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-003.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["red"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "ブルー・オーバードライブ",
+        "subName": ["ぶるーおーばーどらいぶ","ぶるどら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-005.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["blue"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "タイム・ダイバー・ダウン",
+        "subName": ["たいむだいばーだうん","たいだい","ただだ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-006.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["blue"],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "栄耀栄華",
+        "subName": ["りぺあーういんど","りぺあーうぃんど","えいようえいか","りぺうぃん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-007.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["green"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "ダーク・ブルーム",
+        "subName": ["だーくぶるーむ","だくぶる"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-009.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["black"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "占星術の巫女リメンバ・ドウン",
+        "subName": ["せんせいじゅつのみこりめんばどうん","りめどぅん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-014.jpg",
+        "type": ["ルリグ"],
+        "cardType": ["リメンバ"],
+        "level": 3,
+        "color": ["white"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "ちより第三章",
+        "subName": ["ちよりだいさんしょう","ちよりだい3しょう"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-018.jpg",
+        "type": ["ルリグ"],
+        "cardType": ["ちより"],
+        "level": 3,
+        "color": ["red"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "エルドラ×マークⅢBURST",
+        "subName": ["えるどらまーくすりーばーすと","えるどらまーくiiiばーすと","えるどらまーく3ばーすと"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-022.jpg",
+        "type": ["ルリグ"],
+        "cardType": ["エルドラ"],
+        "level": 3,
+        "color": ["blue"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "回想の階層アン＝サード",
+        "subName": ["かいそうのかいそうあんさーど"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-026.jpg",
+        "type": ["ルリグ"],
+        "cardType": ["アン"],
+        "level": 3,
+        "color": ["green"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "黒想の花嫁アルフォウ",
+        "subName": ["こくそうのはなよめあるふぉう"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-030.jpg",
+        "type": ["ルリグ"],
+        "cardType": ["アルフォウ"],
+        "level": 3,
+        "color": ["black"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "フォーチュン・エンヴィジョン",
+        "subName": ["ふぉーちゅんえんヴぃじょん","ふぉーちゅんえんびじょん","ふぉんえん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-031.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["white"],
+        "lifeBurst": 2,
+        "tags": [""]
+    }
+
+]
