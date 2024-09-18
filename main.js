@@ -1,7 +1,7 @@
 /* jsonファイル群を読み込む */
 const jsonFiles = [
     'cards/test.json',
-    'cards/WXDi-P00-005.json'
+    'cards/WXDi-P00.json'
 ];
 // タッチ開始時のY座標初期値を設定
 let touchStartY = 0;
