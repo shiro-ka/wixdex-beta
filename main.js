@@ -1,7 +1,8 @@
 /* jsonファイル群を読み込む */
 const jsonFiles = [
     'cards/test.json',
-    'cards/WXDi-P00.json'
+    'cards/WXDi-P00.json',
+    'cards/WX24-P3.json'
 ];
 /* グローバルスコープで宣言 */
 let allCardsData = [];
@@ -14,17 +15,6 @@ let currentCard;
 
 /* DOM読込完了時に実行 */
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* ！古い処理方法 //cards.jsonを取得
-    fetch('cards.json')
-        .then(response => response.json())
-        .then(responseData => {
-            window.cardsData = responseData;
-            displayCards(responseData);
-            updateDeckStatus(); //ステータス欄を更新
-        })
-    .catch(error => console.error('カードデータが読み込めなかったっぽい！', error)); //
-    */
 
     /* jsonファイル群からcards.jsonを取得 */
     Promise.all(
