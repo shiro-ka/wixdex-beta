@@ -1,3 +1,8 @@
+/* jsonファイル群を読み込む */
+const jsonFiles = [
+    'cards/test.json',
+    'cards/WXDi-P00-005.json'
+];
 // タッチ開始時のY座標初期値を設定
 let touchStartY = 0;
 // Life Burstボタンの状態
@@ -8,7 +13,7 @@ let currentCard;
 /* DOM読込完了時に実行 */
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* cards.jsonを取得 */
+    /* ！古い処理方法 //cards.jsonを取得
     fetch('cards.json')
         .then(response => response.json())
         .then(responseData => {
@@ -16,7 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
             displayCards(responseData);
             updateDeckStatus(); //ステータス欄を更新
         })
-    .catch(error => console.error('カードデータが読み込めなかったっぽい！', error)); //エラーが出たら困る
+    .catch(error => console.error('カードデータが読み込めなかったっぽい！', error)); //
+    */
+
+    /* jsonファイル群からcards.jsonを取得 */
+    Promise.all(
+        jsonFiles.map(file =>
+            fetch(file).then(response => response.json())
+        )
+    )
+    .then(responses => {
+        responses.forEach(responseData => {
+            allCardsData = allCardsData.concat(responseData);
+        });
+        window.cardsData = allCardsData;
+        displayCards(window.cardsData);
+        updateDeckStatus();
+    })
+    .catch(error => {
+        console.error("Error loading JSON files:", error);
+    });
 
     /* カード名検索のイベントリスナーを追加 */
     const searchInput = document.getElementById('search-input');
