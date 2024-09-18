@@ -171,7 +171,7 @@ main {
             margin-right: 1vw; /* 右側にマージンを追加 */
         }
         /* オン状態のボタン設定 */
-        .level-button.active{
+        .color-button.active{
             background-color: #ccc; /* 背景色を変更 */
         }
         /* 画像の設定 */
