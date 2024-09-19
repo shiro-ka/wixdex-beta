@@ -3,7 +3,7 @@
         "name": "NEXT GATE",
         "subName": ["ねくすとげーと","nextgate","ねくげー"],
         "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-001A.jpg",
-        "type": ["ピース"],
+        "type": ["ピース","ルリグ"],
         "cardType": ["タウィル","ウムル"],
         "level": 0,
         "color": ["白","黒"],
@@ -192,206 +192,662 @@
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "堂々！！ガブリエラ",
+        "subName": ["どうどうがぶりえら","どうどう!!がぶりえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-035.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["ガブリエラ"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女","アタックフェイズ"]
+    },
+
+    {
+        "name": "バイバイ！！ガブリエラ",
+        "subName": ["ばいばいがぶりえら","ばいばい!!がぶりえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-036.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["ガブリエラ"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女","アタックフェイズ"]
+    },
+
+    {
+        "name": "アザエラ「勇気の矢」",
+        "subName": ["あざえらゆうきのや","あざえら「ゆうきのや」"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-037.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["アザエラ"],
+        "level": 1,
+        "color": ["赤"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "アザエラ「微笑みの翼」",
+        "subName": ["あざえらほほえみのつばさ","あざえら「ほほえみのつばさ」"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-038.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["アザエラ"],
+        "level": 1,
+        "color": ["赤"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "アザエラ「逆転の炎」",
+        "subName": ["あざえらぎゃくてんのほのお","あざえら「ぎゃくてんのほのお」"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-039.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["アザエラ"],
+        "level": 2,
+        "color": ["赤"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "アザエラ「勝利の拳」",
+        "subName": ["あざえらしょうりのこぶし","あざえら「しょうりのこぶし」"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-040.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["アザエラ"],
+        "level": 2,
+        "color": ["赤"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女","アタックフェイズ"]
+    },
+
+    {
+        "name": "アザエラ「無敵の盾」",
+        "subName": ["あざえらむてきのたて","あざえら「むてきのたて」"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-041.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["アザエラ"],
+        "level": 2,
+        "color": ["赤"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女","アタックフェイズ"]
+    },
+
+    {
+        "name": "突・ミカエラ",
+        "subName": ["とつみかえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-042.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["ミカエラ"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "舞・ミカエラ",
+        "subName": ["まいみかえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-043.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["ミカエラ"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "牙・ミカエラ",
+        "subName": ["きばみかえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-044.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["ミカエラ"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "蹴・ミカエラ",
+        "subName": ["しゅうみかえら","けりみかえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-045.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["ミカエラ"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女","アタックフェイズ"]
+    },
+
+    {
+        "name": "刃・ミカエラ",
+        "subName": ["やいばみかえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-046.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["ミカエラ"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女","アタックフェイズ"]
+    },
+
+    {
+        "name": "夢限紅天姫ゼウシアス",
+        "subName": ["むげんこうてんきぜうしあす"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-048.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏像：天使"],
+        "level": 3,
+        "color": ["赤"],
+        "lifeBurst": 0,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "轟砲ヘビーマシンガン",
+        "subName": ["ごうほうべびーましんがん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-049.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏武：ウェポン"],
+        "level": 3,
+        "color": ["赤"],
+        "lifeBurst": 0,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "コードラビリンストビラ",
+        "subName": ["こーどらびりんすとびら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-051.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏械：迷宮"],
+        "level": 3,
+        "color": ["緑"],
+        "lifeBurst": 1,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "幻獣神グリズリ",
+        "subName": ["げんじゅうしんぐりずり"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-052.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏生：地獣"],
+        "level": 3,
+        "color": ["緑"],
+        "lifeBurst": 0,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "凶将姫ソウソウ",
+        "subName": ["きょうしょうきそうそう"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-053.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏像：武勇"],
+        "level": 3,
+        "color": ["黒"],
+        "lifeBurst": 1,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "極門天姫ヨグニグラ",
+        "subName": ["ごくもんてんきよぐにぐら","きょくもんてんきよぐにぐら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-055.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏像：天使","奏械：古代兵器"],
+        "level": 3,
+        "color": ["白","黒"],
+        "lifeBurst": 0,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
+        "name": "紡ぐ者//メモリア",
+        "subName": ["つむぐものめもりあ","つむぐもの//めもりあ","つぐめも"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-058.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏元"],
+        "level": 3,
         "color": [""],
-        "lifeBurst": ,
+        "lifeBurst": 0,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "小装デウス//THE DOOR",
+        "subName": ["しょうそうでうすざどあー","しょうそうでうす//ざどあー","しょうそうでうすどあー","でうどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-059.jpg",
+        "type": ["シグニ"],
+        "cardType": ["防衛派","奏武：アーム"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": 0,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "羅星ノヴァ//フェゾーネ",
+        "subName": ["らせいのヴぁふぇぞーね","らせいのヴぁ//ふぇぞーね","のヴぁぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-060.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏羅：宇宙"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": 0,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "小装カマカマ",
+        "subName": ["しょうそうかまかま"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-061.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏武：アーム"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": 1,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "コードライドマキナ//THE DOOR",
+        "subName": ["こーどらいどまきなざどあー","こーどらいどまきな//ざどあー","こーどらいどまきなどあー","まきどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-062.jpg",
+        "type": ["シグニ"],
+        "cardType": ["防衛派","奏械：乗機"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": 1,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "爆砲アルト//ディソナ",
+        "subName": ["ばくほうあるとでぃそな"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-063.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏武：ウェポン"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": 0,
+        "tags": ["ディソナ"]
+    },
+
+    {
+        "name": "コードアンチイオナ//THE DOOR",
+        "subName": ["こーどあんちいおなざどあー","こーどあんちいおな//ざどあー","こーどあんちいおなどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-064.jpg",
+        "type": ["シグニ"],
+        "cardType": ["開放派","奏械：古代兵器"],
+        "level": 1,
+        "color": ["赤"],
+        "lifeBurst": 0,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "紅将リル//フェゾーネ",
+        "subName": ["こうしょうりるふぇぞーね","こうしょうりる//ふぇぞーね","りるぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-065.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏像：武勇"],
+        "level": 1,
+        "color": ["赤"],
+        "lifeBurst": 1,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "幻獣ラバピカ",
+        "subName": ["げんじゅうらばぴか"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-066.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏生：地獣"],
+        "level": 1,
+        "color": ["赤"],
+        "lifeBurst": 1,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "中装タマ//THE DOOR",
+        "subName": ["ちゅうそうたまざどあー","ちゅうそうたま//ざどあー","ちゅうそうたまどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-067.jpg",
+        "type": ["シグニ"],
+        "cardType": ["開放派","奏武：アーム"],
+        "level": 2,
+        "color": ["赤"],
+        "lifeBurst": 1,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "コードライドレイラ//ディソナ",
+        "subName": ["こーどらいどれいらでぃそな","こーどらいどれいら//でぃそな"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-068.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏械：乗機"],
+        "level": 2,
+        "color": ["赤"],
+        "lifeBurst": 0,
+        "tags": ["ディソナ"]
+    },
+
+    {
+        "name": "蒼美ふたせ//THE DOOR",
+        "subName": ["そうびふたせざどあー","そうびふたせ//ざどあー","そうびふたせどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-069.jpg",
+        "type": ["シグニ"],
+        "cardType": ["開放派","奏像：美巧"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 0,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "アイン＝サンガ//THE DOOR",
+        "subName": ["あいんさんがざどあー","あいん=さんが//ざどあー","あいんさんがどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-070.jpg",
+        "type": ["シグニ"],
+        "cardType": ["防衛派","奏武：毒牙"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 0,
         "tags": [""]
     },
 
     {
-        "name": "",
-        "subName": [""],
-        "image": "",
-        "type": [""],
-        "cardType": [""],
-        "level": ,
-        "color": [""],
-        "lifeBurst": ,
+        "name": "羅星タマゴ//フェゾーネ",
+        "subName": ["らせいたまごふぇぞーね","らせいたまご//ふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-071.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏羅：宇宙"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 1,
         "tags": [""]
     },
+
+    {
+        "name": "蒼魔ムルムルン",
+        "subName": ["そうまむるむるん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-072.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏像：悪魔"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "蒼美アン//THE DOOR",
+        "subName": ["そうびあんざどあー","そうびあん//ざどあー","そうびあんどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-073.jpg",
+        "type": ["シグニ"],
+        "cardType": ["開放派","奏像：美巧"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "コードアンチマドカ//THE DOOR",
+        "subName": ["こーどあんちまどかざどあー","こーどあんちまどか//ざどあー","こーどあんちまどかどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-074.jpg",
+        "type": ["シグニ"],
+        "cardType": ["防衛派","奏械：古代兵器"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "幻水エルドラ//ディソナ",
+        "subName": ["げんすいえるどらでぃそな","げんすいえるどら//でぃそな"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-075.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏生：水獣"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": 0,
+        "tags": ["ディソナ"]
+    },
+
+    {
+        "name": "アイン＝ハナレ//THE DOOR",
+        "subName": ["あいんはなれざどあー","あいん=はなれ//ざどあー","あいんはなれどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-076.jpg",
+        "type": ["シグニ"],
+        "cardType": ["闘争派","奏武：毒牙"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "翠魔バン//フェゾーネ",
+        "subName": ["すいまばんふぇぞーね","すいまばん//ふぇぞーね","ばんぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-077.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏像：悪魔"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "翠天ヴィーザル",
+        "subName": ["すいてんヴぃーざる"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-078.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏像：天使"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "羅星リメンバ//THE DOOR",
+        "subName": ["らせいりめんばざどあー","らせいりめんば//ざどあー","らせいりめんばどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-079.jpg",
+        "type": ["シグニ"],
+        "cardType": ["闘争派","奏羅：宇宙"],
+        "level": 2,
+        "color": ["緑"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "弍ノ遊アイヤイ//ディソナ",
+        "subName": ["にのゆうあいやいでぃそな","にのゆうあいやい//でぃそな"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-080.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏武：遊具"],
+        "level": 2,
+        "color": ["緑"],
+        "lifeBurst": 0,
+        "tags": ["ディソナ"]
+    },
+
+    {
+        "name": "凶魔ハイティ//THE DOOR",
+        "subName": ["きょうまはいてぃざどあー","きょうまはいてぃ//ざどあー","きょうまはいてぃどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-081.jpg",
+        "type": ["シグニ"],
+        "cardType": ["闘争派","奏像：悪魔"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "異血之遊グズ子//フェゾーネ",
+        "subName": ["いちのゆうぐずこふぇぞーね","いちのゆうぐずこ//ふぇぞーね","ずこぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-082.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏武：遊具"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "凶魔アルフォウ//THE DOOR",
+        "subName": ["きょうまあるふぉうざどあー","きょうまあるふぉう//ざどあー","きょうまあるふぉうどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-083.jpg",
+        "type": ["シグニ"],
+        "cardType": ["闘争派","奏像：悪魔"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "幻蟲ミュウ//ディソナ",
+        "subName": ["げんちゅうみゅうでぃそな","げんちゅうみゅう//でぃそな","みゅでぃ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-084.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏生：凶蟲"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 1,
+        "tags": ["ディソナ"]
+    },
+
+    {
+        "name": "羅原Pb",
+        "subName": ["らげんなまり","らげんぴーびー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-085.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏羅：原子"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "コードアートL・マイク",
+        "subName": ["こーどあーとえるまいく","こーどあーとlまいく"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-086.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏械：電機"],
+        "level": 1,
+        "color": ["白","赤","緑"],
+        "lifeBurst": 0,
+        "tags": ["CardJockey"]
+    },
+
+    {
+        "name": "羅石H・マイク",
+        "subName": ["らせきえいちまいく","らせきhまいく"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-087.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏羅：宝石"],
+        "level": 1,
+        "color": ["赤","白","青"],
+        "lifeBurst": 0,
+        "tags": ["NoLimit"]
+    },
+
+    {
+        "name": "混天A・アロー",
+        "subName": ["こんてんえーあろー","こんてんaあろー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-088.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏像：天使"],
+        "level": 1,
+        "color": ["赤","白","青"],
+        "lifeBurst": 0,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "コードライドE・カッター",
+        "subName": ["こーどらいどいーかったー","こーどらいどeかったー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-089.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏械：乗機"],
+        "level": 1,
+        "color": ["赤","黒"],
+        "lifeBurst": 0,
+        "tags": ["デウス・エクス・マキナ"]
+    },
+
+    {
+        "name": "羅星T・シンバル",
+        "subName": ["らせいてぃーしんばる","らせいtしんばる"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-090.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏羅：宇宙"],
+        "level": 1,
+        "color": ["青","白","緑"],
+        "lifeBurst": 0,
+        "tags": ["うちゅうのはじまり"]
+    },
+
+    {
+        "name": "羅菌M・ジョーギ",
+        "subName": ["らきんえむじょーぎ","らきんmじょーぎ","らきんえむじょうぎ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-091.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏羅：微菌"],
+        "level": 1,
+        "color": ["青","白","黒"],
+        "lifeBurst": 0,
+        "tags": ["きゅるきゅるーん"]
+    },
+
+    {
+        "name": "コードメイズトルネンブラ",
+        "subName": ["こーどめいずとるねんぶら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-092.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏械：迷宮"],
+        "level": 1,
+        "color": ["緑","赤","青"],
+        "lifeBurst": 1,
+        "tags": ["アンシエント・サプライズ"]
+    },
+
+    {
+        "name": "アイン＝M・ボール",
+        "subName": ["あいんえむぼーる","あいん=mぼーる"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-093.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏武：毒牙"],
+        "level": 1,
+        "color": ["黒","青","緑"],
+        "lifeBurst": 1,
+        "tags": ["DIAGRAM"]
+    },
+
+    {
+        "name": "未来への道標",
+        "subName": ["みらいへのみちしるべ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-094.jpg",
+        "type": ["スペル"],
+        "cardType": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 0,
+        "tags": [""]
+    }
 ]
