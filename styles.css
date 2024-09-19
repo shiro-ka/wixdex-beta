@@ -96,9 +96,9 @@ main {
         height: 1rem;
         }
 
-        #life-burst-icon{
-        width: 1rem;
+    #life-burst-icon img{
         height: 1rem;
+        width: auto;
     }
 
     #life-burst-count{
