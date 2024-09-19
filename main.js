@@ -1,8 +1,10 @@
 /* jsonファイル群を読み込む */
 const jsonFiles = [
-    'cards/WXDi-P00.json',
-    'cards/WX24-P3.json'
+    'cards/WX24-P3.json',
+    'cards/WXDi-P16.json',
+    'cards/WXDi-P00.json'
 ];
+
 /* グローバルスコープで宣言 */
 let allCardsData = [];
 // タッチ開始時のY座標初期値を設定
