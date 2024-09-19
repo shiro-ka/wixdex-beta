@@ -6,7 +6,7 @@
         "type": ["アーツ"],
         "cardType": [""],
         "level": 0,
-        "color": ["white"],
+        "color": ["白"],
         "lifeBurst": 2,
         "tags": [""]
     },
@@ -18,7 +18,7 @@
         "type": ["アーツ"],
         "cardType": [""],
         "level": 0,
-        "color": ["red"],
+        "color": ["赤"],
         "lifeBurst": 2,
         "tags": [""]
     },
@@ -30,7 +30,7 @@
         "type": ["アーツ"],
         "cardType": [""],
         "level": 0,
-        "color": ["blue"],
+        "color": ["青"],
         "lifeBurst": 2,
         "tags": [""]
     },
@@ -42,7 +42,7 @@
         "type": ["アーツ"],
         "cardType": [""],
         "level": 0,
-        "color": ["blue"],
+        "color": ["青"],
         "lifeBurst": 2,
         "tags": ["アタックフェイズ"]
     },
@@ -54,7 +54,7 @@
         "type": ["アーツ"],
         "cardType": [""],
         "level": 0,
-        "color": ["green"],
+        "color": ["緑"],
         "lifeBurst": 2,
         "tags": [""]
     },
@@ -66,7 +66,7 @@
         "type": ["アーツ"],
         "cardType": [""],
         "level": 0,
-        "color": ["black"],
+        "color": ["黒"],
         "lifeBurst": 2,
         "tags": [""]
     },
@@ -78,7 +78,7 @@
         "type": ["ルリグ"],
         "cardType": ["リメンバ"],
         "level": 3,
-        "color": ["white"],
+        "color": ["白"],
         "lifeBurst": 2,
         "tags": [""]
     },
@@ -90,7 +90,7 @@
         "type": ["ルリグ"],
         "cardType": ["ちより"],
         "level": 3,
-        "color": ["red"],
+        "color": ["赤"],
         "lifeBurst": 2,
         "tags": [""]
     },
@@ -102,7 +102,7 @@
         "type": ["ルリグ"],
         "cardType": ["エルドラ"],
         "level": 3,
-        "color": ["blue"],
+        "color": ["青"],
         "lifeBurst": 2,
         "tags": [""]
     },
@@ -114,7 +114,7 @@
         "type": ["ルリグ"],
         "cardType": ["アン"],
         "level": 3,
-        "color": ["green"],
+        "color": ["緑"],
         "lifeBurst": 2,
         "tags": [""]
     },
@@ -126,7 +126,7 @@
         "type": ["ルリグ"],
         "cardType": ["アルフォウ"],
         "level": 3,
-        "color": ["black"],
+        "color": ["黒"],
         "lifeBurst": 2,
         "tags": [""]
     },
@@ -138,9 +138,200 @@
         "type": ["アーツ"],
         "cardType": [""],
         "level": 0,
-        "color": ["white"],
+        "color": ["白"],
         "lifeBurst": 2,
         "tags": [""]
-    }
+    },
 
+    {
+        "name": "取捨炎択",
+        "subName": ["しゅしゃえんたく"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-033.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["赤"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "トレジャー・フィッシュ",
+        "subName": ["とれじゃーふぃっしゅ","とれふぃ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-035.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["青"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "一筆啓上",
+        "subName": ["ぶらっしゅすらっしゅ","いっぴつけいじょう","ぶらすら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-037.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["緑"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "ブーケ・メイキング",
+        "subName": ["ぶーけめいきんぐ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-039.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "リステージ・エンハンス",
+        "subName": ["りすてーじえんはんす"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-041.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "マルチ・チャージング",
+        "subName": ["まるちちゃーじんぐ","まるちゃー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-042.jpg",
+        "type": ["アーツ"],
+        "cardType": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "アシスト・ディフェンス",
+        "subName": ["あしすとでぃふぇんす","あしでぃ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-043.jpg",
+        "type": ["ピース"],
+        "cardType": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "エルドラ！クロス・ライフ・クロス！",
+        "subName": ["えるどらくろすらいふくろす","えるどら!くろすらいふくろす","えるくろ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-044.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["エルドラ"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "アン-扇ギ",
+        "subName": ["あんあおぎ","あん-あおぎ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-045.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["アン"],
+        "level": 2,
+        "color": ["緑"],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "イオナ・クライシス",
+        "subName": ["いおなくらいしす","いおくら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-046.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["イオナ"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "羅星姫ホロスコープ",
+        "subName": ["らせいきほろすこーぷ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-047.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏羅：宇宙"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "聖天姫ラジエル",
+        "subName": ["せいてんきらじえる"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-048.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏像：天使"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "大罠バーニングチョリソー",
+        "subName": ["だいびんばーにんぐちょりそー","おおなわばーにんぐちょりそー","ばにちょり"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-050.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏武：トリック"],
+        "level": 3,
+        "color": ["赤"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "幻闘水姫ナマコズ",
+        "subName": ["げんとうすいひめなまこず","げんとうすいきなまこず"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-052.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏生：水獣"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "翠美姫スイボク",
+        "subName": ["すいびきすいぼく"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-055.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏像：美巧"],
+        "level": 3,
+        "color": ["緑"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "凶魔姫サユラギ",
+        "subName": ["きょうまきさゆらぎ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-057.jpg",
+        "type": ["シグニ"],
+        "cardType": ["奏像：悪魔"],
+        "level": 3,
+        "color": ["黒"],
+        "lifeBurst": 0,
+        "tags": [""]
+    }
 ]
