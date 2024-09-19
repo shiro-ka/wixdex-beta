@@ -6,7 +6,7 @@
 
 /* 全体の設定 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial,Helvetica,sans-serif;
     line-height: 1;
     display: flex;
     flex-direction: column;
@@ -25,17 +25,29 @@ main {
     flex-direction: column; /* コンテンツを縦に並べる */
     padding: 0.5rem 1rem; /* 余白 */
 }
+    /* MainDeckのヘッダー設定 */
+        #main-header{
+            display: flex; /* flexboxを使用 */
+            align-items: center; /* 垂直方向に中央揃え */
+            flex-direction: row; /* コンテンツを横に並べる */
+            height: 2rem; /* 高さ */
+        }
+    /* ヘッダーのアイコン設定 */
+        .header-icon img{
+            height: 1rem;
+            width: auto;
+        }
     /* デッキ欄の文字設定（"Lrig Deck","Main Deck"）*/
         h2 {
-            font-family: 'Times New Roman', Times, serif; /* フォント */
             color: #ccc; /* 色 */
-            font-size: 1.5rem; /* サイズ */
-            padding: 0.5rem 0; /* 余白 */
+            font-size: 1rem; /* サイズ */
+            margin-right: 5vw; /* 右側にマージンを追加 */
         }
     /* デッキ仕切線の設定 */
         .deck-hr {
             border: none; /* 枠線を削除 */
 	        height: 1px; /* 太さ */
+            padding: 0 0.25rem; /* 余白 */
             background-image: -webkit-linear-gradient(left,transparent 0%,#ccc 50%,transparent 100%); /* グラデーションの設定（古い方式）*/
 	        background-image: linear-gradient(90deg,transparent 0%,#ccc 50%,transparent 100%); /* グラデーションの設定 */
         }
