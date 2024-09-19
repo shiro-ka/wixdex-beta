@@ -1,0 +1,397 @@
+[
+    {
+        "name": "NEXT GATE",
+        "subName": ["ねくすとげーと","nextgate","ねくげー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-001A.jpg",
+        "type": ["ピース"],
+        "cardType": ["タウィル","ウムル"],
+        "level": 0,
+        "color": ["白","黒"],
+        "lifeBurst": 2,
+        "tags": ["チームピース"]
+    },
+
+    {
+        "name": "D-(A)LIVE!!",
+        "subName": ["でぃーあらいぶ","dalive","だりべ","だらいぶ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-002.jpg",
+        "type": ["ピース"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["赤","白","青"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女","チームピース"]
+    },
+
+    {
+        "name": "純白の防壁",
+        "subName": ["じゅんぱくのぼうへき"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-003.jpg",
+        "type": ["ピース"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "真紅の熱線",
+        "subName": ["しんくのねっせん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-004.jpg",
+        "type": ["ピース"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["赤"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "キラキラ・ブルー",
+        "subName": ["きらきらぶるー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-005.jpg",
+        "type": ["ピース"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["青"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "深緑クッキング",
+        "subName": ["しんりょくくっきんぐ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-006.jpg",
+        "type": ["ピース"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["緑"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "ブラック・サプライズ",
+        "subName": ["ぶらっくさぷらいず","ぶらさぷ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-007.jpg",
+        "type": ["ピース"],
+        "cardType": [""],
+        "level": 0,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "扉の俯瞰者タウィル＝トレ",
+        "subName": ["とびらのふかんしゃたうぃるとれ","とびらのふかんしゃたうぃる=とれ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-008.jpg",
+        "type": ["ルリグ"],
+        "cardType": ["タウィル"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "導きを集うガブリエラ",
+        "subName": ["みちびきをつどうがぶりえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-009.jpg",
+        "type": ["ルリグ"],
+        "cardType": ["ガブリエラ"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "彼方へ輝くアザエラ",
+        "subName": ["かなたへかがやくあざえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-010.jpg",
+        "type": ["ルリグ"],
+        "cardType": ["アザエラ"],
+        "level": 3,
+        "color": ["赤"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "希望の後先ミカエラ",
+        "subName": ["きぼうのあとさきみかえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-011.jpg",
+        "type": ["ルリグ"],
+        "cardType": ["ミカエラ"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "収斂せし扉アト＝トレ",
+        "subName": ["しゅうれんせしとびらあととれ","しゅうれんせしとびらあと=とれ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-012.jpg",
+        "type": ["ルリグ"],
+        "cardType": ["アト"],
+        "level": 3,
+        "color": ["緑"],
+        "lifeBurst": 2,
+        "tags": ["アンシエント・サプライズ"]
+    },
+
+    {
+        "name": "扉の俯瞰者ウムル＝トレ",
+        "subName": ["とびらのふかんしゃうむるとれ","とびらのふかんしゃうむる=とれ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-013.jpg",
+        "type": ["ルリグ"],
+        "cardType": ["ウムル"],
+        "level": 3,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "凛々！！ガブリエラ",
+        "subName": ["りんりんがぶりえら","りんりん!!がぶりえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-032.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["ガブリエラ"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "閃々！！ガブリエラ",
+        "subName": ["せんせんがぶりえら","せんせん!!がぶりえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-033.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["ガブリエラ"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "煌々！！ガブリエラ",
+        "subName": ["こうこうがぶりえら","こうこう!!がぶりえら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P16-034.jpg",
+        "type": ["アシストルリグ"],
+        "cardType": ["ガブリエラ"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": ["夢限少女"]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "",
+        "type": [""],
+        "cardType": [""],
+        "level": ,
+        "color": [""],
+        "lifeBurst": ,
+        "tags": [""]
+    },
+]
