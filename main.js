@@ -1,5 +1,6 @@
 /* jsonファイル群を読み込む */
 const jsonFiles = [
+    'cards/servant.json',
     'cards/WX24-P3.json',
     'cards/WXDi-P16.json',
     'cards/WXDi-P00.json'
