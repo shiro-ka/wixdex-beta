@@ -1,0 +1,26 @@
+[
+    {
+        "name": "",
+        "subName": [""],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-089.jpg",
+        "type": ["サーバント"],
+        "cardType": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-CP02-104.jpg",
+        "type": ["サーバント"],
+        "cardType": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 1,
+        "tags": [""]
+    }
+
+]
