@@ -37,14 +37,14 @@ main {
             height: 2rem; /* 高さ */
             width: auto; /* 幅 */
         }
-    /* MainDeckヘッダーの設定 */
+     /* MainDeckヘッダーの設定 */
         #main-header{
             display: flex; /* flexboxを使用 */
             align-items: center; /* 垂直方向に中央揃え */
             flex-direction: row; /* コンテンツを横に並べる */
             height: 2rem; /* 高さ */
         }
-    /* Main Deckヘッダーのステータス表示アイコン設定 */
+    /* MainDeckヘッダーのステータス表示アイコン設定 */
         .header-status-icon img{
             height: 1rem;
             width: auto;
@@ -52,11 +52,21 @@ main {
     /* デッキ仕切線の設定 */
         .deck-hr {
             border: none; /* 枠線を削除 */
-	        height: 1px; /* 太さ */
+            height: 1px; /* 太さ */
             margin-top: 0.25rem; /* 上の余白 */
             margin-bottom: 0.25rem; /* 下の余白 */
             background-image: -webkit-linear-gradient(left,transparent 0%,#ccc 50%,transparent 100%); /* グラデーションの設定（古い方式）*/
-	        background-image: linear-gradient(90deg,transparent 0%,#ccc 50%,transparent 100%); /* グラデーションの設定 */
+            background-image: linear-gradient(90deg,transparent 0%,#ccc 50%,transparent 100%); /* グラデーションの設定 */
+        }
+    /* LrigDeckの設定 */
+        #lrig-deck {
+            align-content: center; /* 中央揃え */
+            height: 17vw; /* 縦幅 */
+            margin-bottom: 0.5rem; /* 下に余白 */
+        }
+    /* MainDeckの設定 */
+        #main-deck {
+            height: 78vw; /* 縦幅 */
         }
 
 .card {
@@ -81,15 +91,6 @@ main {
     grid-template-columns: repeat(8, 1fr); /* 8列で折り返す */
     gap: calc(100vw / 200); /* カードごとの隙間を画面横幅の1/200に */
 }
-
-    #lrig-deck {
-        align-content: center; /* 中央揃え */
-        height: 17vw; /* 縦幅 */
-    }
-
-    #main-deck {
-        height: 78vw; /* 縦幅 */
-    }
 
     /* カード幅を設定 */
     #lrig-deck .card, #main-deck .card {
