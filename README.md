@@ -1,6 +1,12 @@
 https://shiro-ka.github.io/wixdex
 
-スマホ：chrome・vivaldi以外非サポート
+<スマホ>
+
+chromiumでPWA推奨
+
+PWAではないブラウザ上の動作、chrome・vivaldi以外非サポート
+
+Firefoxは非推奨。対応予定アリ。
 
 <既知の問題> 
 
