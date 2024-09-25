@@ -52,7 +52,7 @@ main {
     /* デッキ仕切線の設定 */
         .deck-hr {
             border: none; /* 枠線を削除 */
-            background-color: #fff;
+            background-color: #ccc; /* 色 */
             height: 1px; /* 太さ */
             margin-top: 0.25rem; /* 上の余白 */
             margin-bottom: 0.25rem; /* 下の余白 */
