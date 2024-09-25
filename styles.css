@@ -46,8 +46,8 @@ main {
         }
     /* MainDeckヘッダーのステータス表示アイコン設定 */
         .header-status-icon img{
-            height: 1rem;
-            width: auto;
+            height: 1rem; /* 高さ */
+            width: auto; /* 幅 */
         }
     /* デッキ仕切線の設定 */
         .deck-hr {
@@ -55,8 +55,6 @@ main {
             height: 1px; /* 太さ */
             margin-top: 0.25rem; /* 上の余白 */
             margin-bottom: 0.25rem; /* 下の余白 */
-            background-image: -webkit-linear-gradient(left,transparent 0%,#ccc 50%,transparent 100%); /* グラデーションの設定（古い方式）*/
-            background-image: linear-gradient(90deg,transparent 0%,#ccc 50%,transparent 100%); /* グラデーションの設定 */
         }
     /* LrigDeckの設定 */
         #lrig-deck {
