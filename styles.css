@@ -34,7 +34,7 @@ main {
         }
     /* ヘッダー文字アイコン画像の設定 */
         #lrig-header-icon img{
-            height: auto;
+            height: 2rem;
             width: auto;
         }
     /* MainDeckのヘッダー設定 */
