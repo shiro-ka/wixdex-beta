@@ -25,6 +25,18 @@ main {
     flex-direction: column; /* コンテンツを縦に並べる */
     padding: 0.5rem 1rem; /* 余白 */
 }
+    /* ヘッダー文字アイコンの設定 */
+        #lrig-header-icon{
+            border: none; /* 枠線を消す */
+            background-color: #2c2c30; /* 背景色 */
+            height: 2rem; /* 高さ */
+            width: 8rem; /* 幅 */
+        }
+    /* ヘッダー文字アイコン画像の設定 */
+        #lrig-header-icon img{
+            height: auto;
+            width: auto;
+        }
     /* MainDeckのヘッダー設定 */
         #main-header{
             display: flex; /* flexboxを使用 */
@@ -32,8 +44,8 @@ main {
             flex-direction: row; /* コンテンツを横に並べる */
             height: 2rem; /* 高さ */
         }
-    /* ヘッダーのアイコン設定 */
-        .header-icon img{
+    /* Main Deckヘッダーのステータス表示アイコン設定 */
+        .header-status-icon img{
             height: 1rem;
             width: auto;
         }
