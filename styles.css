@@ -37,18 +37,41 @@ main {
             height: 2rem; /* 高さ */
             width: auto; /* 幅 */
         }
-     /* MainDeckヘッダーの設定 */
+    /* MainDeckヘッダーの設定 */
         #main-header{
             display: flex; /* flexboxを使用 */
             align-items: center; /* 垂直方向に中央揃え */
             flex-direction: row; /* コンテンツを横に並べる */
             height: 2rem; /* 高さ */
         }
-    /* MainDeckヘッダーのステータス表示アイコン設定 */
-        .header-status-icon img{
-            height: 1rem; /* 高さ */
-            width: auto; /* 幅 */
+    /* ステータス欄全体設定 */
+        #deck-status{
+            display: flex; /* flexboxを使用 */
+            flex-direction: column; /* コンテンツを縦に並べる */
+            height: 2rem; /* 高さ */
+            width: 15rem; /* 幅 */
+            margin-left: auto; /* 右詰め */
         }
+        /* ステータス欄行ごとの設定 */
+            .deck-status-row{
+                display: flex; /* flexboxを使用 */
+                align-items: center; /* 垂直方向に中央揃え */
+                flex-direction: row; /* コンテンツを横に並べる */
+                height: 1rem; /* 高さ */
+            }
+            /* ステータス欄マスごとの設定 */
+            .deck-status-cell{
+                display: flex; /* flexboxを使用 */
+                align-items: center; /* 垂直方向に中央揃え */
+                flex-direction: row; /* コンテンツを横に並べる */
+                height: 1rem;
+                width: 2.5rem;
+            }
+                /* ステータス欄のアイコン設定 */
+                    .header-status-icon img{
+                        height: 1rem; /* 高さ */
+                        width: 1rem; /* 幅 */
+                    }
     /* デッキ仕切線の設定 */
         .deck-hr {
             border: none; /* 枠線を削除 */
