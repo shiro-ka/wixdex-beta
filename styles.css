@@ -34,8 +34,8 @@ main {
         }
     /* ヘッダー文字アイコン画像の設定 */
         .header-text-icon img{
-            height: 2rem;
-            width: auto;
+            height: 2rem; /* 高さ */
+            width: auto; /* 幅 */
         }
     /* MainDeckのヘッダー設定 */
         #main-header{
@@ -49,17 +49,11 @@ main {
             height: 1rem;
             width: auto;
         }
-    /* デッキ欄の文字設定（"Lrig Deck","Main Deck"）*/
-        h2 {
-            color: #ccc; /* 色 */
-            font-size: 1rem; /* サイズ */
-            margin-right: 5vw; /* 右側にマージンを追加 */
-        }
     /* デッキ仕切線の設定 */
         .deck-hr {
             border: none; /* 枠線を削除 */
 	        height: 1px; /* 太さ */
-            padding: 0 0.25rem; /* 余白 */
+            padding: 0.25rem 0; /* 余白 */
             background-image: -webkit-linear-gradient(left,transparent 0%,#ccc 50%,transparent 100%); /* グラデーションの設定（古い方式）*/
 	        background-image: linear-gradient(90deg,transparent 0%,#ccc 50%,transparent 100%); /* グラデーションの設定 */
         }
