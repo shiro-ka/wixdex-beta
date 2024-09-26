@@ -27,15 +27,12 @@ main {
 }
     /* ヘッダー文字アイコンの設定 */
     .header-text-icon{
-        border: none; /* 枠線を消す */
-        background-color: #2c2c30; /* 背景色 */
         height: 2rem; /* 高さ */
         width: 8rem; /* 幅 */
     }
     /* ヘッダー文字アイコン画像の設定 */
     .header-text-icon img{
         height: 2rem; /* 高さ */
-        width: auto; /* 幅 */
     }
     /* MainDeckヘッダーの設定 */
     #main-header{
@@ -45,8 +42,6 @@ main {
     }
         /* ステータス欄全体設定 */
         #deck-status{
-            display: flex; /* flexboxを使用 */
-            flex-direction: column; /* コンテンツを縦に並べる */
             height: 2rem; /* 高さ */
             width: 15rem; /* 幅 */
             margin-left: auto; /* 右詰め */
@@ -54,26 +49,26 @@ main {
             /* ステータス欄行ごとの設定 */
             .deck-status-row{
                 display: flex; /* flexboxを使用 */
-                height: 1rem; /* 高さ */
+                height: 0.75rem; /* 高さ */
+                margin-top: 0.25rem; /* 上に余白 */
             }
             /* ステータス欄マスごとの設定 */
             .deck-status-cell{
                 display: flex; /* flexboxを使用 */
-                flex-direction: row; /* コンテンツを横に並べる */
                 width: 2.5rem; /* 幅 */
             }
                 /* ステータス欄のアイコン設定 */
                 .deck-status-icon{
                     display: flex; /* flexboxを使用 */
-                    height: 1rem; /* 高さ */
-                    width: 1rem; /* 幅 */
+                    height: 12px; /* 高さ */
+                    width: 12px; /* 幅 */
                 }
                 /* ステータス欄の文字設定 */
                 .deck-status-count{
                     display: flex;
                     justify-content: center; /* 垂直方向に中央揃え */
                     color: #ccc; /* 色 */
-                    height: 1rem; /* 高さ */
+                    font-size: 14px; /* 文字サイズ */
                     width: 1.5rem; /* 幅 */
                 }
             /* Lv1カウントのマスで右詰め */
