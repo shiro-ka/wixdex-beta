@@ -54,7 +54,6 @@ main {
         /* ステータス欄行ごとの設定 */
             .deck-status-row{
                 display: flex; /* flexboxを使用 */
-                flex-direction: column; /* コンテンツを縦に並べる */
                 height: 1rem; /* 高さ */
             }
             /* ステータス欄マスごとの設定 */
