@@ -2,8 +2,6 @@
 const jsonFiles = [
     'cards/servant.json',
     'cards/WX24-P3.json',
-    'cards/WX24-P2.json',
-    'cards/WX24-P1.json',
     'cards/WXDi-P16.json',
     'cards/WXDi-P00.json'
 ];
@@ -123,25 +121,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// ステータス欄を更新
+/* ステータス欄を更新する関数 */
 function updateDeckStatus() {
-    // メインデッキ要素を取得
+
+    /* メインデッキの要素を取得 */
     const mainDeck = document.getElementById('main-deck-cards');
 
-    // メインデッキ内のlifeBurstのカウント
-    let lifeBurstCount = 0;
+    /* 各種カウントをリセット */
+    let lifeBurstCount = 0; //LB
+    let whiteStatusCount = 0; //白
 
     // メインデッキ内の各カードをチェック
     Array.from(mainDeck.children).forEach(cardElement => {
         const cardName = cardElement.querySelector('p').textContent;
         const cardData = window.cardsData.find(card => card.name === cardName);
+
+        // lifeBurstが1のカードをカウント
         if (cardData && cardData.lifeBurst === 1) {
             lifeBurstCount++;
         }
+
+        // colorに"白"が含まれるカードをカウント
+        if (cardData && cardData.color.includes("白")) {
+            whiteStatusCount++;
+        }
     });
 
-    // LB枚数を表示
-    document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`;
+    /* 各種枚数を表示 */
+    document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`; //LB
+    document.getElementById('white-status-count').textContent = `${whiteStatusCount}`; //白
 }
 
 /* カードを検索 */
