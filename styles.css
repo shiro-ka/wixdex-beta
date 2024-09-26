@@ -40,7 +40,6 @@ main {
     /* MainDeckヘッダーの設定 */
         #main-header{
             display: flex; /* flexboxを使用 */
-            align-items: center; /* 垂直方向に中央揃え */
             flex-direction: row; /* コンテンツを横に並べる */
             height: 2rem; /* 高さ */
         }
@@ -55,17 +54,14 @@ main {
         /* ステータス欄行ごとの設定 */
             .deck-status-row{
                 display: flex; /* flexboxを使用 */
-                align-items: center; /* 垂直方向に中央揃え */
-                flex-direction: row; /* コンテンツを横に並べる */
+                flex-direction: column; /* コンテンツを縦に並べる */
                 height: 1rem; /* 高さ */
             }
             /* ステータス欄マスごとの設定 */
             .deck-status-cell{
                 display: flex; /* flexboxを使用 */
-                align-items: center; /* 垂直方向に中央揃え */
                 flex-direction: row; /* コンテンツを横に並べる */
-                height: 1rem;
-                width: 2.5rem;
+                width: 2.5rem; /* 幅 */
             }
                 /* ステータス欄のアイコン設定 */
                     .header-status-icon img{
@@ -124,15 +120,6 @@ main {
     #lrig-deck .card p, #main-deck .card p {
         display: none;
 }
-
-#deck-status {
-    display: flex;
-    align-items: center; /* 中央揃え */
-    flex-direction: row; /* コンテンツを横に並べる */
-    padding: 0.5rem 1rem; /* 余白 */
-    height: 2rem; /* 縦幅 */
-    }
-
     #life-burst{
         width: 1rem;
         height: 1rem;
