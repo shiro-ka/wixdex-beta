@@ -64,7 +64,7 @@ main {
                 width: 2.5rem; /* 幅 */
             }
                 /* ステータス欄のアイコン設定 */
-                    .deck-status-icon img{
+                    .deck-status-icon{
                         display: flex; /* flexboxを使用 */
                         flex-direction: row; /* コンテンツを横に並べる */
                         height: 1rem; /* 高さ */
