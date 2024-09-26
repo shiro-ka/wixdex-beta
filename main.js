@@ -130,6 +130,10 @@ function updateDeckStatus() {
     /* 各種カウントをリセット */
     let lifeBurstCount = 0; //LB
     let whiteStatusCount = 0; //白
+    let redStatusCount = 0; //赤
+    let blueStatusCount = 0; //青
+    let greenStatusCount = 0; //緑
+    let blackStatusCount = 0; //黒
 
     // メインデッキ内の各カードをチェック
     Array.from(mainDeck.children).forEach(cardElement => {
@@ -145,11 +149,35 @@ function updateDeckStatus() {
         if (cardData && cardData.color.includes("白")) {
             whiteStatusCount++;
         }
+
+        // colorに"赤"が含まれるカードをカウント
+        if (cardData && cardData.color.includes("赤")) {
+            redStatusCount++;
+        }
+
+        // colorに"青"が含まれるカードをカウント
+        if (cardData && cardData.color.includes("青")) {
+            blueStatusCount++;
+        }
+
+        // colorに"緑"が含まれるカードをカウント
+        if (cardData && cardData.color.includes("緑")) {
+            greenStatusCount++;
+        }
+
+        // colorに"黒"が含まれるカードをカウント
+        if (cardData && cardData.color.includes("黒")) {
+            blackStatusCount++;
+        }
     });
 
     /* 各種枚数を表示 */
     document.getElementById('life-burst-count').textContent = `${lifeBurstCount}`; //LB
     document.getElementById('white-status-count').textContent = `${whiteStatusCount}`; //白
+    document.getElementById('red-status-count').textContent = `${redStatusCount}`; //赤
+    document.getElementById('blue-status-count').textContent = `${blueStatusCount}`; //青
+    document.getElementById('green-status-count').textContent = `${greenStatusCount}`; //緑
+    document.getElementById('black-status-count').textContent = `${blackStatusCount}`; //黒
 }
 
 /* カードを検索 */
