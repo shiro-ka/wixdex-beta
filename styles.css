@@ -21,7 +21,7 @@ main {
 
 /* デッキ欄の設定 */
 #deck-area {
-    display: flex;
+    display: flex; /* flexboxを使用 */
     flex-direction: column; /* コンテンツを縦に並べる */
     padding: 0.5rem 1rem; /* 余白 */
 }
@@ -65,7 +65,7 @@ main {
                 }
                 /* ステータス欄の文字設定 */
                 .deck-status-count{
-                    display: flex;
+                    display: flex; /* flexboxを使用 */
                     justify-content: center; /* 垂直方向に中央揃え */
                     color: #ccc; /* 色 */
                     font-size: 14px; /* 文字サイズ */
@@ -75,25 +75,30 @@ main {
             #lv1-status-cell{
                 margin-left: auto; /* 右詰め */
             }
-
+            /* プルダウンの設定 */
+            #other-status-pulldown{
+                border: none; /* 枠線を消す */
+                height: 0.75rem; /* 高さ */
+                width: 3rem; /* 幅 */
+            }
     /* デッキ仕切線の設定 */
-        .deck-hr {
-            border: none; /* 枠線を削除 */
-            background-color: #ccc; /* 色 */
-            height: 1px; /* 太さ */
-            margin-top: 0.25rem; /* 上の余白 */
-            margin-bottom: 0.25rem; /* 下の余白 */
-        }
+    .deck-hr {
+        border: none; /* 枠線を削除 */
+        background-color: #ccc; /* 色 */
+        height: 1px; /* 太さ */
+        margin-top: 0.25rem; /* 上の余白 */
+        margin-bottom: 0.25rem; /* 下の余白 */
+    }
     /* LrigDeckの設定 */
-        #lrig-deck {
-            align-content: center; /* 中央揃え */
-            height: 17vw; /* 縦幅 */
-            margin-bottom: 0.5rem; /* 下に余白 */
-        }
+    #lrig-deck {
+        align-content: center; /* 中央揃え */
+        height: 17vw; /* 縦幅 */
+        margin-bottom: 0.5rem; /* 下に余白 */
+    }
     /* MainDeckの設定 */
-        #main-deck {
-            height: 78vw; /* 縦幅 */
-        }
+    #main-deck {
+        height: 78vw; /* 縦幅 */
+    }
 
 .card {
     border: none; /* カードの枠線を削除 */

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<lang="ja">
 
+<!-- ページ自体の設定 -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,13 @@
     <link rel="manifest" href="manifest.json">
 </head>
 
+<!-- ページの内容 -->
 <body>
+    <!-- 表示させるもの -->
     <main>
+        <!-- デッキ・デッキステータスの表示 -->
         <section id="deck-area">
+            <!-- LrigDeckのヘッダー -->
             <div id="lrig-header">
                 <div class="header-text-icon"><img src="images/Lrig_Deck.png"></div>
             </div>
@@ -36,6 +40,10 @@
                             <div class="deck-status-icon" id="lv3-status-icon"><img src="images/level_3.png"></div>
                             <div class="deck-status-count" id="lv3-status-count"></div>
                         </div>
+                        <select id="other-status-pulldown">
+                            <option></option>
+                            <option></option>
+                        </select>
                     </div>
                     <div class="deck-status-row">
                         <div class="deck-status-cell" id="lb-status-cell">

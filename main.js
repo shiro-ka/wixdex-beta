@@ -286,14 +286,14 @@ function handleTouchEnd(event) {
     updateDeckStatus();
 }
 
-// デッキにカードを追加
+/* デッキにカードを追加する関数 */
 function addCardToDeck(card) {
 
-    // lrig-deck-cardsとmain-deck-cardsをjsで取得
+    /* lrig-deck-cardsとmain-deck-cardsをで取得 */
     const lrigDeck = document.getElementById('lrig-deck-cards');
     const mainDeck = document.getElementById('main-deck-cards');
 
-    // deckに追加する<div class="card">を作成
+    /* deckに追加する<div class="card">を作成 */
     const cardElement = document.createElement('div');
     cardElement.classList.add('card');
 
@@ -317,41 +317,49 @@ function addCardToDeck(card) {
     // カード種類の最初の要素を取得
     const cardType = card.type[0];
 
-    // ルリグデッキに追加
+    /* ルリグデッキに追加 */
     if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
+
+        /* LrigDeckの枚数が8枚以上なら処理を停止 */
         if (lrigDeck.children.length >= 8) {
-            console.log(`Cannot add ${card.name} to Lrig Deck: Deck is full`);
-            return;
-        }
-        lrigDeck.appendChild(cardElement);
-        console.log(`Added ${card.name} to Lrig Deck`);
-        sortLrigDeck();
-
-    // メインデッキに追加
-    } else if (['シグニ', 'スペル', 'サーバント'].includes(cardType)) {
-
-        // デッキ枚数は40枚まで
-        if (mainDeck.children.length >= 40) {
-            console.log(`Cannot add ${card.name} to Main Deck: Deck is full`);
             return;
         }
 
-        // デッキ内の同名カードの数を確認
-        const sameNameCards = Array.from(mainDeck.children).filter(deckCard => {
+        /* ルリグデッキ内の同名カードの数を確認 */
+        const lrigSameNameCards = Array.from(lrigDeck.children).filter(deckCard => {
             const deckCardName = deckCard.querySelector('p').textContent;
             return deckCardName === card.name;
         });
+        /* 1枚以上なら追加の処理を停止 */
+        if (lrigSameNameCards.length >= 1) {
+            return;
+        }
 
-        // 同名カードは4枚まで
-        if (sameNameCards.length >= 4) {
+        lrigDeck.appendChild(cardElement);
+        sortLrigDeck();
+    }
+
+    /* メインデッキに追加 */
+    else if (['シグニ', 'スペル', 'サーバント'].includes(cardType)) {
+
+        /* MainDeckの枚数が40枚以上なら処理を停止 */
+        if (mainDeck.children.length >= 40) {
+            return;
+        }
+
+        /* メインデッキ内の同名カードの数を確認 */
+        const mainSameNameCards = Array.from(mainDeck.children).filter(deckCard => {
+            const deckCardName = deckCard.querySelector('p').textContent;
+            return deckCardName === card.name;
+        });
+        /* 4枚以上なら追加の処理を停止 */
+        if (mainSameNameCards.length >= 4) {
             console.log(`Cannot add ${card.name} to Main Deck: More than 4 copies`);
             return;
         }
 
         mainDeck.appendChild(cardElement);
-        console.log(`Added ${card.name} to Main Deck`);
         sortMainDeck();
-
     }
 
     // カードにフリックイベントを追加
