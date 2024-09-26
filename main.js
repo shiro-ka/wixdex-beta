@@ -325,13 +325,24 @@ function addCardToDeck(card) {
             return;
         }
 
-        /* ルリグデッキ内の同名カードの数を確認 */
+        /* ルリグデッキ内の同名カードを確認 */
         const lrigSameNameCards = Array.from(lrigDeck.children).filter(deckCard => {
             const deckCardName = deckCard.querySelector('p').textContent;
             return deckCardName === card.name;
         });
         /* 1枚以上なら追加の処理を停止 */
         if (lrigSameNameCards.length >= 1) {
+            return;
+        }
+
+        /* Lv3のルリグがデッキにあるか確認 */
+        const lrigLevel3Cards = Array.from(lrigDeck.children).filter(deckCard => {
+            const deckCardName = deckCard.querySelector('p').textContent;
+            const deckCardData = window.cardsData.find(card => card.name === deckCardName);
+            return deckCardData && deckCardData.type.includes("ルリグ") && deckCardData.level === 3;
+        });
+        /* 1枚以上なら追加の処理を停止 */
+        if (lrigLevel3Cards.length >= 1 && card.type.includes("ルリグ") && card.level === 3) {
             return;
         }
 
