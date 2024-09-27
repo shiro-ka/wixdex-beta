@@ -310,6 +310,7 @@ function addCardToDeck(card) {
 
     // dataset にカードの種類とレベルを追加
     cardElement.dataset.type = card.type[0];
+    cardElement.dataset.cardType =card.cardType[0];
     cardElement.dataset.level = card.level;
 
     // cardElementに画像と名前を追加
