@@ -463,8 +463,8 @@ function sortLrigDeck() {
         const aType = order[a.dataset.type] || 5;
         const bType = order[b.dataset.type] || 5;
         // cardTypeの配列から1つ目の要素を取得
-        const aCardType = JSON.parse(a.dataset.cardtype)[0] || "";
-        const bCardType = JSON.parse(b.dataset.cardtype)[0] || "";
+        const aCardType = JSON.parse(a.dataset.cardType)[0] || "";
+        const bCardType = JSON.parse(b.dataset.cardType)[0] || "";
         // アシストルリグのソート（cardTypeの1つ目でソート）
         if (a.dataset.type === 'アシストルリグ' && b.dataset.type === 'アシストルリグ') {
             // cardTypeを比較してソート
@@ -510,10 +510,8 @@ function sortMainDeck() {
         return aType - bType;
         }
 
-        // デバッグ: レベルと名前を確認
         const aLevel = parseInt(a.dataset.level, 10);
         const bLevel = parseInt(b.dataset.level, 10);
-        console.log('aLevel:', aLevel, 'bLevel:', bLevel);
 
         if (aLevel !== bLevel) {
         return aLevel - bLevel;
