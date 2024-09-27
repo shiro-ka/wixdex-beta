@@ -2,6 +2,8 @@
 const jsonFiles = [
     'cards/servant.json',
     'cards/WX24-P3.json',
+    'cards/WX24-P2.json',
+    'cards/WX24-P1.json',
     'cards/WXDi-P16.json',
     'cards/WXDi-P00.json'
 ];
@@ -445,13 +447,10 @@ function removeCardFromDeck(cardElement) {
     updateDeckStatus();
 }
 
-// ルリグデッキソート
+/* ルリグデッキのソート */
 function sortLrigDeck() {
     const lrigDeck = document.getElementById('lrig-deck-cards');
     const cardElements = Array.from(lrigDeck.children);
-
-    // デバッグ: ソート前のカード情報
-    console.log('Before sorting Lrig Deck:', cardElements.map(card => card.querySelector('p').textContent));
 
     const order = {
         'ルリグ': 1,
@@ -463,18 +462,26 @@ function sortLrigDeck() {
     cardElements.sort((a, b) => {
         const aType = order[a.dataset.type] || 5;
         const bType = order[b.dataset.type] || 5;
+        // cardTypeの配列から1つ目の要素を取得
+        const aCardType = JSON.parse(a.dataset.cardtype)[0] || "";
+        const bCardType = JSON.parse(b.dataset.cardtype)[0] || "";
+        // アシストルリグのソート（cardTypeの1つ目でソート）
+        if (a.dataset.type === 'アシストルリグ' && b.dataset.type === 'アシストルリグ') {
+            // cardTypeを比較してソート
+            if (aCardType !== bCardType) {
+                return aCardType.localeCompare(bCardType); // 文字列比較
+            }
 
-        // デバッグ: 各カードの種類を表示
-        console.log('aType:', aType, 'bType:', bType);
-
+            // cardTypeが同じ場合は、レベルでソート
+            const aLevel = parseInt(a.dataset.level, 10);
+            const bLevel = parseInt(b.dataset.level, 10);
+            return aLevel - bLevel;
+        }
         return aType - bType;
     });
 
     lrigDeck.innerHTML = '';
     cardElements.forEach(element => lrigDeck.appendChild(element));
-
-    // デバッグ: ソート後のカード情報
-    console.log('After sorting Lrig Deck:', Array.from(lrigDeck.children).map(card => card.querySelector('p').textContent));
 }
 
 // メインデッキソート
