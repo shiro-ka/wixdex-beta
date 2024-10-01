@@ -8,7 +8,7 @@ const jsonFiles = [
     'cards/WXDi-P00.json'
 ];
 
-/* allCardsDataを初期化 */
+/* allCardsData配列を初期化 */
 let allCardsData = [];
 /* タッチ開始時のY座標初期値を設定 */
 let touchStartY = 0;
@@ -20,23 +20,23 @@ let currentCard;
 /* DOM読込完了時に実行 */
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* jsonファイルからcards.jsonを取得 */
-    Promise.all(
-        jsonFiles.map(file =>
-            fetch(file).then(response => response.json())
-        )
-    )
+    /* jsonファイルからカードのデータを取得し、リスト欄に表示 */
+    Promise.all(jsonFiles.map(file => fetch(file) // jsonFilesの各要素をfetchで取得
+        .then(response => response.json()) // 取得してきたもの（response）をjsonにする
+    ))
     .then(responses => {
-        responses.forEach(responseData => {
-            allCardsData = allCardsData.concat(responseData);
+        responses.forEach(responseData => { // すべてのjsonを取得したら、forEachを実行
+            allCardsData = allCardsData.concat(responseData); // 取得したjsonたちを、allCardsDataにまとめる
         });
-        window.cardsData = allCardsData;
-        displayCards(window.cardsData);
-        updateDeckStatus();
+        window.cardsData = allCardsData; // windowオブジェクトにする
+        displayCards(window.cardsData); // リスト欄に表示
     })
     .catch(error => {
-        console.error("JSONファイルが読み込めなかったっぽい!:", error);
+        console.error("JSONファイルが読み込めなかったっぽい!:", error); // エラーが出たら困る
     });
+
+    /* ステータス欄を更新(初期化) */
+    updateDeckStatus();
 
     /* カード名検索のイベントリスナーを追加 */
     const searchInput = document.getElementById('search-input');
@@ -113,31 +113,31 @@ document.addEventListener('DOMContentLoaded', () => {
 /* リスト欄にカードを表示させる関数 */
 function displayCards(cards) {
 
-    /* カードを表示させる場所として#cards-containerを取得 */
+    /* カードを表示させる場所としてcards-containerを取得 */
     const cardsContainer = document.getElementById('cards-container');
+
+    /* リスト欄にカードを表示 */
     cards.forEach(card => {
-
-        // cards-containerに追加する<div class="card">を作成
-        const cardElement = document.createElement('div');
-        cardElement.classList.add('card');
-
-        // URLからカード画像を設定
-        const cardImage = document.createElement('img');
-        cardImage.src = card.image;
-        // 画像が表示できなかった場合はカード名を表示
-        cardImage.alt = card.name;
-
-        // カードをcards-containerに表示
-        cardElement.appendChild(cardImage);
-        cardsContainer.appendChild(cardElement);
-
-        // カードにフリックのリスナーを追加
-        cardElement.addEventListener('touchstart', handleTouchStart);
-        cardElement.addEventListener('touchend', (event) => {
-            // 現在のカードを記録
-            currentCard = card;
-            handleTouchEnd(event);
+        /* cards-containerに追加する<div class="card">を作成 */
+        const cardElement = document.createElement('div'); // <div>を作成（jsではcardElementで参照）
+        cardElement.classList.add('card'); // classにcardを設定
+        /* <div>にカード画像<img src="URL">を追加 */
+        const cardImage = document.createElement('img'); // <img>を作成
+        cardImage.src = card.image; // imgにsrcでカード画像（URL）を設定
+        cardElement.appendChild(cardImage); // 作成した<img>を<div>に追加
+        /* <div>にカードのデータを追加 */
+        cardElement.dataset.name = card.name; // カード名
+        cardElement.dataset.cardType = card.cardType[0]; // カード種類（配列の最初の要素）
+        cardElement.dataset.lrigTypeClass = card.lrigTypeClass[0]; // ルリグタイプ/クラス（配列の最初の要素）
+        cardElement.dataset.level = card.level; // レベル
+        /* カードにフリックのリスナーを追加 */
+        cardElement.addEventListener('touchstart', handleTouchStart); // タップしたときにhandleTouchStartを呼び出すリスナーを追加
+        cardElement.addEventListener('touchend', (event) => { // タップ終了時のリスナー
+            currentCard = card; // 触れているカードをcurrentCardとして保存
+            handleTouchEnd(event); // handleTouchEndを呼び出す
         });
+        /* 作成した<div>をcards-containerに追加 */
+        cardsContainer.appendChild(cardElement);
     });
 }
 
@@ -248,30 +248,26 @@ function handleSearch() {
     displayCards(filteredCards);
 }
 
-// リスト欄のフリックリスナー
+/* リスト欄のフリック設定 */
+/* タッチ開始時にY座標を保存 */
 function handleTouchStart(event) {
-    // タッチ開始時のY座標を保存
     touchStartY = event.touches[0].clientY;
 }
-
 // リスト欄のカード上下フリックでデッキに追加
 function handleTouchEnd(event) {
-
     // タッチ終了時のY座標を取得し、フリックの距離を計算
     const touchEndY = event.changedTouches[0].clientY;
     const swipeDistance = touchStartY - touchEndY;
-
     // 上方向にフリックされた場合、addCardToDeck関数を1回処理
     if (swipeDistance > 50 && currentCard) {
         addCardToDeck(currentCard);
     }
     // 下方向にフリックされた場合、addCardToDeck関数を4回処理
-    else if (swipeDistance < -50 && currentCard) {
+    else if (swipeDistance < -70 && currentCard) {
         for (let i = 0; i < 4; i++) {
             addCardToDeck(currentCard);
         }
     }
-
     // ステータス欄を更新
     updateDeckStatus();
 }
