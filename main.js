@@ -282,20 +282,10 @@ function addCardToDeck(card) {
     cardElement.dataset.lrigTypeClass = card.lrigTypeClass[0]; // ルリグタイプ/クラス（配列の最初の要素）
     cardElement.dataset.level = card.level; // レベル
 
-    /* カード名を表示する<p>要素を作成
-    const cardName = document.createElement('p');
-    cardName.textContent = card.name;
-    // dataset にカードの種類とレベルを追加
-    cardElement.dataset.cardType = card.cardType[0];
-    cardElement.dataset.lrigTypeClass =card.lrigTypeClass[0];
-    cardElement.dataset.level = card.level;*/
-    /* lrigTypeClassの最初の要素を取得 *
-    const lrigTypeClass = card.lrigTypeClass[0];*/
-
-    /* <div>からlrigTypeClassを取得 */
-    const lrigTypeClass = cardElement.lrigTypeClass;
+    /* <div>からcardTypeを取得 */
+    const cardType = cardElement.cardType;
     /* ルリグ,アシストルリグ',ピース,アーツならルリグデッキに追加 */
-    if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(lrigTypeClass)) {
+    if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
         /* LrigDeckの枚数が8枚以上なら処理を停止 */
         if (lrigDeck.children.length >= 8) {
             return;
