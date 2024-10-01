@@ -71,15 +71,11 @@ main {
                     font-size: 14px; /* 文字サイズ */
                     width: 1.5rem; /* 幅 */
                 }
-            /* Lv1カウントのマスで右詰め */
-            #lv1-status-cell{
+            /* その他カウントマスの設定 */
+            #other-status-cell{
+                display: flex; /* flexboxを使用 */
+                width: 5rem; /* 幅 */
                 margin-left: auto; /* 右詰め */
-            }
-            /* プルダウンの設定 */
-            #other-status-pulldown{
-                border: none; /* 枠線を消す */
-                height: 0.75rem; /* 高さ */
-                width: 3rem; /* 幅 */
             }
     /* デッキ仕切線の設定 */
     .deck-hr {

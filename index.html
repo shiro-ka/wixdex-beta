@@ -16,56 +16,75 @@
     <main>
         <!-- デッキ・デッキステータスの表示 -->
         <section id="deck-area">
-            <!-- LrigDeckのヘッダー -->
+            <!-- ルリグデッキのヘッダー -->
             <div id="lrig-header">
+                <!-- ルリグデッキのヘッダーアイコン -->
                 <div class="header-text-icon"><img src="images/Lrig_Deck.png"></div>
             </div>
+            <!-- 仕切り線 -->
             <hr class="deck-hr"/>
+            <!-- ルリグデッキ -->
             <div id="lrig-deck">
-                <div class="card-grid" id="lrig-deck-cards"></div>
+                <!-- ルリグデッキのカード -->
+                <div class="card-grid" id="lrig-deck-cards">
+                    <!-- ここにルリグデッキのカードが追加される
+                    <div class="card" data-name="name" data-cardType="ルリグ,アシストルリグ,ピース,アーツ" data-lrigTypeClass="lrigTypeClass" data-level="level">
+                        <img src="URL">
+                    </div> -->
+                </div>
             </div>
+            <!-- メインデッキのヘッダー -->
             <div id="main-header">
+                <!-- メインデッキのヘッダーアイコン -->
                 <div class="header-text-icon"><img src="images/Main_Deck.png"></div>
+                <!-- デッキステータス表示欄 -->
                 <div id="deck-status">
+                    <!-- 上段 -->
                     <div class="deck-status-row">
+                        <!-- Lv1の枚数カウント-->
                         <div class="deck-status-cell" id="lv1-status-cell">
                             <div class="deck-status-icon" id="lv1-status-icon"><img src="images/level_1.png"></div>
                             <div class="deck-status-count" id="lv1-status-count"></div>
                         </div>
+                        <!-- Lv2の枚数カウント-->
                         <div class="deck-status-cell" id="lv2-status-cell">
                             <div class="deck-status-icon" id="lv2-status-icon"><img src="images/level_2.png"></div>
                             <div class="deck-status-count" id="lv2-status-count"></div>
                         </div>
+                        <!-- Lv3の枚数カウント-->
                         <div class="deck-status-cell" id="lv3-status-cell">
                             <div class="deck-status-icon" id="lv3-status-icon"><img src="images/level_3.png"></div>
                             <div class="deck-status-count" id="lv3-status-count"></div>
                         </div>
-                        <select id="other-status-pulldown">
-                            <option></option>
-                            <option></option>
-                        </select>
                     </div>
+                    <!-- 下段 -->
                     <div class="deck-status-row">
+                        <!-- LBの枚数カウント-->
                         <div class="deck-status-cell" id="lb-status-cell">
                             <div class="deck-status-icon" id="lb-status-icon"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_burst.png"></div>
                             <div class="deck-status-count" id="lb-status-count"></div>
                         </div>
+                        <!-- 白の枚数カウント-->
                         <div class="deck-status-cell" id="white-status-cell">
                             <div class="deck-status-icon" id="white-status-icon"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_white2.png"></div>
                             <div class="deck-status-count" id="white-status-count"></div>
                         </div>
+                        <!-- 赤の枚数カウント-->
                         <div class="deck-status-cell" id="red-status-cell">
                             <div class="deck-status-icon" id="red-status-icon"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_red2.png"></div>
                             <div class="deck-status-count" id="red-status-count"></div>
                         </div>
+                        <!-- 青の枚数カウント-->
                         <div class="deck-status-cell" id="blue-status-cell">
                             <div class="deck-status-icon" id="blue-status-icon"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_blue2.png"></div>
                             <div class="deck-status-count" id="blue-status-count"></div>
                         </div>
+                        <!-- 緑の枚数カウント-->
                         <div class="deck-status-cell" id="green-status-cell">
                             <div class="deck-status-icon" id="green-status-icon"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_green2.png"></div>
                             <div class="deck-status-count" id="green-status-count"></div>
                         </div>
+                        <!-- 黒の枚数カウント-->
                         <div class="deck-status-cell" id="black-status-cell">
                             <div class="deck-status-icon" id="black-status-icon"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_black2.png"></div>
                             <div class="deck-status-count" id="black-status-count"></div>
@@ -73,9 +92,17 @@
                     </div>
                 </div>
             </div>
+            <!-- 仕切り線 -->
             <hr class="deck-hr"/>
+            <!-- メインデッキ -->
             <div id="main-deck">
-                <div class="card-grid" id="main-deck-cards"></div>
+                <!-- メインデッキのカード -->
+                <div class="card-grid" id="main-deck-cards">
+                    <!-- ここにメインデッキのカードが追加される
+                    <div class="card" data-name="name" data-cardType="シグニ,スペル,サーバント" data-lrigTypeClass="lrigTypeClass" data-level="level">
+                        <img src="URL">
+                    </div> -->
+                </div>
             </div>
         </section>
 
@@ -85,9 +112,9 @@
 
         <section id="search-tool-1">
             <div id="level-buttons">
-                <button class="level-button" data-level="1"><img src="images/level_1.png" alt="Level 1" /></button>
-                <button class="level-button" data-level="2"><img src="images/level_2.png" alt="Level 2" /></button>
-                <button class="level-button" data-level="3"><img src="images/level_3.png" alt="Level 3" /></button>
+                <button class="level-button" data-level="1"><img src="images/level_1.png" /></button>
+                <button class="level-button" data-level="2"><img src="images/level_2.png" /></button>
+                <button class="level-button" data-level="3"><img src="images/level_3.png" /></button>
             </div>
             <div id="color-buttons">
                 <button class="color-button" data-color="白"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_white2.png"></button>
@@ -115,8 +142,8 @@
         </section>
     </main>
 
+    <!-- PWAの設定 -->
     <script>
-    /* PWAの処理 */
     if ('serviceWorker' in navigator) {
 	    window.addEventListener('load', () => {
 	        navigator.serviceWorker.register('sw.js').then(registration => {
@@ -129,9 +156,8 @@
 	    });
     }
     </script>
-
-    <script src="main.js">
-    // main.jsを読み込む</script>
+    <!-- main.jsを読み込む -->
+    <script src="main.js"></script>
 </body>
 
 </html>
