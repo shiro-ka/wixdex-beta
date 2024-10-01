@@ -1,11 +1,6 @@
 /* 読み込むjsonファイル */
 const jsonFiles = [
-    'cards/servant.json',
-    'cards/WX24-P3.json',
-    'cards/WX24-P2.json',
-    'cards/WX24-P1.json',
-    'cards/WXDi-P16.json',
-    'cards/WXDi-P00.json'
+    'cards/WXDi-P16.json'
 ];
 
 /* allCardsData配列を初期化 */
