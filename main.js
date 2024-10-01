@@ -297,7 +297,7 @@ function addCardToDeck(card) {
             const deckCardType = deckCard.dataset.cardType; // datasetからカード種類を取得
             return deckCardType === "ルリグ";  // ルリグがあるか確認
         });
-        if (lrigDeckLrig >= 1 ) { // 1枚以上あるなら処理を停止
+        if (lrigDeckLrig.length >= 1 ) { // 1枚以上あるなら処理を停止
             return;
         }
         /* <div>をルリグデッキに追加 */
@@ -315,7 +315,7 @@ function addCardToDeck(card) {
         const lrigDeckSameLevelAssist = Array.from(lrigDeck.children).filter(deckCard => { // ルリグデッキの中身を配列で取得
             const deckCardType = deckCard.dataset.cardType; // datasetからカード種類を取得
             const deckCardLevel = deckCard.dataset.level; // datasetからレベルを取得
-            return deckCardType === "アシストルリグ" && deckCardLevel === card.level; // 追加しようとしているカードと同じレベルのアシストルリグを確認
+            return deckCardType === "アシストルリグ" && deckCardLevel === cardElement.dataset.level; // 追加しようとしているカードと同じレベルのアシストルリグを確認
         });
         if (lrigDeckSameLevelAssist.length >= 2) { // 2枚以上あるなら処理を停止
             return;
@@ -324,7 +324,7 @@ function addCardToDeck(card) {
         const lrigDeckSameLrigTypeAssist = Array.from(lrigDeck.children).filter(deckCard => { // ルリグデッキの中身を配列で取得
             const deckLrigType = deckCard.dataset.lrigTypeClass; // datasetからルリグタイプを取得
             const deckCardLevel = deckCard.dataset.level; // datasetからレベルを取得
-            return deckLrigType === card.lrigTypeClass && deckCardLevel === card.level; // 追加しようとしているカードと同じルリグタイプかつレベルのカードがあるかをチェック
+            return deckLrigType === cardElement.dataset.lrigTypeClass && deckCardLevel === cardElement.dataset.level; // 追加しようとしているカードと同じルリグタイプかつレベルのカードがあるかをチェック
         });
         if (lrigDeckSameLrigTypeAssist.length >= 1 ) { // 1枚以上あるなら処理を停止
             return;
@@ -351,7 +351,7 @@ function addCardToDeck(card) {
         /* 同名カードは１枚まで */
         const lrigDeckSameNameCard = Array.from(lrigDeck.children).filter(deckCard => { // ルリグデッキの中身を配列で取得
             const deckCardName = deckCard.dataset.name; // datasetからカード名を取得
-            return deckCardName === card.name; // 追加しようとしているカードと同じものがあるかどうかをチェック
+            return deckCardName === cardElement.dataset.name; // 追加しようとしているカードと同じものがあるかどうかをチェック
         });
         if (lrigDeckSameNameCard.length >= 1) { // 同じものがあるなら処理を停止
             return;
@@ -370,7 +370,7 @@ function addCardToDeck(card) {
         /* 同名カードは１枚まで */
         const lrigDeckSameNameCard = Array.from(lrigDeck.children).filter(deckCard => { // ルリグデッキの中身を配列で取得
             const deckCardName = deckCard.dataset.name; // datasetからカード名を取得
-            return deckCardName === card.name; // 取得したカード名の中に、追加しようとしているカードと同じものがあるかどうかをチェック
+            return deckCardName === cardElement.dataset.name; // 取得したカード名の中に、追加しようとしているカードと同じものがあるかどうかをチェック
         });
         if (lrigDeckSameNameCard.length >= 1) { // 同じものがあるなら処理を停止
             return;
@@ -389,7 +389,7 @@ function addCardToDeck(card) {
         /* 同名カードは４枚まで */
         const mainSameNameCards = Array.from(mainDeck.children).filter(deckCard => { // メインデッキの中身を配列で取得
             const deckCardName = deckCard.dataset.name; // datasetからカード名を取得
-            return deckCardName === card.name; // 取得したカード名の中に、追加しようとしているカードと同じものがあるかどうかをチェック
+            return deckCardName === cardElement.dataset.name; // 取得したカード名の中に、追加しようとしているカードと同じものがあるかどうかをチェック
         });
         if (mainSameNameCards.length >= 4) { // 4枚以上あるなら処理を停止
             return;
