@@ -1,4 +1,4 @@
-/* jsonファイル群を読み込む */
+/* 読み込むjsonファイル */
 const jsonFiles = [
     'cards/servant.json',
     'cards/WX24-P3.json',
@@ -8,19 +8,19 @@ const jsonFiles = [
     'cards/WXDi-P00.json'
 ];
 
-/* グローバルスコープで宣言 */
+/* allCardsDataを初期化 */
 let allCardsData = [];
-// タッチ開始時のY座標初期値を設定
+/* タッチ開始時のY座標初期値を設定 */
 let touchStartY = 0;
-// Life Burstボタンの状態
+/* Life Burstボタンの状態を0にリセット */
 let lifeBurstState = 0;
-// 現在のカードを記録する変数
+/* 現在のカードを記録する変数 */
 let currentCard;
 
 /* DOM読込完了時に実行 */
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* jsonファイル群からcards.jsonを取得 */
+    /* jsonファイルからcards.jsonを取得 */
     Promise.all(
         jsonFiles.map(file =>
             fetch(file).then(response => response.json())
@@ -35,36 +35,33 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDeckStatus();
     })
     .catch(error => {
-        console.error("Error loading JSON files:", error);
+        console.error("JSONファイルが読み込めなかったっぽい!:", error);
     });
 
     /* カード名検索のイベントリスナーを追加 */
     const searchInput = document.getElementById('search-input');
     searchInput.addEventListener('input', handleSearch);
 
-    // カードタイプのプルダウン選択
+    /* カードタイプのプルダウン選択 */
     const searchTypeInput = document.getElementById('search-type-input');
     searchTypeInput.addEventListener('change', handleSearch);
 
-    // レベル選択ボタンの処理
+    /* レベル選択ボタンの処理 */
     const levelButtons = document.querySelectorAll('.level-button');
     const selectedLevels = new Set();  // 選択されたレベルを管理
 
     levelButtons.forEach(button => {
         button.addEventListener('click', () => {
             const level = button.dataset.level;
-
             // ボタンのオン・オフを切り替え
             if (selectedLevels.has(level)) {
                 selectedLevels.delete(level);
-                button.classList.remove('active');  // オフ状態のスタイル
+                button.classList.remove('active');  // オフ状態
             } else {
                 selectedLevels.add(level);
-                button.classList.add('active');  // オン状態のスタイル
+                button.classList.add('active');  // オン状態
             }
-
-            // 検索を実行
-            console.log(window.cardsData);
+            /* 検索を実行 */
             handleSearch();
         });
     });
@@ -72,11 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 色選択ボタンの処理
     const colorButtons = document.querySelectorAll('.color-button');
     const selectedColors = new Set();  // 選択された色を管理
-
     colorButtons.forEach(button => {
         button.addEventListener('click', () => {
             const color = button.dataset.color;
-
         // ボタンのオン・オフを切り替え
             if (selectedColors.has(color)) {
                 selectedColors.delete(color);
@@ -85,13 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 selectedColors.add(color);
                 button.classList.add('active');  // オン状態のスタイル
             }
-
-            // 検索を実行
-            console.log(window.cardsData);
+            /* 検索を実行 */
             handleSearch();
         });
     });
-
 
     // LBボタンのクリックイベント
     const lifeBurstButton = document.getElementById('life-burst-toggle');
@@ -101,27 +93,53 @@ document.addEventListener('DOMContentLoaded', () => {
     lifeBurstButton.addEventListener('click', function() {
         lifeBurstState = (lifeBurstState + 1) % 3; // クリックごとにlifeBurstStateを1増やす（0→1→2→0のループ）
 
-        // 状態に応じてボタンの背景色を変更
+        /* 状態に応じてボタンの背景色を変更 */
         switch (lifeBurstState) {
-            case 0: // どっちも
-                this.style.backgroundColor = "";  // デフォルトの色に戻す
-                console.log("LBどっちもで検索");
+            case 0:
+                this.style.backgroundColor = ""; // デフォルト
                 break;
-            case 1: // LBあり
-                this.style.backgroundColor = "green";  // LBありの色
-                console.log("LBアリで検索");
+            case 1:
+                this.style.backgroundColor = "green"; // LBあり
                 break;
-            case 2: // LBなし
-                this.style.backgroundColor = "red";  // LBなしの色
-                console.log("LBナシで検索");
+            case 2:
+                this.style.backgroundColor = "red"; // LBなし
                 break;
         }
-        // 状態をログに出力
-    console.log(`LifeBurstState updated to: ${lifeBurstState}`);
-        handleSearch(); // 状態変更後、必ず検索を再実行
+        /* 検索を実行 */
+        handleSearch();
     });
-
 });
+
+/* リスト欄にカードを表示させる関数 */
+function displayCards(cards) {
+
+    /* カードを表示させる場所として#cards-containerを取得 */
+    const cardsContainer = document.getElementById('cards-container');
+    cards.forEach(card => {
+
+        // cards-containerに追加する<div class="card">を作成
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+
+        // URLからカード画像を設定
+        const cardImage = document.createElement('img');
+        cardImage.src = card.image;
+        // 画像が表示できなかった場合はカード名を表示
+        cardImage.alt = card.name;
+
+        // カードをcards-containerに表示
+        cardElement.appendChild(cardImage);
+        cardsContainer.appendChild(cardElement);
+
+        // カードにフリックのリスナーを追加
+        cardElement.addEventListener('touchstart', handleTouchStart);
+        cardElement.addEventListener('touchend', (event) => {
+            // 現在のカードを記録
+            currentCard = card;
+            handleTouchEnd(event);
+        });
+    });
+}
 
 /* ステータス欄を更新する関数 */
 function updateDeckStatus() {
@@ -200,7 +218,7 @@ function handleSearch() {
 
     /* 検索条件を取得 */
     const searchTerm = document.getElementById('search-input').value.toLowerCase(); // #search-inputからテキストを取得（小文字に変換）しsearchTermにする
-    const selectedType = document.getElementById('search-type-input').value; // #search-type-inputドロップダウンから選ばれたカード種類を取得してselectedTypeにする
+    const selectedCardType = document.getElementById('search-type-input').value; // #search-type-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
     const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level); // .level-button.active（押されたLv選択ボタン）から選ばれたLvを取得してselectedLevelsにする
     const selectedColors = Array.from(document.querySelectorAll('.color-button.active')).map(button => button.dataset.color); // .color-button.active（押された色選択ボタン）から選ばれた色を取得してselectedColorsにする
 
@@ -214,7 +232,7 @@ function handleSearch() {
         /* 各種条件で検索 */
         const nameMatch = card.name.toLowerCase().includes(searchTerm); // カード名（小文字に変換）にsearchTerm含んでいるかを確認
         const subNameMatch = card.subName && card.subName.some(sub => sub.toLowerCase().includes(searchTerm)); // subNameがあれば、同様にsearchTermを含んでいるか確認
-        const typeMatch = selectedType === "" || card.type.includes(selectedType); // selectedTypeが空なら全てで検索、選択されていればselectedTypeがtypeに含まれているか確認
+        const typeMatch = selectedCardType === "" || card.cardType.includes(selectedCardType); // selectedCardTypeが空なら全てで検索、選択されていればselectedCardTypeがtypeに含まれているか確認
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString()); // selectedLevelsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const colorMatch = selectedColors.length === 0 || selectedColors.some(color => card.color.includes(color)); // selectedColorsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const lifeBurstMatch = (
@@ -228,36 +246,6 @@ function handleSearch() {
 
     /* 検索結果filteredCardsをdisplayCards関数で表示 */
     displayCards(filteredCards);
-}
-
-// displayCards関数
-function displayCards(cards) {
-
-    const cardsContainer = document.getElementById('cards-container');
-    cards.forEach(card => {
-
-        // cards-containerに追加する<div class="card">を作成
-        const cardElement = document.createElement('div');
-        cardElement.classList.add('card');
-
-        // URLからカード画像を設定
-        const cardImage = document.createElement('img');
-        cardImage.src = card.image;
-        // 画像が表示できなかった場合はカード名を表示
-        cardImage.alt = card.name;
-
-        // カードをcards-containerに表示
-        cardElement.appendChild(cardImage);
-        cardsContainer.appendChild(cardElement);
-
-        // カードにフリックのリスナーを追加
-        cardElement.addEventListener('touchstart', handleTouchStart);
-        cardElement.addEventListener('touchend', (event) => {
-            // 現在のカードを記録
-            currentCard = card;
-            handleTouchEnd(event);
-        });
-    });
 }
 
 // リスト欄のフリックリスナー
@@ -291,53 +279,50 @@ function handleTouchEnd(event) {
 /* デッキにカードを追加する関数 */
 function addCardToDeck(card) {
 
-    /* lrig-deck-cardsとmain-deck-cardsをで取得 */
+    /* カードを追加する場所としてlrig-deck-cardsとmain-deck-cardsを取得 */
     const lrigDeck = document.getElementById('lrig-deck-cards');
     const mainDeck = document.getElementById('main-deck-cards');
 
     /* deckに追加する<div class="card">を作成 */
-    const cardElement = document.createElement('div');
-    cardElement.classList.add('card');
+    const cardElement = document.createElement('div'); // <div>を作成（jsではcardElementで参照）
+    cardElement.classList.add('card'); // classにcardを設定
+    /* <div>にカード画像<img src="URL">を追加 */
+    const cardImage = document.createElement('img'); // <img>を作成
+    cardImage.src = card.image; // imgにsrcでカード画像（URL）を設定
+    cardElement.appendChild(cardImage); // 作成した<img>を<div>に追加
+    /* <div>にカードのデータを追加 */
+    cardElement.dataset.name = card.name; // カード名
+    cardElement.dataset.cardType = card.cardType[0]; // カード種類（配列の最初の要素）
+    cardElement.dataset.lrigTypeClass = card.lrigTypeClass[0]; // ルリグタイプ/クラス（配列の最初の要素）
+    cardElement.dataset.level = card.level; // レベル
 
-    // URLからカード画像を設定
-    const cardImage = document.createElement('img');
-    cardImage.src = card.image;
-    cardImage.alt = card.name;
-
-    // カード名を表示する<p>要素を作成
+    /* カード名を表示する<p>要素を作成
     const cardName = document.createElement('p');
     cardName.textContent = card.name;
-
     // dataset にカードの種類とレベルを追加
-    cardElement.dataset.type = card.type[0];
-    cardElement.dataset.cardType =card.cardType[0];
-    cardElement.dataset.level = card.level;
+    cardElement.dataset.cardType = card.cardType[0];
+    cardElement.dataset.lrigTypeClass =card.lrigTypeClass[0];
+    cardElement.dataset.level = card.level;*/
+    /* lrigTypeClassの最初の要素を取得 *
+    const lrigTypeClass = card.lrigTypeClass[0];*/
 
-    // cardElementに画像と名前を追加
-    cardElement.appendChild(cardImage);
-    cardElement.appendChild(cardName);
-
-    // カード種類の最初の要素を取得
-    const cardType = card.type[0];
-
-    /* ルリグデッキに追加 */
-    if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
-
+    /* <div>からlrigTypeClassを取得 */
+    const lrigTypeClass = cardElement.lrigTypeClass;
+    /* ルリグ,アシストルリグ',ピース,アーツならルリグデッキに追加 */
+    if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(lrigTypeClass)) {
         /* LrigDeckの枚数が8枚以上なら処理を停止 */
         if (lrigDeck.children.length >= 8) {
             return;
         }
-
         /* ルリグデッキ内の同名カードを確認 */
-        const lrigSameNameCards = Array.from(lrigDeck.children).filter(deckCard => {
+        const lrigDeckSameNameCard = Array.from(lrigDeck.children).filter(deckCard => {
             const deckCardName = deckCard.querySelector('p').textContent;
             return deckCardName === card.name;
         });
         /* 1枚以上なら追加の処理を停止 */
-        if (lrigSameNameCards.length >= 1) {
+        if (lrigDeckSameNameCard.length >= 1) {
             return;
         }
-
         /* Lv3のルリグがデッキにあるか確認 */
         const lrigLevel3Cards = Array.from(lrigDeck.children).filter(deckCard => {
             const deckCardName = deckCard.querySelector('p').textContent;
@@ -345,22 +330,18 @@ function addCardToDeck(card) {
             return deckCardData && deckCardData.type.includes("ルリグ") && deckCardData.level === 3;
         });
         /* 1枚以上なら追加の処理を停止 */
-        if (lrigLevel3Cards.length >= 1 && card.type.includes("ルリグ") && card.level === 3) {
+        if (lrigLevel3Cards.length >= 1 && card.cardType.includes("ルリグ") && card.level === 3) {
             return;
         }
-
         lrigDeck.appendChild(cardElement);
         sortLrigDeck();
     }
-
-    /* メインデッキに追加 */
+    /* シグニ,スペル,サーバントならメインデッキに追加 */
     else if (['シグニ', 'スペル', 'サーバント'].includes(cardType)) {
-
         /* MainDeckの枚数が40枚以上なら処理を停止 */
         if (mainDeck.children.length >= 40) {
             return;
         }
-
         /* メインデッキ内の同名カードの数を確認 */
         const mainSameNameCards = Array.from(mainDeck.children).filter(deckCard => {
             const deckCardName = deckCard.querySelector('p').textContent;
@@ -371,7 +352,6 @@ function addCardToDeck(card) {
             console.log(`Cannot add ${card.name} to Main Deck: More than 4 copies`);
             return;
         }
-
         mainDeck.appendChild(cardElement);
         sortMainDeck();
     }
@@ -450,88 +430,84 @@ function removeCardFromDeck(cardElement) {
 
 /* ルリグデッキのソート */
 function sortLrigDeck() {
-    const lrigDeck = document.getElementById('lrig-deck-cards');
-    const cardElements = Array.from(lrigDeck.children);
 
-    const order = {
+    /* ルリグデッキの要素を配列にして取得 */
+    const lrigDeck = document.getElementById('lrig-deck-cards'); // #lrig-deck-cardsをlrigDeckとして取得
+    const cardElements = Array.from(lrigDeck.children); // lrigDeckの子要素（ルリグデッキのカード）を配列で取得
+
+    /* カード種類によるソート順を設定 */
+    const lrigDeckOrder = {
         'ルリグ': 1,
         'アシストルリグ': 2,
         'ピース': 3,
         'アーツ': 4
     };
 
+    /* ソート */
     cardElements.sort((a, b) => {
-        const aType = order[a.dataset.type] || 5;
-        const bType = order[b.dataset.type] || 5;
-        // cardTypeの配列から1つ目の要素を取得
-        const aCardType = JSON.parse(a.dataset.cardType)[0] || "";
-        const bCardType = JSON.parse(b.dataset.cardType)[0] || "";
-        // アシストルリグのソート（cardTypeの1つ目でソート）
-        if (a.dataset.type === 'アシストルリグ' && b.dataset.type === 'アシストルリグ') {
-            // cardTypeを比較してソート
-            if (aCardType !== bCardType) {
-                return aCardType.localeCompare(bCardType); // 文字列比較
-            }
-
-            // cardTypeが同じ場合は、レベルでソート
-            const aLevel = parseInt(a.dataset.level, 10);
-            const bLevel = parseInt(b.dataset.level, 10);
-            return aLevel - bLevel;
+        /* カード種類でソート */
+        const aCardType = lrigDeckOrder[a.dataset.cardType] || 5; // カード種類を取得し、ソート順に応じた値を持たせる
+        const bCardType = lrigDeckOrder[b.dataset.cardType] || 5;
+        if (aCardType !== bCardType) {
+            return aCardType - bCardType // 違うカード種類ならソート
         }
-        return aType - bType;
+        /* アシストルリグのソート */
+        if (a.dataset.cardType === 'アシストルリグ' && b.dataset.cardType === 'アシストルリグ') {
+            /* ルリグタイプでソート */
+            const aLrigTypeClass = a.dataset.lrigTypeClass; // ルリグタイプを取得
+            const bLrigTypeClass = b.dataset.lrigTypeClass;
+            if (aLrigTypeClass !== bLrigTypeClass) {
+                return aLrigTypeClass.localeCompare(bLrigTypeClass); // 違うルリグタイプなら文字列でソート
+            }
+            /* ルリグタイプが同じならレベルでソート */
+            const aLevel = a.dataset.level; // レベルを取得
+            const bLevel = b.dataset.level;
+            return aLevel - bLevel; // aとbで比較
+        }
+        /* アシストルリグ以外で同じカード種類ならカード名でソート */
+        const aName = a.dataset.name; // カード名を取得
+        const bName = b.dataset.name;
+        return aName.localeCompare(bName); // カード名でソート
     });
 
     lrigDeck.innerHTML = '';
     cardElements.forEach(element => lrigDeck.appendChild(element));
 }
 
-// メインデッキソート
+/* メインデッキソート */
 function sortMainDeck() {
-    const mainDeck = document.getElementById('main-deck-cards');
-    const cardElements = Array.from(mainDeck.children);
 
-    // デバッグ: ソート前のカード情報
-    console.log('Before sorting Main Deck:', cardElements.map(card => ({
-        name: card.querySelector('p').textContent,
-        type: card.dataset.type,
-        level: card.dataset.level
-    })));
+    /* メインデッキの要素を配列にして取得 */
+    const mainDeck = document.getElementById('main-deck-cards'); // #main-deck-cardsをmainDeckとして取得
+    const cardElements = Array.from(mainDeck.children); // mainDeckの子要素（メインデッキのカード）を配列で取得
 
-    const order = {
+    /* カード種類によるソート順を設定 */
+    const mainDeckOrder = {
         'シグニ': 1,
         'スペル': 2,
         'サーバント': 3
     };
 
+    /* ソート */
     cardElements.sort((a, b) => {
-        const aType = order[a.dataset.type] || 4;
-        const bType = order[b.dataset.type] || 4;
-
-        if (aType !== bType) {
-        return aType - bType;
+        /* カード種類でソート */
+        const aCardType = mainDeckOrder[a.dataset.cardType] || 4; // カード種類を取得し、ソート順に応じた値を持たせる
+        const bCardType = mainDeckOrder[b.dataset.cardType] || 4;
+        if (aCardType !== bCardType) {
+            return aCardType - bCardType // 違うカード種類ならaソート
         }
-
-        const aLevel = parseInt(a.dataset.level, 10);
-        const bLevel = parseInt(b.dataset.level, 10);
-
+        /* 同じカード種類ならレベルでソート */
+        const aLevel = a.dataset.level; // レベルを取得
+        const bLevel = b.dataset.level;
         if (aLevel !== bLevel) {
-        return aLevel - bLevel;
+        return aLevel - bLevel; // 違うレベルならソート
         }
-
-        // レベルが同じ場合、名前でソート
-        const aName = a.querySelector('p').textContent;
-        const bName = b.querySelector('p').textContent;
-
-        return aName.localeCompare(bName);
+        /* レベルが同じ場合、名前でソート */
+        const aName = a.dataset.name; // カード名を取得
+        const bName = b.dataset.name;
+        return aName.localeCompare(bName); // カード名でソート
     });
 
     mainDeck.innerHTML = '';
     cardElements.forEach(element => mainDeck.appendChild(element));
-
-    // デバッグ: ソート後のカード情報
-    console.log('After sorting Main Deck:', Array.from(mainDeck.children).map(card => ({
-        name: card.querySelector('p').textContent,
-        type: card.dataset.type,
-        level: card.dataset.level
-    })));
 }
