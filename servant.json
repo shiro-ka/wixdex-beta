@@ -1,0 +1,50 @@
+[
+    {
+        "name": "",
+        "subName": [""],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-089.jpg",
+        "type": ["サーバント"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 1,
+        "tags": ["デフォルトサーバント"]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/PR/PR-Di018.jpg",
+        "cardType": ["サーバント"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 1,
+        "tags": ["夢川サーバント"]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-CP02-104.jpg",
+        "type": ["サーバント"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 1,
+        "tags": ["アロナサーバント"]
+    },
+
+    {
+        "name": "",
+        "subName": [""],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-090.jpg",
+        "type": ["サーバント"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 1,
+        "tags": ["電音部サーバント"]
+    }
+
+]
