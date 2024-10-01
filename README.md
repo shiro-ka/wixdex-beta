@@ -1,4 +1,4 @@
-## https://shiro-ka.github.io/wixdex
+## https://shiro-ka.github.io/wixdex-beta
 
 ## スマホ
 
