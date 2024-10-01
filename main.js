@@ -120,11 +120,6 @@ function displayCards(cards) {
         const cardImage = document.createElement('img'); // <img>を作成
         cardImage.src = card.image; // imgにsrcでカード画像（URL）を設定
         cardElement.appendChild(cardImage); // 作成した<img>を<div>に追加
-        /* <div>にカードのデータを追加 */
-        cardElement.dataset.name = card.name; // カード名
-        cardElement.dataset.cardType = card.cardType[0]; // カード種類（配列の最初の要素）
-        cardElement.dataset.lrigTypeClass = card.lrigTypeClass[0]; // ルリグタイプ/クラス（配列の最初の要素）
-        cardElement.dataset.level = card.level; // レベル
         /* カードにフリックのリスナーを追加 */
         cardElement.addEventListener('touchstart', handleTouchStart); // タップしたときにhandleTouchStartを呼び出すリスナーを追加
         cardElement.addEventListener('touchend', (event) => { // タップ終了時のリスナー
