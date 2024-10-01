@@ -1,5 +1,9 @@
 /* 読み込むjsonファイル */
 const jsonFiles = [
+    'cards/servant.json',
+    'cards/WX24-P3.json',
+    'cards/WX24-P2.json',
+    'cards/WX24-P1.json',
     'cards/WXDi-P16.json'
 ];
 
@@ -282,9 +286,9 @@ function addCardToDeck(card) {
     cardElement.dataset.lrigTypeClass = card.lrigTypeClass[0]; // ルリグタイプ/クラス（配列の最初の要素）
     cardElement.dataset.level = card.level; // レベル
 
-    /* <div>からcardTypeを取得 */
-    const cardType = cardElement.cardType;
-    /* ルリグ,アシストルリグ',ピース,アーツならルリグデッキに追加 */
+    /* <div>のdatasetからcardTypeを取得 */
+    const cardType = cardElement.dataset.cardType;
+    /* ルリグ,アシストルリグ',ピース,アーツならルリグデッキに追加してソート */
     if (['ルリグ', 'アシストルリグ', 'ピース', 'アーツ'].includes(cardType)) {
         /* LrigDeckの枚数が8枚以上なら処理を停止 */
         if (lrigDeck.children.length >= 8) {
@@ -309,10 +313,12 @@ function addCardToDeck(card) {
         if (lrigLevel3Cards.length >= 1 && card.cardType.includes("ルリグ") && card.level === 3) {
             return;
         }
+        /* <div>をルリグデッキに追加 */
         lrigDeck.appendChild(cardElement);
+        /* ルリグデッキをソート */
         sortLrigDeck();
     }
-    /* シグニ,スペル,サーバントならメインデッキに追加 */
+    /* シグニ,スペル,サーバントならメインデッキに追加してソート */
     else if (['シグニ', 'スペル', 'サーバント'].includes(cardType)) {
         /* MainDeckの枚数が40枚以上なら処理を停止 */
         if (mainDeck.children.length >= 40) {
@@ -325,10 +331,11 @@ function addCardToDeck(card) {
         });
         /* 4枚以上なら追加の処理を停止 */
         if (mainSameNameCards.length >= 4) {
-            console.log(`Cannot add ${card.name} to Main Deck: More than 4 copies`);
             return;
         }
+        /* <div>をメインデッキに追加 */
         mainDeck.appendChild(cardElement);
+        /* メインデッキをソート */
         sortMainDeck();
     }
 
