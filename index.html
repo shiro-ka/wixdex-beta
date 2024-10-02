@@ -109,39 +109,54 @@
             </div>
         </section>
 
+        <!-- リスト欄 -->
         <section id="card-list">
-            <div id="cards-container"></div>
+            <div id="cards-container">
+                <!-- ここに検索結果のカードが追加される
+                    <div class="card">
+                        <img src="URL">
+                    </div> -->
+            </div>
         </section>
 
-        <section id="search-tool-1">
-            <div id="level-buttons">
-                <button class="level-button" data-level="1"><img src="images/level_1.png" /></button>
-                <button class="level-button" data-level="2"><img src="images/level_2.png" /></button>
-                <button class="level-button" data-level="3"><img src="images/level_3.png" /></button>
+        <!-- 検索ツール欄 -->
+        <section id="search-tool">
+            <!-- 上段 -->
+            <div class="search-tool-row">
+                <!-- レベル検索 -->
+                <div id="level-buttons">
+                    <button class="search-button" data-level="1"><img src="images/level_1.png" /></button>
+                    <button class="search-button" data-level="2"><img src="images/level_2.png" /></button>
+                    <button class="search-button" data-level="3"><img src="images/level_3.png" /></button>
+                </div>
+                <!-- 色検索 -->
+                <div id="color-buttons">
+                    <button class="search-button" data-color="白"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_white2.png"></button>
+                    <button class="search-button" data-color="赤"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_red2.png"></button>
+                    <button class="search-button" data-color="青"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_blue2.png"></button>
+                    <button class="search-button" data-color="緑"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_green2.png"></button>
+                    <button class="search-button" data-color="黒"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_black2.png"></button>
+                </div>
+                <!-- LB検索 -->
+                <button id="lb-search-button">
+                    <img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_burst.png">
+                </button>
             </div>
-            <div id="color-buttons">
-                <button class="color-button" data-color="白"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_white2.png"></button>
-                <button class="color-button" data-color="赤"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_red2.png"></button>
-                <button class="color-button" data-color="青"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_blue2.png"></button>
-                <button class="color-button" data-color="緑"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_green2.png"></button>
-                <button class="color-button" data-color="黒"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_black2.png"></button>
+            <!-- 下段 -->
+            <div class="search-tool-row">
+                <!-- カード種類検索 -->
+                <select id="search-cardType-input">
+                    <option value="">カード種類</option>
+                    <option value="シグニ">シグニ</option>
+                    <option value="スペル">スペル</option>
+                    <option value="ルリグ">ルリグ</option>
+                    <option value="アシストルリグ">アシストルリグ</option>
+                    <option value="ピース">ピース</option>
+                    <option value="アーツ">アーツ</option>
+                </select>
+                <!-- テキスト検索 -->
+                <input type="text" id="search-input" placeholder="カード名">
             </div>
-            <button id="life-burst-toggle" class="lb-button">
-                <img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_burst.png">
-            </button>
-        </section>
-
-        <section id="search-tool-2">
-            <select id="search-type-input">
-                <option value="">カード種類</option>
-                <option value="シグニ">シグニ</option>
-                <option value="スペル">スペル</option>
-                <option value="ルリグ">ルリグ</option>
-                <option value="アシストルリグ">アシストルリグ</option>
-                <option value="ピース">ピース</option>
-                <option value="アーツ">アーツ</option>
-            </select>
-            <input type="text" id="search-input" placeholder="カード名">
         </section>
     </main>
 

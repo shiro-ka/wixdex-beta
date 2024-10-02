@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', handleSearch);
 
     /* カードタイプのプルダウン選択 */
-    const searchTypeInput = document.getElementById('search-type-input');
+    const searchTypeInput = document.getElementById('search-cardType-input');
     searchTypeInput.addEventListener('change', handleSearch);
 
     /* レベル選択ボタンの処理 */
@@ -217,7 +217,7 @@ function handleSearch() {
 
     /* 検索条件を取得 */
     const searchTerm = document.getElementById('search-input').value.toLowerCase(); // #search-inputからテキストを取得（小文字に変換）しsearchTermにする
-    const selectedCardType = document.getElementById('search-type-input').value; // #search-type-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
+    const selectedCardType = document.getElementById('search-cardType-input').value; // #search-cardType-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
     const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level); // .level-button.active（押されたLv選択ボタン）から選ばれたLvを取得してselectedLevelsにする
     const selectedColors = Array.from(document.querySelectorAll('.color-button.active')).map(button => button.dataset.color); // .color-button.active（押された色選択ボタン）から選ばれた色を取得してselectedColorsにする
 
@@ -409,20 +409,19 @@ function addCardToDeck(card) {
     updateDeckStatus();
 }
 
-// デッキ欄のカード上フリックでさらに追加
+/* デッキ欄のカード上フリックでそのカードをさらに追加（複製）*/
 function handleDuplicateTouchEnd(event) {
 
-    // タッチ終了時のY座標を取得し、フリックの距離を計算
+    /* タッチ終了時のY座標を取得し、フリックの距離を計算 */
     const touchEndY = event.changedTouches[0].clientY;
     const swipeDistance = touchStartY - touchEndY;
 
-    // 上方向にスワイプされた場合、カードを複製
+    /* 上方向にスワイプされた場合、カードを複製 */
     if (swipeDistance > 50 && event.currentTarget) {
         duplicateCard(event.currentTarget);
     }
 }
-
-// 追加の関数
+/* 複製の関数 */
 function duplicateCard(cardElement) {
 
     const cardName = cardElement.dataset.name;
@@ -430,21 +429,19 @@ function duplicateCard(cardElement) {
     // addCardToDeck関数を使ってカードを追加
     addCardToDeck(cardData);
 }
-
-// デッキ欄のカード下フリックでデッキから削除
+/* デッキ欄のカードを下フリックでデッキから削除 */
 function handleRemoveTouchEnd(event) {
 
-    // タッチ終了時のY座標を取得し、フリックの距離を計算
+    /* タッチ終了時のY座標を取得し、フリックの距離を計算 */
     const touchEndY = event.changedTouches[0].clientY;
     const swipeDistance = touchEndY - touchStartY;
 
-    // 下方向にスワイプされた場合、カードを削除
+    /* 下方向にスワイプされた場合、カードを削除 */
     if (swipeDistance > 50 && event.currentTarget) {
         removeCardFromDeck(event.currentTarget);
     }
 }
-
-// 削除の関数
+/* 削除の関数 */
 function removeCardFromDeck(cardElement) {
     const lrigDeck = document.getElementById('lrig-deck-cards');
     const mainDeck = document.getElementById('main-deck-cards');
@@ -508,7 +505,6 @@ function sortLrigDeck() {
     lrigDeck.innerHTML = '';
     cardElements.forEach(element => lrigDeck.appendChild(element));
 }
-
 /* メインデッキソート */
 function sortMainDeck() {
 
