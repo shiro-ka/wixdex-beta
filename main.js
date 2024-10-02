@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 色選択ボタンの処理
+    /* 色選択ボタンの処理 */
     const colorButtons = document.querySelectorAll('.search-color-button');
     const selectedColors = new Set();  // 選択された色を管理
     colorButtons.forEach(button => {
@@ -83,14 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // LBボタンのクリックイベント
-    const lifeBurstButton = document.getElementById('life-burst-toggle');
-    //let lifeBurstState = 0; // 0: どっちも, 1: LBあり, 2: LBなし
-
-    /* Life Burst ボタンのクリックイベントリスナー */
+    /* LBボタンのクリックイベント */
+    const lifeBurstButton = document.getElementById('lb-search-button');
     lifeBurstButton.addEventListener('click', function() {
         lifeBurstState = (lifeBurstState + 1) % 3; // クリックごとにlifeBurstStateを1増やす（0→1→2→0のループ）
-
         /* 状態に応じてボタンの背景色を変更 */
         switch (lifeBurstState) {
             case 0:
