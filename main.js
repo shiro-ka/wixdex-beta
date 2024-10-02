@@ -154,7 +154,7 @@ function updateDeckStatus() {
 
     /* メインデッキ内の各カードをチェック */
     Array.from(mainDeck.children).forEach(cardElement => {
-        const cardName = cardElement.querySelector('p').textContent;
+        const cardName = cardElement.dataset.name;
         const cardData = window.cardsData.find(card => card.name === cardName);
 
         /* levelが1のカードをカウント */
@@ -210,23 +210,23 @@ function updateDeckStatus() {
 /* カードを検索 */
 function handleSearch() {
 
+    /* 検索結果を表示させる場所として#cards-containerを取得 */
+    const cardsContainer = document.getElementById('cards-container');
+    /* 検索結果を一度リセット */
+    cardsContainer.innerHTML = '';
+
     /* 検索条件を取得 */
     const searchTerm = document.getElementById('search-input').value.toLowerCase(); // #search-inputからテキストを取得（小文字に変換）しsearchTermにする
     const selectedCardType = document.getElementById('search-type-input').value; // #search-type-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
     const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level); // .level-button.active（押されたLv選択ボタン）から選ばれたLvを取得してselectedLevelsにする
     const selectedColors = Array.from(document.querySelectorAll('.color-button.active')).map(button => button.dataset.color); // .color-button.active（押された色選択ボタン）から選ばれた色を取得してselectedColorsにする
 
-    /* 検索結果を表示させる場所として#cards-containerを取得 */
-    const cardsContainer = document.getElementById('cards-container');
-    /* 検索結果を一度リセット */
-    cardsContainer.innerHTML = '';
-
     /* window.cardsDataの中からカードを検索してfilteredCardsに保存 */
     let filteredCards = window.cardsData.filter(card => {
         /* 各種条件で検索 */
         const nameMatch = card.name.toLowerCase().includes(searchTerm); // カード名（小文字に変換）にsearchTerm含んでいるかを確認
         const subNameMatch = card.subName && card.subName.some(sub => sub.toLowerCase().includes(searchTerm)); // subNameがあれば、同様にsearchTermを含んでいるか確認
-        const typeMatch = selectedCardType === "" || card.cardType.includes(selectedCardType); // selectedCardTypeが空なら全てで検索、選択されていればselectedCardTypeがtypeに含まれているか確認
+        const cardTypeMatch = selectedCardType === "" || card.cardType.includes(selectedCardType); // selectedCardTypeが空なら全てで検索、選択されていればselectedCardTypeがcardTypeに含まれているか確認
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString()); // selectedLevelsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const colorMatch = selectedColors.length === 0 || selectedColors.some(color => card.color.includes(color)); // selectedColorsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const lifeBurstMatch = (
@@ -235,7 +235,7 @@ function handleSearch() {
             (lifeBurstState === 2 && card.lifeBurst === 0)     // lifeBurstStateが2であればLBなしで検索
         );
         /* 全条件で検索 */
-        return (nameMatch || subNameMatch) && typeMatch && levelMatch && colorMatch && lifeBurstMatch;
+        return (nameMatch || subNameMatch) && cardTypeMatch && levelMatch && colorMatch && lifeBurstMatch;
     });
 
     /* 検索結果filteredCardsをdisplayCards関数で表示 */
@@ -425,17 +425,8 @@ function handleDuplicateTouchEnd(event) {
 // 追加の関数
 function duplicateCard(cardElement) {
 
-    const lrigDeck = document.getElementById('lrig-deck-cards');
-    const mainDeck = document.getElementById('main-deck-cards');
-
-    const cardName = cardElement.querySelector('p').textContent;
+    const cardName = cardElement.dataset.name;
     const cardData = window.cardsData.find(card => card.name === cardName);
-
-    if (!cardData) {
-        console.log(`Card data not found for ${cardName}`);
-        return;
-    }
-
     // addCardToDeck関数を使ってカードを追加
     addCardToDeck(cardData);
 }
