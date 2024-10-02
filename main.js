@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDeckStatus();
 
     /* カード名検索のイベントリスナーを追加 */
-    const searchInput = document.getElementById('search-input');
+    const searchInput = document.getElementById('search-text-input');
     searchInput.addEventListener('input', handleSearch);
 
     /* カードタイプのプルダウン選択 */
@@ -46,9 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
     searchTypeInput.addEventListener('change', handleSearch);
 
     /* レベル選択ボタンの処理 */
-    const levelButtons = document.querySelectorAll('.level-button');
+    const levelButtons = document.querySelectorAll('.search-level-button');
     const selectedLevels = new Set();  // 選択されたレベルを管理
-
     levelButtons.forEach(button => {
         button.addEventListener('click', () => {
             const level = button.dataset.level;
@@ -66,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 色選択ボタンの処理
-    const colorButtons = document.querySelectorAll('.color-button');
+    const colorButtons = document.querySelectorAll('.search-color-button');
     const selectedColors = new Set();  // 選択された色を管理
     colorButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -216,10 +215,10 @@ function handleSearch() {
     cardsContainer.innerHTML = '';
 
     /* 検索条件を取得 */
-    const searchTerm = document.getElementById('search-input').value.toLowerCase(); // #search-inputからテキストを取得（小文字に変換）しsearchTermにする
+    const searchTerm = document.getElementById('search-text-input').value.toLowerCase(); // #search-text-inputからテキストを取得（小文字に変換）しsearchTermにする
     const selectedCardType = document.getElementById('search-cardType-input').value; // #search-cardType-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
-    const selectedLevels = Array.from(document.querySelectorAll('.level-button.active')).map(button => button.dataset.level); // .level-button.active（押されたLv選択ボタン）から選ばれたLvを取得してselectedLevelsにする
-    const selectedColors = Array.from(document.querySelectorAll('.color-button.active')).map(button => button.dataset.color); // .color-button.active（押された色選択ボタン）から選ばれた色を取得してselectedColorsにする
+    const selectedLevels = Array.from(document.querySelectorAll('.search-level-button.active')).map(button => button.dataset.level); // .search-level-button.active（押されたLv選択ボタン）から選ばれたLvを取得してselectedLevelsにする
+    const selectedColors = Array.from(document.querySelectorAll('.search-color-button.active')).map(button => button.dataset.color); // .search-color-button.active（押された色選択ボタン）から選ばれた色を取得してselectedColorsにする
 
     /* window.cardsDataの中からカードを検索してfilteredCardsに保存 */
     let filteredCards = window.cardsData.filter(card => {
@@ -448,15 +447,13 @@ function removeCardFromDeck(cardElement) {
 
     if (lrigDeck.contains(cardElement)) {
         lrigDeck.removeChild(cardElement);
-        console.log('Card removed from Lrig Deck');
         sortLrigDeck();
     } else if (mainDeck.contains(cardElement)) {
         mainDeck.removeChild(cardElement);
-        console.log('Card removed from Main Deck');
         sortMainDeck();
     }
 
-    // ステータス欄を更新
+    /* ステータス欄を更新 */
     updateDeckStatus();
 }
 

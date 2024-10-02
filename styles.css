@@ -208,7 +208,7 @@ main {
         margin-right: 2vw; /* 右側にマージンを追加 */
     }
     /* カード名検索欄*/
-    #search-input {
+    #search-text-input {
         border: none; /* 一度枠線を消す */
         border-bottom: 1px solid #ccc; /* 下線のみ色と太さを設定 */
         color: #ccc; /* 文字色 */
