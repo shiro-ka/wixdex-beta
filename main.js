@@ -226,7 +226,7 @@ function handleSearch() {
         /* 各種条件で検索 */
         const nameMatch = card.name.toLowerCase().includes(searchTerm); // カード名（小文字に変換）にsearchTerm含んでいるかを確認
         const subNameMatch = card.subName && card.subName.some(sub => sub.toLowerCase().includes(searchTerm)); // subNameがあれば、同様にsearchTermを含んでいるか確認
-        const cardTypeMatch = selectedCardType === "" || card.cardType.includes(selectedCardType); // selectedCardTypeが空なら全てで検索、選択されていればselectedCardTypeがcardTypeに含まれているか確認
+        const cardTypeMatch = selectedCardType === "" || (card.cardType && card.cardType.includes(selectedCardType)); // selectedCardTypeが空なら全てで検索、選択されていればselectedCardTypeがcardTypeに含まれているか確認
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString()); // selectedLevelsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const colorMatch = selectedColors.length === 0 || selectedColors.some(color => card.color.includes(color)); // selectedColorsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const lifeBurstMatch = (
