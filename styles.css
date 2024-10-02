@@ -179,18 +179,18 @@ main {
             width: auto; /* 比率をキープ */
         }
     /* LB検索ボタンの設定 */
-        #lb-search-button {
-            width: 8vw;
-            height: 2rem;
-            background-color: transparent; /* デフォルトは背景透明 */
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            margin: 0;
-            cursor: pointer;
-        }
+    #lb-search-button {
+        width: 8vw;
+        height: 2rem;
+        background-color: transparent; /* デフォルトは背景透明 */
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+    }
         /* 画像の設定 */
         #lb-search-button img {
             height: 1.5rem; /* 高さ */

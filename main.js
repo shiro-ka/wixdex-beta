@@ -37,10 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ステータス欄を更新(初期化) */
     updateDeckStatus();
 
-    /* カード名検索のイベントリスナーを追加 */
-    const searchInput = document.getElementById('search-text-input');
-    searchInput.addEventListener('input', handleSearch);
-
     /* カードタイプのプルダウン選択 */
     const searchTypeInput = document.getElementById('search-cardType-input');
     searchTypeInput.addEventListener('change', handleSearch);
@@ -51,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     levelButtons.forEach(button => {
         button.addEventListener('click', () => {
             const level = button.dataset.level;
-            // ボタンのオン・オフを切り替え
+            /* ボタンのオン・オフを切り替え */
             if (selectedLevels.has(level)) {
                 selectedLevels.delete(level);
                 button.classList.remove('active');  // オフ状態
@@ -70,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     colorButtons.forEach(button => {
         button.addEventListener('click', () => {
             const color = button.dataset.color;
-        // ボタンのオン・オフを切り替え
+            /* ボタンのオン・オフを切り替え */
             if (selectedColors.has(color)) {
                 selectedColors.delete(color);
                 button.classList.remove('active');  // オフ状態のスタイル
@@ -101,6 +97,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         /* 検索を実行 */
         handleSearch();
+    });
+
+    /* カード名検索のイベントリスナーを追加 */
+    const searchInput = document.getElementById('search-text-input');
+    searchInput.addEventListener('input', handleSearch);
+
+    /* ルリグタイプ/クラス検索のポップアップ */
+    document.getElementById('search-lrigTypeClass-button').addEventListener('click', function() {
+        const lrigTypeClassPopup = document.getElementById('search-lrigTypeClass-popup');
+        lrigTypeClassPopup.style.display = lrigTypeClassPopup.style.display === 'none' ? 'block' : 'none'; // ボタンを押すとポップアップの表示・非表示を切り替え
+    });
+    /* ポップアップのボタン設定 */
+    Array.from(document.getElementsByClassName('search-lrigTypeClass-button')).forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedLrigTypeClass = button.dataset.lrigTypeClass; // クリックされたボタンのlrigTypeClassを取得
+            document.getElementById('search-lrigTypeClass-popup').dataset.selectedLrigTypeClass = selectedLrigTypeClass; // 取得したlrigTypeClassを#search-lrigTypeClass-popupのdatasetに保存
+            document.getElementById('lrigTypeClass-popup').style.display = 'none'; // ポップアップを閉じる
+            /* 検索を実行 */
+            handleSearch();
+        });
     });
 });
 
@@ -215,6 +231,7 @@ function handleSearch() {
     const selectedCardType = document.getElementById('search-cardType-input').value; // #search-cardType-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
     const selectedLevels = Array.from(document.querySelectorAll('.search-level-button.active')).map(button => button.dataset.level); // .search-level-button.active（押されたLv選択ボタン）から選ばれたLvを取得してselectedLevelsにする
     const selectedColors = Array.from(document.querySelectorAll('.search-color-button.active')).map(button => button.dataset.color); // .search-color-button.active（押された色選択ボタン）から選ばれた色を取得してselectedColorsにする
+    const selectedLrigTypeClass = document.getElementById('search-lrigTypeClass-popup').dataset.selectedLrigTypeClass || ""; // lrigTypeClassが空なら全てで検索、選択されていればselectedLrigTypeClassが含まれているか確認
 
     /* window.cardsDataの中からカードを検索してfilteredCardsに保存 */
     let filteredCards = window.cardsData.filter(card => {
@@ -222,6 +239,7 @@ function handleSearch() {
         const nameMatch = card.name.toLowerCase().includes(searchTerm); // カード名（小文字に変換）にsearchTerm含んでいるかを確認
         const subNameMatch = card.subName && card.subName.some(sub => sub.toLowerCase().includes(searchTerm)); // subNameがあれば、同様にsearchTermを含んでいるか確認
         const cardTypeMatch = selectedCardType === "" || (card.cardType && card.cardType.includes(selectedCardType)); // selectedCardTypeが空なら全てで検索、選択されていればselectedCardTypeがcardTypeに含まれているか確認
+        const lrigTypeClassMatch = selectedLrigTypeClass === "" || (card.lrigTypeClass && card.lrigTypeClass.includes(selectedLrigTypeClass)); // lrigTypeClassのフィルタリング
         const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString()); // selectedLevelsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const colorMatch = selectedColors.length === 0 || selectedColors.some(color => card.color.includes(color)); // selectedColorsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const lifeBurstMatch = (
@@ -230,7 +248,7 @@ function handleSearch() {
             (lifeBurstState === 2 && card.lifeBurst === 0)     // lifeBurstStateが2であればLBなしで検索
         );
         /* 全条件で検索 */
-        return (nameMatch || subNameMatch) && cardTypeMatch && levelMatch && colorMatch && lifeBurstMatch;
+        return (nameMatch || subNameMatch) && cardTypeMatch && lrigTypeClassMatch && levelMatch && colorMatch && lifeBurstMatch;
     });
 
     /* 検索結果filteredCardsをdisplayCards関数で表示 */
