@@ -104,9 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', handleSearch);
 
     /* ルリグタイプ/クラス検索のポップアップ */
-    document.getElementById('search-lrigTypeClass-button').addEventListener('click', function() {
-        const lrigTypeClassPopup = document.getElementById('search-lrigTypeClass-popup');
-        lrigTypeClassPopup.style.display = lrigTypeClassPopup.style.display === 'none' ? 'block' : 'none'; // ボタンを押すとポップアップの表示・非表示を切り替え
+    Array.from(document.getElementsByClassName('search-lrigTypeClass-button')).forEach(button => {
+        button.addEventListener('click', function() {
+            const lrigTypeClassPopup = document.getElementById('search-lrigTypeClass-popup');
+            lrigTypeClassPopup.style.display = lrigTypeClassPopup.style.display === 'none' ? 'block' : 'none'; // ボタンを押すとポップアップの表示・非表示を切り替え
+        });
     });
     /* ポップアップのボタン設定 */
     Array.from(document.getElementsByClassName('search-lrigTypeClass-button')).forEach(button => {
