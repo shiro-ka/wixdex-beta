@@ -15,7 +15,6 @@ main {
 main * {
     margin: 0;
     padding: 0;
-    display: flex; /* flexboxを使う */
     box-sizing: border-box;
     position: relative;
     z-index: 1;
@@ -23,75 +22,82 @@ main * {
 
 /* デッキ欄の設定 */
 #deck-area {
+    display: flex; /* flexboxを使用 */
     flex-direction: column; /* コンテンツを縦に並べる */
     padding: 0.5rem 1rem; /* 余白 */
 }
-    /* ヘッダー文字アイコンの設定 */
-    .header-text-icon{
-        height: 2rem; /* 高さ */
-        width: 8rem; /* 幅 */
-    }
-    /* ヘッダー文字アイコン画像の設定 */
-    .header-text-icon img{
-        height: 2rem; /* 高さ */
-    }
-    /* MainDeckヘッダーの設定 */
-    #main-header{
+    /* デッキヘッダーの設定 */
+    .deck-header{
+        display: flex; /* flexboxを使用 */
         flex-direction: row; /* コンテンツを横に並べる */
-        height: 2rem; /* 高さ */
+        height: 3rem; /* 高さ */
+        border-bottom: 1px solid #ccc; /* 下線 */
     }
+        /* ヘッダーアイコンの設定 */
+        .header-text-icon{
+            display: flex; /* flexboxを使用 */
+            height: 2rem; /* 高さ */
+            width: 8rem; /* 幅 */
+            margin: 0.5rem 0; /* 上下にマージン（ヘッダーの高さに合わせる）*/
+        }
+            /* ヘッダー文字アイコン画像の設定 */
+            .header-text-icon img{
+                height: 2rem; /* 高さ */
+            }
         /* ステータス欄全体設定 */
         #deck-status{
-            height: 2rem; /* 高さ */
+            display: flex; /* flexboxを使用 */
+            flex-direction: column; /* コンテンツ（deck-status-row）を縦に並べる */
+            height: 3rem; /* 高さ */
             width: 15rem; /* 幅 */
             margin-left: auto; /* 右詰め */
-            flex-direction: column; /* コンテンツを縦に並べる */
         }
             /* ステータス欄行ごとの設定 */
             .deck-status-row{
-                height: 0.75rem; /* 高さ */
-                margin-top: 0.25rem; /* 上に余白 */
+                display: flex; /* flexboxを使用 */
+                flex-direction: column; /* コンテンツ（deck-status-cell）を縦に並べる */
+                height: 1rem; /* 高さ */
+                margin-bottom: 0.5rem; /* 下に余白 */
             }
-            /* ステータス欄マスごとの設定 */
-            .deck-status-cell{
-                width: 2.5rem; /* 幅 */
-            }
-                /* ステータス欄のアイコン設定 */
-                .deck-status-icon{
-                    height: 12px; /* 高さ */
-                    width: 12px; /* 幅 */
+                /* ステータス欄マスごとの設定 */
+                .deck-status-cell{
+                    display: flex; /* flexboxを使用 */
+                    flex-direction: column; /* コンテンツを縦に並べる */
+                    height: 1rem; /* 高さ */
+                    width: 2.5rem; /* 幅 */
                 }
-                /* ステータス欄の文字設定 */
-                .deck-status-count{
-                    justify-content: center; /* 垂直方向に中央揃え */
-                    color: #ccc; /* 色 */
-                    font-size: 14px; /* 文字サイズ */
-                    width: 1.5rem; /* 幅 */
-                }
+                    /* ステータス欄のアイコン設定 */
+                    .deck-status-icon{
+                        height: 16px; /* 高さ */
+                        width: 16px; /* 幅 */
+                    }
+                    /* ステータス欄の文字設定 */
+                    .deck-status-count{
+                        justify-content: center; /* 文字を垂直方向に中央揃え */
+                        color: #ccc; /* 色 */
+                        font-size: 16px; /* 文字サイズ */
+                        width: 1.5rem; /* 幅 */
+                    }
             /* その他カウントマスの設定 */
             #other-status-cell{
+                display: flex; /* flexboxを使用 */
                 width: 5rem; /* 幅 */
                 margin-left: auto; /* 右詰め */
             }
-    /* デッキ仕切線の設定 */
-    .deck-hr {
-        border: none; /* 枠線を削除 */
-        background-color: #ccc; /* 色 */
-        height: 1px; /* 太さ */
-        margin-top: 0.25rem; /* 上の余白 */
-        margin-bottom: 0.25rem; /* 下の余白 */
-    }
     /* LrigDeckの設定 */
     #lrig-deck {
-        align-content: center; /* 中央揃え */
+        display: flex; /* flexboxを使用 */
         height: 17vw; /* 縦幅 */
         margin-bottom: 0.5rem; /* 下に余白 */
     }
     /* MainDeckの設定 */
     #main-deck {
+        display: flex; /* flexboxを使用 */
         height: 78vw; /* 縦幅 */
+        margin-bottom: 0.5rem; /* 下に余白 */
     }
 
+/* カードの設定 */
 .card {
     border: none; /* カードの枠線を削除 */
     border-radius: 5px; /* 角を丸める */
@@ -101,101 +107,87 @@ main * {
     width: 80px; /* カード画像の幅を設定 */
     height: auto; /* 高さを自動で調整 */
 }
-
 .card img {
     max-width: 100%; /* カード画像をカードの幅に合わせて調整 */
     max-height: 100%; /* 同上高さ */
     object-fit: contain; /* 画像がカード内に収まるように調整 */
 }
-
 .card-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr); /* 8列で折り返す */
     gap: calc(100vw / 200); /* カードごとの隙間を画面横幅の1/200に */
 }
-
     /* カード幅を設定 */
     #lrig-deck .card, #main-deck .card {
         grid-column: span 1; /* 各カードが1カラム分の幅になる */
         width: 100%; /* 幅を100%に設定 */
     }
-
     #life-burst{
         width: 1rem;
         height: 1rem;
         }
-
     #life-burst-icon img{
         height: 1rem;
         width: auto;
     }
-
 #card-list {
     background-color: rgb(66, 67, 70); /* 背景色 */
     height: 7.5rem ; /* 縦幅 */
     align-content: center; /* 中央揃え */
     }
-
     #cards-container {
         display: flex; /* カードを横一列に並べる */
         gap: 5px; /* カード間の隙間 */
         overflow-x: auto; /* 横スクロール */
-        width: 100%; /* 親要素に合わせて幅を100%に設定 */
+        width: 100%; /* 幅 */
     }
-
     /* リスト欄のスクロールバーを非表示 */
     #cards-container::-webkit-scrollbar{
     display: none;
 }
 
-/* 検索ツール欄の設定 */
+/* 検索ツール欄 */
 #search-tool{
-    flex-direction: column; /* コンテンツを縦に並べる */
+    display: flex;          /* flexboxを使用 */
+    flex-direction: column; /* コンテンツ（search-tool-row）を縦に並べる */
+    height: 5rem;           /* 高さ */
+    padding: 0 5vw;         /* 左右に余白 */
 }
-    /* 検索ツール欄行ごとの設定 */
+    /* 検索ツール欄行ごと */
     .search-tool-row {
-        align-items: center; /* 垂直方向に中央揃え */
+        display: flex;       /* flexboxを使用 */
         flex-direction: row; /* コンテンツを横に並べる */
-        height: 3rem; /* 縦幅 */
-        padding: 0.5rem 5vw; /* 余白 */
+        height: 2rem;        /* 縦幅 */
+        margin-top: 0.5rem;  /* 上にマージンを追加 */
     }
-        /* 検索ボタンの設定 */
+        /* レベル・色・LB検索ボタン */
         .search-button{
-        border: none; /* 枠線を消す */
-        background-color: #2c2c30; /* 背景色 */
-        height: 2rem; /* 高さ */
-        width: 8vw; /* 幅 */
-        margin-right: 1vw; /* 右側にマージンを追加 */
+            display: flex;           /* flexboxを使用 */
+            border: none;            /* 枠線を消す */
+            background-color: #2c2c30; /* 背景色 */
+            height: 2rem;            /* 高さ */
+            width: 8vw;              /* 幅 */
+            margin-right: 1vw;       /* 右側にマージンを追加 */
+            align-items: center;     /* 縦方向の中央揃え(アイコン画像の中央揃え) */
+            justify-content: center; /* 横方向の中央揃え(アイコン画像の中央揃え) */
         }
             /* オン状態の設定 */
             .search-button.active{
-            background-color: #ccc; /* 背景色を変更 */
+                background-color: #ccc; /* 背景色を変更 */
             }
-            /* 画像の設定 */
+            /* アイコン画像 */
             .search-button img{
-            height: 1.5rem; /* 高さ */
-            width: auto; /* 比率をキープ */
+                height: 1.5rem; /* 高さ */
+                width: auto;    /* 比率をキープ */
             }
-        /* LB検索ボタンの設定 */
-        #lb-search-button {
-        width: 8vw;
-        height: 2rem;
-        background-color: transparent; /* デフォルトは背景透明 */
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        margin: 0;
-        cursor: pointer;
-        }
-            /* 画像の設定 */
-            #lb-search-button img {
-            height: 1.5rem; /* 高さ */
-            width: auto; /* 比率をキープ */
+            /* LB検索ボタンの追加設定 */
+            #lb-search-button {
+                background-color: transparent; /* デフォルトは背景透明 */
+                margin: 0;
             }
         /* カード種類検索のプルダウン */
         #search-cardType-input{
+            display: flex;           /* flexboxを使用 */
         border: none; /* 一度枠線を消す */
         border-bottom: 1px solid #ccc; /* 下線のみ色と太さを設定 */
         color: #ccc; /* 文字色 */
@@ -205,15 +197,24 @@ main * {
         font-size: 16px; /* 文字サイズ */
         margin-right: 2vw; /* 右側にマージンを追加 */
         }
+        /* ルリグタイプ/クラス検索ボタン */
+        .search-popup-button{
+            display: flex;           /* flexboxを使用 */
+            border: none;            /* 一度枠線を消す */
+            border-bottom: 1px solid #ccc; /* 下線を表示 */
+            color: #ccc;           /* 文字色 */
+            background-color: #2c2c30; /* 背景色 */
+        }
         /* カード名検索欄*/
         #search-text-input {
-        border: none; /* 一度枠線を消す */
-        border-bottom: 1px solid #ccc; /* 下線のみ色と太さを設定 */
-        color: #ccc; /* 文字色 */
-        background-color: #2c2c30; /* 背景色 */
-        height: 2rem; /* 高さ */
-        width: 40vw; /* 幅 */
-        font-size: 16px; /* 文字サイズ */
+            display: flex;           /* flexboxを使用 */
+            border: none;            /* 一度枠線を消す */
+            border-bottom: 1px solid #ccc; /* 下線のみ色と太さを設定 */
+            color: #ccc;          /* 文字色 */
+            background-color: #2c2c30; /* 背景色 */
+            height: 2rem;            /* 高さ */
+            width: 40vw;             /* 幅 */
+            font-size: 16px;         /* 文字サイズ */
         }
 
 /* ルリグタイプ/クラス検索のポップアップ */
