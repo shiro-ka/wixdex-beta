@@ -109,6 +109,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const lrigTypeClassPopup = document.getElementById('search-lrigTypeClass-popup');
         lrigTypeClassPopup.style.display = lrigTypeClassPopup.style.display === 'none' ? 'block' : 'none';
     });
+    /* ポップアップの検索ボタン */
+    const searchLrigTypeClassButton = document.getElementById('search-lrigTypeClass-button');
+    searchLrigTypeClassButton.forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedLrigTypeClass = button.dataset.lrigTypeClass; // クリックされたボタンのlrigTypeClassを取得
+            document.getElementById('search-lrigTypeClass-popup').dataset.selectedLrigTypeClass = selectedLrigTypeClass; // 取得したlrigTypeClassを#search-lrigTypeClass-popupのdatasetに保存
+            document.getElementById('search-lrigTypeClass-popup').style.display = 'none'; // ポップアップを閉じる
+            /* 検索を実行 */
+            handleSearch();
+        })
+    });
     /* ポップアップのボタン設定 *
     document.getElementsById('search-lrigTypeClass-button').forEach(button => {
         button.addEventListener('click', function() {

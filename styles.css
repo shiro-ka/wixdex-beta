@@ -197,7 +197,7 @@ main * {
             margin: 0 1vw;           /* 左右にマージンを追加 */
         }
         /* ルリグタイプ/クラス検索ボタン */
-        .search-popup-button{
+        .open-searchPopup-button{
             display: flex;           /* flexboxを使用 */
             border: none;            /* 一度枠線を消す */
             border-bottom: 1px solid #ccc; /* 下線を表示 */
@@ -210,7 +210,7 @@ main * {
             justify-content: center; /* 横方向の中央揃え(アイコン画像の中央揃え) */
         }
             /* アイコン画像の設定 */
-            .search-popup-button img{
+            .open-searchPopup-button img{
                 height: 1rem; /* 高さ */
                 width: auto;    /* 比率をキープ */
             }
