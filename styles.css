@@ -211,7 +211,7 @@ main * {
         }
             /* アイコン画像の設定 */
             .search-popup-button img{
-                height: 1.5rem; /* 高さ */
+                height: 1rem; /* 高さ */
                 width: auto;    /* 比率をキープ */
             }
         /* カード名検索欄*/

@@ -104,20 +104,21 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', handleSearch);
 
     /* ルリグタイプ/クラス検索のポップアップ */
-    document.getElementById('search-lrigTypeClass-popup').addEventListener('click', function() {
+    const openSearchLrigTypeClassPopupButton = document.getElementById('open-searchLrigTypeClassPopup-button');
+    openSearchLrigTypeClassPopupButton.addEventListener('click', function() {
         const lrigTypeClassPopup = document.getElementById('search-lrigTypeClass-popup');
         lrigTypeClassPopup.style.display = lrigTypeClassPopup.style.display === 'none' ? 'block' : 'none';
     });
-    /* ポップアップのボタン設定 */
-    Array.from(document.getElementsByClassName('search-lrigTypeClass-button')).forEach(button => {
+    /* ポップアップのボタン設定 *
+    document.getElementsById('search-lrigTypeClass-button').forEach(button => {
         button.addEventListener('click', function() {
             const selectedLrigTypeClass = button.dataset.lrigTypeClass; // クリックされたボタンのlrigTypeClassを取得
             document.getElementById('search-lrigTypeClass-popup').dataset.selectedLrigTypeClass = selectedLrigTypeClass; // 取得したlrigTypeClassを#search-lrigTypeClass-popupのdatasetに保存
             document.getElementById('lrigTypeClass-popup').style.display = 'none'; // ポップアップを閉じる
-            /* 検索を実行 */
+            /* 検索を実行 *
             handleSearch();
         });
-    });
+    });*/
 });
 
 /* リスト欄にカードを表示させる関数 */
