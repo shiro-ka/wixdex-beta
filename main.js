@@ -113,7 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const searchLrigTypeClassButtons = document.querySelectorAll('.search-lrigTypeClass-button');
             searchLrigTypeClassButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const selectedLrigTypeClass = button.dataset.lrigTypeClass;
+                    const selectedLrigTypeClass = button.dataset.lrigtypeclass;
+                    console.log(selectedLrigTypeClass);
                     document.getElementById('search-lrigTypeClass-popup').dataset.selectedLrigTypeClass = selectedLrigTypeClass;
                     document.getElementById('search-lrigTypeClass-popup').style.display = 'none';
                     handleSearch();
@@ -121,15 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
-    /*searchLrigTypeClassButton.forEach(button => {
-        button.addEventListener('click', function() {
-            const selectedLrigTypeClass = button.dataset.lrigTypeClass; // クリックされたボタンのlrigTypeClassを取得
-            document.getElementById('search-lrigTypeClass-popup').dataset.selectedLrigTypeClass = selectedLrigTypeClass; // 取得したlrigTypeClassを#search-lrigTypeClass-popupのdatasetに保存
-            document.getElementById('search-lrigTypeClass-popup').style.display = 'none'; // ポップアップを閉じる
-            /* 検索を実行 *
-            handleSearch();
-        })
-    });*/
 });
 
 /* リスト欄にカードを表示させる関数 */
