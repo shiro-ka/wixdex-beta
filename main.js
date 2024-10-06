@@ -114,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
             searchLrigTypeClassButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const selectedLrigTypeClass = button.dataset.lrigtypeclass;
-                    console.log(selectedLrigTypeClass);
                     document.getElementById('search-lrigTypeClass-popup').dataset.selectedLrigTypeClass = selectedLrigTypeClass;
                     document.getElementById('search-lrigTypeClass-popup').style.display = 'none';
                     handleSearch();
