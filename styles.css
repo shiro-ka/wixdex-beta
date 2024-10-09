@@ -248,13 +248,13 @@ main * {
             display: grid;                                 /* gridを使用 */
             grid-template-columns: repeat(auto-fit, 3rem); /* グリッドの列幅4remで横幅に合わせて詰め込む */
             gap: 1rem;                                     /* ボタンごとの隙間 */
-            border: none;                                  /* 枠線を消す */
-            height: 1rem;
-            width: 3rem;
+            border: none;                                  /* 一度枠線を消す */
+            height: 2rem;                                  /* 高さ */
+            width: 6rem;                                   /* 幅 */
             align-items: center;                           /* 縦方向の中央揃え(アイコン画像の中央揃え) */
             justify-content: center;                       /* 横方向の中央揃え(アイコン画像の中央揃え) */
         }
             .search-lrigTypeClass-button img {
-                height: 1rem; /* 高さ */
+                height: 2rem; /* 高さ */
                 width: auto;  /* 幅(比率をキープ) */
             }
