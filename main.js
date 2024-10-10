@@ -100,38 +100,41 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', handleSearch);
 
     /* カード種類検索のポップアップ */
-    const openSearchCardTypePopupButton = document.getElementById('open-searchCardTypePopup-button'); // 検索ポップアップを表示させるボタンを取得
-    openSearchCardTypePopupButton.addEventListener('click', function() {                              // ボタンを押したときの処理を追加
-        const cardTypePopup = document.getElementById('search-cardType-popup');                       // 検索ポップアップを取得
-        cardTypePopup.classList.add('active');                                                        // active状態に(ポップアップを表示)
+    const openSearchCardTypePopupButton = document.getElementById('open-searchCardTypePopup-button');   // 検索ポップアップを表示させるボタンを取得
+    openSearchCardTypePopupButton.addEventListener('click', function() {                                // ボタンを押したときの処理を追加
+        const cardTypePopup = document.getElementById('search-cardType-popup');                         // 検索ポップアップを取得
+        cardTypePopup.classList.add('active');                                                          // active状態に(ポップアップを表示)
         /* ポップアップ内の検索ボタン */
-        if (cardTypePopup.classList.contains('active')) {                                             // activeになったら処理を追加
-            const searchCardTypeButtons = document.querySelectorAll('.search-cardType-button');       // ポップアップ上のボタンたちを取得
-            searchCardTypeButtons.forEach(button => {                                                 // 下記の処理を繰り返し(ボタンたちすべてに行う)
-                button.addEventListener('click', function() {                                         // ボタンを押したときの処理を追加
-                    const selectedCardType = button.dataset.cardtype;                                 // 押したボタンのdatasetを取得
-                    document.getElementById('search-cardType-popup').dataset.selectedCardType = selectedCardType; // 押したボタンのdatasetをポップアップに渡す(検索に使用)
-                    cardTypePopup.classList.remove('active');                                         // active状態を外す(ポップアップを非表示)
-                    handleSearch();                                                                   // 検索を実行
+        if (cardTypePopup.classList.contains('active')) {                                               // activeになったら処理を追加
+            const searchCardTypeButtons = document.querySelectorAll('.search-cardType-button');         // ポップアップ上のボタンたちを取得
+            searchCardTypeButtons.forEach(button => {                                                   // 下記の処理を繰り返し(ボタンたちすべてに行う)
+                button.addEventListener('click', function() {                                           // ボタンを押したときの処理を追加
+                    const selectedCardType = button.dataset.cardtype;                                   // 押したボタンのdatasetを取得
+                    document.getElementById('search-cardType-popup').dataset.selectedCardType = selectedCardType;   // 押したボタンのdatasetをポップアップに渡す(検索に使用)
+                    cardTypePopup.classList.remove('active');                                           // active状態を外す(ポップアップを非表示)
+                    handleSearch();                                                                     // 検索を実行
                 })
             })
         }
     })
 
     /* ルリグタイプ/クラス検索のポップアップ */
-    const openSearchLrigTypeClassPopupButton = document.getElementById('open-searchLrigTypeClassPopup-button'); // 検索ポップアップを表示させるボタンを取得
-    openSearchLrigTypeClassPopupButton.addEventListener('click', function() {                                   // ボタンを押したときの処理を追加
-        const lrigTypeClassPopup = document.getElementById('search-lrigTypeClass-popup');                       // 検索ポップアップを取得
-        lrigTypeClassPopup.classList.add('active');                                                             // active状態に(ポップアップを表示)
+    const openSearchLrigTypeClassPopupButton = document.getElementById('open-searchLrigTypeClassPopup-button');   // 検索ポップアップを表示させるボタンを取得
+    openSearchLrigTypeClassPopupButton.addEventListener('click', function() {                                     // ボタンを押したときの処理を追加
+        const lrigTypeClassPopup = document.getElementById('search-lrigTypeClass-popup');                         // 検索ポップアップを取得
+        lrigTypeClassPopup.classList.add('active');                                                               // active状態に(ポップアップを表示)
         /* ポップアップ内の検索ボタン */
-        if (lrigTypeClassPopup.classList.contains('active')) {                                                  // activeになったら処理を追加
-            const searchLrigTypeClassButtons = document.querySelectorAll('.search-lrigTypeClass-button');       // ポップアップ上のボタンたちを取得
-            searchLrigTypeClassButtons.forEach(button => {                                                      // 下記の処理を繰り返し(ボタンたちすべてに行う)
-                button.addEventListener('click', function() {                                                   // ボタンを押したときの処理を追加
-                    const selectedLrigTypeClass = button.dataset.lrigtypeclass;                                 // 押したボタンのdatasetを取得
-                    document.getElementById('search-lrigTypeClass-popup').dataset.selectedLrigTypeClass = selectedLrigTypeClass; // 押したボタンのdatasetをポップアップに渡す(検索に使用)
-                    lrigTypeClassPopup.classList.remove('active');                                              // active状態を外す(ポップアップを非表示)
-                    handleSearch();                                                                             // 検索を実行
+        if (lrigTypeClassPopup.classList.contains('active')) {                                                    // activeになったら処理を追加
+            const searchLrigTypeClassButtons = document.querySelectorAll('.search-lrigTypeClass-button');         // ポップアップ上のボタンたちを取得
+            searchLrigTypeClassButtons.forEach(button => {                                                        // 下記の処理を繰り返し(ボタンたちすべてに行う)
+                button.addEventListener('click', function() {                                                     // ボタンを押したときの処理を追加
+                    const selectedLrigTypeClass = button.dataset.lrigtypeclass;                                   // 押したボタンのdatasetを取得
+                    lrigTypeClassPopup.dataset.selectedLrigTypeClass = selectedLrigTypeClass;                     // 押したボタンのdatasetをポップアップに渡す(検索に使用)
+                    const openPopupButtonImg = openSearchLrigTypeClassPopupButton.querySelector('img').src;       // 検索ポップアップを表示させるボタンのimgを取得
+                    const selectedLrigTypeClassImg = button.querySelector('img').src;                             // 押したボタンのimg(src)を取得
+                    openPopupButtonImg = selectedLrigTypeClassImg;                                                // 押したボタンのimgを表示ボタンに渡す
+                    lrigTypeClassPopup.classList.remove('active');                                                // active状態を外す(ポップアップを非表示)
+                    handleSearch();                                                                               // 検索を実行
                 });
             });
         }
