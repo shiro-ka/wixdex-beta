@@ -93,7 +93,7 @@ main * {
     /* MainDeckの設定 */
     #main-deck {
         display: flex;      /* flexboxを使用 */
-        height: 78vw;       /* 縦幅 */
+        height: 82vw;       /* 縦幅 */
         margin: 0.5rem 0;   /* 上下に余白 */
     }
     /* カードを並べる設定 */
@@ -245,10 +245,10 @@ align-content: center;        /* 中央揃え */
         top: 1rem;                                       /* 上からの距離 */
         left: 5vw;                                       /* 左からの距離 */
         z-index: 2;                                      /* レイヤー */
-        background-color: #2c2c30;                      /* 背景色 */
+        background-color: #303033;                      /* 背景色 */
         border: 3px solid #ccc;                         /* 枠線 */
         display: grid;                                   /* 子要素(search-lrigTypeClass-button)にgridを使用 */
-        grid-template-columns: repeat(auto-fit, 6rem);   /* グリッドの列幅3remで横幅に合わせて詰め込む */
+        grid-template-columns: repeat(auto-fit, 6rem);   /* グリッドの列幅6remで横幅に合わせて詰め込む */
         gap: 1rem;                                       /* ボタンごとの隙間 */
     }
         /* activeになったら表示 */
