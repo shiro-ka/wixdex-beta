@@ -298,11 +298,11 @@ function addCardToDeck(card) {
     const cardType = cardElement.dataset.cardType;
     /* ルリグならルリグデッキに追加してソート */
     if (cardType ==='ルリグ') {
-        /* ルリグデッキは８枚まで */
+        /* ルリグデッキは8枚まで */
         if (lrigDeck.children.length >= 8) { // LrigDeckの枚数が8枚以上なら処理を停止
             return;
         }
-        /*（センター）ルリグは１枚まで */
+        /* (センター)ルリグは1枚まで */
         const lrigDeckLrig = Array.from(lrigDeck.children).filter(deckCard => { // ルリグデッキの中身を配列で取得
             const deckCardType = deckCard.dataset.cardType; // datasetからカード種類を取得
             return deckCardType === "ルリグ";  // ルリグがあるか確認
