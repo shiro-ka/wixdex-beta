@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* 色選択ボタンの処理 */
     const colorButtons = document.querySelectorAll('.search-color-button');
-    const selectedColors = new Set();  // 選択された色を管理
-    colorButtons.forEach(button => {
+    const selectedColors = new Set();               // 選択された色を管理
+    colorButtons.forEach(button => {                //
         button.addEventListener('click', () => {
             const color = button.dataset.color;
             /* ボタンのオン・オフを切り替え */
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.classList.remove('active');  // オフ状態のスタイル
             } else {
                 selectedColors.add(color);
-                button.classList.add('active');  // オン状態のスタイル
+                button.classList.add('active');     // オン状態のスタイル
             }
             /* 検索を実行 */
             handleSearch();
@@ -79,19 +79,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* LBボタンのクリックイベント */
-    const lifeBurstButton = document.getElementById('lb-search-button');
+    const lifeBurstButton = document.getElementsByClassName('search-lb-button');
     lifeBurstButton.addEventListener('click', function() {
-        lifeBurstState = (lifeBurstState + 1) % 3; // クリックごとにlifeBurstStateを1増やす（0→1→2→0のループ）
+        lifeBurstState = (lifeBurstState + 1) % 3;             // クリックごとにlifeBurstStateを1増やす（0→1→2→0のループ）
         /* 状態に応じてボタンの背景色を変更 */
         switch (lifeBurstState) {
-            case 0:
-                this.style.backgroundColor = ""; // デフォルト
+            case 0:                                            // デフォルト
+                this.classList.remove('active', 'inactive');   // active,inactiveを削除
                 break;
-            case 1:
-                this.style.backgroundColor = "green"; // LBあり
+            case 1:                                            // LBあり
+                this.classList.add('active');                  // activeを追加
+                this.classList.remove('inactive');             // inactiveがあったら削除
                 break;
-            case 2:
-                this.style.backgroundColor = "red"; // LBなし
+            case 2:                                            // LBなし
+                this.classList.add('inactive');                // inactiveを追加
+                this.classList.remove('active');               // activeを削除
                 break;
         }
         /* 検索を実行 */
@@ -99,8 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* カード名検索のイベントリスナーを追加 */
-    const searchInput = document.getElementById('search-text-input');
-    searchInput.addEventListener('input', handleSearch);
+    const searchInput = document.getElementById('search-text-input');   //
+    searchInput.addEventListener('input', handleSearch);                //
 
     /* カード種類検索のポップアップ */
     const openSearchCardTypePopupButton = document.getElementById('open-searchCardTypePopup-button');   // 検索ポップアップを表示させるボタンを取得
@@ -143,6 +145,27 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+        /* タブのイベントリスナー */
+        tabs = document.querySelectorAll('#search-lrigTypeClass-tab li');
+        for(let i = 0; i < tabs.length; i++) {
+            tabs[i].addEventListener('click', tabSwitch, false);
+        }
+        const tabSwitch = () => {
+            tabs = document.querySelectorAll('#search-lrigTypeClass-tab li');
+            const node = Array.prototype.slice.call(tabs, 0);
+            node.forEach(element => {
+                element.classList.remove('active');
+            });
+            this.classList.add('active');
+            const content = document.querySelectorAll('.search-lrigTypeClass-buttons');
+            const nodeContent = Array.prototype.slice.call(content, 0);
+            nodeContent.forEach(element => {
+                element.classList.remove('active');
+            });
+            const arrayTabs = Array.prototype.slice.call(tabs);
+            const index = arrayTabs.indexOf(this);
+            document.querySelectorAll('.search-lrigTypeClass-buttons')[index].classList.add('active');
+        };
 });
 
 

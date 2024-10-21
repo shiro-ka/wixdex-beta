@@ -131,7 +131,7 @@
                 <button class="search-button search-color-button" data-color="緑"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_green2.png"></button>
                 <button class="search-button search-color-button" data-color="黒"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_black2.png"></button>
                 <!-- LB検索 -->
-                <button class="search-button" id="lb-search-button"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_burst.png"></button>
+                <button class="search-button search-lb-button"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/icon/icon_txt_burst.png"></button>
             </div>
             <!-- 下段 -->
             <div class="search-tool-row">
@@ -154,61 +154,72 @@
         </div>
         <!-- ルリグタイプ/クラス検索のポップアップ -->
         <div id="search-lrigTypeClass-popup">
-            <!-- <button class="search-lrigTypeClass-button" data-lrigTypeClass=""><img src="images/xxx.png"></button> -->
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="タマ"><img src="images/tama.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="花代"><img src="images/hanayo.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="緑子"><img src="images/midoriko.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="エルドラ"><img src="images/eldora.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="イオナ"><img src="images/iona.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ユヅキ"><img src="images/yuzuki.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ミルルン"><img src="images/milulun.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="アン"><img src="images/ann.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ウリス"><img src="images/urith.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ハナレ"><img src="images/hanare.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ピルルク"><img src="images/piruluk.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="リメンバ"><img src="images/remember.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="リル"><img src="images/ril.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="メル"><img src="images/mel.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ナナシ"><img src="images/nanashi.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="あや"><img src="images/aya.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ドーナ"><img src="images/dona.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="グズ子"><img src="images/guzuko.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ママ"><img src="images/mama.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="レイラ"><img src="images/layla.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="カーニバル"><img src="images/carnival.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="夢限"><img src="images/mugen.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="アルフォウ"><img src="images/alfou.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="サシェ"><img src="images/sashe.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="アイヤイ"><img src="images/aiyai.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ミュウ"><img src="images/myu.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ウムル"><img src="images/umr.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="タウィル"><img src="images/tawil.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="アト"><img src="images/at.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ヒラナ"><img src="images/hirana.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="アキノ"><img src="images/akino.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="レイ"><img src="images/rei.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="LION"><img src="images/lion.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="WOLF"><img src="images/wolf.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="LOVIT"><img src="images/lovit.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="タマゴ"><img src="images/tamago.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ノヴァ"><img src="images/nova.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="バン"><img src="images/bang.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ムジカ"><img src="images/muzica.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="サンガ"><img src="images/sanga.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="マドカ"><img src="images/madoka.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="デウス"><img src="images/deus.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="エクス"><img src="images/ex.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="マキナ"><img src="images/machina.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="みこみこ"><img src="images/mikomiko.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ゆかゆか"><img src="images/yukayuka.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="まほまほ"><img src="images/mahomaho.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ガブリエラ"><img src="images/gabriela.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="アザエラ"><img src="images/azaela.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ミカエラ"><img src="images/michaela.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="るう子"><img src="images/ruuko.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="あきら"><img src="images/akira.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ひとえ"><img src="images/hitoe.png"></button>
-            <button class="search-lrigTypeClass-button" data-lrigTypeClass="ちより"><img src="images/chiyori.png"></button>
+            <!-- タブ -->
+            <ul id="search-lrigTypeClass-tab">
+                <li class="active">ルリグタイプ</li>
+                <li>クラス</li>
+            </ul>
+            <!-- 本体 -->
+            <div class="search-lrigTypeClass-content">
+                <!-- ルリグタイプ検索 -->
+                <div class="search-lrigTypeClass-buttons active">
+                    <!-- <button class="search-lrigTypeClass-button" data-lrigTypeClass=""><img src="images/xxx.png"></button> -->
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="タマ"><img src="images/tama.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="花代"><img src="images/hanayo.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="緑子"><img src="images/midoriko.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="エルドラ"><img src="images/eldora.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="イオナ"><img src="images/iona.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ユヅキ"><img src="images/yuzuki.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ミルルン"><img src="images/milulun.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="アン"><img src="images/ann.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ウリス"><img src="images/urith.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ハナレ"><img src="images/hanare.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ピルルク"><img src="images/piruluk.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="リメンバ"><img src="images/remember.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="リル"><img src="images/ril.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="メル"><img src="images/mel.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ナナシ"><img src="images/nanashi.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="あや"><img src="images/aya.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ドーナ"><img src="images/dona.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="グズ子"><img src="images/guzuko.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ママ"><img src="images/mama.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="レイラ"><img src="images/layla.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="カーニバル"><img src="images/carnival.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="夢限"><img src="images/mugen.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="アルフォウ"><img src="images/alfou.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="サシェ"><img src="images/sashe.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="アイヤイ"><img src="images/aiyai.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ミュウ"><img src="images/myu.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ウムル"><img src="images/umr.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="タウィル"><img src="images/tawil.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="アト"><img src="images/at.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ヒラナ"><img src="images/hirana.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="アキノ"><img src="images/akino.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="レイ"><img src="images/rei.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="LION"><img src="images/lion.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="WOLF"><img src="images/wolf.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="LOVIT"><img src="images/lovit.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="タマゴ"><img src="images/tamago.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ノヴァ"><img src="images/nova.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="バン"><img src="images/bang.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ムジカ"><img src="images/muzica.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="サンガ"><img src="images/sanga.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="マドカ"><img src="images/madoka.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="デウス"><img src="images/deus.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="エクス"><img src="images/ex.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="マキナ"><img src="images/machina.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="みこみこ"><img src="images/mikomiko.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ゆかゆか"><img src="images/yukayuka.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="まほまほ"><img src="images/mahomaho.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ガブリエラ"><img src="images/gabriela.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="アザエラ"><img src="images/azaela.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ミカエラ"><img src="images/michaela.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="るう子"><img src="images/ruuko.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="あきら"><img src="images/akira.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ひとえ"><img src="images/hitoe.png"></button>
+                    <button class="search-lrigTypeClass-button" data-lrigTypeClass="ちより"><img src="images/chiyori.png"></button>
+                </div>
+            </div>
         </div>
     </section>
 
