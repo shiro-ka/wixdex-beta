@@ -1,0 +1,925 @@
+[
+    {
+        "name": "リベレーターズフォース",
+        "subName": ["りべれーたーずふぉーす","りべふぉ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-001.jpg",
+        "type": ["ピース"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["赤","青"],
+        "lifeBurst": 2,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "パワーオブストラグル",
+        "subName": ["ぱわーおぶすとらぐる","ぱわすと"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-002.jpg",
+        "type": ["ピース"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["黒","緑"],
+        "lifeBurst": 2,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "ひらけ！ゲート！",
+        "subName": ["ひらけげーと","ひらげ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-003.jpg",
+        "type": ["ピース"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["白","青"],
+        "lifeBurst": 2,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "オールアウトバトル",
+        "subName": ["おーるあうとばとる","OOB"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-004.jpg",
+        "type": ["ピース"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "俯瞰者からの啓示",
+        "subName": ["ふかんしゃからのけいじ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-005.jpg",
+        "type": ["ピース"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "自由の記憶解放者リル",
+        "subName": ["じゆうのきおくかいほうしゃりる"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-006.jpg",
+        "type": ["ルリグ"],
+        "lrigTypeClass": ["リル"],
+        "level": 3,
+        "color": ["赤"],
+        "lifeBurst": 2,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "解放者エルドラ×マークν",
+        "subName": ["かいほうしゃえるどらまーくにゅー","かいほうしゃえるどらまーくν"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-007.jpg",
+        "type": ["ルリグ"],
+        "lrigTypeClass": ["エルドラ"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": 2,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "闘争者カーニバル#T#",
+        "subName": ["とうそうしゃかーにばるわいるどてるせいろ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-008.jpg",
+        "type": ["ルリグ"],
+        "lrigTypeClass": ["カーニバル"],
+        "level": 3,
+        "color": ["緑"],
+        "lifeBurst": 2,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "貪欲の駄姫闘争者グズ子",
+        "subName": ["どんよくのだきとうそうしゃぐずこ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-009.jpg",
+        "type": ["ルリグ"],
+        "lrigTypeClass": ["グズ子"],
+        "level": 3,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "防衛者ＭＣ．ＬＩＯＮ－３ｒｄ",
+        "subName": ["ぼうえいしゃえむしーりおんさーど","防衛者MCLION3rd","ぼうえいしゃえむしーらいおんさーど"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-010.jpg",
+        "type": ["ルリグ"],
+        "lrigTypeClass": ["LION"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": ["ゲート","防衛派"]
+    },
+
+    {
+        "name": "プロフェッサー防衛者Ｄｒ．タマゴ",
+        "subName": ["ぷろふぇっさーぼうえいしゃどくたーたまご","プロフェッサー防衛者Drタマゴ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-011.jpg",
+        "type": ["ルリグ"],
+        "lrigTypeClass": ["タマゴ"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": 2,
+        "tags": ["ゲート","防衛派"]
+    },
+
+    {
+        "name": "リメンバ・スクライイング",
+        "subName": ["りめんばすくらいいんぐ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-031.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["リメンバ"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "リメンバ・オミノス",
+        "subName": ["りめんばおみのす"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-032.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["リメンバ"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "リメンバ・リストレイント",
+        "subName": ["りめんばりすとれいんと"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-033.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["リメンバ"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "リメンバ・アストロジー",
+        "subName": ["りめんばあすとろじー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-034.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["リメンバ"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "リメンバ・プロフェシー",
+        "subName": ["りめんばぷろふぇしー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-035.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["リメンバ"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "アルフォウソード",
+        "subName": ["あるふぉうそーど"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-037.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["アルフォウ"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "アルフォウアイスバーグ",
+        "subName": ["あるふぉうあいすばーぐ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-038.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["アルフォウ"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "アルフォウジェラシー",
+        "subName": ["あるふぉうじぇらしー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-039.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["アルフォウ"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "アルフォウスプラッシュ",
+        "subName": ["あるふぉうすぷらっしゅ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-040.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["アルフォウ"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "アルフォウソーンアイビー",
+        "subName": ["あるふぉうそーんあいびー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-041.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["アルフォウ"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "ハナレ//スパイクス",
+        "subName": ["はなれすぱいくす"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-043.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["ハナレ"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "ハナレ//ダークスフィア",
+        "subName": ["はなれだーくすふぃあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-044.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["ハナレ"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": [""]
+    },
+
+    {
+        "name": "ハナレ//ミリオンダガー",
+        "subName": ["はなれみりおんだらー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-045.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["ハナレ"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "ハナレ//フォービドゥンファング",
+        "subName": ["はなれふぉーびどぅんふぁんぐ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-046.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["ハナレ"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "ハナレ//ベノムスプラッシュ",
+        "subName": ["はなれべのむすぷらっしゅ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-047.jpg",
+        "type": ["アシストルリグ"],
+        "lrigTypeClass": ["ハナレ"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 2,
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "紅将姫シモン・バール//THEDOOR",
+        "subName": ["こうしょうきしもんばーるざどあー","紅将姫シモンバールTHEDOOR"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-048.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["解放派","奏像：武勇"],
+        "level": 3,
+        "color": ["赤"],
+        "lifeBurst": 1,
+        "tags": ["解放派","ライズ"]
+    },
+
+    {
+        "name": "コードオーダーメル//THE DOOR",
+        "subName": ["こーどおーだーめるざどあー","めるどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-049.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["解放派","奏械：調理"],
+        "level": 3,
+        "color": ["赤"],
+        "lifeBurst": 0,
+        "tags": ["解放派","ライズ"]
+    },
+
+    {
+        "name": "幻水姫フクロウナギ//THE DOOR",
+        "subName": ["げんすいひめふくろうなぎざどあー","うなどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-050.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["解放派","奏生：水獣"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": 0,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "羅輝石花代//THE DOOR",
+        "subName": ["らきせきはなよざどあー","はなどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-051.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["解放派","奏羅：宝石"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": 1,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "羅星姫フラドウズ//THE DOOR",
+        "subName": ["らせいきふらどうずざどあー","ふらどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-052.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["闘争派","奏羅：宇宙"],
+        "level": 3,
+        "color": ["緑"],
+        "lifeBurst": 1,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "羅菌姫ナナシ//THE DOOR",
+        "subName": ["らきんひめななしざどあー","ななどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-053.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["闘争派","奏羅：微菌"],
+        "level": 3,
+        "color": ["緑"],
+        "lifeBurst": 0,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "惨之遊姫コイントス//THE DOOR",
+        "subName": ["さんのゆうきこいんとすざどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-054.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["闘争派","奏武：遊具"],
+        "level": 3,
+        "color": ["黒"],
+        "lifeBurst": 0,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "大罠あや//THE DOOR",
+        "subName": ["だいびんあやざどあー","おおわなあやざどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-055.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["闘争派","奏武：トリック"],
+        "level": 3,
+        "color": ["黒"],
+        "lifeBurst": 1,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "コードハートLスピーカ//THE DOOR",
+        "subName": ["こーどはーとえるすぴーかざどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-056.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["防衛派","奏械：電機"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": 0,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "幻獣神LOVIT//THE DOOR",
+        "subName": ["げんじゅうしんらびっとざどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-057.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["防衛派","奏生：地獣"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": 1,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "羅星姫コスチュム//THE DOOR",
+        "subName": ["らせいきこすちゅむざどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-058.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["防衛派","奏羅：宇宙"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": 1,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "羅星姫ノヴァ//THE DOOR",
+        "subName": ["らせいきのヴぁざどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-059.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["防衛派","奏羅：宇宙"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": 0,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "幻竜遊月//THE DOOR",
+        "subName": ["げんりゅうゆづきざどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-060.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["解放派","奏生：龍獣"],
+        "level": 1,
+        "color": ["赤"],
+        "lifeBurst": 1,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "羅星サシェ//THE DOOR",
+        "subName": ["らせいさしぇざどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-061.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["解放派","奏羅：宇宙"],
+        "level": 1,
+        "color": ["赤"],
+        "lifeBurst": 0,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "幻怪ドーナ//THE DOOR",
+        "subName": ["げんかいどーなざどあー","どなどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-062.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["解放派","奏生：怪異"],
+        "level": 0,
+        "color": ["赤"],
+        "lifeBurst": 0,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "解放の弾丸",
+        "subName": ["かいほうのだんがん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-063.jpg",
+        "type": ["スペル"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["赤"],
+        "lifeBurst": 1,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "幻蟲アロス・ピルルク//THE DOOR",
+        "subName": ["げんちゅうあろすぴるるくざどあー","あろぴどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-064.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["解放派","奏生：凶蟲"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 1,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "幻獣緑子//THE DOOR",
+        "subName": ["げんじゅうみどりこざどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-065.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["解放派","奏生：地獣"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 0,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "幻蟲ミュウ//THE DOOR",
+        "subName": ["げんちゅうみゅうざどあー","みゅうどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-066.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["解放派","奏生：凶蟲"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": 0,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "INSPIRATION",
+        "subName": ["いんすぴれーしょん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-067.jpg",
+        "type": ["スペル"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["青"],
+        "lifeBurst": 1,
+        "tags": ["解放派"]
+    },
+
+    {
+        "name": "羅原ミルルン//THE DOOR",
+        "subName": ["らげんみるるんざどあー","みるどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-068.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["闘争派","奏羅：原子"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": 0,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "コードライドレイラ//THE DOOR",
+        "subName": ["こーどらいどれいらざどあー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-069.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["闘争派","奏械：乗機"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": 1,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "翠英ママ//THE DOOR",
+        "subName": ["すいえいままざどあー","ままどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-070.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["闘争派","奏像：英知"],
+        "level": 2,
+        "color": ["緑"],
+        "lifeBurst": 0,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "闘槍",
+        "subName": ["とうそう"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-071.jpg",
+        "type": ["スペル"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["緑"],
+        "lifeBurst": 1,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "小罠ゆかゆか//THE DOOR",
+        "subName": ["しょうびんゆかゆかざどあー","こわなゆかゆかざどあー","ゆかどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-072.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["闘争派","奏武：トリック"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": 0,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "羅原まほまほ//THE DOOR",
+        "subName": ["らげんまほまほざどあー","まほどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-073.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["闘争派","奏羅：原子"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": 1,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "羅菌みこみこ//THE DOOR",
+        "subName": ["らきんみこみこざどあー","みこどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-074.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["闘争派","奏羅：微菌"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 0,
+        "tags": ["闘争派"]
+    },
+
+    {
+        "name": "デス・デストロイ",
+        "subName": ["ですですとろい"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-075.jpg",
+        "type": ["スペル"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["黒"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "コードメイズムジカ//THE DOOR",
+        "subName": ["こーどめいずむじかざどあー","むじどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-076.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["防衛派","奏械：迷宮"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": 0,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "幻怪エクス//THE DOOR",
+        "subName": ["げんかいえくすざどあー","えくどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-077.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["防衛派","奏生：怪異"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": 1,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "爆砲WOLF//THE DOOR",
+        "subName": ["ばくほううるふざどあー","うるどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-078.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["防衛派","奏武：ウェポン"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": 0,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "オープン・ゲート",
+        "subName": ["おーぷんげーと"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-079.jpg",
+        "type": ["スペル"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["白"],
+        "lifeBurst": 1,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "蒼天ヒラナ//THE DOOR",
+        "subName": ["そうてんひらなざどあー","ひらどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-080.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["防衛派","奏像：天使"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 0,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "羅石レイ//THE DOOR",
+        "subName": ["らせきれいざどあー","れいどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-081.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["防衛派","奏羅：宝石"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 1,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "蒼魔バン//THE DOOR",
+        "subName": ["そうまばんざどあー","ばんどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-082.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["防衛派","奏像：悪魔"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": 0,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "GATEDRIVE",
+        "subName": ["げーとどらいぶ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-083.jpg",
+        "type": ["スペル"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["青"],
+        "lifeBurst": 1,
+        "tags": ["ゲート"]
+    },
+
+    {
+        "name": "小装ロングスピア",
+        "subName": ["しょうそうろんぐすぴあ","ろんすぴ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-084.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏武：アーム"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "中罠デジロック",
+        "subName": ["ちゅうびんでじろっく","ちゅうわなでじろっく"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-085.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏武：トリック"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "コードアートAトドア",
+        "subName": ["こーどあーとえーとどあ","こーどあーとおーとどあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-086.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏械：電機"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "小砲カエンビン",
+        "subName": ["しょうほうかえんびん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-087.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏武：ウェポン"],
+        "level": 1,
+        "color": ["赤"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "紅天アレース",
+        "subName": ["こうてんあれーす"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-088.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏像：天使"],
+        "level": 2,
+        "color": ["赤"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "羅星ホーキング",
+        "subName": ["らせいほーきんぐ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-089.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏羅：宇宙"],
+        "level": 2,
+        "color": ["赤"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "羅原Kr",
+        "subName": ["らげんくりぷとん","らげんけーあーる"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-090.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏羅：原子"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 0,
+        "tags": ["原子"]
+    },
+
+    {
+        "name": "羅石ラブラドライト",
+        "subName": ["らせきらぶらどらいと"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-091.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏羅：宝石"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "羅植マングロブ",
+        "subName": ["らしょくまんぐろぶ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-092.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏生：植物"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "幻獣ギリシャガメ",
+        "subName": ["げんじゅうぎりしゃがめ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-093.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏生：地獣"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": 1,
+        "tags": ["地獣"]
+    },
+
+    {
+        "name": "幻水アユモド",
+        "subName": ["げんしあゆもど"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-094.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏生：水獣"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "翠英マキトミ",
+        "subName": ["すいえいまきとみ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-095.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏像：英知"],
+        "level": 2,
+        "color": ["緑"],
+        "lifeBurst": 0,
+        "tags": [""]
+    },
+
+    {
+        "name": "アイン＝ツキヨタケ",
+        "subName": ["あいんつきよたけ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-096.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏武：毒牙"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": 1,
+        "tags": [""]
+    },
+
+    {
+        "name": "凶魔デモゴーン",
+        "subName": ["きょうまでもごーん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-097.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏像：悪魔"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 0,
+        "tags": ["悪魔"]
+    },
+
+    {
+        "name": "凶将アオトラ",
+        "subName": ["きょうしょうあおとら"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P15-098.jpg",
+        "type": ["シグニ"],
+        "lrigTypeClass": ["奏像：武勇"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": 1,
+        "tags": [""]
+    }
+]
