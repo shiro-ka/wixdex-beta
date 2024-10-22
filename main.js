@@ -145,27 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
-        /* タブのイベントリスナー */
-        tabs = document.querySelectorAll('#search-lrigTypeClass-tab li');
-        for(let i = 0; i < tabs.length; i++) {
-            tabs[i].addEventListener('click', tabSwitch, false);
-        }
-        const tabSwitch = () => {
-            tabs = document.querySelectorAll('#search-lrigTypeClass-tab li');
-            const node = Array.prototype.slice.call(tabs, 0);
-            node.forEach(element => {
-                element.classList.remove('active');
-            });
-            this.classList.add('active');
-            const content = document.querySelectorAll('.search-lrigTypeClass-buttons');
-            const nodeContent = Array.prototype.slice.call(content, 0);
-            nodeContent.forEach(element => {
-                element.classList.remove('active');
-            });
-            const arrayTabs = Array.prototype.slice.call(tabs);
-            const index = arrayTabs.indexOf(this);
-            document.querySelectorAll('.search-lrigTypeClass-buttons')[index].classList.add('active');
-        };
 });
 
 
