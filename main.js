@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ルリグタイプ/クラス検索のポップアップ */
     const openSearchLrigTypeClassPopupButton = document.getElementById('open-searchLrigTypeClassPopup-button'); // 検索ポップアップを表示させるボタンを取得
     openSearchLrigTypeClassPopupButton.addEventListener('click', function() {                                   // ボタンを押したときの処理を追加
-        const lrigTypeClassPopup = document.getElementById('search-lrigTypeClass-popup');                         // 検索ポップアップを取得
+        const lrigTypeClassPopup = document.getElementsByClassName('search-lrigTypeClass-popup');               // 検索ポップアップを取得
         lrigTypeClassPopup.classList.add('active');                                                               // active状態に(ポップアップを表示)
         /* ポップアップ内の検索ボタン */
         if (lrigTypeClassPopup.classList.contains('active')) {                                                    // activeになったら処理を追加
