@@ -104,25 +104,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-text-input');   //
     searchInput.addEventListener('input', handleSearch);                //
 
-    /* ポップアップ */
-    const openSearchPopupButtons = document.querySelectorAll('.open-searchPopup-button');   // 検索ポップアップを表示させるボタンを取得
-    openSearchPopupButtons.forEach(button => {
-        button.addEventListener('click', function() {                                       // ボタンを押したときの処理を追加
-            button.classList.add('active');                                                 // active状態に(ポップアップを表示)
-        });
-    });
     /* ルリグタイプ/クラスのポップアップ */
-    const searchLrigTypeClassButtons = document.querySelectorAll('.search-lrigTypeClass-button');           // ポップアップ上のボタンたちを取得
-    searchLrigTypeClassButtons.forEach(button => {                                                          // 下記の追加処理を繰り返し(ボタンたちすべてに行う)
+    const searchLrigTypeClassPopup = document.querySelector('.search-lrigTypeClass-popup')                        // ルリグタイプ/クラス検索ポップアップを取得
+    const openSearchLrigTypeClassPopupButton = document.querySelector('.open-searchLrigTypeClassPopup-button');   // ルリグタイプ/クラス検索ポップアップを表示させるボタンを取得
+    openSearchLrigTypeClassPopupButton.addEventListener('click', function() {                                     // ボタンを押したときの処理を追加
+        searchLrigTypeClassPopup.classList.add('active');                                                           // classにactiveを追加(ポップアップを表示)
+    });
+    const searchLrigTypeClassButtons = document.querySelectorAll('.search-lrigTypeClass-button');                 // ポップアップ上のボタンたちを取得
+    searchLrigTypeClassButtons.forEach(button => {
         /* ボタンを押したときの処理を追加 */
         button.addEventListener('click', function() {
-            const selectedLrigTypeClass = button.dataset.lrigtypeclass;                                       // 押したボタンのdatasetを取得
-            lrigTypeClassPopup.dataset.selectedLrigTypeClass = selectedLrigTypeClass;                         // 押したボタンのdatasetをポップアップに渡す(検索に使用)
-            const openPopupButtonImg = openSearchLrigTypeClassPopupButton.querySelector('img');               // 検索ポップアップを表示させるボタンのimgを取得
-            const selectedLrigTypeClassImg = button.querySelector('img').src;                                 // 押したボタンのimg(src)を取得
-            openPopupButtonImg.src = selectedLrigTypeClassImg;                                                // 押したボタンのimgを表示ボタンに渡す
-            lrigTypeClassPopup.classList.remove('active');                                                    // active状態を外す(ポップアップを非表示)
-            handleSearch();                                                                                   // 検索を実行
+            const selectedLrigTypeClass = button.dataset.lrigtypeclass;                                             // 押したボタンのdatasetを取得
+            searchLrigTypeClassPopup.dataset.selectedLrigTypeClass = selectedLrigTypeClass;                         // 押したボタンのdatasetをポップアップに渡す(検索に使用)
+            const openPopupButtonImg = openSearchLrigTypeClassPopupButton.querySelector('img');                     // 検索ポップアップを表示させるボタンのimgを取得
+            const selectedLrigTypeClassImg = button.querySelector('img').src;                                       // 押したボタンのimg(src)を取得
+            openPopupButtonImg.src = selectedLrigTypeClassImg;                                                      // 押したボタンのimgを表示ボタンに渡す
+            searchLrigTypeClassPopup.classList.remove('active');                                                    // activeを外す(ポップアップを非表示)
+            handleSearch();                                                                                         // 検索を実行
         });
     });
 });
