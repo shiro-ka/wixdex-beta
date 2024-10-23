@@ -111,6 +111,7 @@ main * {
 
 /* カードの設定 */
 .card {
+    display: flex;             /* flexboxを使用 */
     border: none;              /* カードの枠線を削除 */
     border-radius: 5px;        /* 角を丸める */
     flex-shrink: 0;            /* カードが縮小しないようにする */
@@ -175,14 +176,15 @@ align-content: center;        /* 中央揃え */
                 padding-bottom: 0;                /* 余白を削除 */
                 border-bottom: 1px solid #ccc;   /* 下線を表示 */
             }
+            /* オフ状態の設定(LB検索ボタン) */
+            .search-button.inactive{
+                padding-bottom: 0;                /* 余白を削除 */
+                border-bottom: 1px dashed #ccc;   /* 下線を表示 */
+            }
             /* アイコン画像 */
             .search-button img{
                 height: 1.5rem;   /* 高さ */
                 width: auto;      /* 比率をキープ */
-            }
-            /* LB検索ボタンの追加設定 */
-            #lb-search-button {
-                background-color: transparent;   /* デフォルトは背景透明 */
             }
         /* カード種類検索・ルリグタイプ/クラス検索ボタン */
         .open-searchPopup-button{

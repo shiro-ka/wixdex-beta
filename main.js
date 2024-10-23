@@ -217,7 +217,7 @@ function handleSearch() {
     const selectedLevels = Array.from(document.querySelectorAll('.search-level-button.active')).map(button => button.dataset.level);   // .search-level-button.active（押されたLv選択ボタン）から選ばれたLvを取得してselectedLevelsにする
     const selectedColors = Array.from(document.querySelectorAll('.search-color-button.active')).map(button => button.dataset.color);   // .search-color-button.active（押された色選択ボタン）から選ばれた色を取得してselectedColorsにする
     const selectedCardType = document.getElementById('search-cardType-popup').dataset.selectedCardType || "";                          // #search-cardType-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
-    const selectedLrigTypeClass = document.querySelector('open-searchLrigTypeClassPopup-button').dataset.selectedLrigTypeClass || "";   // lrigTypeClassが空なら全てで検索、選択されていればselectedLrigTypeClassが含まれているか確認
+    const selectedLrigTypeClass = document.querySelector('.open-searchLrigTypeClassPopup-button').dataset.selectedLrigTypeClass || "";   // lrigTypeClassが空なら全てで検索、選択されていればselectedLrigTypeClassが含まれているか確認
 
     /* window.cardsDataの中からカードを検索してfilteredCardsに保存 */
     let filteredCards = window.cardsData.filter(card => {
@@ -283,7 +283,7 @@ function addCardToDeck(card) {
     cardElement.appendChild(cardImage);                          // 作成した<img>を<div>に追加
     /* <div>にカードのデータを追加 */
     cardElement.dataset.name = card.name;                        // カード名
-    cardElement.dataset.cardType = card.cardType[0];             // カード種類（配列の最初の要素）
+    cardElement.dataset.cardType = card.type[0];                 // カード種類（配列の最初の要素）
     cardElement.dataset.lrigTypeClass = card.lrigTypeClass[0];   // ルリグタイプ/クラス（配列の最初の要素）
     cardElement.dataset.level = card.level;                      // レベル
 
