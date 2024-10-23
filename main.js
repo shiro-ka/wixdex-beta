@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* LBボタンのクリックイベント */
-    const lifeBurstButton = document.getElementsByClassName('search-lb-button');
+    const lifeBurstButton = document.querySelector('.search-lb-button');
     lifeBurstButton.addEventListener('click', function() {
         lifeBurstState = (lifeBurstState + 1) % 3;             // クリックごとにlifeBurstStateを1増やす（0→1→2→0のループ）
         /* 状態に応じてボタンの背景色を変更 */

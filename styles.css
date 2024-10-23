@@ -270,6 +270,7 @@ align-content: center;        /* 中央揃え */
                 color: #ccc;                   /* 文字色 */
                 border: 2px solid #ccc;        /* 枠線 */
                 border-radius: 10px 10px 0 0;   /* 左上,右上の角を丸める */
+                border-bottom: none;            /* 下の枠線は消す */
                 align-items: center;            /* 縦方向の中央揃え(文字の中央揃え) */
                 justify-content: center;        /* 横方向の中央揃え(文字の中央揃え) */
             }
@@ -281,7 +282,7 @@ align-content: center;        /* 中央揃え */
         /* ルリグタイプ/クラス検索のタブ */
         .search-lrigTypeClass-tab {
             opacity: 0;                                        /* 不透明度(初期状態では表示しない) */
-            border: 3px solid #ccc;                           /* 枠線 */
+            border: 2px solid #ccc;                           /* 枠線 */
             display: grid;                                     /* 子要素(search-lrigTypeClass-button)にgridを使用 */
             grid-template-columns: repeat(auto-fit, 4.5rem);   /* グリッドの列幅4.5remで詰め込む */
             grid-template-rows: repeat(auto-fit, 2rem);        /* グリッドの行幅2remで詰め込む */
