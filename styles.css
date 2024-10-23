@@ -192,15 +192,15 @@ align-content: center;        /* 中央揃え */
             color: #ccc;                     /* 文字色 */
             background-color: #2c2c30;       /* 背景色 */
             height: 2rem;                     /* 高さ */
-            width: 4rem;                      /* 幅 */
+            width: 4.5rem;                    /* 幅 */
             margin: 0 1vw;                    /* 左右にマージンを追加 */
             align-items: center;              /* 縦方向の中央揃え(アイコン画像の中央揃え) */
             justify-content: center;          /* 横方向の中央揃え(アイコン画像の中央揃え) */
         }
             /* アイコン画像の設定 */
             .open-searchPopup-button img{
-                height: 1rem;   /* 高さ */
-                width: auto;    /* 比率をキープ */
+                height: 1.5rem;   /* 高さ */
+                width: auto;      /* 比率をキープ */
             }
         /* カード名検索欄*/
         #search-text-input {

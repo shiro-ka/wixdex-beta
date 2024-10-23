@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         /* ボタンを押したときの処理を追加 */
         button.addEventListener('click', function() {
             const selectedLrigTypeClass = button.dataset.lrigtypeclass;                                             // 押したボタンのdatasetを取得
-            searchLrigTypeClassPopup.dataset.selectedLrigTypeClass = selectedLrigTypeClass;                         // 押したボタンのdatasetをポップアップに渡す(検索に使用)
+            openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass = selectedLrigTypeClass;               // 押したボタンのdatasetを表示ボタンに渡す(検索に使用)
             const openPopupButtonImg = openSearchLrigTypeClassPopupButton.querySelector('img');                     // 検索ポップアップを表示させるボタンのimgを取得
             const selectedLrigTypeClassImg = button.querySelector('img').src;                                       // 押したボタンのimg(src)を取得
             openPopupButtonImg.src = selectedLrigTypeClassImg;                                                      // 押したボタンのimgを表示ボタンに渡す
@@ -217,7 +217,7 @@ function handleSearch() {
     const selectedLevels = Array.from(document.querySelectorAll('.search-level-button.active')).map(button => button.dataset.level);   // .search-level-button.active（押されたLv選択ボタン）から選ばれたLvを取得してselectedLevelsにする
     const selectedColors = Array.from(document.querySelectorAll('.search-color-button.active')).map(button => button.dataset.color);   // .search-color-button.active（押された色選択ボタン）から選ばれた色を取得してselectedColorsにする
     const selectedCardType = document.getElementById('search-cardType-popup').dataset.selectedCardType || "";                          // #search-cardType-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
-    const selectedLrigTypeClass = document.getElementById('search-lrigTypeClass-popup').dataset.selectedLrigTypeClass || "";           // lrigTypeClassが空なら全てで検索、選択されていればselectedLrigTypeClassが含まれているか確認
+    const selectedLrigTypeClass = document.querySelector('open-searchLrigTypeClassPopup-button').dataset.selectedLrigTypeClass || "";   // lrigTypeClassが空なら全てで検索、選択されていればselectedLrigTypeClassが含まれているか確認
 
     /* window.cardsDataの中からカードを検索してfilteredCardsに保存 */
     let filteredCards = window.cardsData.filter(card => {
