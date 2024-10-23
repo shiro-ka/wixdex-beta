@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     openSearchLrigTypeClassPopupButton.addEventListener('click', function() {                                     // ボタンを押したときの処理を追加
         searchLrigTypeClassPopup.classList.add('active');                                                           // classにactiveを追加(ポップアップを表示)
     });
+    /* 検索ボタンの設定 */
     const searchLrigTypeClassButtons = document.querySelectorAll('.search-lrigTypeClass-button');                 // ポップアップ上のボタンたちを取得
     searchLrigTypeClassButtons.forEach(button => {
         /* ボタンを押したときの処理を追加 */
@@ -283,7 +284,7 @@ function addCardToDeck(card) {
     cardElement.appendChild(cardImage);                          // 作成した<img>を<div>に追加
     /* <div>にカードのデータを追加 */
     cardElement.dataset.name = card.name;                        // カード名
-    cardElement.dataset.cardType = card.type[0];                 // カード種類（配列の最初の要素）
+    cardElement.dataset.cardType = card.cardType[0];                 // カード種類（配列の最初の要素）
     cardElement.dataset.lrigTypeClass = card.lrigTypeClass[0];   // ルリグタイプ/クラス（配列の最初の要素）
     cardElement.dataset.level = card.level;                      // レベル
 
