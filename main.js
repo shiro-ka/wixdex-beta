@@ -117,14 +117,14 @@
                    ---==                                          ::
                                                                   :::
                                                                   .:::
-                                                                  :::-::
+                                                                  */,/*:
                                                                     -:::
                                                                      :::
                                                                       :::
                                                                        ::.
                                                                         :..
                                                                          */
-            ,                                                             ];
+                                                                         ];
 
 /* --------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -186,9 +186,6 @@ Promise.all(jsonFiles.map(file => fetch(file)                      // jsonFiles�
 .catch(error => {
     console.error("JSONファイルが読み込めなかったっぽい!:", error);   // エラーが出たら困る
 });
-
-/* ステータス欄を更新(初期化) */
-updateDeckStatus();
 
 
 /* htmlの要素に処理を追加 */
@@ -275,6 +272,9 @@ searchTextInput.addEventListener('input', handleSearch);
     });
 
 
+/* ステータス欄を更新(初期化) */
+updateDeckStatus();
+
 
 /* --------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -289,21 +289,19 @@ function handleSearch() {
     cardsList.innerHTML = '';
 
     /* 検索条件を取得 */
-    const searchTerm = document.getElementById('search-text-input').value.toLowerCase();                                               // #search-text-inputからテキストを取得（小文字に変換）しsearchTermにする
-    const selectedLevels = Array.from(document.querySelectorAll('.search-level-button.active')).map(button => button.dataset.level);   // .search-level-button.active（押されたLv選択ボタン）から選ばれたLvを取得してselectedLevelsにする
-    const selectedColors = Array.from(document.querySelectorAll('.search-color-button.active')).map(button => button.dataset.color);   // .search-color-button.active（押された色選択ボタン）から選ばれた色を取得してselectedColorsにする
+    const searchText = searchTextInput.value.toLowerCase();                                               // #search-text-inputからテキストを取得（小文字に変換）しsearchTextにする
     const selectedCardType = document.getElementById('search-cardType-popup').dataset.selectedCardType || "";                          // #search-cardType-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
     const selectedLrigTypeClass = document.querySelector('.open-searchLrigTypeClassPopup-button').dataset.selectedLrigTypeClass || "";   // lrigTypeClassが空なら全てで検索、選択されていればselectedLrigTypeClassが含まれているか確認
 
     /* window.cardsDataの中からカードを検索してfilteredCardsに保存 */
     let filteredCards = window.cardsData.filter(card => {
         /* 各種条件で検索 */
-        const nameMatch = card.name.toLowerCase().includes(searchTerm);                                                                          // カード名（小文字に変換）にsearchTerm含んでいるかを確認
-        const subNameMatch = card.subName && card.subName.some(sub => sub.toLowerCase().includes(searchTerm));                                   // subNameがあれば、同様にsearchTermを含んでいるか確認
+        const nameMatch = card.name.toLowerCase().includes(searchText);                                                                          // カード名（小文字に変換）にsearchText含んでいるかを確認
+        const subNameMatch = card.subName && card.subName.some(sub => sub.toLowerCase().includes(searchText));                                   // subNameがあれば、同様にsearchTextを含んでいるか確認
         const cardTypeMatch = selectedCardType === "" || (card.cardType && card.cardType.includes(selectedCardType));                            // selectedCardTypeが空なら全てで検索、選択されていればselectedCardTypeがcardTypeに含まれているか確認
         const lrigTypeClassMatch = selectedLrigTypeClass === "" || (card.lrigTypeClass && card.lrigTypeClass.includes(selectedLrigTypeClass));   // lrigTypeClassのフィルタリング
-        const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.level.toString());                                        // selectedLevelsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
-        const colorMatch = selectedColors.length === 0 || selectedColors.some(color => card.color.includes(color));                              // selectedColorsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
+        const levelMatch = selectedLevels.size === 0 || Array.from(selectedLevels).some(level => card.level.includes(level));                 // selectedLevelsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
+        const colorMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => card.color.includes(color));                              // selectedColorsが選択されていなければ全てで検索、選択されていればいずれかに一致するか確認
         const lifeBurstMatch = (
             (lifeBurstState === 0) ||                           // lifeBurstStateが0であれば全てで検索
             (lifeBurstState === 1 && card.lifeBurst === 1) ||   // lifeBurstStateが1であればLBありで検索
