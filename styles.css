@@ -128,7 +128,8 @@ main * {
     }
 
 /* リスト欄 */
-.card-list {
+.cards-list {
+    display: flex;                /* flexboxを使用 */
     background-color: #2c2c30;   /* 背景色 */
     height: 7.5rem ;              /* 高さ */
     width: 100%;                  /* 幅 */
