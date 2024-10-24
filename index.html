@@ -97,7 +97,7 @@
             <!-- メインデッキ -->
             <div id="main-deck">
                 <!-- メインデッキのカード -->
-                <div class="card-grid" id="main-deck-cards">
+                <div class="main-deck-cards card-grid">
                     <!-- ここにメインデッキのカードが追加される
                     <div class="card" data-name="name" data-cardType="シグニ,スペル,サーバント" data-lrigTypeClass="lrigTypeClass" data-level="level">
                         <img src="URL">
@@ -107,8 +107,8 @@
         </section>
 
         <!-- リスト欄 -->
-        <section id="card-list">
-            <div id="cards-container">
+        <section class="list-area">
+            <div class="cards-list">
                 <!-- ここに検索結果のカードが追加される
                     <div class="card">
                         <img src="URL">
@@ -140,7 +140,7 @@
                 <!-- ルリグタイプ/クラス検索 -->
                 <button class="open-searchPopup-button open-searchLrigTypeClassPopup-button"><img src="images/class.png"></button>
                 <!-- テキスト検索 -->
-                <input type="text" id="search-text-input" placeholder="カード名">
+                <input type="text" class="search-text-input" placeholder="カード名">
             </div>
         </section>
     </main>

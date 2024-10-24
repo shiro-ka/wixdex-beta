@@ -91,7 +91,7 @@ main * {
         margin: 0.5rem 0;   /* 上下に余白 */
     }
     /* MainDeckの設定 */
-    #main-deck {
+    .main-deck {
         display: flex;      /* flexboxを使用 */
         height: 82vw;       /* 縦幅 */
         margin: 0.5rem 0;   /* 上下に余白 */
