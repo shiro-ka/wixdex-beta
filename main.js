@@ -151,25 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* --------------------------------------------------------------------------------------------------------------------------------------- */
 
 
-/* 初期の処理 */
-
-/* jsonファイルからカードのデータを取得し、リスト欄に表示 */
-Promise.all(jsonFiles.map(file => fetch(file)                      // jsonFilesの各要素をfetchで取得
-    .then(response => response.json())                                // 取得してきたもの（response）をjsonにする
-))
-.then(responses => {
-    responses.forEach(responseData => {                               // すべてのjsonを取得したら、forEachを実行
-        allCardsData = allCardsData.concat(responseData);                // 取得したjsonたちを、allCardsDataにまとめる
-    });
-    window.cardsData = allCardsData;                                  // windowオブジェクトにする
-    displayCards(window.cardsData);                                   // リスト欄に表示
-})
-.catch(error => {
-    console.error("JSONファイルが読み込めなかったっぽい!:", error);   // エラーが出たら困る
-});
-
-/* ステータス欄を更新(初期化) */
-updateDeckStatus();
+/* 最初の処理 */
 
 
 /* htmlの要素を取得 */
@@ -188,6 +170,25 @@ const colorButtons = document.querySelectorAll('.search-color-button');
 const lifeBurstButton = document.querySelector('.search-lb-button');
 /* テキスト検索欄 */
 const searchTextInput = document.querySelector('.search-text-input');
+
+
+/* jsonファイルからカードのデータを取得し、リスト欄に表示 */
+Promise.all(jsonFiles.map(file => fetch(file)                      // jsonFilesの各要素をfetchで取得
+    .then(response => response.json())                                // 取得してきたもの（response）をjsonにする
+))
+.then(responses => {
+    responses.forEach(responseData => {                               // すべてのjsonを取得したら、forEachを実行
+        allCardsData = allCardsData.concat(responseData);                // 取得したjsonたちを、allCardsDataにまとめる
+    });
+    window.cardsData = allCardsData;                                  // windowオブジェクトにする
+    displayCards(window.cardsData);                                   // リスト欄に表示
+})
+.catch(error => {
+    console.error("JSONファイルが読み込めなかったっぽい!:", error);   // エラーが出たら困る
+});
+
+/* ステータス欄を更新(初期化) */
+updateDeckStatus();
 
 
 /* htmlの要素に処理を追加 */
