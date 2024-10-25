@@ -6,8 +6,8 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* スクロールしない */
-    background-color: #2c2c30; /* 背景色 */
+    overflow: hidden;
+    background-color: #2c2c30;
 }
 main {
     flex: 1;
@@ -103,29 +103,27 @@ main * {
         grid-template-rows: repeat(5, 1fr);      /* 縦5行で折り返す(メインデッキ用) */
         gap: calc(100vw / 200);                  /* カードごとの隙間 */
     }
-        /* デッキグリッド内のカードの設定 */
-        #lrig-deck .card, #main-deck .card {
-            grid-column: span 1;   /* 各カードが1カラム分の幅になる */
-            width: 100%;           /* 幅 */
-        }
 
 /* カードの設定 */
 .card {
     display: flex;             /* flexboxを使用 */
-    border: none;              /* カードの枠線を削除 */
-    border-radius: 5px;        /* 角を丸める */
-    flex-shrink: 0;            /* カードが縮小しないようにする */
-    align-items: center;       /* 縦方向に中央揃え */
-    justify-content: center;   /* 横方向に中央揃え */
-    width: 80px;               /* 幅(リスト欄) */
-    height: auto;              /* 高さ(リスト欄) */
+    align-items: center;          /* 縦方向の中央揃え(カード画像の中央揃え) */
+    justify-content: center;      /* 横方向の中央揃え(カード画像の中央揃え) */
 }
     /* カード画像の設定 */
     .card img {
-        max-width: 100%;       /* カード画像をカードの幅に合わせて調整 */
-        max-height: 100%;      /* 同上高さ */
+        width: 100%;       /* 幅 */
+        height: 100%;      /* 高さ */
         object-fit: contain;   /* 画像がカード内に収まるように調整 */
     }
+        /* デッキ欄での設定
+        .card-grid .card {
+        }*/
+        /* リスト欄での設定 */
+        .cards-list .card {
+            width: 80px;               /* 幅 */
+            flex-shrink: 0;            /* カードが縮小しないようにする */
+        }
 
 /* リスト欄 */
 .cards-list {
@@ -211,9 +209,9 @@ main * {
             margin: 0 1vw;                    /* 左右にマージンを追加 */
         }
 
-/* ポップアップ */
-    /* カード種類検索のポップアップ */
-    #search-cardType-popup {
+
+/* カード種類検索のポップアップ */
+#search-cardType-popup {
         opacity: 0;                      /* 初期状態では表示しない */
         transition: opacity 0.3s ease;   /* フェードで表示切り替え */
         height: 90vw;                    /* 高さ */
@@ -233,85 +231,110 @@ main * {
             display: flex;
             border: none;
         }
-    /* ルリグタイプ/クラス検索のポップアップ */
-    .search-lrigTypeClass-popup {
-        opacity: 0;                      /* 不透明度(初期状態では表示しない) */
-        transition: opacity 0.3s ease;   /* フェードで表示切り替え */
-        width: 90vw;                     /* 幅 */
-        position: absolute;              /* position:absolute(絶対位置)を使用 */
-        top: 1rem;                       /* 上からの距離 */
-        left: 5vw;                       /* 左からの距離 */
-        z-index: 2;                      /* レイヤー */
-        border: none;                    /* 枠線を削除 */
-        background-color: #2c2c30;      /* 背景色 */
-        flex-direction: column;          /* 子要素を縦に並べる */
+/* ルリグタイプ/クラス検索のポップアップ */
+.search-lrigTypeClass-popup {
+    opacity: 0;                      /* 不透明度(初期状態では表示しない) */
+    transition: opacity 0.3s ease;   /* フェードで表示切り替え */
+    width: 90vw;                     /* 幅 */
+    position: absolute;              /* position:absolute(絶対位置)を使用 */
+    top: 1rem;                       /* 上からの距離 */
+    left: 5vw;                       /* 左からの距離 */
+    z-index: 2;                      /* レイヤー */
+    border: none;                    /* 枠線を削除 */
+    background-color: #2c2c30;      /* 背景色 */
+    flex-direction: column;          /* 子要素を縦に並べる */
+}
+/* activeになったら表示 */
+.search-lrigTypeClass-popup.active {
+    opacity: 1;                      /* 不透明度 */
+    transition: opacity 0.3s ease;   /* フェードで表示切り替え */
+}
+    /* タブ切り替えボタン */
+    .search-lrigTypeClass-tabSwitchButtons {
+        display: flex;         /* flexboxを使用 */
+        flex-direction: row;   /* 子要素(search-lrigTypeClass-tabSwitchButton)を横に並べる */
+        gap: 2rem;             /* ボタンごとの隙間 */
+    }
+        /* ボタン */
+        .search-lrigTypeClass-tabSwitchButton {
+            display: flex;                  /* flexboxを使用 */
+            height: 2rem;                   /* 高さ */
+            flex-grow: 1;                   /* 幅(親要素の幅を等分) */
+            background-color: #2c2c30;     /* 背景色 */
+            color: #ccc;                   /* 文字色 */
+            border: 2px solid #ccc;        /* 枠線 */
+            border-radius: 10px 10px 0 0;   /* 左上,右上の角を丸める */
+            border-bottom: none;            /* 下の枠線は消す */
+            align-items: center;            /* 縦方向の中央揃え(文字の中央揃え) */
+            justify-content: center;        /* 横方向の中央揃え(文字の中央揃え) */
+        }
+        /* 選択されたら背景色と文字色を変更 */
+        .search-lrigTypeClass-tabSwitchButton.active {
+            background-color: #ccc;   /* 背景色 */
+            color: #2c2c30;           /* 文字色 */
+        }
+    /* ルリグタイプ/クラス検索のタブ */
+    .search-lrigTypeClass-tab {
+        opacity: 0;                                        /* 不透明度(初期状態では表示しない) */
+        border: 2px solid #ccc;                           /* 枠線 */
     }
     /* activeになったら表示 */
-    .search-lrigTypeClass-popup.active {
-        opacity: 1;                      /* 不透明度 */
-        transition: opacity 0.3s ease;   /* フェードで表示切り替え */
+    .search-lrigTypeClass-tab.active {
+        opacity: 1;   /* 不透明度 */
     }
-        /* タブ切り替えボタン */
-        .search-lrigTypeClass-tabSwitchButtons {
-            display: flex;         /* flexboxを使用 */
-            flex-direction: row;   /* 子要素(search-lrigTypeClass-tabSwitchButton)を横に並べる */
-            gap: 2rem;             /* ボタンごとの隙間 */
+        /* すべてで検索欄 */
+        .search-lrigTypeClass-all {
+            display: flex;
+            height: 2rem;
+            border: none;
+            margin-top: 1rem;
         }
-            /* ボタン */
-            .search-lrigTypeClass-tabSwitchButton {
-                display: flex;                  /* flexboxを使用 */
-                height: 2rem;                   /* 高さ */
-                flex-grow: 1;                   /* 幅(親要素の幅を等分) */
-                background-color: #2c2c30;     /* 背景色 */
-                color: #ccc;                   /* 文字色 */
-                border: 2px solid #ccc;        /* 枠線 */
-                border-radius: 10px 10px 0 0;   /* 左上,右上の角を丸める */
-                border-bottom: none;            /* 下の枠線は消す */
-                align-items: center;            /* 縦方向の中央揃え(文字の中央揃え) */
-                justify-content: center;        /* 横方向の中央揃え(文字の中央揃え) */
+            /* タブ内の検索ボタン */
+            .search-lrigTypeClass-button {
+                display: flex;                    /* flexboxを使用 */
+                border: none;                     /* 一度枠線を消す */
+                border-bottom: #ccc solid 1px;   /* 下線 */
+                background-color: transparent;    /* 背景色(透明) */
+                align-items: center;              /* 縦方向の中央揃え(アイコン画像の中央揃え) */
+                justify-content: center;          /* 横方向の中央揃え(アイコン画像の中央揃え) */
             }
-            /* 選択されたら背景色と文字色を変更 */
-            .search-lrigTypeClass-tabSwitchButton.active {
-                background-color: #ccc;   /* 背景色 */
-                color: #2c2c30;           /* 文字色 */
-            }
-        /* ルリグタイプ/クラス検索のタブ */
-        .search-lrigTypeClass-tab {
-            opacity: 0;                                        /* 不透明度(初期状態では表示しない) */
-            border: 2px solid #ccc;                           /* 枠線 */
-        }
-        /* activeになったら表示 */
-        .search-lrigTypeClass-tab.active {
-            opacity: 1;   /* 不透明度 */
-        }
-            /* すべてで検索欄 */
-            .search-lrigTypeClass-all {
-                display: flex;
-                height: 2rem;
-                border: none;
-                margin-top: 1rem;
-            }
-                /* タブ内の検索ボタン */
-                .search-lrigTypeClass-button {
-                    display: flex;                    /* flexboxを使用 */
-                    border: none;                     /* 一度枠線を消す */
-                    border-bottom: #ccc solid 1px;   /* 下線 */
-                    background-color: transparent;    /* 背景色(透明) */
-                    align-items: center;              /* 縦方向の中央揃え(アイコン画像の中央揃え) */
-                    justify-content: center;          /* 横方向の中央揃え(アイコン画像の中央揃え) */
+                /* 検索ボタンの画像 */
+                .search-lrigTypeClass-button img {
+                    height: 1.5rem;   /* 高さ */
+                    width: auto;      /* 幅(比率をキープ) */
                 }
-                    /* 検索ボタンの画像 */
-                    .search-lrigTypeClass-button img {
-                        height: 1.5rem;   /* 高さ */
-                        width: auto;      /* 幅(比率をキープ) */
-                    }
-            /* wixossルリグ欄 */
-            .search-lrigTypeClass-lrig {
-                border: none;
-                margin-top: 1rem;
-                display: grid;                                     /* 子要素(search-lrigTypeClass-button)にgridを使用 */
-                grid-template-columns: repeat(auto-fit, 4.5rem);   /* グリッドの列幅4.5remで詰め込む */
-                grid-template-rows: repeat(auto-fit, 2rem);        /* グリッドの行幅2remで詰め込む */
-                gap: 1rem;                                         /* ボタンごとの隙間 */
-                justify-content: center;                           /* 横方向の中央揃え */
-            }
+        /* wixossルリグ欄 */
+        .search-lrigTypeClass-lrig {
+            border: none;
+            margin-top: 1rem;
+            display: grid;                                     /* 子要素(search-lrigTypeClass-button)にgridを使用 */
+            grid-template-columns: repeat(auto-fit, 4.5rem);   /* グリッドの列幅4.5remで詰め込む */
+            grid-template-rows: repeat(auto-fit, 2rem);        /* グリッドの行幅2remで詰め込む */
+            gap: 1rem;                                         /* ボタンごとの隙間 */
+            justify-content: center;                           /* 横方向の中央揃え */
+        }
+/* カード情報のポップアップ */
+.card-detail-popup {
+    opacity: 0;                         /* 不透明度(初期状態では表示しない) */
+    transition: opacity 0.3s ease;      /* フェードで表示切り替え */
+    width: 50vw;                        /* 幅 */
+    position: absolute;                 /* position:absolute(絶対位置)を使用 */
+    top: 50%;                           /* 上からの距離 */
+    left: 50%;                          /* 左からの距離 */
+    transform: translate(-50%, -50%);   /* 画面中央に表示 */
+    z-index: 3;                         /* レイヤー */
+    border: none;                       /* 枠線を削除 */
+    background-color: #2c2c30;         /* 背景色 */
+    flex-direction: column;             /* 子要素を縦に並べる */
+}
+/* activeになったら表示 */
+.card-detail-popup.active {
+    opacity: 1;                      /* 不透明度 */
+    transition: opacity 0.3s ease;   /* フェードで表示切り替え */
+}
+    .card-image-detail{
+        width: 100%;
+    }
+    .card-image-detail img {
+        width: 100%;
+    }

@@ -1,7 +1,7 @@
                                                                                           //=+++++++++=
                                                                                         const/*==+++==--:
-                       __            __                                               *+++====----===+++---
-            .--.--.--.|__|.--.--..--|  |.-----..--.--.                              +++===----------=++=----
+                      .--.          .--.                                               *+++====----===+++---
+            .--.--.--.|--|.--.--..--|  |.-----..--.--.                              +++===----------=++=----
             |  |  |  ||  ||__ __||  _  ||  -__||__ __|                            *+++==*/jsonFiles/*===+---:
             |________||__||__.__||_____||_____||__.__|                          -=+++===++++++****++=---=----
                                                                               *-=++=++++**++*+++*/=/**-=-:--
@@ -184,17 +184,17 @@ Promise.all(jsonFiles.map(file => fetch(file)                      // jsonFiles�
 /* htmlの要素に処理を追加 */
 
 /* レベル検索ボタン */
-const selectedLevels = new Set();             // 選択されたレベルを管理するSetを作成
+const selectedLevels = new Set();                        // 選択されたレベルを管理するSetを作成
 levelButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const level = button.dataset.level;      // 押されたボタンのdataset.levelを取得
+        const level = parseInt(button.dataset.level, 10);   // 押されたボタンのdataset.levelを数値で取得
         /* ボタンのオン・オフを切り替え */
-        if (selectedLevels.has(level)) {         // 押されたボタンのlevelがすでにSetにある場合(オン状態のボタンを押した)
-            selectedLevels.delete(level);           // Setから押されたボタンのlevelを削除
-            button.classList.remove('active');      // ボタンのactive状態を外す
-        } else {                                 // ない場合(オフ状態のボタンを押した)
-            selectedLevels.add(level);              // Setに押されたボタンのlevelを追加
-            button.classList.add('active');         // ボタンをactiveに
+        if (selectedLevels.has(level)) {                    // 押されたボタンのlevelがすでにSetにある場合(オン状態のボタンを押した)
+            selectedLevels.delete(level);                      // Setから押されたボタンのlevelを削除
+            button.classList.remove('active');                 // ボタンのactiveを外す
+        } else {                                            // ない場合(オフ状態のボタンを押した)
+            selectedLevels.add(level);                         // Setに押されたボタンのlevelを追加
+            button.classList.add('active');                    // ボタンをactiveに
         }
         /* 検索を実行 */
         handleSearch();
@@ -440,11 +440,11 @@ function addCardToDeck(card) {
             return;
         }
         /* 同名カードは1枚まで */
-        const lrigDeckSameNameCard = Array.from(lrigDeck.children).filter(deckCard => {   // ルリグデッキの中身を取得
-            const deckCardName = deckCard.dataset.name;                                      // datasetからカード名を取得
-            return deckCardName === cardElement.dataset.name;                                // 追加しようとしているカードと同じものがあるかどうかをチェック
+        const lrigDeckSameNameCard = Array.from(lrigDeckCards.children).filter(deckCard => {   // ルリグデッキの中身を取得
+            const deckCardName = deckCard.dataset.name;                                           // datasetからカード名を取得
+            return deckCardName === cardElement.dataset.name;                                     // 追加しようとしているカードと同じものがあるかどうかをチェック
         });
-        if (lrigDeckSameNameCard.length >= 1) {                                           // 同じものがあるなら処理を停止
+        if (lrigDeckSameNameCard.length >= 1) {                                                // 同じものがあるなら処理を停止
             return;
         }
         /* <div>をルリグデッキに追加 */
@@ -467,26 +467,26 @@ function addCardToDeck(card) {
             return;
         }
         /* <div>をルリグデッキに追加 */
-        lrigDeck.appendChild(cardElement);
+        lrigDeckCards.appendChild(cardElement);
         /* ルリグデッキをソート */
         sortLrigDeck();
     }
     /* シグニ,スペル,サーバントならメインデッキに追加してソート */
     else if (['シグニ', 'スペル', 'サーバント'].includes(cardType)) {
         /* メインデッキは40枚まで */
-        if (mainDeck.children.length >= 40) {                                          // MainDeckの枚数が40枚以上なら処理を停止
+        if (mainDeckCards.children.length >= 40) {                                          // MainDeckの枚数が40枚以上なら処理を停止
             return;
         }
         /* 同名カードは4枚まで */
-        const mainSameNameCards = Array.from(mainDeck.children).filter(deckCard => {   // メインデッキの中身を配列で取得
-            const deckCardName = deckCard.dataset.name;                                // datasetからカード名を取得
-            return deckCardName === cardElement.dataset.name;                          // 取得したカード名の中に、追加しようとしているカードと同じものがあるかどうかをチェック
+        const mainSameNameCards = Array.from(mainDeckCards.children).filter(deckCard => {   // メインデッキの中身を配列で取得
+            const deckCardName = deckCard.dataset.name;                                        // datasetからカード名を取得
+            return deckCardName === cardElement.dataset.name;                                  // 取得したカード名の中に、追加しようとしているカードと同じものがあるかどうかをチェック
         });
-        if (mainSameNameCards.length >= 4) {                                           // 4枚以上あるなら処理を停止
+        if (mainSameNameCards.length >= 4) {                                                // 4枚以上あるなら処理を停止
             return;
         }
         /* <div>をメインデッキに追加 */
-        mainDeck.appendChild(cardElement);
+        mainDeckCards.appendChild(cardElement);
         /* メインデッキをソート */
         sortMainDeck();
     }

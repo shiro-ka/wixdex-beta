@@ -229,6 +229,10 @@
                 </div>
             </div>
         </div>
+        <!-- カード情報のポップアップ -->
+        <div class="card-detail-popup">
+            <div class="card-image-detail"><img src="https://www.takaratomy.co.jp/products/wixoss/img/card/WDA/WDA-F01-03.jpg"></div>
+        </div>
     </section>
 
     <!-- PWAの設定 -->
@@ -236,9 +240,9 @@
     if ('serviceWorker' in navigator) {
 	    window.addEventListener('load', () => {
 	        navigator.serviceWorker.register('sw.js').then(registration => {
-	            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+	            console.log('ServiceWorkerの登録OK ', registration.scope);
 	        }, err => {
-	            console.log('ServiceWorker registration failed: ', err);
+	            console.log('ServiceWorkerの登録ミスった : ', err);
 	        }).catch(err => {
 	            console.log(err)
 	        });
