@@ -345,8 +345,9 @@ function handleTouchStart(event) {
 }
 /* タッチ終了時 */
 function handleTouchEndOnList(event) {
-    const touchEndY = event.changedTouches[0].clientY;   // タッチ終了時のY座標を取得
-    const swipeDistance = touchStartY - touchEndY;       // フリックの距離を計算
+    const touchEndY = event.changedTouches[0].clientY;           // タッチ終了時のY座標を取得
+    const swipeDistance = touchStartY - touchEndY;               // フリックの距離を計算
+    const touchDuration = (Date.now() - touchStartTime) / 1000;  // タッチの持続時間を計算
     /* 上方向にフリックされた場合、デッキに1枚追加 */
     if (swipeDistance > 50 && currentCard) {
         addCardToDeck(currentCard);
