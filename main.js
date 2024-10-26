@@ -163,9 +163,11 @@ const colorButtons = document.querySelectorAll('.search-color-button');
 const lifeBurstButton = document.querySelector('.search-lb-button');
 /* テキスト検索欄 */
 const searchTextInput = document.querySelector('.search-text-input');
-/* カード情報のポップアップ */
+/* ポップアップのオーバーレイ */
+const popupOverlay = document.querySelector('.popup-overlay');
+/* カード情報ポップアップ */
 const cardDetailPopup = document.querySelector('.card-detail-popup');
-/* カード情報のポップアップのカード画像 */
+/* カード情報ポップアップのカード画像 */
 const cardImageDetail = document.querySelector('.card-image-detail img');
 
 
@@ -246,6 +248,13 @@ lifeBurstButton.addEventListener('click', function() {
 
 /* テキスト検索欄 */
 searchTextInput.addEventListener('input', handleSearch);   // 文字が入力されたら検索を実行
+
+/* ポップアップのオーバーレイ */
+popupOverlay.addEventListener('click', function() {
+    const activePopup = popupOverlay.dataset.activepopup;
+    document.querySelector('.${activePopup}').classList.remove('active');
+    popupOverlay.classList.remove('active');
+})
 
 /* ルリグタイプ/クラスのポップアップ */
     const searchLrigTypeClassPopup = document.querySelector('.search-lrigTypeClass-popup')                        // ルリグタイプ/クラス検索ポップアップを取得
@@ -362,6 +371,8 @@ function handleTouchEndOnList(event) {
     else if (Math.abs(swipeDistance) < 5 && touchDuration < 0.2) {
         cardImageDetail.src = currentCard.image;
         cardDetailPopup.classList.add('active');
+        popupOverlay.classList.add('active');
+        popupOverlay.dataset.activepopup = cardDetailPopup;
     }
 }
 

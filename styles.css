@@ -210,6 +210,23 @@ main * {
         }
 
 
+/* ポップアップ類 */
+
+/* オーバーレイ */
+.popup-overlay{
+    opacity: 0;                             /* 不透明度(初期状態では表示しない) */
+    transition: opacity 0.3s ease;          /* フェードで表示切り替え */
+    position: fixed;                        /* position:fixedを使用 */
+    width: 100%;                            /* 幅 */
+    height: 100%;                           /* 高さ */
+    z-index: 1;                             /* レイヤー */
+    background-color: rgba(0, 0, 0, 0.5)   /* 背景色 */
+}
+/* activeになったら表示 */
+.popup-overlay.active {
+    opacity: 1;                      /* 不透明度 */
+    transition: opacity 0.3s ease;   /* フェードで表示切り替え */
+}
 /* カード種類検索のポップアップ */
 #search-cardType-popup {
         opacity: 0;                      /* 初期状態では表示しない */
@@ -219,7 +236,7 @@ main * {
         position: absolute  ;            /* position:absolute(絶対位置)を使用 */
         top: 1rem;                       /* 上からの距離 */
         left: 5vw;                       /* 下からの距離 */
-        z-index: 1;                      /* レイヤー */
+        z-index: 2;                      /* レイヤー */
         background-color: #2c2c30;      /* 背景色 */
         border: 3px solid #ccc;         /* 枠線 */
     }
@@ -239,7 +256,7 @@ main * {
     position: absolute;              /* position:absolute(絶対位置)を使用 */
     top: 1rem;                       /* 上からの距離 */
     left: 5vw;                       /* 左からの距離 */
-    z-index: 2;                      /* レイヤー */
+    z-index: 3;                      /* レイヤー */
     border: none;                    /* 枠線を削除 */
     background-color: #2c2c30;      /* 背景色 */
     flex-direction: column;          /* 子要素を縦に並べる */
@@ -322,7 +339,7 @@ main * {
     top: 50%;                           /* 上からの距離 */
     left: 50%;                          /* 左からの距離 */
     transform: translate(-50%, -50%);   /* 画面中央に表示 */
-    z-index: 3;                         /* レイヤー */
+    z-index: 4;                         /* レイヤー */
     border: none;                       /* 枠線を削除 */
     background-color: #2c2c30;         /* 背景色 */
     flex-direction: column;             /* 子要素を縦に並べる */
