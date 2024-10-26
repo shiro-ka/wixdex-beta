@@ -249,13 +249,6 @@ lifeBurstButton.addEventListener('click', function() {
 /* テキスト検索欄 */
 searchTextInput.addEventListener('input', handleSearch);   // 文字が入力されたら検索を実行
 
-/* ポップアップのオーバーレイ */
-popupOverlay.addEventListener('click', function() {
-    const activePopup = popupOverlay.dataset.activepopup;
-    document.querySelector(`.${activePopup}`).classList.remove('active');
-    popupOverlay.classList.remove('active');
-})
-
 /* ルリグタイプ/クラスのポップアップ */
     const searchLrigTypeClassPopup = document.querySelector('.search-lrigTypeClass-popup')                        // ルリグタイプ/クラス検索ポップアップを取得
     const openSearchLrigTypeClassPopupButton = document.querySelector('.open-searchLrigTypeClassPopup-button');   // ルリグタイプ/クラス検索ポップアップを表示させるボタンを取得
@@ -371,8 +364,8 @@ function handleTouchEndOnList(event) {
     else if (Math.abs(swipeDistance) < 5 && touchDuration < 0.2) {
         cardImageDetail.src = currentCard.image;
         cardDetailPopup.classList.add('active');
-        popupOverlay.classList.add('active');
         popupOverlay.dataset.activepopup = ('card-detail-popup');
+        openPopupOverlay()
     }
 }
 
@@ -671,6 +664,17 @@ function handleTouchEndOnDeck(event) {
     else if (Math.abs(swipeDistance) < 5 && touchDuration < 0.2) {
         // タップの処理
     }
+}
+
+
+/* ポップアップオーバーレイを表示 */
+function openPopupOverlay() {
+    popupOverlay.classList.add('active');
+    popupOverlay.addEventListener('click', function() {
+        const activePopup = popupOverlay.dataset.activepopup;
+        document.querySelector(`.${activePopup}`).classList.remove('active');
+        popupOverlay.classList.remove('active');
+    })
 }
 
 /* デッキ欄のカード上フリックでそのカードをさらに追加（複製）*
