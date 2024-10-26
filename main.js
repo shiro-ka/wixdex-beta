@@ -662,19 +662,28 @@ function handleTouchEndOnDeck(event) {
     }
     /* タップされた場合、ポップアップで拡大表示(フリックがほぼないかつ触った時間が0.2秒未満(擬似的なタップ)) */
     else if (Math.abs(swipeDistance) < 5 && touchDuration < 0.2) {
-        // タップの処理
+        cardImageDetail.src = currentCard.image;
+        cardDetailPopup.classList.add('active');
+        popupOverlay.dataset.activepopup = ('card-detail-popup');
+        openPopupOverlay()
     }
 }
 
 
+/* ポップアップオーバーレイ */
+
 /* ポップアップオーバーレイを表示 */
 function openPopupOverlay() {
     popupOverlay.classList.add('active');
-    popupOverlay.addEventListener('click', function() {
-        const activePopup = popupOverlay.dataset.activepopup;
-        document.querySelector(`.${activePopup}`).classList.remove('active');
-        popupOverlay.classList.remove('active');
-    })
+    popupOverlay.addEventListener('click', closePopup);
+}
+/* ポップアップを閉じる */
+function closePopup() {
+    const activePopup = popupOverlay.dataset.activepopup;
+    document.querySelector(`.${activePopup}`).classList.remove('active');
+    popupOverlay.classList.remove('active');
+    popupOverlay.removeEventListener('click', closePopup);
+    popupOverlay.dataset.activepopup = '';
 }
 
 /* デッキ欄のカード上フリックでそのカードをさらに追加（複製）*
