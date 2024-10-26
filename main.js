@@ -252,7 +252,7 @@ searchTextInput.addEventListener('input', handleSearch);   // 文字が入力さ
 /* ポップアップのオーバーレイ */
 popupOverlay.addEventListener('click', function() {
     const activePopup = popupOverlay.dataset.activepopup;
-    document.querySelector('.${activePopup}').classList.remove('active');
+    document.querySelector(`.${activePopup}`).classList.remove('active');
     popupOverlay.classList.remove('active');
 })
 
@@ -372,7 +372,7 @@ function handleTouchEndOnList(event) {
         cardImageDetail.src = currentCard.image;
         cardDetailPopup.classList.add('active');
         popupOverlay.classList.add('active');
-        popupOverlay.dataset.activepopup = cardDetailPopup;
+        popupOverlay.dataset.activepopup = ('card-detail-popup');
     }
 }
 

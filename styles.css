@@ -216,16 +216,16 @@ main * {
 .popup-overlay{
     opacity: 0;                             /* 不透明度(初期状態では表示しない) */
     transition: opacity 0.3s ease;          /* フェードで表示切り替え */
-    position: fixed;                        /* position:fixedを使用 */
+    position: absolute  ;                   /* position:absolute(絶対位置)を使用 */
     width: 100%;                            /* 幅 */
     height: 100%;                           /* 高さ */
+    top: 0;                                 /* 上からの距離 */
     z-index: 1;                             /* レイヤー */
     background-color: rgba(0, 0, 0, 0.5)   /* 背景色 */
 }
 /* activeになったら表示 */
 .popup-overlay.active {
-    opacity: 1;                      /* 不透明度 */
-    transition: opacity 0.3s ease;   /* フェードで表示切り替え */
+    opacity: 1;   /* 不透明度 */
 }
 /* カード種類検索のポップアップ */
 #search-cardType-popup {
