@@ -161,10 +161,14 @@ const levelButtons = document.querySelectorAll('.search-level-button');
 const colorButtons = document.querySelectorAll('.search-color-button');
 /* LB検索ボタン */
 const lifeBurstButton = document.querySelector('.search-lb-button');
+/* ルリグタイプ/クラス検索ボタン */
+const openSearchLrigTypeClassPopupButton = document.querySelector('.open-searchLrigTypeClassPopup-button');
 /* テキスト検索欄 */
 const searchTextInput = document.querySelector('.search-text-input');
 /* ポップアップのオーバーレイ */
 const popupOverlay = document.querySelector('.popup-overlay');
+/* ルリグタイプ/クラス検索ポップアップ */
+const searchLrigTypeClassPopup = document.querySelector('.search-lrigTypeClass-popup');
 /* カード情報ポップアップ */
 const cardDetailPopup = document.querySelector('.card-detail-popup');
 /* カード情報ポップアップのカード画像 */
@@ -246,15 +250,18 @@ lifeBurstButton.addEventListener('click', function() {
     handleSearch();
 });
 
+/* ルリグタイプ/クラス検索ボタン */
+openSearchLrigTypeClassPopupButton.addEventListener('click', function() {   // ボタンを押したときの処理を追加
+    searchLrigTypeClassPopup.classList.add('active');                       // classにactiveを追加(ポップアップを表示)
+    popupOverlay.dataset.activepopup = ('search-lrigTypeClass-popup');
+    openPopupOverlay()
+});
+
 /* テキスト検索欄 */
 searchTextInput.addEventListener('input', handleSearch);   // 文字が入力されたら検索を実行
 
 /* ルリグタイプ/クラスのポップアップ */
-    const searchLrigTypeClassPopup = document.querySelector('.search-lrigTypeClass-popup')                        // ルリグタイプ/クラス検索ポップアップを取得
-    const openSearchLrigTypeClassPopupButton = document.querySelector('.open-searchLrigTypeClassPopup-button');   // ルリグタイプ/クラス検索ポップアップを表示させるボタンを取得
-    openSearchLrigTypeClassPopupButton.addEventListener('click', function() {                                     // ボタンを押したときの処理を追加
-        searchLrigTypeClassPopup.classList.add('active');                                                           // classにactiveを追加(ポップアップを表示)
-    });
+
     /* 検索ボタンの設定 */
     const searchLrigTypeClassButtons = document.querySelectorAll('.search-lrigTypeClass-button');                 // ポップアップ上のボタンたちを取得
     searchLrigTypeClassButtons.forEach(button => {
@@ -503,7 +510,7 @@ function addCardToDeck(card) {
 
     // カードにフリックイベントを追加
     cardElement.addEventListener('touchstart', handleTouchStart);
-    cardElement.addEventListener('touchend',  (event) => {           // タップ終了時のリスナーを追加
+    cardElement.addEventListener('touchend',  (event) => {            // タップ終了時のリスナーを追加
         currentCard = card;                                           // 触れているカードをcurrentCardとして保存(handleTouchEndで使用)
         handleTouchEndOnDeck(event);                                  // handleTouchEndOnDeckを呼び出す
     });
@@ -641,23 +648,27 @@ function updateDeckStatus() {
 /* デッキ欄のフリック・タップ設定 */
 
 /* タッチ開始時はリスト欄と同じ関数を流用 */
-    // function handleTouchStart(event) {
+    // function handleTouchStart(event)
 /* タッチ終了時 */
 function handleTouchEndOnDeck(event) {
-    const touchEndY = event.changedTouches[0].clientY;   // タッチ終了時のY座標を取得
-    const swipeDistance = touchStartY - touchEndY;       // フリックの距離を計算
+    const touchEndY = event.changedTouches[0].clientY;           // タッチ終了時のY座標を取得
+    const swipeDistance = touchStartY - touchEndY;               // フリックの距離を計算
+    const touchDuration = (Date.now() - touchStartTime) / 1000;  // タッチの持続時間を計算
+    const currentCardElement = document.querySelector(`.card[data-name="${currentCard.name}"]`);
     /* 上方向にフリックされた場合、デッキにもう1枚追加 */
     if (swipeDistance > 50 && currentCard) {
         addCardToDeck(currentCard);
     }
     /* 下方向にフリックされた場合、デッキから削除 */
-    else if (swipeDistance < -50 && currentCard) {
-        if (lrigDeckCards.contains(currentCard)) {
-            lrigDeckCards.removeChild(currentCard);
+    else if (swipeDistance < -50 && currentCardElement) {
+        if (lrigDeckCards.contains(currentCardElement)) {
+            lrigDeckCards.removeChild(currentCardElement);
             sortLrigDeck();
-        } else if (mainDeckCards.contains(currentCard)) {
-            mainDeckCards.removeChild(currentCard);
+            updateDeckStatus()
+        } else if (mainDeckCards.contains(currentCardElement)) {
+            mainDeckCards.removeChild(currentCardElement);
             sortMainDeck();
+            updateDeckStatus()
         }
     }
     /* タップされた場合、ポップアップで拡大表示(フリックがほぼないかつ触った時間が0.2秒未満(擬似的なタップ)) */
