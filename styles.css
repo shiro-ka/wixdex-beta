@@ -214,7 +214,8 @@ main * {
 
 /* オーバーレイ */
 .popup-overlay{
-    opacity: 0;                             /* 不透明度(初期状態では表示しない) */
+    visibility: hidden;                     /* 初期状態では表示しない */
+    opacity: 0;                             /* 不透明度*/
     transition: opacity 0.3s ease;          /* フェードで表示切り替え */
     position: absolute  ;                   /* position:absolute(絶対位置)を使用 */
     width: 100%;                            /* 幅 */
@@ -225,32 +226,36 @@ main * {
 }
 /* activeになったら表示 */
 .popup-overlay.active {
-    opacity: 1;   /* 不透明度 */
+    visibility: visible;   /* 表示 */
+    opacity: 1;            /* 不透明度 */
 }
 /* カード種類検索のポップアップ */
 #search-cardType-popup {
-        opacity: 0;                      /* 初期状態では表示しない */
-        transition: opacity 0.3s ease;   /* フェードで表示切り替え */
-        height: 90vw;                    /* 高さ */
-        width: 90vw;                     /* 幅 */
-        position: absolute  ;            /* position:absolute(絶対位置)を使用 */
-        top: 1rem;                       /* 上からの距離 */
-        left: 5vw;                       /* 下からの距離 */
-        z-index: 2;                      /* レイヤー */
-        background-color: #2c2c30;      /* 背景色 */
-        border: 3px solid #ccc;         /* 枠線 */
+    visibility: hidden;              /* 初期状態では表示しない */
+    opacity: 0;                      /* 不透明度 */
+    transition: opacity 0.3s ease;   /* フェードで表示切り替え */
+    height: 90vw;                    /* 高さ */
+    width: 90vw;                     /* 幅 */
+    position: absolute  ;            /* position:absolute(絶対位置)を使用 */
+    top: 1rem;                       /* 上からの距離 */
+    left: 5vw;                       /* 下からの距離 */
+    z-index: 2;                      /* レイヤー */
+    background-color: #2c2c30;      /* 背景色 */
+    border: 3px solid #ccc;         /* 枠線 */
+}
+/* activeになったら表示 */
+#search-cardType-popup.active {
+    visibility: visible;   /* 表示 */
+    opacity: 1;            /* 不透明度 */
+}
+    .search-cardType-button {
+        display: flex;
+        border: none;
     }
-        /* activeになったら表示 */
-        #search-cardType-popup.active {
-            opacity: 1;
-        }
-        .search-cardType-button {
-            display: flex;
-            border: none;
-        }
 /* ルリグタイプ/クラス検索のポップアップ */
 .search-lrigTypeClass-popup {
-    opacity: 0;                      /* 不透明度(初期状態では表示しない) */
+    visibility: hidden;              /* 初期状態では表示しない */
+    opacity: 0;                      /* 不透明度 */
     transition: opacity 0.3s ease;   /* フェードで表示切り替え */
     width: 90vw;                     /* 幅 */
     position: absolute;              /* position:absolute(絶対位置)を使用 */
@@ -263,8 +268,8 @@ main * {
 }
 /* activeになったら表示 */
 .search-lrigTypeClass-popup.active {
-    opacity: 1;                      /* 不透明度 */
-    transition: opacity 0.3s ease;   /* フェードで表示切り替え */
+    visibility: visible;   /* 表示 */
+    opacity: 1;            /* 不透明度 */
 }
     /* タブ切り替えボタン */
     .search-lrigTypeClass-tabSwitchButtons {
@@ -332,7 +337,8 @@ main * {
         }
 /* カード情報のポップアップ */
 .card-detail-popup {
-    opacity: 0;                         /* 不透明度(初期状態では表示しない) */
+    visibility: hidden;                 /* 初期状態では表示しない */
+    opacity: 0;                         /* 不透明度 */
     transition: opacity 0.3s ease;      /* フェードで表示切り替え */
     width: 80vw;                        /* 幅 */
     position: absolute;                 /* position:absolute(絶対位置)を使用 */
@@ -346,8 +352,8 @@ main * {
 }
 /* activeになったら表示 */
 .card-detail-popup.active {
-    opacity: 1;                      /* 不透明度 */
-    transition: opacity 0.3s ease;   /* フェードで表示切り替え */
+    visibility: visible;   /* 表示 */
+    opacity: 1;            /* 不透明度 */
 }
     .card-image-detail{
         width: 100%;
