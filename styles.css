@@ -317,7 +317,7 @@ main * {
 .card-detail-popup {
     opacity: 0;                         /* 不透明度(初期状態では表示しない) */
     transition: opacity 0.3s ease;      /* フェードで表示切り替え */
-    width: 50vw;                        /* 幅 */
+    width: 80vw;                        /* 幅 */
     position: absolute;                 /* position:absolute(絶対位置)を使用 */
     top: 50%;                           /* 上からの距離 */
     left: 50%;                          /* 左からの距離 */

@@ -163,6 +163,10 @@ const colorButtons = document.querySelectorAll('.search-color-button');
 const lifeBurstButton = document.querySelector('.search-lb-button');
 /* テキスト検索欄 */
 const searchTextInput = document.querySelector('.search-text-input');
+/* カード情報のポップアップ */
+const cardDetailPopup = document.querySelector('.card-detail-popup');
+/* カード情報のポップアップのカード画像 */
+const cardImageDetail = document.querySelector('.card-image-detail img');
 
 
 /* jsonファイルからカードのデータを取得し、リスト欄に表示 */
@@ -355,7 +359,8 @@ function handleTouchEndOnList(event) {
     }
     /* タップされた場合、ポップアップで拡大表示(フリックがほぼないかつ触った時間が0.2秒未満(擬似的なタップ)) */
     else if (Math.abs(swipeDistance) < 5 && touchDuration < 0.2) {
-        // タップの処理
+        cardImageDetail.src = currentCard.image;
+        cardDetailPopup.classList.add('active');
     }
 }
 
