@@ -161,7 +161,7 @@ const levelButtons = document.querySelectorAll('.search-level-button');
 const colorButtons = document.querySelectorAll('.search-color-button');
 /* LB検索ボタン */
 const lifeBurstButton = document.querySelector('.search-lb-button');
-/* ルリグタイプ/クラス検索ボタン */
+/* ルリグタイプ/クラス検索ポップアップ表示ボタン */
 const openSearchLrigTypeClassPopupButton = document.querySelector('.open-searchLrigTypeClassPopup-button');
 /* テキスト検索欄 */
 const searchTextInput = document.querySelector('.search-text-input');
@@ -169,6 +169,8 @@ const searchTextInput = document.querySelector('.search-text-input');
 const popupOverlay = document.querySelector('.popup-overlay');
 /* ルリグタイプ/クラス検索ポップアップ */
 const searchLrigTypeClassPopup = document.querySelector('.search-lrigTypeClass-popup');
+/* ルリグタイプ/クラス検索ポップアップ上の検索ボタン */
+const searchLrigTypeClassButtons = document.querySelectorAll('.search-lrigTypeClass-button');
 /* カード情報ポップアップ */
 const cardDetailPopup = document.querySelector('.card-detail-popup');
 /* カード情報ポップアップのカード画像 */
@@ -260,22 +262,23 @@ openSearchLrigTypeClassPopupButton.addEventListener('click', function() {   // �
 /* テキスト検索欄 */
 searchTextInput.addEventListener('input', handleSearch);   // 文字が入力されたら検索を実行
 
-/* ルリグタイプ/クラスのポップアップ */
-
-    /* 検索ボタンの設定 */
-    const searchLrigTypeClassButtons = document.querySelectorAll('.search-lrigTypeClass-button');                 // ポップアップ上のボタンたちを取得
-    searchLrigTypeClassButtons.forEach(button => {
-        /* ボタンを押したときの処理を追加 */
-        button.addEventListener('click', function() {
-            const selectedLrigTypeClass = button.dataset.lrigtypeclass;                                             // 押したボタンのdatasetを取得
-            openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass = selectedLrigTypeClass;               // 押したボタンのdatasetを表示ボタンに渡す(検索に使用)
-            const openPopupButtonImg = openSearchLrigTypeClassPopupButton.querySelector('img');                     // 検索ポップアップを表示させるボタンのimgを取得
-            const selectedLrigTypeClassImg = button.querySelector('img').src;                                       // 押したボタンのimg(src)を取得
-            openPopupButtonImg.src = selectedLrigTypeClassImg;                                                      // 押したボタンのimgを表示ボタンに渡す
-            searchLrigTypeClassPopup.classList.remove('active');                                                    // activeを外す(ポップアップを非表示)
-            handleSearch();                                                                                         // 検索を実行
-        });
+/* ルリグタイプ/クラス検索ポップアップ */
+/* 検索ボタンの設定 */
+searchLrigTypeClassButtons.forEach(button => {
+    /* ボタンを押したときの処理を追加 */
+    button.addEventListener('click', function() {
+        const selectedLrigTypeClass = button.dataset.lrigtypeclass;                                             // 押したボタンのdatasetを取得
+        openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass = selectedLrigTypeClass;               // 押したボタンのdatasetを表示ボタンに渡す(検索に使用)
+        const openPopupButtonImg = openSearchLrigTypeClassPopupButton.querySelector('img');                     // 検索ポップアップを表示させるボタンのimgを取得
+        const selectedLrigTypeClassImg = button.querySelector('img').src;                                       // 押したボタンのimg(src)を取得
+        openPopupButtonImg.src = selectedLrigTypeClassImg;                                                      // 押したボタンのimgを表示ボタンに渡す
+        searchLrigTypeClassPopup.classList.remove('active');                                                    // activeを外す(ポップアップを非表示)
+        popupOverlay.classList.remove('active');
+        popupOverlay.removeEventListener('click', closePopup);
+        popupOverlay.dataset.activepopup = '';
+        handleSearch();                                                                                         // 検索を実行
     });
+});
 
 
 /* ステータス欄を更新(初期化) */
@@ -696,56 +699,6 @@ function closePopup() {
     popupOverlay.removeEventListener('click', closePopup);
     popupOverlay.dataset.activepopup = '';
 }
-
-/* デッキ欄のカード上フリックでそのカードをさらに追加（複製）*
-function handleDuplicateTouchEnd(event) {
-    /* タッチ終了時のY座標を取得し、フリックの距離を計算 *
-    const touchEndY = event.changedTouches[0].clientY;
-    const swipeDistance = touchStartY - touchEndY;
-
-    /* 上方向にスワイプされた場合、カードを複製 *
-    if (swipeDistance > 50 && event.currentTarget) {
-        duplicateCard(event.currentTarget);
-    }
-}
-/* 複製の関数 *
-function duplicateCard(cardElement) {
-
-    const cardName = cardElement.dataset.name;
-    const cardData = window.cardsData.find(card => card.name === cardName);
-    // addCardToDeck関数を使ってカードを追加
-    addCardToDeck(cardData);
-}
-
-/* デッキ欄のカードを下フリックでデッキから削除 *
-function handleRemoveTouchEnd(event) {
-
-    /* タッチ終了時のY座標を取得し、フリックの距離を計算 *
-    const touchEndY = event.changedTouches[0].clientY;
-    const swipeDistance = touchEndY - touchStartY;
-
-    /* 下方向にスワイプされた場合、カードを削除 *
-    if (swipeDistance > 50 && event.currentTarget) {
-        removeCardFromDeck(event.currentTarget);
-    }
-}
-/* 削除の関数 *
-function removeCardFromDeck(cardElement) {
-    const lrigDeck = document.getElementById('lrig-deck-cards');
-    const mainDeck = document.getElementById('main-deck-cards');
-
-    if (lrigDeck.contains(cardElement)) {
-        lrigDeck.removeChild(cardElement);
-        sortLrigDeck();
-    } else if (mainDeck.contains(cardElement)) {
-        mainDeck.removeChild(cardElement);
-        sortMainDeck();
-    }
-
-    /* ステータス欄を更新 *
-    updateDeckStatus();
-}
-
 
 
 /* ---------------------------------------------------------------------------------------------------------------------- */});/* -おわり- */
