@@ -13,6 +13,8 @@ body {
     background-color: var(--background-color);
 }
 .container {
+    width: 100%;
+    max-width: calc((100vh - 287.8px) / 1.047);
     position: relative;
     margin: 0 auto;
     z-index: 0;
@@ -99,11 +101,11 @@ body {
                 }
             /* ステータス欄の文字設定 */
             .deck-status-count{
-                display: flex;             /* flexboxを使用 */
-                justify-content: center;   /* 文字を垂直方向に中央揃え */
-                color: var(--sub-color);   /* 色 */
-                font-size: 16px;           /* 文字サイズ */
-                width: 1.5rem;             /* 幅 */
+                display: flex;
+                justify-content: center;   /* 文字を中央揃え */
+                color: var(--sub-color);
+                font-size: 16px;
+                width: 1.5rem;
             }
 /* メインデッキの設定 */
 .main-deck {
@@ -112,6 +114,7 @@ body {
     padding: 0 1rem;
     margin-bottom: 0.5rem;
 }
+
 
 
 /* カードの設定 */
@@ -135,17 +138,21 @@ body {
             flex-shrink: 0;            /* カードが縮小しないようにする */
         }
 
+
+
 /* リスト欄 */
 .cards-list {
     height: 7.5rem ;
     width: 100%;
     background-color: var(--sub-background-color);
     margin-bottom: 0.5rem;
-    flex-direction: row;          /* 子要素(カード)を横に並べる */
-    gap: 5px;                     /* カード間の隙間 */
-    align-content: center;        /* 中央揃え */
-    overflow-x: auto;             /* 横スクロール */
+    flex-direction: row;     /* 子要素(カード)を横に並べる */
+    gap: 5px;                /* カード間の隙間 */
+    align-content: center;   /* 中央揃え */
+    overflow-x: auto;        /* 横スクロール */
 }
+
+
 
 /* 検索ツール欄 */
 #search-tool{
