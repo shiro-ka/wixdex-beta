@@ -267,16 +267,16 @@ searchTextInput.addEventListener('input', handleSearch);   // 文字が入力さ
 searchLrigTypeClassButtons.forEach(button => {
     /* ボタンを押したときの処理を追加 */
     button.addEventListener('click', function() {
-        const selectedLrigTypeClass = button.dataset.lrigtypeclass;                                             // 押したボタンのdatasetを取得
-        openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass = selectedLrigTypeClass;               // 押したボタンのdatasetを表示ボタンに渡す(検索に使用)
-        const openPopupButtonImg = openSearchLrigTypeClassPopupButton.querySelector('img');                     // 検索ポップアップを表示させるボタンのimgを取得
-        const selectedLrigTypeClassImg = button.querySelector('img').src;                                       // 押したボタンのimg(src)を取得
-        openPopupButtonImg.src = selectedLrigTypeClassImg;                                                      // 押したボタンのimgを表示ボタンに渡す
-        searchLrigTypeClassPopup.classList.remove('active');                                                    // activeを外す(ポップアップを非表示)
+        const selectedLrigTypeClass = button.dataset.lrigtypeclass;                                 // 押したボタンのdatasetを取得
+        openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass = selectedLrigTypeClass;   // 押したボタンのdatasetを表示ボタンに渡す(検索に使用)
+        const openPopupButtonImg = openSearchLrigTypeClassPopupButton.querySelector('img');         // 検索ポップアップを表示させるボタンのimgを取得
+        const selectedLrigTypeClassImg = button.querySelector('img').src;                           // 押したボタンのimg(src)を取得
+        openPopupButtonImg.src = selectedLrigTypeClassImg;                                          // 押したボタンのimgを表示ボタンに渡す
+        searchLrigTypeClassPopup.classList.remove('active');                                        // activeを外す(ポップアップを非表示)
         popupOverlay.classList.remove('active');
         popupOverlay.removeEventListener('click', closePopup);
         popupOverlay.dataset.activepopup = '';
-        handleSearch();                                                                                         // 検索を実行
+        handleSearch();                                                                             // 検索を実行
     });
 });
 
