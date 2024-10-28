@@ -700,5 +700,17 @@ function closePopup() {
     popupOverlay.dataset.activepopup = '';
 }
 
+/* --------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* cssの設定 */
+
+/* containerの幅を取得してcss変数にセット */
+const container = document.querySelector('.container');
+function stylesSet() {
+    const containerWidth = container.offsetWidth;
+    container.style.setProperty('--container-width', `${containerWidth}px`);
+}
+stylesSet();                                    // 読み込み時に1回実行
+window.addEventListener('resize', stylesSet);   // 画面サイズ変更時に実行
 
 /* ---------------------------------------------------------------------------------------------------------------------- */});/* -おわり- */
