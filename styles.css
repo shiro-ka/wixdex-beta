@@ -14,7 +14,9 @@ body {
 }
 .container {
     width: 100%;
-    max-width: calc((100vh - 287.8px) / 1.047);
+    max-width: calc((var(--window-height) - 287.8px) / 1.047);
+    height: auto;
+    max-height: var(--window-height);
     position: relative;
     margin: 0 auto;
     z-index: 0;

@@ -709,6 +709,8 @@ const container = document.querySelector('.container');
 function stylesSet() {
     const containerWidth = container.offsetWidth;
     container.style.setProperty('--container-width', `${containerWidth}px`);
+    const windowHeight = window.innerHeight;
+    container.style.setProperty('--window-height', `${windowHeight}px`);
 }
 stylesSet();                                    // 読み込み時に1回実行
 window.addEventListener('resize', stylesSet);   // 画面サイズ変更時に実行
