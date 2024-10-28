@@ -13,14 +13,15 @@ body {
     background-color: var(--background-color);
 }
 .container {
-    width: 100%;
-    max-width: calc((var(--window-height) - 287.8px) / 1.047);
-    height: auto;
-    max-height: var(--window-height);
     position: relative;
     margin: 0 auto;
     z-index: 0;
     padding: 1rem 0.5rem;
+}
+@media screen and (min-width: calc((100vh + 287.811px) / 1.047)) {
+    .container{
+        width: calc((100vh + 287.811px) / 1.047);
+    }
 }
 .container * {
     box-sizing: border-box;
@@ -34,7 +35,7 @@ body {
     height: 3rem;
     width: 100%;
     margin: 0 0.5rem 0.5rem 0.5rem;
-    padding: 0,5rem;
+    padding: 0.5rem;
     border-bottom: 1px solid var(--sub-color);   /* 下線 */
     flex-direction: row;                         /* 子要素を横に並べる */
 }
@@ -43,7 +44,6 @@ body {
         display: flex;
         height: 2rem;
         width: 8rem;
-        margin-top: auto;   /* メインデッキ用 */
     }
         /* ヘッダー文字アイコン画像の設定 */
         .header-text-icon img{
@@ -65,14 +65,18 @@ body {
         gap: 2px;                                /* カードごとの隙間 */
     }
 /* メインデッキのヘッダー */
-.main-deck-header{
+.main-deck-header {
+    display: flex;
     height: 3rem;
     width: 100%;
     margin: 0 0.5rem 0.5rem 0.5rem;
-    padding: 0 0,5rem;
+    padding: 0 0.5rem;
     border-bottom: 1px solid var(--sub-color);   /* 下線 */
     flex-direction: row;                         /* 子要素を横に並べる */
 }
+    .main-deck-header .header-text-icon{
+        padding: 0.5rem 0;
+    }
     /* ステータス欄全体設定 */
     .deck-status{
         height: 3rem;
@@ -84,10 +88,11 @@ body {
     }
         .other-status-cell{
             grid-row: 1;
-	        grid-column: 3 / span 3;
+	        grid-column: 1 / span 3;
         }
         /* ステータス欄マスごとの設定 */
         .deck-status-cell{
+            display: flex;
             padding-bottom: 0.5rem;
             flex-direction: row;   /* 子要素(deck-status-iconとcount)を縦に並べる */
         }
