@@ -636,15 +636,15 @@ function updateDeckStatus() {
     });
 
     /* 各種枚数を表示 */
-    document.getElementById('lv1-status-count').textContent = `${lv1StatusCount}`;       //Lv1
-    document.getElementById('lv2-status-count').textContent = `${lv2StatusCount}`;       //Lv2
-    document.getElementById('lv3-status-count').textContent = `${lv3StatusCount}`;       //Lv3
-    document.getElementById('lb-status-count').textContent = `${lbStatusCount}`;         //LB
-    document.getElementById('white-status-count').textContent = `${whiteStatusCount}`;   //白
-    document.getElementById('red-status-count').textContent = `${redStatusCount}`;       //赤
-    document.getElementById('blue-status-count').textContent = `${blueStatusCount}`;     //青
-    document.getElementById('green-status-count').textContent = `${greenStatusCount}`;   //緑
-    document.getElementById('black-status-count').textContent = `${blackStatusCount}`;   //黒
+    document.querySelector('.lv1-status-count').textContent = `${lv1StatusCount}`;       //Lv1
+    document.querySelector('.lv2-status-count').textContent = `${lv2StatusCount}`;       //Lv2
+    document.querySelector('.lv3-status-count').textContent = `${lv3StatusCount}`;       //Lv3
+    document.querySelector('.lb-status-count').textContent = `${lbStatusCount}`;         //LB
+    document.querySelector('.white-status-count').textContent = `${whiteStatusCount}`;   //白
+    document.querySelector('.red-status-count').textContent = `${redStatusCount}`;       //赤
+    document.querySelector('.blue-status-count').textContent = `${blueStatusCount}`;     //青
+    document.querySelector('.green-status-count').textContent = `${greenStatusCount}`;   //緑
+    document.querySelector('.black-status-count').textContent = `${blackStatusCount}`;   //黒
 }
 
 
