@@ -144,6 +144,7 @@ body {
 
 /* リスト欄 */
 .cards-list {
+    display: flex;
     height: 7.5rem ;
     width: 100%;
     background-color: var(--sub-background-color);
