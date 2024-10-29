@@ -14,7 +14,7 @@ body {
 }
 .container {
     width: 100%;
-    max-width: calc((var(--window-height) / 1.05) - 523px);
+    max-width: calc((var(--window-height) -335px ) / 1.05);
     position: relative;
     margin: 0 auto;
     z-index: 0;
@@ -241,30 +241,14 @@ body {
 
 /* ポップアップ類 */
 
-/* オーバーレイ */
-.popup-overlay{
-    visibility: hidden;                     /* 初期状態では表示しない */
-    opacity: 0;                             /* 不透明度*/
-    transition: opacity 0.3s ease;          /* フェードで表示切り替え */
-    position: absolute  ;                   /* position:absolute(絶対位置)を使用 */
-    width: 100%;                            /* 幅 */
-    height: 100%;                           /* 高さ */
-    top: 0;                                 /* 上からの距離 */
-    z-index: 1;                             /* レイヤー */
-    background-color: rgba(0, 0, 0, 0.5)   /* 背景色 */
-}
-/* activeになったら表示 */
-.popup-overlay.active {
-    visibility: visible;   /* 表示 */
-    opacity: 1;            /* 不透明度 */
-}
+
 /* カード種類検索のポップアップ */
 #search-cardType-popup {
     visibility: hidden;              /* 初期状態では表示しない */
     opacity: 0;                      /* 不透明度 */
     transition: opacity 0.3s ease;   /* フェードで表示切り替え */
-    height: 90vw;                    /* 高さ */
-    width: 90vw;                     /* 幅 */
+    height: 90%;
+    width: 90vw;
     position: absolute  ;            /* position:absolute(絶対位置)を使用 */
     top: 1rem;                       /* 上からの距離 */
     left: 5vw;                       /* 下からの距離 */
@@ -286,48 +270,46 @@ body {
     visibility: hidden;              /* 初期状態では表示しない */
     opacity: 0;                      /* 不透明度 */
     transition: opacity 0.3s ease;   /* フェードで表示切り替え */
-    width: 90vw;                     /* 幅 */
-    position: absolute;              /* position:absolute(絶対位置)を使用 */
-    top: 1rem;                       /* 上からの距離 */
-    left: 5vw;                       /* 左からの距離 */
-    z-index: 3;                      /* レイヤー */
-    border: none;                    /* 枠線を削除 */
-    background-color: #2c2c30;      /* 背景色 */
-    flex-direction: column;          /* 子要素を縦に並べる */
+    width: 90%;
+    background-color: transparent;
+    position: absolute;
+    top: 1rem;
+    left: 5%;
+    z-index: 3;
 }
 /* activeになったら表示 */
 .search-lrigTypeClass-popup.active {
-    visibility: visible;   /* 表示 */
+    visibility: visible;   /* 表示する */
     opacity: 1;            /* 不透明度 */
 }
     /* タブ切り替えボタン */
     .search-lrigTypeClass-tabSwitchButtons {
-        display: flex;         /* flexboxを使用 */
-        flex-direction: row;   /* 子要素(search-lrigTypeClass-tabSwitchButton)を横に並べる */
-        gap: 2rem;             /* ボタンごとの隙間 */
+        display: flex;
+        flex-direction: row;   /* 子要素(ボタン)を横に並べる */
+        gap: 10%;              /* ボタンごとの隙間 */
     }
         /* ボタン */
         .search-lrigTypeClass-tabSwitchButton {
-            display: flex;                  /* flexboxを使用 */
-            height: 2rem;                   /* 高さ */
-            flex-grow: 1;                   /* 幅(親要素の幅を等分) */
-            background-color: #2c2c30;     /* 背景色 */
-            color: #ccc;                   /* 文字色 */
-            border: 2px solid #ccc;        /* 枠線 */
-            border-radius: 10px 10px 0 0;   /* 左上,右上の角を丸める */
+            display: flex;
+            height: 2rem;
+            width: 45%;
+            background-color: var(--sub-background-color);
+            color: var(--sub-color);
+            border: 2px solid var(--sub-color);
+            border-radius: 10px 10px 0 0;   /* 枠線の左上,右上の角を丸める */
             border-bottom: none;            /* 下の枠線は消す */
-            align-items: center;            /* 縦方向の中央揃え(文字の中央揃え) */
-            justify-content: center;        /* 横方向の中央揃え(文字の中央揃え) */
+            align-items: center;       /* 縦方向の中央揃え(文字の中央揃え) */
+            justify-content: center;   /* 横方向の中央揃え(文字の中央揃え) */
         }
         /* 選択されたら背景色と文字色を変更 */
         .search-lrigTypeClass-tabSwitchButton.active {
-            background-color: #ccc;   /* 背景色 */
-            color: #2c2c30;           /* 文字色 */
+            background-color: var(--sub-color);   /* 背景色 */
+            color: var(--sub-background-color);   /* 文字色 */
         }
     /* ルリグタイプ/クラス検索のタブ */
     .search-lrigTypeClass-tab {
-        opacity: 0;                                        /* 不透明度(初期状態では表示しない) */
-        border: 2px solid #ccc;                           /* 枠線 */
+        opacity: 0;
+        border: 2px solid var(--sub-color);
     }
     /* activeになったら表示 */
     .search-lrigTypeClass-tab.active {
@@ -339,6 +321,16 @@ body {
             height: 2rem;
             border: none;
             margin-top: 1rem;
+        }
+        /* wixossルリグ欄 */
+        .search-lrigTypeClass-lrig {
+            border: none;
+            margin-top: 1rem;
+            display: grid;                                     /* 子要素(search-lrigTypeClass-button)にgridを使用 */
+            grid-template-columns: repeat(auto-fit, 4.5rem);   /* グリッドの列幅4.5remで詰め込む */
+            grid-template-rows: repeat(auto-fit, 2rem);        /* グリッドの行幅2remで詰め込む */
+            gap: 1rem;                                         /* ボタンごとの隙間 */
+            justify-content: center;                           /* 横方向の中央揃え */
         }
             /* タブ内の検索ボタン */
             .search-lrigTypeClass-button {
@@ -354,34 +346,22 @@ body {
                     height: 1.5rem;   /* 高さ */
                     width: auto;      /* 幅(比率をキープ) */
                 }
-        /* wixossルリグ欄 */
-        .search-lrigTypeClass-lrig {
-            border: none;
-            margin-top: 1rem;
-            display: grid;                                     /* 子要素(search-lrigTypeClass-button)にgridを使用 */
-            grid-template-columns: repeat(auto-fit, 4.5rem);   /* グリッドの列幅4.5remで詰め込む */
-            grid-template-rows: repeat(auto-fit, 2rem);        /* グリッドの行幅2remで詰め込む */
-            gap: 1rem;                                         /* ボタンごとの隙間 */
-            justify-content: center;                           /* 横方向の中央揃え */
-        }
 /* カード情報のポップアップ */
 .card-detail-popup {
-    visibility: hidden;                 /* 初期状態では表示しない */
-    opacity: 0;                         /* 不透明度 */
-    transition: opacity 0.3s ease;      /* フェードで表示切り替え */
-    width: 80vw;                        /* 幅 */
-    position: absolute;                 /* position:absolute(絶対位置)を使用 */
+    visibility: hidden;              /* 初期状態では表示しない */
+    opacity: 0;                      /* 不透明度 */
+    transition: opacity 0.3s ease;   /* フェードで表示切り替え */
+    width: 80%;
+    position: absolute;
     top: 50%;                           /* 上からの距離 */
     left: 50%;                          /* 左からの距離 */
     transform: translate(-50%, -50%);   /* 画面中央に表示 */
-    z-index: 4;                         /* レイヤー */
-    border: none;                       /* 枠線を削除 */
-    background-color: #2c2c30;         /* 背景色 */
-    flex-direction: column;             /* 子要素を縦に並べる */
+    z-index: 4;
+    background-color: var(--sub-background-color);
 }
 /* activeになったら表示 */
 .card-detail-popup.active {
-    visibility: visible;   /* 表示 */
+    visibility: visible;   /* 表示する */
     opacity: 1;            /* 不透明度 */
 }
     .card-image-detail{
@@ -390,3 +370,22 @@ body {
     .card-image-detail img {
         width: 100%;
     }
+
+/* ---------------------------------------------------------------------------------------------------------------------- */
+
+/* ポップアップオーバーレイ */
+.popup-overlay{
+    visibility: hidden;              /* 初期状態では表示しない */
+    opacity: 0;                      /* 不透明度*/
+    transition: opacity 0.3s ease;   /* フェードで表示切り替え */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);   /* 背景色(半透明の黒) */
+}
+/* activeになったら表示 */
+.popup-overlay.active {
+    visibility: visible;   /* 表示する */
+    opacity: 1;            /* 不透明度 */
+}
