@@ -704,11 +704,6 @@ function closePopup() {
 
 /* cssの設定 */
 
-
-
-/* ---------------------------------------------------------------------------------------------------------------------- */});/* -------- */
-
-window.addEventListener('load', () => {
 /* containerの幅を取得してcss変数にセット */
 const container = document.querySelector('.container');
 function stylesSet() {
@@ -719,5 +714,6 @@ function stylesSet() {
 }
 stylesSet();                                    // DOM読み込み時に1回実行
 window.addEventListener('resize', stylesSet);   // 画面サイズ変更時に実行
+
 
 /* ---------------------------------------------------------------------------------------------------------------------- */});/* -------- */
