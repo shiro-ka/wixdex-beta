@@ -719,5 +719,11 @@ window.addEventListener('resize', stylesSet);   // 画面サイズ変更時に�
 
 window.addEventListener('load', () => {
     stylesSet();   // ページ全体が読み込まれてから1回実行
+    const link = document.querySelector('link[rel="stylesheet"][href="styles.css"]');
+    if (link) {
+        const href = link.href;
+        link.href = '';
+        link.href = href;  // CSSを再読み込み
+    }
 
 /* ---------------------------------------------------------------------------------------------------------------------- */});/* -------- */
