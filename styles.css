@@ -14,7 +14,7 @@ body {
 }
 .container {
     width: 100%;
-    max-width: calc((var(--window-height) / 0.805) + 523px);
+    max-width: calc((var(--window-height) / 1.05) - 431px);
     position: relative;
     margin: 0 auto;
     z-index: 0;
@@ -115,7 +115,7 @@ body {
 /* メインデッキの設定 */
 .main-deck {
     width: 100%;
-    height: calc((var(--container-width) - 46px) * 0.63 + 8px);
+    height: calc((var(--container-width) - 46px) * 0.875 + 8px);
     padding: 0 0.5rem;
     margin-bottom: 0.5rem;
 }
