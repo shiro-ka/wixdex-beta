@@ -704,6 +704,11 @@ function closePopup() {
 
 /* cssの設定 */
 
+
+
+/* ---------------------------------------------------------------------------------------------------------------------- */});/* -------- */
+
+window.addEventListener('load', () => {
 /* containerの幅を取得してcss変数にセット */
 const container = document.querySelector('.container');
 function stylesSet() {
@@ -714,16 +719,5 @@ function stylesSet() {
 }
 stylesSet();                                    // DOM読み込み時に1回実行
 window.addEventListener('resize', stylesSet);   // 画面サイズ変更時に実行
-
-/* ---------------------------------------------------------------------------------------------------------------------- */});/* -------- */
-
-window.addEventListener('load', () => {
-    stylesSet();   // ページ全体が読み込まれてから1回実行
-    const link = document.querySelector('link[rel="stylesheet"][href="styles.css"]');
-    if (link) {
-        const href = link.href;
-        link.href = '';
-        link.href = href;  // CSSを再読み込み
-    }
 
 /* ---------------------------------------------------------------------------------------------------------------------- */});/* -------- */
