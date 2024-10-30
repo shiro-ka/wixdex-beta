@@ -14,7 +14,7 @@ body {
 }
 .container {
     width: 100%;
-    max-width: calc((100vh - 351px ) / 1.05);
+    max-width: calc((100vh - 369px ) / 1.05);
     position: relative;
     margin: 0 auto;
     padding: 1rem 0;
@@ -364,7 +364,7 @@ body {
         opacity: 0;
         background-color: var(--sub-background-color);
         border: 2px solid var(--sub-color);
-        padding: 1rem 0;
+        padding: 1rem;
     }
     /* activeになったら表示 */
     .search-lrigTypeClass-tab.active {
@@ -374,19 +374,28 @@ body {
         .search-lrigTypeClass-all {
             display: flex;
             height: 2rem;
+            width: 100%;
+            margin-bottom: 1rem;
             justify-content: center;   /* 横方向の中央揃え(すべてで検索ボタン) */
         }
             /* すべてで検索ボタン */
-            .search-allLrigTypeClass-button {
+            .search-lrigTypeClass-all .search-lrigTypeClass-button {
+                display: flex;
+                border: none;
+                border-bottom: 1px solid var(--sub-color);
+                padding: 0 0.5rem;
+                background-color: transparent;
                 color: var(--sub-color);   /* 文字色 */
+                align-items: center;       /* 縦方向の中央揃え */
             }
-            .search-allLrigTypeClass-button img {
-                margin: 0 0.5rem;
+            .search-lrigTypeClass-all .search-lrigTypeClass-button img {
+                height: 100%;
+                width: auto;
+                margin-right: 0.5rem;
             }
         /* wixossルリグ欄 */
         .search-lrigTypeClass-lrig {
             border: none;
-            margin-top: 1rem;
             display: grid;                                     /* 子要素(search-lrigTypeClass-button)にgridを使用 */
             grid-template-columns: repeat(auto-fit, 4.5rem);   /* グリッドの列幅4.5remで詰め込む */
             grid-template-rows: repeat(auto-fit, 2rem);        /* グリッドの行幅2remで詰め込む */
