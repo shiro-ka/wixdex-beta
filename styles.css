@@ -289,7 +289,7 @@ body {
             justify-content: center;   /* 文字の中央揃え */
         }
         .search-cardType-all .search-cardType-button img {
-            height: 50%;
+            height: 100%;
             width: auto;
             margin-right: 0.5rem;
         }
