@@ -319,9 +319,9 @@ function handleSearch() {
     cardsList.innerHTML = '';
 
     /* 検索条件を取得 */
-    const searchText = searchTextInput.value.toLowerCase();                                               // #search-text-inputからテキストを取得（小文字に変換）しsearchTextにする
-    const selectedCardType = document.querySelector('.search-cardType-popup').dataset.selectedCardType || "";                          // #search-cardType-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
-    const selectedLrigTypeClass = document.querySelector('.open-searchLrigTypeClassPopup-button').dataset.selectedLrigTypeClass || "";   // lrigTypeClassが空なら全てで検索、選択されていればselectedLrigTypeClassが含まれているか確認
+    const searchText = searchTextInput.value.toLowerCase();
+    const selectedCardType = openSearchCardTypePopupButton.dataset.selectedCardType || "";
+    const selectedLrigTypeClass = openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass || "";
 
     /* window.cardsDataの中からカードを検索してfilteredCardsに保存 */
     let filteredCards = window.cardsData.filter(card => {
