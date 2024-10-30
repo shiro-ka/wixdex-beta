@@ -246,8 +246,8 @@ body {
     visibility: hidden;              /* 初期状態では表示しない */
     opacity: 0;                      /* 不透明度 */
     transition: opacity 0.3s ease;   /* フェードで表示切り替え */
-    height: 11rem;
-    width: 12rem;
+    height: 15rem;
+    width: 17rem;
     border: 2px solid var(--sub-color);
     border-radius: 5px;
     padding: 1rem;
@@ -274,8 +274,9 @@ body {
         .search-cardType-all .search-cardType-button {
             display: flex;
             height: 100%;
-            border: 1px solid var(--sub-color);
+            border-bottom: 1px solid var(--sub-color);
             padding: 0 0.5rem;
+            background-color: transparent;
             color: var(--sub-color);
             font-size: 16px;
             align-items: center;       /* 文字の中央揃え */
@@ -288,19 +289,20 @@ body {
         }
     /* カード種類検索欄 */
     .search-cardType {
-        height: 6.5rem;
+        height: 10.5rem;
         width: 100%;
         display: grid;
         gap: 0.5rem;
-        grid-template-columns: repeat(3,3rem);
-        grid-template-rows: repeat(2,3rem);
+        grid-template-columns: repeat(3,5rem);
+        grid-template-rows: repeat(2,5rem);
     }
         /* ボタン */
         .search-cardType .search-cardType-button {
-            height: 3rem;
-            width: 3rem;
+            height: 100%;
+            width: 100%;
             border: 1px solid var(--sub-color);
-            border-radius: 24px;
+            border-radius: 50%;
+            background-color: transparent;
             color: var(--sub-color);
             font-size: 16px;
             align-items: center;       /* 縦方向の中央揃え(文字の中央揃え) */
@@ -383,9 +385,9 @@ body {
         }
             /* タブ内の検索ボタン */
             .search-lrigTypeClass-button {
-                display: flex;                    /* flexboxを使用 */
-                border: none;                     /* 一度枠線を消す */
-                border-bottom: #ccc solid 1px;   /* 下線 */
+                display: flex;
+                border: none;
+                border-bottom: 1px solid var(--sub-color);
                 background-color: transparent;    /* 背景色(透明) */
                 align-items: center;              /* 縦方向の中央揃え(アイコン画像の中央揃え) */
                 justify-content: center;          /* 横方向の中央揃え(アイコン画像の中央揃え) */
