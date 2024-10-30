@@ -122,7 +122,9 @@
 
 /* --------------------------------------------------------------------------------------------------------------------------------------- */
 
+
 /* グローバル変数 */
+
 
 /* すべてのカードデータ */
 let allCardsData = [];
@@ -161,12 +163,18 @@ const levelButtons = document.querySelectorAll('.search-level-button');
 const colorButtons = document.querySelectorAll('.search-color-button');
 /* LB検索ボタン */
 const lifeBurstButton = document.querySelector('.search-lb-button');
+/* カード種類検索ポップアップ表示ボタン */
+const openSearchCardTypePopupButton = document.querySelector('.open-searchCardTypePopup-button');
 /* ルリグタイプ/クラス検索ポップアップ表示ボタン */
 const openSearchLrigTypeClassPopupButton = document.querySelector('.open-searchLrigTypeClassPopup-button');
 /* テキスト検索欄 */
 const searchTextInput = document.querySelector('.search-text-input');
 /* ポップアップのオーバーレイ */
 const popupOverlay = document.querySelector('.popup-overlay');
+/* カード種類検索ポップアップ */
+const searchCardTypePopup = document.querySelector('.search-cardType-popup');
+/* カード種類検索ポップアップ上の検索ボタン */
+const searchCardTypeButtons = document.querySelectorAll('.search-cardType-button');
 /* ルリグタイプ/クラス検索ポップアップ */
 const searchLrigTypeClassPopup = document.querySelector('.search-lrigTypeClass-popup');
 /* ルリグタイプ/クラス検索ポップアップ上の検索ボタン */
@@ -179,7 +187,7 @@ const cardImageDetail = document.querySelector('.card-image-detail img');
 
 /* jsonファイルからカードのデータを取得し、リスト欄に表示 */
 Promise.all(jsonFiles.map(file => fetch(file)                      // jsonFilesの各要素をfetchで取得
-    .then(response => response.json())                                // 取得してきたもの（response）をjsonにする
+    .then(response => response.json())                                // 取得してきたもの(response)をjsonにする
 ))
 .then(responses => {
     responses.forEach(responseData => {                               // すべてのjsonを取得したら、forEachを実行
@@ -189,7 +197,7 @@ Promise.all(jsonFiles.map(file => fetch(file)                      // jsonFiles�
     displayCards(window.cardsData);                                   // リスト欄に表示
 })
 .catch(error => {
-    console.error("JSONファイルが読み込めなかったっぽい!:", error);   // エラーが出たら困る
+    console.error("JSONファイルが読み込めなかったっぽい!:", error);
 });
 
 
@@ -212,7 +220,6 @@ levelButtons.forEach(button => {
         handleSearch();
     });
 });
-
 /* 色検索ボタン */
 const selectedColors = new Set();             // 選択された色を管理するSetを作成
 colorButtons.forEach(button => {
@@ -230,7 +237,6 @@ colorButtons.forEach(button => {
         handleSearch();
     });
 });
-
 /* LB検索ボタン */
 lifeBurstButton.addEventListener('click', function() {
     lifeBurstState = (lifeBurstState + 1) % 3;             // クリックごとにlifeBurstStateを1増やす(0→1→2→0のループ)
@@ -251,42 +257,57 @@ lifeBurstButton.addEventListener('click', function() {
     /* 検索を実行 */
     handleSearch();
 });
-
-/* ルリグタイプ/クラス検索ボタン */
-openSearchLrigTypeClassPopupButton.addEventListener('click', function() {   // ボタンを押したときの処理を追加
-    searchLrigTypeClassPopup.classList.add('active');                       // classにactiveを追加(ポップアップを表示)
-    popupOverlay.dataset.activepopup = ('search-lrigTypeClass-popup');
-    openPopupOverlay()
+/* カード種類検索ポップアップを開くボタン */
+openSearchCardTypePopupButton.addEventListener('click', function() {
+    searchCardTypePopup.classList.add('active');                       // カード種類検索ポップアップを表示(classにactiveを追加)
+    popupOverlay.dataset.activepopup = ('search-cardType-popup');      // オーバーレイにカード種類検索ポップアップを開いていることを伝える
+    openPopupOverlay()                                                 // オーバーレイを表示
 });
-
+/* ルリグタイプ/クラス検索ポップアップを開くボタン */
+openSearchLrigTypeClassPopupButton.addEventListener('click', function() {
+    searchLrigTypeClassPopup.classList.add('active');                       // ルリグタイプ/クラス検索ポップアップを表示(classにactiveを追加)
+    popupOverlay.dataset.activepopup = ('search-lrigTypeClass-popup');      // オーバーレイにルリグタイプ/クラス検索ポップアップを開いていることを伝える
+    openPopupOverlay()                                                      // オーバーレイを表示
+});
 /* テキスト検索欄 */
 searchTextInput.addEventListener('input', handleSearch);   // 文字が入力されたら検索を実行
-
+/* カード種類検索ポップアップ上のボタンたち */
+searchCardTypeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        /* 押したボタンのデータを渡す */
+        const selectedCardType = button.dataset.cardtype;                            // 押したボタンのdatasetを取得
+        openSearchCardTypePopupButton.dataset.selectedCardType = selectedCardType;   // datasetを表示ボタンに渡す(検索に使用)
+        /* ポップアップとオーバーレイを非表示 */
+        searchCardTypePopup.classList.remove('active');          // activeを外す(ポップアップを非表示)
+        popupOverlay.classList.remove('active');                 // オーバーレイを非表示
+        popupOverlay.removeEventListener('click', closePopup);   // オーバーレイのクリックリスナーを削除
+        popupOverlay.dataset.activepopup = '';                   // オーバーレイのdatasetを削除
+        /* 検索を実行 */
+        handleSearch();
+    });
+});
 /* ルリグタイプ/クラス検索ポップアップ */
 /* 検索ボタンの設定 */
 searchLrigTypeClassButtons.forEach(button => {
-    /* ボタンを押したときの処理を追加 */
     button.addEventListener('click', function() {
+        /* 押したボタンのデータと画像を渡す */
         const selectedLrigTypeClass = button.dataset.lrigtypeclass;                                 // 押したボタンのdatasetを取得
-        openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass = selectedLrigTypeClass;   // 押したボタンのdatasetを表示ボタンに渡す(検索に使用)
+        openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass = selectedLrigTypeClass;   // datasetを表示ボタンに渡す(検索に使用)
         const openPopupButtonImg = openSearchLrigTypeClassPopupButton.querySelector('img');         // 検索ポップアップを表示させるボタンのimgを取得
         const selectedLrigTypeClassImg = button.querySelector('img').src;                           // 押したボタンのimg(src)を取得
         openPopupButtonImg.src = selectedLrigTypeClassImg;                                          // 押したボタンのimgを表示ボタンに渡す
-        searchLrigTypeClassPopup.classList.remove('active');                                        // activeを外す(ポップアップを非表示)
-        popupOverlay.classList.remove('active');
-        popupOverlay.removeEventListener('click', closePopup);
-        popupOverlay.dataset.activepopup = '';
-        handleSearch();                                                                             // 検索を実行
+        /* ポップアップとオーバーレイを非表示 */
+        searchLrigTypeClassPopup.classList.remove('active');     // activeを外す(ポップアップを非表示)
+        popupOverlay.classList.remove('active');                 // オーバーレイを非表示
+        popupOverlay.removeEventListener('click', closePopup);   // オーバーレイのクリックリスナーを削除
+        popupOverlay.dataset.activepopup = '';                   // オーバーレイのdatasetを削除
+        /* 検索を実行 */
+        handleSearch();
     });
 });
 
 
-/* ステータス欄を更新(初期化) */
-updateDeckStatus();
-
-
 /* --------------------------------------------------------------------------------------------------------------------------------------- */
-
 
 
 /* 関数 */
@@ -700,9 +721,15 @@ function closePopup() {
     popupOverlay.dataset.activepopup = '';
 }
 
+
 /* --------------------------------------------------------------------------------------------------------------------------------------- */
 
-/* cssの設定 */
+
+/* 最初にやっとくこと */
+
+
+/* ステータス欄を更新(初期化) */
+updateDeckStatus();
 
 /* containerの幅を取得してcss変数にセット */
 const container = document.querySelector('.container');

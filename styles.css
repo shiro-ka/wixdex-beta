@@ -246,14 +246,14 @@ body {
     visibility: hidden;              /* 初期状態では表示しない */
     opacity: 0;                      /* 不透明度 */
     transition: opacity 0.3s ease;   /* フェードで表示切り替え */
-    height: 15rem;
-    width: 17rem;
+    height: 15.75rem;
+    width: 18.25rem;
     border: 2px solid var(--sub-color);
     border-radius: 5px;
     padding: 1rem;
     background-color: var(--sub-background-color);
     position: absolute;
-    bottom: 6rem;
+    bottom: 8rem;
     left: 2rem;
     z-index: 2;
 }
@@ -267,13 +267,14 @@ body {
         display: flex;
         height: 2rem;
         width: 100%;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
         justify-content: center;   /* ボタンの中央揃え */
     }
         /* ボタン */
         .search-cardType-all .search-cardType-button {
             display: flex;
             height: 100%;
+            border: none;
             border-bottom: 1px solid var(--sub-color);
             padding: 0 0.5rem;
             background-color: transparent;
@@ -283,7 +284,7 @@ body {
             justify-content: center;   /* 文字の中央揃え */
         }
         .search-cardType-all .search-cardType-button img {
-            height: 100%;
+            height: 50%;
             width: auto;
             margin-right: 0.5rem;
         }
@@ -305,8 +306,6 @@ body {
             background-color: transparent;
             color: var(--sub-color);
             font-size: 16px;
-            align-items: center;       /* 縦方向の中央揃え(文字の中央揃え) */
-            justify-content: center;   /* 横方向の中央揃え(文字の中央揃え) */
         }
 /* ルリグタイプ/クラス検索のポップアップ */
 .search-lrigTypeClass-popup {
