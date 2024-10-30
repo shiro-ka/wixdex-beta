@@ -14,7 +14,7 @@ body {
 }
 .container {
     width: 100%;
-    max-width: calc((100vh - 523px ) / 1.05);
+    max-width: calc((100vh - 323px ) / 1.05);
     position: relative;
     margin: 0 auto;
     padding: 1rem 0;
@@ -27,7 +27,7 @@ body {
 
 
 /* ルリグデッキのヘッダー */
-.lrig-deck-header{
+.lrig-deck-header {
     height: 3rem;
     width: 100%;
     margin-bottom: 0.5rem;
@@ -35,14 +35,14 @@ body {
     border-bottom: 1px solid var(--sub-color);   /* 下線 */
     flex-direction: row;                         /* 子要素を横に並べる */
 }
-    /* ヘッダーアイコンの設定 */
-    .header-text-icon{
+    /* ヘッダーアイコン */
+    .lrig-deck-header .header-text-icon {
         display: flex;
         height: 2rem;
         width: 8rem;
     }
         /* ヘッダー文字アイコン画像の設定 */
-        .header-text-icon img{
+        .header-text-icon img {
             height: 100%;
             width: 100%;
         }
@@ -54,10 +54,10 @@ body {
     margin-bottom: 0.5rem;
 }
     /* ルリグデッキのカード */
-    .lrig-deck-cards{
+    .lrig-deck-cards {
         display: grid;                           /* 子要素(card)にgridを使用 */
         grid-template-columns: repeat(8, 1fr);   /* 横8列で折り返す */
-        grid-template-rows: calc((var(--container-width) - 46px) * 0.175);
+        grid-template-rows: 1fr;
         gap: 2px;
     }
 /* メインデッキのヘッダー */
@@ -70,8 +70,11 @@ body {
     border-bottom: 1px solid var(--sub-color);   /* 下線 */
     flex-direction: row;                         /* 子要素を横に並べる */
 }
-    .main-deck-header .header-text-icon{
+    /* ヘッダーアイコン */
+    .main-deck-header .header-text-icon {
+        display: flex;
         height: 3rem;
+        width: 8rem;
         padding: 0.5rem 0;
     }
     /* ステータス欄全体設定 */
@@ -120,9 +123,9 @@ body {
 }
     /* メインデッキのカード */
     .main-deck-cards{
-        display: grid;                           /* 子要素(card)にgridを使用 */
-        grid-template-columns: repeat(8, 1fr);   /* 横8列で折り返す */
-        grid-template-rows: calc((var(--container-width) - 46px) * 0.175);
+        display: grid;   /* 子要素(card)にgridを使用 */
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(5, 1fr);
         gap: 2px;
     }
 
@@ -254,7 +257,8 @@ body {
     background-color: var(--sub-background-color);
     position: absolute;
     bottom: 8rem;
-    left: 2rem;
+    left: 50%;
+    transform: translate(-50%, 0);
     z-index: 2;
 }
 /* activeになったら表示 */
@@ -316,7 +320,8 @@ body {
     background-color: transparent;
     position: absolute;
     top: 1rem;
-    left: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
     z-index: 3;
 }
 /* activeになったら表示 */
@@ -379,8 +384,8 @@ body {
             display: grid;                                     /* 子要素(search-lrigTypeClass-button)にgridを使用 */
             grid-template-columns: repeat(auto-fit, 4.5rem);   /* グリッドの列幅4.5remで詰め込む */
             grid-template-rows: repeat(auto-fit, 2rem);        /* グリッドの行幅2remで詰め込む */
-            gap: 1rem;                                         /* ボタンごとの隙間 */
-            justify-content: center;                           /* 横方向の中央揃え */
+            gap: 1rem;
+            justify-content: center;
         }
             /* タブ内の検索ボタン */
             .search-lrigTypeClass-button {
@@ -434,7 +439,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5);   /* 背景色(半透明の黒) */
+    background-color: rgba(0, 0, 0, 0.6);   /* 背景色(半透明の黒) */
 }
 /* activeになったら表示 */
 .popup-overlay.active {

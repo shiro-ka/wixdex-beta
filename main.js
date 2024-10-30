@@ -320,7 +320,7 @@ function handleSearch() {
 
     /* 検索条件を取得 */
     const searchText = searchTextInput.value.toLowerCase();                                               // #search-text-inputからテキストを取得（小文字に変換）しsearchTextにする
-    const selectedCardType = document.getElementById('search-cardType-popup').dataset.selectedCardType || "";                          // #search-cardType-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
+    const selectedCardType = document.querySelector('.search-cardType-popup').dataset.selectedCardType || "";                          // #search-cardType-inputドロップダウンから選ばれたカード種類を取得してselectedCardTypeにする
     const selectedLrigTypeClass = document.querySelector('.open-searchLrigTypeClassPopup-button').dataset.selectedLrigTypeClass || "";   // lrigTypeClassが空なら全てで検索、選択されていればselectedLrigTypeClassが含まれているか確認
 
     /* window.cardsDataの中からカードを検索してfilteredCardsに保存 */
@@ -728,7 +728,7 @@ function closePopup() {
 /* 最初にやっとくこと */
 
 
-/* ステータス欄を更新(初期化) */
+/* ステータス欄をq２初期化 */
 updateDeckStatus();
 
 /* containerの幅を取得してcss変数にセット */
