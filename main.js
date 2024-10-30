@@ -165,8 +165,10 @@ const colorButtons = document.querySelectorAll('.search-color-button');
 const lifeBurstButton = document.querySelector('.search-lb-button');
 /* カード種類検索ポップアップ表示ボタン */
 const openSearchCardTypePopupButton = document.querySelector('.open-searchCardTypePopup-button');
+const openSearchCardTypePopupButtonImg = openSearchCardTypePopupButton.querySelector('img');
 /* ルリグタイプ/クラス検索ポップアップ表示ボタン */
 const openSearchLrigTypeClassPopupButton = document.querySelector('.open-searchLrigTypeClassPopup-button');
+const openSearchLrigTypeClassPopupButtonImg = openSearchLrigTypeClassPopupButton.querySelector('img');
 /* テキスト検索欄 */
 const searchTextInput = document.querySelector('.search-text-input');
 /* ポップアップのオーバーレイ */
@@ -277,6 +279,8 @@ searchCardTypeButtons.forEach(button => {
         /* 押したボタンのデータを渡す */
         const selectedCardType = button.dataset.cardtype;                            // 押したボタンのdatasetを取得
         openSearchCardTypePopupButton.dataset.selectedCardType = selectedCardType;   // datasetを表示ボタンに渡す(検索に使用)
+        const selectedCardTypeImg = button.querySelector('img').src;                 // 押したボタンのimg(src)を取得
+        openSearchCardTypePopupButtonImg.src = selectedCardTypeImg;                  // 押したボタンのimgを表示ボタンに渡す
         /* ポップアップとオーバーレイを非表示 */
         searchCardTypePopup.classList.remove('active');          // activeを外す(ポップアップを非表示)
         popupOverlay.classList.remove('active');                 // オーバーレイを非表示
@@ -293,9 +297,8 @@ searchLrigTypeClassButtons.forEach(button => {
         /* 押したボタンのデータと画像を渡す */
         const selectedLrigTypeClass = button.dataset.lrigtypeclass;                                 // 押したボタンのdatasetを取得
         openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass = selectedLrigTypeClass;   // datasetを表示ボタンに渡す(検索に使用)
-        const openPopupButtonImg = openSearchLrigTypeClassPopupButton.querySelector('img');         // 検索ポップアップを表示させるボタンのimgを取得
         const selectedLrigTypeClassImg = button.querySelector('img').src;                           // 押したボタンのimg(src)を取得
-        openPopupButtonImg.src = selectedLrigTypeClassImg;                                          // 押したボタンのimgを表示ボタンに渡す
+        openSearchLrigTypeClassPopupButtonImg.src = selectedLrigTypeClassImg;                       // 押したボタンのimgを表示ボタンに渡す
         /* ポップアップとオーバーレイを非表示 */
         searchLrigTypeClassPopup.classList.remove('active');     // activeを外す(ポップアップを非表示)
         popupOverlay.classList.remove('active');                 // オーバーレイを非表示
