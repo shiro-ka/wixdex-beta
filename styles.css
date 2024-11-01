@@ -326,6 +326,7 @@ body {
     height: auto;
     max-height: 90%;
     background-color: transparent;
+    overflow-y: auto;
     position: absolute;
     top: 1rem;
     left: 50%;
