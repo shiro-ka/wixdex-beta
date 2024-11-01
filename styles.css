@@ -323,6 +323,8 @@ body {
     opacity: 0;                      /* 不透明度 */
     transition: opacity 0.3s ease;   /* フェードで表示切り替え */
     width: 90%;
+    height: auto;
+    max-height: 90%;
     background-color: transparent;
     position: absolute;
     top: 1rem;
