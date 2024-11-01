@@ -326,7 +326,6 @@ body {
     height: auto;
     max-height: 90%;
     background-color: transparent;
-    overflow-y: auto;
     position: absolute;
     top: 1rem;
     left: 50%;
@@ -396,29 +395,33 @@ body {
                 width: auto;
                 margin-right: 0.5rem;
             }
-        /* wixossルリグ欄 */
-        .search-lrigTypeClass-lrig {
-            border: none;
-            display: grid;                                     /* 子要素(search-lrigTypeClass-button)にgridを使用 */
-            grid-template-columns: repeat(auto-fit, 4.5rem);   /* グリッドの列幅4.5remで詰め込む */
-            grid-template-rows: repeat(auto-fit, 2rem);        /* グリッドの行幅2remで詰め込む */
-            gap: 1rem;
-            justify-content: center;
+        /* ルリグリスト */
+        .search-lrigTypeClass-list {
+            overflow-y: auto;
         }
-            /* タブ内の検索ボタン */
-            .search-lrigTypeClass-button {
-                display: flex;
+            /* wixossルリグ欄 */
+            .search-lrigTypeClass-lrig {
                 border: none;
-                border-bottom: 1px solid var(--sub-color);
-                background-color: transparent;    /* 背景色(透明) */
-                align-items: center;              /* 縦方向の中央揃え(アイコン画像の中央揃え) */
-                justify-content: center;          /* 横方向の中央揃え(アイコン画像の中央揃え) */
+                display: grid;                                     /* 子要素(search-lrigTypeClass-button)にgridを使用 */
+                grid-template-columns: repeat(auto-fit, 4.5rem);   /* グリッドの列幅4.5remで詰め込む */
+                grid-template-rows: repeat(auto-fit, 2rem);        /* グリッドの行幅2remで詰め込む */
+                gap: 1rem;
+                justify-content: center;
             }
-                /* 検索ボタンの画像 */
-                .search-lrigTypeClass-button img {
-                    height: 1.5rem;   /* 高さ */
-                    width: auto;      /* 幅(比率をキープ) */
+                /* タブ内の検索ボタン */
+                .search-lrigTypeClass-button {
+                    display: flex;
+                    border: none;
+                    border-bottom: 1px solid var(--sub-color);
+                    background-color: transparent;    /* 背景色(透明) */
+                    align-items: center;              /* 縦方向の中央揃え(アイコン画像の中央揃え) */
+                    justify-content: center;          /* 横方向の中央揃え(アイコン画像の中央揃え) */
                 }
+                    /* 検索ボタンの画像 */
+                    .search-lrigTypeClass-button img {
+                        height: 1.5rem;   /* 高さ */
+                        width: auto;      /* 幅(比率をキープ) */
+                    }
 /* カード情報のポップアップ */
 .card-detail-popup {
     visibility: hidden;              /* 初期状態では表示しない */
